@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\Season\400_season\400.xml">
+	
+<SourceCode_List><SourceCode lines="7" name="test.java"><![CDATA[import java.util.Random;
+public class test {
+public static void main(String[] args) {
+       Random ran = new Random();
+       System.out.println(ran.nextString("�K","�L","��","�V");
+}
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="陣列:不會宣告陣列變數"><Message><![CDATA[宣告陣列-資料型態 []變數名稱={"資料內容"}]]></Message><Linelist><line Begin="-1" End="-1" src="test"/></Linelist></Error></Errors></ErrorList>

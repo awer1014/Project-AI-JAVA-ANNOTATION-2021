@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="F:\Code\Project\Source Code\張淯雯\KKBOX\412\412.xml">
+	
+<SourceCode_List><SourceCode lines="35" name="kkbox.java"><![CDATA[
+/**
+ * Write a description of class kkbox here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class kkbox
+{
+    static int n;
+    static int b; 
+    static int length;
+    static int width ;
+    static int height;
+    static double volume(int n)
+    {
+        n=length*width*height;
+        return n;
+    }
+    static double surfaceArea(int b)
+    {
+        b= (2*(length*width+width*height+height*length));
+        return b;
+    }
+    public static void main(String[] x)
+    {
+        System.out.println("請輸入長:"+length);
+        System.out.println("請輸入寬:"+width);
+        System.out.println("請輸入高:"+height);
+        System.out.println("體積:"+n);
+        System.out.println("表面積:"+b);
+    }
+    }
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="校對:校對"><Message><![CDATA[有static 是物件 沒static是類別(你改錯了)
+27~29 不會使用scanner
+15~19 & 20~24
+參數給錯
+30~31他的輸出給對沒錯 ]]></Message><Linelist><line Begin="-1" End="-1" src="kkbox"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[呼叫函數要先建立新的物件
+kkbox k = new kkbox();
+System.out.println("體積:"+k.volume(length,width,height));
+ System.out.println("表面積:"+k.surfaceArea(length,width,height));
+    ]]></Message><Linelist><line Begin="30" End="31" src="kkbox"/></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message><![CDATA[沒有static是物件 有atatic是類別]]></Message><Linelist><line Begin="20" End="20" src="kkbox"/><line Begin="10" End="15" src="kkbox"/></Linelist></Error></Errors></ErrorList>

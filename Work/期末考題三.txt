@@ -1,0 +1,30 @@
+(三) (10%) 延續第二題,設計Envelop(信封)類別, 包括:
+
+寄件人地址: senderAddr (String)
+收信人地址: receiverAddr (String)
+信件: letter (Letter)
+建構子: Envelop(String senderAddr , String receiverAddr ,  Letter letter)
+物件動作: void display(): 先顯示信封(如下), 再顯示 letter
+(可以依需要對Letter等相關類別新增物件動作, 例如, String getTitle())
+
+例如:
+
+Letter lt = new ChineseLetter ("教授", "王", "很高興跟您連絡", "銘哥", "2019/01/05");
+
+Envelop env = new Envelop("Taipei", "Kaohsiung", lt);
+
+env.display(); //會顯示
+
+From: Taipei, 銘哥 
+
+To: Kaohsiung, 王 教授
+
+信件內容:
+
+王 教授, 您好
+
+很高興跟您連絡
+
+銘哥 敬上
+
+2019/01/05

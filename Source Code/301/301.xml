@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Source Code\301\301.xml">
+	
+<SourceCode_List><SourceCode lines="15" name="Target.java"><![CDATA[import java.util.*;
+class Target{
+    static double in = 0;
+    static double out = 0;
+    public static void main(String[] args){
+        for(int k = 0 ;k < 100000;k++){
+            double ranx = Math.random()*2-1;
+            double rany = Math.random()*2-1;
+            if(ranx * ranx + rany * rany <= 1)in++;
+            else out++;
+        }
+        System.out.println("園內次數　= " + in + "出現比率　= " + in / 100000);
+        System.out.println("園外次數　= " + out + "出現比率　= " + out / 100000);
+    }
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="Target"/></Linelist></Error></Errors></ErrorList>

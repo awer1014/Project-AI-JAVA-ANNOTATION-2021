@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Source Code\211\211.xml">
+	
+<SourceCode_List><SourceCode lines="19" name="Exchange.java"><![CDATA[class Exchange
+{   
+    double money , rate;
+    Exchange(double m , double r){
+        money = m;
+        rate = r;
+    }
+    int changeOneHundred(){
+        double ans=money*rate;
+        return (int)ans/100;
+    }
+    public static void main(String[] args){
+        double m = Double.parseDouble(args[0]);
+        double rate = Double.parseDouble(args[1]);
+        Exchange ex = new Exchange(m,rate);
+        int ans = ex.changeOneHundred();
+        System.out.println("The answer is:"+ans);
+    }
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="Exchange"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\255.xml">
+	
+<SourceCode_List><SourceCode lines="20" name="CCC.java"><![CDATA[public class CCC
+{
+   String le;
+   String day;
+   String moeny;
+   CCC(String le,String day,String moeny)
+   {
+       this.le=le;
+       this.day=day;
+       this.moeny=moeny;
+   }
+   void display()
+   {
+       System.out.println("您輸入的訂單資料如下：");
+       System.out.println("訂單編號："+le);
+       System.out.println("日期:"+day);
+       System.out.println("貨幣單位:"+moeny);
+   }
+}
+]]></SourceCode><SourceCode lines="56" name="Text.java"><![CDATA[import java.util.Scanner;
+public class Text
+{
+  public static void main(String[] args)
+  {
+      CCC[] list = new CCC[10];
+      man[] bad = new man[10];
+      buy[] door = new buy[10];
+      Scanner key=new Scanner(System.in);
+      int ans=0;
+      while(true)
+      {
+          System.out.println("請輸入訂單編號：");
+          String a=key.nextLine();
+          if(a.equals("0"))break;
+          System.out.println("請輸入日期：");
+          String c=key.nextLine();
+          System.out.println("請輸入貨幣單位：");
+          String d=key.nextLine();
+          System.out.println("------------------------");
+          System.out.println("請輸入客戶公司行號：");
+          String e=key.nextLine();
+          System.out.println("請輸入客戶地址：");
+          String f=key.nextLine();
+          System.out.println("請輸入連絡人：");
+          String g=key.nextLine();
+          System.out.println("請輸入客戶電話：");
+          String b=key.nextLine();
+          System.out.println("------------------------");
+          System.out.println("請輸入訂購貨品編號：");
+          String h=key.nextLine();
+          System.out.println("請輸入訂購貨品名稱：");
+          String i=key.nextLine();
+          System.out.println("請輸入訂購貨品單價：");
+          double j=key.nextDouble();
+          System.out.println("請輸入訂購貨品數量：");
+          int k=key.nextInt();
+          System.out.println("請輸入訂購貨品折扣：");
+          double l=key.nextDouble();
+          System.out.println("------------------------");
+          CCC op=new CCC(a,c,d);
+          buy ep=new buy(h,i,j,k,l);
+          man cp=new man(e,f,g,b);
+          list [ans++];
+          bad [ans++];
+          door [ans++];
+          System.out.println("您輸入的訂單資料如下：");
+          for (int i=0; i<ans; i++) {
+              Pet p = list[i];
+              p.display();
+              System.out.println("-------------------------------------");
+            }
+      }
+  }
+}
+]]></SourceCode><SourceCode lines="51" name="buy.java"><![CDATA[import java.util.Scanner;
+public class buy
+{
+    private String pid;
+    private String name;
+    private double prs;
+    private int n;
+    private double off;
+    private CCC cc=null;
+  buy(String pid,String name,double prs,int n,double off)
+  {
+      this.name=name;
+      this.pid=pid;
+      this.prs=prs;
+      this.n=n;
+      this.off=off;
+  }
+  void setCCC(CCC cc)
+  { 
+      this.cc=cc;
+  }
+  void setoff(double off)
+  { 
+      this.off=off;
+  }
+  void setn(int n)
+  {
+      this.n=n;
+  }
+  void setprs(double prs)
+  {
+      this.prs=prs;
+  }
+  void setpid(String pid)
+  {
+      this.prs=prs;
+  }
+  void setname(String name)
+  {
+      this.name=name;
+  }
+  void display()
+  {
+      System.out.println("訂購貨品編號："+pid);
+      System.out.println("訂購貨品名稱："+name);
+      System.out.println("訂購貨品單價："+prs);
+      System.out.println("訂購貨品數量："+n);
+      System.out.println("訂購貨品折扣："+off);
+  }
+}
+]]></SourceCode><SourceCode lines="26" name="man.java"><![CDATA[public class man
+{
+  private String cid;
+  private String live;
+  private String plpe;
+  private String ple;
+  man(String cid,String live,String plpe,String ple)
+  {
+      this.cid=cid;
+      this.live=live;
+      this.plpe=plpe;
+      this.ple=ple;
+  }
+  void setcid(String cid){this.cid=cid;}
+  void setlive(String live){this.live=live;}
+  void setcplpe(String plpe){this.plpe=plpe;}
+  void setple(String ple){this.ple=ple;}
+  void display()
+  {
+       System.out.println("客戶公司行號："+cid);
+       System.out.println("客戶地址："+live);
+       System.out.println("客戶連絡人："+plpe);
+       System.out.println("客戶電話："+ple);
+  }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:關鍵字錯誤"><Message><![CDATA[本程式沒有該類別,
+請先創造該類別,
+再新增物件.]]></Message><Linelist><line Begin="49" End="49" src="Text"/></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message><![CDATA[用陣列存取新物件,
+須將物件賦予至陣列中.
+例如:
+陣列[i] = 物件名稱]]></Message><Linelist><line Begin="44" End="44" src="Text"/><line Begin="45" End="45" src="Text"/><line Begin="46" End="46" src="Text"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[該物件不存在,
+請先新增該物件,
+再讓該物件進行物件動作.]]></Message><Linelist><line Begin="50" End="50" src="Text"/></Linelist></Error><Error tpye="變數:重複宣告變數"><Message><![CDATA[該變數已被宣告,
+若要賦予該變數新資料,
+直接更新該變數即可.
+例如:
+String name = "Alex";
+name = "Chirs";]]></Message><Linelist><line Begin="48" End="52" src="Text"/></Linelist></Error></Errors></ErrorList>

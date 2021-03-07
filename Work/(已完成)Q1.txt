@@ -1,0 +1,14 @@
+第一次小考題目
+1. 試設計一個 KKBox 類別，表達一個長方體，具有 length 、 width 與 height 三個實數的物件資料
+成員，並完成下列的程式設計 :
+(a) 定義物件動作 double volume() 函數，用來計算 KKBox 物件的體積 (length * width * height)。
+(b) 定義物件動作 double surfaceArea() 函數，用來計算 KKBox 物件的表面積 (2 *(length*width + width* height + height * length))。
+請撰寫測試程式，允許使用者輸入相關資料，並將結果顯示在螢幕上，如下:
+請輸入長: 1
+請輸入寬: 2
+請輸入高: 3
+體積:6
+面積:22
+
+2. 一年有四季(春夏秋冬)，撰寫一程輸出一個隨機排列，例如:春，秋，冬，夏。
+

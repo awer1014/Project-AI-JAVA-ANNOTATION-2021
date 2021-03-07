@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\321.xml">
+	
+<SourceCode_List><SourceCode lines="33" name="toss.java"><![CDATA[
+public class toss
+{
+    int number;
+    int CircleIn;
+    double Inans;
+    int CircleOut;
+    double Outans;
+
+    public toss(int number,int CircleIn,double Inans,int CircleOut,double Outans)
+    {
+        this.number=number;
+        this.CircleIn=CircleIn;
+        this.Inans=Inans;
+        this.CircleOut=CircleOut;
+        this.Outans=Outans;
+    }
+    
+    
+    
+    public static void main(String args[])
+    {
+        double Inans = Double.parseDouble(args[0]);
+        double Outans = Double.parseDouble(args[1]);
+        toss t = new toss(number,CircleIn,Inana,CircleOut,Outans);
+        System.out.println("請輸入模擬次數:"+number)
+        System.out.println("圓內次數:"+ CircleIn)
+        System.out.println("出現比率:"+ Inans)
+        System.out.println("圓外次數:"+CircleOut)
+        System.out.println("出現比率:"+Outans)
+    }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:關鍵字錯誤"><Message><![CDATA[在java程式中,
+程式碼結束必須加上;]]></Message><Linelist><line Begin="26" End="26" src="toss"/><line Begin="27" End="27" src="toss"/><line Begin="28" End="28" src="toss"/><line Begin="29" End="29" src="toss"/><line Begin="30" End="30" src="toss"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[產生一個新物件的方法:
+物件 新物件名稱 = new 物件();]]></Message><Linelist><line Begin="25" End="25" src="toss"/></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[建構子必須新增一個新的Class.
+並在其中賦予物件資料.
+例如:
+public class 物件名稱
+{
+    物件資料...
+    public void 物件名稱(物件資料...)
+    {
+        this.物件資料=新物件資料;
+    }
+}
+
+]]></Message><Linelist><line Begin="10" End="17" src="toss"/></Linelist></Error></Errors></ErrorList>

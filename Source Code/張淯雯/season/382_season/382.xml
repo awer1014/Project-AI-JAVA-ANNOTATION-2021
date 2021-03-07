@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\Season\382_season\382.xml">
+	
+<SourceCode_List><SourceCode lines="18" name="Exam2.java"><![CDATA[public class Exam2 {
+ exit(StringToInt number){
+        switch((number - 1) / 13) { 
+            case 0 : return "春";
+            case 1 : return "夏";
+            case 2 : return "秋";
+            default: return "冬";
+        }
+    }
+    
+ public static void main(String args[]) { 
+             Exam ex=new Exam();
+             ex.SetExam(args[0]);
+             System.out.printf(Exit);
+        }
+    }
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:撰寫main函式"><Message><![CDATA[public static void main(String args[])應改為
+public static void main(String[] args)]]></Message><Linelist><line Begin="11" End="11" src="Exam2"/></Linelist></Error><Error tpye="其他:筆誤"><Message><![CDATA[在此類別中沒有Exam，若要新增一個物件，
+要用存在的類別-Exam2 ex new Exam2();]]></Message><Linelist><line Begin="12" End="12" src="Exam2"/></Linelist></Error><Error tpye="函數:未傳遞參數或傳回值"><Message><![CDATA[要宣告類別要給定資料型態]]></Message><Linelist><line Begin="2" End="2" src="Exam2"/></Linelist></Error></Errors></ErrorList>

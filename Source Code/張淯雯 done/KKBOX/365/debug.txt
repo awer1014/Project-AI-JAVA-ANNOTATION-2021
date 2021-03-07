@@ -1,0 +1,22 @@
+line5~7
+	因為建構子有參數，所以呼叫建構子也需要給參數
+	若要將參數識別字當成屬性，要用this存取屬性
+	KKbox(double length,double width,double height)
+	{
+    		this.length=length;
+    		this.width=width;
+    		this.height=height;
+	}
+line21~23
+	因為運算必須使用數字，所以應在等於後改為一個數字或將程式改為可輸入
+	ans1.length=2;
+        ans1.width=2;
+        ans1.height=2;
+	或是
+	若要讓使用者自己輸入數字，則要用因為要讓使用者輸入數字以計算體積及表面積，所以需要import Scanner，並且在主程式的地方新增一個物件
+	import java.util.Scanner;
+	Scanner kb = new Scanner (System.in);
+	呼叫此函數需要給定資料的資料型態(next.Byte(),nextDouble(),nextFloat,nextInt(),nextLine(),nextLong(),nextShot())
+	double length=kb.nextDouble();
+        double width=kb.nextDouble();
+        double height=kb.nextDouble();

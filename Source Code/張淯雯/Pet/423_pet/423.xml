@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\Pet\423_1_pet\423.xml">
+	
+<SourceCode_List><SourceCode lines="14" name="Keeper.java"><![CDATA[import java.util.Scanner;
+public class Keeper
+{   String id;
+    String tel;
+    public Keeper(String i,String t){
+        this.id=i;
+        this.tel=t;
+    }
+    public void display(String i,String t){
+        System.out.println("飼主名稱: "+i);
+        System.out.println("飼主電話: "+t);
+    }
+}
+]]></SourceCode><SourceCode lines="50" name="Pet.java"><![CDATA[import java.util.Scanner;
+public class Pet
+{   static int count; 
+    String pid;
+    String name;
+    String type;
+    public void speak(String t){
+        if(t=="貓")System.out.println("喵喵!");
+        else if(t=="狗")System.out.println("汪汪!");
+    }
+    public void display(String p,String n,String t){
+        System.out.println("寵物編號: "+p);
+        System.out.println("寵物名稱: "+n);
+        System.out.println("寵物種類: "+t);
+    }
+    public Pet(String p,String n,String t){
+        this.type=t;
+        this.pid=p;
+        this.name=n;
+        
+    }
+    public static void main(String[] args){
+        
+        System.out.println("請輸入寵物種類: ");
+        Scanner q1=new Scanner(System.in);
+        String q=q1.nextLine();
+        System.out.println("請輸入寵物編號: ");
+        Scanner w1=new Scanner(System.in);
+        String w=w1.nextLine();
+        System.out.println("請輸入寵物名稱: ");
+        Scanner e1=new Scanner(System.in);
+        String e=e1.nextLine();
+        System.out.println("請輸入飼主身分證字號: ");
+        Scanner r1=new Scanner(System.in);
+        String r=r1.nextLine();
+        System.out.println("請輸入飼主電話: ");
+        Scanner t1=new Scanner(System.in);
+        String t=t1.nextLine();
+        
+        //以上輸入
+        System.out.println("您的輸入是: ");
+        //以下設定+介紹
+        Pet p1=new Pet(w,e,q);
+        Keeper k1=new Keeper(r,t);
+        p1.display(w,e,q);
+        k1.display(r,t);
+        
+    }    
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="io:重複宣告scanner物件"><Message><![CDATA[Scanner是類別，要   new一個物件，也只要新增一次即可]]></Message><Linelist><line Begin="28" End="28" src="Pet"/><line Begin="31" End="31" src="Pet"/><line Begin="34" End="34" src="Pet"/><line Begin="37" End="37" src="Pet"/></Linelist></Error><Error tpye="io:重複宣告scanner物件3"><Message><![CDATA[Scanner是類別，要   new一個物件，也只要新增一次即可]]></Message><Linelist><line Begin="25" End="25" src="Pet"/></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message><![CDATA[因為寵物最多被一個飼主飼養，
+所以要在Pet新增一個物件資料 keeper kp;]]></Message><Linelist><line Begin="-1" End="-1" src="Keeper"/></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message><![CDATA[新增物件動作 Keeper k1=new Keeper(r,tel); Pet p1=new Pet(t,p,n,k1); p1.display(p,n,t);]]></Message><Linelist><line Begin="11" End="11" src="Keeper"/><line Begin="43" End="46" src="Keeper"/></Linelist></Error></Errors></ErrorList>

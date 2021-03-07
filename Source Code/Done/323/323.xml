@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\323.xml">
+	
+<SourceCode_List><SourceCode lines="29" name="Customer.java"><![CDATA[
+public class Customer
+{
+    private String cp;
+    private String adress;
+    private String br;
+    private String tel;
+    private String s;
+    
+    Customer(String cp,String adress,String br,String tel,String s)
+    {
+        this.cp=cp;
+        this.adress=adress;
+        this.br=br;
+        this.tel=tel;
+        this.s=s;
+    }
+
+    void display()
+    {
+        System.out.println("1.公司行號：" + cp);
+        System.out.println("2.地址:" + adress);
+        System.out.println("3.聯絡人:" + br);
+        System.out.println("4.電話:" + tel);
+        System.out.println("5.傳真:" + s); 
+    }
+    
+}
+]]></SourceCode><SourceCode lines="37" name="Item.java"><![CDATA[
+public class Item
+{
+    private String num;
+    String name;
+     double money;
+     int nums;
+    double discount;
+    
+    Item(String num,String name,double money,int nums,double discount,double ans)
+    {
+        this.num=num;
+        this.name=name;
+        this.money=money;
+        this.nums=nums;
+        this.discount=discount;
+      
+    }
+    
+    double getans(double money,int num,double discount)
+    {
+        double ans;
+        ans= (money*num)*discount;
+        return ans;
+    }
+    
+    void display()
+    {
+        System.out.println("1.貨品編號：" + num);
+        System.out.println("2.貨品名稱:" + name);
+        System.out.println("3.單價:" + money);
+        System.out.println("4.數量:" + nums);
+        System.out.println("5.折扣:" + discount); 
+        
+    }
+}
+]]></SourceCode><SourceCode lines="35" name="Order.java"><![CDATA[
+public class Order
+{
+    private String number;
+    private String date;
+    private String dollar;
+
+    Order(String number,String date,String dollar)
+    {
+        number = number;
+        date = date;
+        dollar = dollar;
+    }
+
+    void setnumber(String number)
+    {
+       this.number=number;
+    }
+    void setdate(String date){
+        this.date = date;
+    }
+    void setdollar(String dollar){
+        this.dollar=dollar;
+    }
+    
+    void display()
+    {
+        
+        System.out.println("請輸入訂單編號：" + number );
+        System.out.println("請輸入日期：" + date);
+        System.out.println("請輸入貨幣單位：" + dollar );
+        
+    } 
+}
+]]></SourceCode><SourceCode lines="44" name="Test.java"><![CDATA[import java.util.Scanner;
+public class Test
+{
+   public static void main(String[] args)
+    {
+      Item[] list = new Item[10];
+      Scanner keyboard = new Scanner(System.in);
+      int total = 0;
+      while (true) {
+          
+         System.out.println("請輸入訂購貨品名稱:");
+         String num = keyboard.nextLine();
+         if (Item.name.equals("0")) break;
+         
+         System.out.println("請輸入訂單編號：");
+           String number = keyboard.nextLine();
+         System.out.println("請輸入日期：");
+           String date = keyboard.nextLine();
+         System.out.println("請輸入貨幣單位："); 
+           String dollar = keyboard.nextLine();
+         System.out.println("請輸入客戶公司行號："); 
+           String cp = keyboard.nextLine();
+         System.out.println("請輸入客戶地址："); 
+           String adress = keyboard.nextLine();
+         System.out.println("請輸入客戶聯絡人："); 
+           String br = keyboard.nextLine();
+         System.out.println("請輸入客戶電話："); 
+           String tel = keyboard.nextLine();
+         System.out.println("訂購貨品名稱："); 
+           String name = keyboard.nextLine();
+         System.out.println("訂購貨品單價："); 
+           String money = keyboard.nextLine();
+         System.out.println("訂購貨品折扣："); 
+           String discount = keyboard.nextLine();
+           Order o = new Order(name,date,dollar);
+           Item i = new Item(name,money,discount);
+           Customer c = new Customer(cp,adress,br,tel);
+         System.out.println("此筆訂單總共:" +  order.dollar + ans);
+          
+        }
+       
+    }
+
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:不會使用物件資料"><Message><![CDATA[該物件資料未宣告稱物件資料,
+宣告物件資料的變數必須在前加上static.
+例如:
+static int a = 1;]]></Message><Linelist><line Begin="13" End="13" src="Test"/></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[該物件與建構子所需物件資料數量不符,
+請確認建構子所需資料數量.]]></Message><Linelist><line Begin="36" End="36" src="Test"/><line Begin="37" End="37" src="Test"/><line Begin="10" End="10" src="Order"/><line Begin="11" End="11" src="Order"/><line Begin="12" End="12" src="Order"/></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message><![CDATA[該物件名稱不符,
+請確認物件名稱是否正確.]]></Message><Linelist><line Begin="38" End="38" src="Test"/><line Begin="38" End="38" src="Order"/><line Begin="38" End="38" src="Order"/></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message><![CDATA[變數未宣告, 
+請先宣告該變數. 
+例如: int a = 1;]]></Message><Linelist><line Begin="38" End="38" src="Test"/></Linelist></Error></Errors></ErrorList>

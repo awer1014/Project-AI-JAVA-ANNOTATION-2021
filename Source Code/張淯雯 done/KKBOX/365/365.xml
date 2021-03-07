@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Source Code\張淯雯\KKBOX\365\365.xml">
+	
+<SourceCode_List><SourceCode lines="31" name="KKbox.java"><![CDATA[class KKbox
+{
+    double length,width,height;
+    
+    KKbox()
+    {
+        double length,width,height;
+    }
+    double volume()
+    {
+        return length*width*height;
+    }
+    double surfaceArea()
+    {
+        return (2 *(length*width + width* height + height * length));
+    }
+    public static void main(double[] args)
+    {
+        KKbox ans1 = new KKbox();
+        //KKbox ans2 = new KKbox();
+        ans1.length=args[0];
+        ans1.width=args[1];
+        ans1.height=args[2];
+        System.out.println("請輸入長:"+ans1.length);
+        System.out.println("請輸入寬:"+ans1.width);
+        System.out.println("請輸入高:"+ans1.height);
+        System.out.println("體積:"+ans1.volume());
+        System.out.println("表面積:"+ans1.surfaceArea());
+    }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="校對:校對"><Message><![CDATA[物件動作應該是5~8行
+21~26:
+他不會使用scanner 但21~23行在執行前給予三個資料型態與數值後 是可以運算的 24~26行是她不會使用scanner 導致都是印出數值]]></Message><Linelist><line Begin="5" End="8" src="KKbox"/><line Begin="21" End="26" src="KKbox"/></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[因為建構子有參數，所以呼叫建構子也需要給參數 若要將參數識別字當成屬性，要用this存取屬性 KKbox(double length,double width,double height) {         this.length=length;         this.width=width;         this.height=height; }]]></Message><Linelist><line Begin="5" End="7" src="KKbox"/></Linelist></Error><Error tpye="運算:運算錯誤:型態不符無法運算"><Message><![CDATA[因為運算必須使用數字，所以應在等於後改為一個數 字或將程式改為可輸入         ans1.length=2;         ans1.width=2;         ans1.height=2; 或是 若要讓使用者自己輸入數字，則要用因為要讓使用者 輸入數字以計算體積及表面積，所以需要 import Scanner，並且在主程式的地方新增一個物件         import java.util.Scanner;         Scanner kb = new Scanner (System.in); 呼叫此函數需要給定資料的資料型態     (next.Byte(),nextDouble(),nextFloat,nextInt(),                                nextLine(),nextLong(),nextShot())        double length=kb.nextDouble();        double width=kb.nextDouble();        double height=kb.nextDouble();]]></Message><Linelist><line Begin="21" End="23" src="KKbox"/></Linelist></Error></Errors></ErrorList>

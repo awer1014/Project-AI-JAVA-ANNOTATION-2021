@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\343.xml">
+	
+<SourceCode_List><SourceCode lines="40" name="test.java"><![CDATA[import java.util.Random;
+class test 
+{
+    static int Random(int sp,int su,int fa,int wi)
+    {
+        int Sp=sp;
+        int Su=su;
+        int F=fa;
+        int W=wi;
+        
+        return 0;
+        
+               
+    }
+
+     
+    
+     /*
+    
+   public static void main(String[] args) {
+       
+       int L=Integer.parseInt(args[0]); 
+       int W=Integer.parseInt(args[1]);
+       int H=Integer.parseInt(args[2]);
+       System.out.println(KKBOX.volume(L,W,H)) ;
+       System.out.println(KKBOX.surfaceArea(L,W,H)) ;
+       
+{"春","夏 ","秋","冬"}
+    }
+        //*/
+    public static void main(String[] args) {
+       Random ran = new Random();
+       int sp=Integer.parseInt(args[0]); 
+           int su=Integer.parseInt(args[1]);
+           int fa=Integer.parseInt(args[2]);
+           int wi=Integer.parseInt(args[3]);
+       System.out.println(ran.nextIn(4);
+    }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:關鍵字錯誤"><Message><![CDATA[要利用nextInt方法時
+請在物件後使用.nextInt();]]></Message><Linelist><line Begin="37" End="37" src="test"/><line Begin="37" End="37" src="test"/></Linelist></Error></Errors></ErrorList>

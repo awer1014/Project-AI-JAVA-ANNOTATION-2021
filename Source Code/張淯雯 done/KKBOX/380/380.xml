@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="F:\Code\Project\Source Code\張淯雯\KKBOX\380\380.xml">
+	
+<SourceCode_List><SourceCode lines="22" name="Exam.java"><![CDATA[import java.util.Random;
+public class Exam
+{   KKBox(length,width,eight) {
+       double surfaceArea()
+        System.out.println(2 *(length*width + width* height + height * length) );
+    }
+    public static void main(String[] args) {
+        int length=1;
+        int width=2;
+        int eight=3;
+        KKBox.t=new KKBox();
+          
+    }
+}
+//試設計一個 KKBox 類別，表達一個長方體，具有 length 、 width 與 height 三個實數的物件資料
+//成員，並完成下列的程式設計 :
+//(a) 定義物件動作 double volume() 函數，用來計算 KKBox 物件的體積 (length * width * height)。
+//(b) 定義物件動作 double surfaceArea() 函數，用來計算 KKBox 物件的表面積 (2 *(length*width + width* height + height * length))。
+//請撰寫測試程式，允許使用者輸入相關資料，並將結果顯示在螢幕上，如下:
+//請輸入長: 1請輸入寬: 2請輸入高: 3體積:6表面積:22
+
+ ]]></SourceCode></SourceCode_List><Errors><Error tpye="校對:校對"><Message><![CDATA[3~6的內容應該是在算面積,
+所以他應該不是在做建構子,
+而是在做計算函數的function
+第三行沒有給函數型態
+第四行他不懂java結構
+函數裡面又宣告函數
+
+]]></Message><Linelist><line Begin="4" End="4" src="Exam"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[新增物件動作
+Exam t = new Exam(length,width,eight);]]></Message><Linelist><line Begin="11" End="11" src="Exam"/></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[建立建構子要用跟類別一樣的名字，在括號裡也要
+加上類別
+Exam(double length,double width,double eight)
+{...}]]></Message><Linelist><line Begin="3" End="3" src="Exam"/></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message><![CDATA[產生物件括號不用加上參數，並且要有回傳值
+double surfaceArea()
+{...}
+但這程式中此物件並沒有使用到，可以刪除]]></Message><Linelist><line Begin="4" End="4" src="Exam"/></Linelist></Error></Errors></ErrorList>

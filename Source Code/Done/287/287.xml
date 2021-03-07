@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\287.xml">
+	
+<SourceCode_List><SourceCode lines="32" name="Target.java"><![CDATA[import java.util.Random;
+public class Target
+{   static int n;
+    static void toss(){
+        int out = 0;
+        int in = 0;
+        Random run = new Random();
+           for(int i=1;i<=n;i++){
+            
+            double x=run.nextDouble()*2;
+            double y=run.nextDouble()*2;
+            double d=Math.sqrt((x-1)*(x-1)+(y-1)*(y-1));
+            if(d<=1)
+                in++;
+            else 
+                out++;
+            }
+           // double pout=1.0*(out/n);
+           // double pin=1.0*(in/n);
+        System.out.println("圈外次數: "+out+"出現比率: "+1.0*(out/n));
+        System.out.println("圈內次數: "+in+"出現比率: "+1.0*(in/n));
+        
+    }
+    
+    public static void main(String[] args)
+    {   //System.out.println("請輸入模擬次數:");
+        int n = Integer.parseInt(args[0]);
+        toss();
+        
+    }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="變數:不了解局部變數的概念"><Message><![CDATA[Class與main 的變n數會衝突,
+導致n無法傳遞,
+建議在Class 中宣告n即可.]]></Message><Linelist><line Begin="27" End="27" src="Target"/></Linelist></Error><Error tpye="運算:運算錯誤:型態不符無法運算"><Message><![CDATA[因為int無法顯示小數點後的值
+代表只能印出整數
+要利用整數計算小數點必須在運算式前加(double)
+]]></Message><Linelist><line Begin="20" End="20" src="Target"/><line Begin="21" End="21" src="Target"/></Linelist></Error></Errors></ErrorList>

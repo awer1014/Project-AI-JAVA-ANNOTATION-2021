@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="F:\Code\Project\Source Code\張淯雯\KKBOX\396\396.xml">
+	
+<SourceCode_List><SourceCode lines="25" name="KKBox.java"><![CDATA[class KKBox{
+    static double length,width,height;
+    static double volume,surfaceArea;
+a1(double y){
+    volume=y;
+         y=(length * width * height);
+         System.out.println("��n:"+y);
+    }
+a2(double x){
+    surfaceArea=x;
+    x=(2 *(length*width + width* height + height * length));
+    System.out.println("���n:"+x);
+    }
+    public static void main(String[] args){
+    System.out.println("�п�J��: ");
+    length=Integer.parseInt(args[0]); 
+    System.out.println("�п�J�e: ");
+    width=Integer.parseInt(args[1]);
+    System.out.println("�п�J��: ");
+    height=Integer.parseInt(args[2]);
+    
+    a1;
+    a2;
+}
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="函數:函數結構不清楚"><Message><![CDATA[應改為
+double a1(){
+        volume=y;
+        y=(length * width * height);
+        return y;
+    }
+double a2(){
+        surfaceArea=x;
+        x=(2 *(length*width + width* height + height * length));
+        return x;
+    }]]></Message><Linelist><line Begin="4" End="13" src="KKBox"/></Linelist></Error><Error tpye="校對:校對"><Message><![CDATA[4~13的內容他沒有給函數型態,
+可以告訴他要給變數型態,
+但不用完全告訴他要給什麼變數型態,
+因為這是題目,
+但側資不是題目的走.
+然後他設定的是物件資料,
+所以照理來說是要做物件動作但他沒做物件動作.
+最後他沒有產生物件 所以也不算錯.
+不能照題目改.
+]]></Message><Linelist><line Begin="4" End="13" src="KKBox"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[因為要連結物件動作，所以要建立新的物件
+kkbox b = new kkbox();
+要呼叫函數:b.a1();b.a2();]]></Message><Linelist><line Begin="-1" End="-1" src="KKBox"/></Linelist></Error></Errors></ErrorList>

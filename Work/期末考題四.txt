@@ -1,0 +1,51 @@
+(四) (20%) 已知 Comparable 是一個Java 內建的Interface, 實做Comparable的類別需實做public int compareTo(Object o)的動作。
+
+另外, Java類別java.util.Arrays就可以排序任何已經實做Comparable的物件陣列
+
+ 例如， Arrays.sort(list);
+
+請參考上述資訊
+
+Letter[] list = { 
+
+new ChineseLetter ("教授", "王", "很高興跟您連絡", "銘哥", "2019/01/05"),  
+
+new EnglishLetter("Professor", "Wang", "I am glad to write to you!", "J. J. Lin", "2018/11/01") ,  
+
+new EnglishLetter("Professor", "Liu", "I am sorry!", "K. Ming", "2018/07/05")};
+
+會依照date順序遞增顯示:
+
+Dear Professor Liu, 
+
+I am sorry!
+
+Sincerely
+
+K. Ming
+
+2018/07/05
+
+===========
+
+
+Dear Professor Wang, 
+
+I am glad to write to you!
+
+Sincerely
+
+J. J. Lin
+
+2018/11/01
+
+============
+
+
+王 教授, 您好
+
+很高興跟您連絡
+
+銘哥 敬上
+
+2019/01/05

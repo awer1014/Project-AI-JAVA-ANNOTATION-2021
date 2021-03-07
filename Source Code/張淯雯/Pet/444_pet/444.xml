@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\Pet\444_pet\444.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="Keeper.java"><![CDATA[public class Keeper{
+    static String id;
+    static String tel;
+    public Keeper(String i,String t){
+        this.id=i;
+        this.tel=t;
+    }
+    void display(){
+        {System.out.println("飼主身分證字號"+this.id);}
+        {System.out.println("飼主電話"+this.tel);}
+    }
+}]]></SourceCode><SourceCode lines="11" name="KeeperPet.java"><![CDATA[import java.util.Scanner;
+public class KeeperPet{
+    static Scanner keyboard = new Scanner(System.in);
+    public static void main(String[] args){
+        Keeper user=new Keeper(args[0],args[1]);
+        Pet pets=new Pet(args[0],args[1],args[2]);
+        pets.display();
+        user.display();
+        pets.speak();
+    }
+}]]></SourceCode><SourceCode lines="19" name="Pet.java"><![CDATA[public class Pet{
+    static String pid;
+    static String name;
+    static String type;
+    public Pet(String p,String n,String t){
+        this.pid=p;
+        this.name=n;
+        this.type=t;
+    }
+    void display(){
+        System.out.println("寵物種類"+this.type);
+        System.out.println("寵物編號"+this.pid);
+        System.out.println("寵物名稱"+this.name);
+    }
+    void speak(){
+        if(type=="狗"){System.out.println("你的寵物叫聲是:汪汪");}
+        else if(type=="貓"){System.out.println("你的寵物叫聲是:喵喵");}
+    }
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA[字串的比較要用類別.equals("比較內容")
+name.equals("狗")
+name.equals("貓")]]></Message><Linelist><line Begin="16" End="17" src="Pet"/></Linelist></Error><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message><![CDATA[沒有static是物件，有static是類別]]></Message><Linelist><line Begin="2" End="4" src="Pet"/></Linelist></Error></Errors></ErrorList>

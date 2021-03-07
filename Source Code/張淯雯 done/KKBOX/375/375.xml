@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="F:\Code\Project\Source Code\張淯雯\KKBOX\375\375.xml">
+	
+<SourceCode_List><SourceCode lines="28" name="KKBOx.java"><![CDATA[
+/**
+ * Write a description of class test here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class KKBOx
+{
+    static double l;
+    static double w;
+    static double h;
+    
+    
+static double volume(double l, double w, double h)
+{
+    double ans=l*w*h;
+    return ans;
+}  
+
+public static void main(Double[] n)
+{
+   l=2;
+   w=3;
+   h=4;
+   System.out.println(ans);
+}
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="校對:校對"><Message><![CDATA[其他的東西沒錯誤,
+26行的呼叫變數方式錯誤
+他前面的寫法都沒錯
+他應該是不懂局部變數跟呼叫錯的函數名稱]]></Message><Linelist><line Begin="26" End="26" src="KKBOx"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[新增物件動作
+KKBOx b = new KKBOx(l,w,h);
+呼叫時用b.volume();]]></Message><Linelist><line Begin="26" End="26" src="KKBOx"/></Linelist></Error><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message><![CDATA[沒有static是物件 有static是類別]]></Message><Linelist><line Begin="10" End="12" src="KKBOx"/><line Begin="15" End="15" src="KKBOx"/></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[因為建構子有參數，所以呼叫建構子也需要給參數
+若要將參數識別字當成屬性，要用this存取屬性
+KKbox(double length,double width,double height)
+{
+	this.l=l;
+    	this.w=w;
+    	this.h=h;
+}]]></Message><Linelist><line Begin="13" End="14" src="KKBOx"/></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message><![CDATA[產生物件括號裡不用加上參數，且要回傳一個值
+double volume()
+{
+	double ans=l*w*h;
+	return ans;
+}
+]]></Message><Linelist><line Begin="15" End="19" src="KKBOx"/></Linelist></Error></Errors></ErrorList>

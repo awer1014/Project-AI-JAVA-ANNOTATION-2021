@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Source Code\150\150.xml">
+	
+<SourceCode_List><SourceCode lines="35" name="Exchange.java"><![CDATA[public class Exchange
+{
+    double money;
+    double rate;
+    double ans;
+    
+    Exchange(double m,double r)
+    {
+        money = m;
+        rate = r;
+    }
+    int changeOneHundred()
+    {
+        ans = money * rate;
+        return (int)ans/100;
+    }
+    
+
+   public static void main(String[] args) {
+
+       double m = Double.parseDouble(args[0]); //台幣金額
+
+       double rate = Double.parseDouble(args[1]); //美金匯率
+
+       Exchange ex = new Exchange(m, rate);
+
+       int ans = ex.changeOneHundred();
+
+       System.out.println("The answer is: " + ans);
+
+   }
+
+
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[建構子是將物件資料傳遞給物件,
+建構子的使用方法為:
+物件名稱(要給的物件資料){
+this.物件資料 = 要給的物件資料;
+.....
+}]]></Message><Linelist><line Begin="7" End="11" src="Exchange"/></Linelist></Error></Errors></ErrorList>

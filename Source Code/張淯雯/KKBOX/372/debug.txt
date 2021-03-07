@@ -1,0 +1,10 @@
+line27~29	
+	parseDouble(args[0])是該方法返回一個新的double值，該double值初始化為指定String表示的值
+	若要讓使用者自己輸入數字，則要用因為要讓使用者輸入數字以計算體積及表面積，所以需要import Scanner，並且在主程式的地方新增一個物件
+	import java.util.Scanner;
+	Scanner kb = new Scanner (System.in);
+	呼叫此函數需要給定資料的資料型態(next.Byte(),nextDouble(),nextFloat,nextInt(),nextLine(),nextLong(),nextShot())
+	double length=kb.nextDouble();
+        double width=kb.nextDouble();
+        double height=kb.nextDouble();
+        

@@ -1,0 +1,27 @@
+(一) (10%) 設計一個類別ChineseLetter(信件), 具備下列特性:
+
+物件資料: title (String)
+物件資料: receiver (String)
+物件資料: content (String)
+物件資料: sender (String)
+物件資料: date (String)
+物件動作: display() 顯示信件內容
+物件動作: String getSender() 取得sender
+物件動作: String getReceiver() 取得 receiver
+物件動作: String getDate() 取得 date
+建構子: ChineseLetter(String title, String receiver, String content, String sender, String date)
+例如:
+
+ChineseLetter lt = new ChineseLetter ("教授", "王", "很高興跟您連絡", "銘哥", "2019/01/05");
+
+lt.display(); 
+
+會以中式方式顯示下列中式信件格式:
+
+王 教授, 您好
+
+很高興跟您連絡
+
+銘哥 敬上
+
+2019/01/05

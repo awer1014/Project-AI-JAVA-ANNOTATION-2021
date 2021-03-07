@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="F:\Code\Project\Source Code\張淯雯\KKBOX\404\404.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="length.java"><![CDATA[public class length{
+	double a,b,c;
+	Length(double x,double y,double z){this.a=x;this.b=y;this.c=z;)
+	 volume(){return a*b;}
+	double surfaceArea(){return 2*a+2*b+2*c;}
+	}
+}
+public static void main(String[]args){
+	Length len1=new Length(double a,double b,double c);
+	System.out.println(a);
+	System.out.println(b);
+	System.out.println(c);
+	System.out.println(len1.volume);
+	System.out.println(len1.surfaceArea);
+	
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:撰寫main函式"><Message><![CDATA[main函式要寫在類別裡面]]></Message><Linelist><line Begin="7" End="7" src="length"/></Linelist></Error><Error tpye="函數:函數結構不清楚"><Message><![CDATA[宣告函數必須給回傳值型態
+double volume(){return a*b;}]]></Message><Linelist><line Begin="4" End="4" src="length"/></Linelist></Error><Error tpye="校對:校對"><Message><![CDATA[結構不對
+3~5物件動作沒宣告
+9新物件的參數不需要給資料型態
+9產生物件的類別名稱跟類別名稱不符
+4動作沒給參數
+13~14物件動作沒加()]]></Message><Linelist><line Begin="1" End="16" src="length"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[呼叫函數要先建立新的物件         length len1=new length(a, b, c); ]]></Message><Linelist><line Begin="9" End="9" src="length"/></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[建立建構子要跟類別一樣的名稱
+length(double x,double y,double z)
+{this.a=x;this.b=y;this.c=z;)]]></Message><Linelist><line Begin="3" End="3" src="length"/></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message><![CDATA[呼叫函數要加上括號
+len1.volume()
+len1.surfaceArea()]]></Message><Linelist><line Begin="13" End="13" src="length"/><line Begin="14" End="14" src="length"/></Linelist></Error></Errors></ErrorList>

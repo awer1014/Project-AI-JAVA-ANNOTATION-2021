@@ -1,0 +1,34 @@
+(二) (20%) 延續上一題, 以抽象類別的方式擴充系統可以有中英式信件格式, 系統應包含Letter, ChineseLetter, EnglishLetter
+
+例如:
+
+Letter lt = new ChineseLetter ("教授", "王", "很高興跟您連絡", "銘哥", "2019/01/05");
+
+lt.display(); 
+
+會以中式方式顯示下列中式信件格式:
+
+王 教授, 您好
+
+很高興跟您連絡
+
+銘哥 敬上
+
+2019/01/05
+
+另外,
+Letter lt = new EnglishLetter("Professor", "Wang", "I am glad to write to you!", "J. J. Lin", "2019/01/05");
+
+lt.display(); 
+
+會以中式方式顯示下列中式信件格式:
+
+Dear Professor Wang, 
+
+I am glad to write to you!
+
+Sincerely
+
+J. J. Lin
+
+2019/01/05
