@@ -42,15 +42,28 @@ public class GetXmlAttribute {
         Document doc = builder.parse(new FileInputStream(new File(file_name +".xml")));// same xml comments as above.
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
-        NodeList Error_types = (NodeList) xpath.evaluate("ErrorList/Errors/Error", doc, XPathConstants.NODESET);
-        NodeList srcs = (NodeList) xpath.evaluate("ErrorList/Errors/Error/Linelist",doc, XPathConstants.NODESET);
-        NodeList Begins = (NodeList) xpath.evaluate("ErrorList/Errors/Error/Linelist",doc, XPathConstants.NODESET);
-        NodeList Ends = (NodeList) xpath.evaluate("ErrorList/Errors/Error/Linelist",doc, XPathConstants.NODESET);
-        for (int i = 0; i < Error_types.getLength(); i++) {
-            print
+        NodeList Errors = (NodeList) xpath.evaluate("ErrorList/Errors/Error", doc, XPathConstants.NODESET);
+        //NodeList Lines = (NodeList) xpath.evaluate("ErrorList/Errors/Error/Linelist/line",doc, XPathConstants.NODESET);
+
+
+        //NodeList Begins = (NodeList) xpath.evaluate("ErrorList/Errors/Error/Linelist/line",doc, XPathConstants.NODESET);
+        //NodeList Ends = (NodeList) xpath.evaluate("ErrorList/Errors/Error/Linelist/line",doc, XPathConstants.NODESET);
+        for (int i = 0; i < Errors.getLength(); i++) {
+            Node Error_type_value = Errors.item(i);
+            //Node Line_node = Lines.item(i);
+            //print Error type
+            System.out.println(Error_type_value.getAttributes().getNamedItem("tpye").getNodeValue());
+
+            for (int k = 0; k < this.Error_type_value.getLength(); k++) {
+              NodeList Lines = (NodeList) xpath.evaluate(this.Error_type_value + "/Error/Linelist/line",doc, XPathConstants.NODESET);
+              Node Line = Lines.item(k);
+              System.out.println(Line.getAttributes().getNamedItem("src").getNodeValue());
+              System.out.println(Line.getAttributes().getNamedItem("Begin").getNodeValue());
+              System.out.println(Line.getAttributes().getNamedItem("End").getNodeValue());
+            }
         }
         //System.out.println(Error_type);
-        System.out.println(Error_type.getAttribute("name"));
+        //System.out.println(Error_type.getAttribute("name"));
     }
 
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException{
