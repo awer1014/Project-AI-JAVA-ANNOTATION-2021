@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=AddXML
+comment1.params=errorList_name
+comment1.target=void\ addXML_List(java.lang.String)
+comment2.params=src_name\ src_lines\ src_code
+comment2.target=void\ new_SrcNode(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment3.params=er_type\ er_filename\ begin\ end\ msg_message
+comment3.target=void\ new_ErsNode(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment4.params=errorList_name
+comment4.target=void\ save(java.lang.String)
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+comment5.text=public\ void\ send_Erdata(){\r\n\ \ \ \ AddXML\ send_ernode\ \=\ new\ AddXML();\r\n\ \ \ \ for\ (int\ i\ \=\ 0;\ i\ <\ Arrays.length();i++){\r\n\ \ \ \ new_ErsNode(Arrays[1],Arrays[2],Arrays[3],Arrays[4],Arrays[5]);//\ give\r\n\ \ \ \ }\r\n\ \ \ \ }\r\n\r\n
+numComments=6

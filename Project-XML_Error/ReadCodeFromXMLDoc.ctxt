@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=ReadCodeFromXMLDoc
+comment1.params=ww
+comment1.target=ReadCodeFromXMLDoc(WorkWindow)
+comment2.params=
+comment2.target=void\ openFileList()
+comment3.params=
+comment3.target=CodeData\ nextCode()
+comment4.params=doc
+comment4.target=java.util.Vector\ getCodeDataList(org.w3c.dom.Document)
+comment5.params=fname
+comment5.target=org.w3c.dom.Document\ loadXMLDoc(java.lang.String)
+comment6.params=
+comment6.target=java.util.Vector\ readErrors()
+comment7.params=
+comment7.target=org.w3c.dom.Document\ getXMLDocument()
+numComments=8
