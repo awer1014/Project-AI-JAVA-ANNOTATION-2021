@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\fhwang\研究\JavaAnnotationXMLProgram\test1.xml">
+	
+<SourceCode_List><SourceCode lines="27" name="ErrorLine.java"><![CDATA[public class ErrorLine
+{
+    String filename;
+    String begin;
+    String end; 
+    ErrorLine(String filename,String begin,String end){
+        this.filename = filename;
+        this.begin = begin;
+        this.end = end;
+    }
+
+    public String getFilename()
+    {
+        return filename;
+    }
+
+    public String getBegin()
+    {
+        return begin;
+    }
+
+    public String getEnd()
+    {
+        return end;
+}
+}
+]]></SourceCode></SourceCode_List><Errors/></ErrorList>
