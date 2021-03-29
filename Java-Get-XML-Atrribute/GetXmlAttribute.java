@@ -35,43 +35,45 @@ public class GetXmlAttribute {
         }
     }
 
-    public void Get_Attribute_value(String file_name) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
+    public void Get_Attribute_value(/*String file_name*/) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
 
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.parse(new FileInputStream(new File(file_name +".xml")));// same xml comments as above.
+
+        //DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        //DocumentBuilder builder = factory.newDocumentBuilder();
+        //doc = builder.parse(new FileInputStream(new File(file_name +".xml")));// same xml comments as above.
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
-        NodeList Errors = (NodeList) xpath.evaluate("ErrorList/Errors/Error", doc, XPathConstants.NODESET);
-        //NodeList Lines = (NodeList) xpath.evaluate("ErrorList/Errors/Error/Linelist/line",doc, XPathConstants.NODESET);
-
-
-        //NodeList Begins = (NodeList) xpath.evaluate("ErrorList/Errors/Error/Linelist/line",doc, XPathConstants.NODESET);
-        //NodeList Ends = (NodeList) xpath.evaluate("ErrorList/Errors/Error/Linelist/line",doc, XPathConstants.NODESET);
-        for (int i = 0; i < Errors.getLength(); i++) {
-            Node Error_type_value = Errors.item(i);
-            //Node Line_node = Lines.item(i);
-            //print Error type
-            System.out.println(Error_type_value.getAttributes().getNamedItem("tpye").getNodeValue());
-
-            for (int k = 0; k < this.Error_type_value.getLength(); k++) {
-              NodeList Lines = (NodeList) xpath.evaluate(this.Error_type_value + "/Error/Linelist/line",doc, XPathConstants.NODESET);
-              Node Line = Lines.item(k);
-              System.out.println(Line.getAttributes().getNamedItem("src").getNodeValue());
-              System.out.println(Line.getAttributes().getNamedItem("Begin").getNodeValue());
-              System.out.println(Line.getAttributes().getNamedItem("End").getNodeValue());
-            }
+        NodeList Error_List = (NodeList) xpath.evaluate("/ErrorList/Errors/Error", doc, XPathConstants.NODESET);
+        NodeList Line_List = (NodeList) xpath.evaluate("/ErrorList/Errors/Error/Linelist/line", doc, XPathConstants.NODESET);
+        for (int i=0;i<Error_List.getLength();i++){
+          Element Error = (Element)Error_List.item(i);
+          Element Line = (Element)Line_List.item(i);
+          String type = Error.getAttribute("tpye");//print Error type
+          String Begin = Line.getAttribute("Begin");
+          String End = Line.getAttribute("End");
+          String Src = Line.getAttribute("src");
+          System.out.println("Error type: "+type);
+          System.out.println("Source code: "+Src);
+          System.out.println("Begin: "+Begin);
+          System.out.println("End: "+End);
+          
         }
-        //System.out.println(Error_type);
-        //System.out.println(Error_type.getAttribute("name"));
-    }
+      }
 
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException{
         //==============TestData==================
         String file_name = "230";
+
         //================Test====================
         GetXmlAttribute test = new GetXmlAttribute();
         test.Read_Xml_file(file_name);
-        test.Get_Attribute_value(file_name);
+        test.Get_Attribute_value();
+        /*DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document doc = builder.parse(new FileInputStream(new File(file_name +".xml")));// same xml comments as above.
+        XPathFactory xpf = XPathFactory.newInstance();
+        XPath xpath = xpf.newXPath();
+        Element Error_type = (Element) xpath.evaluate("/ErrorList/Errors/Error", doc, XPathConstants.NODE);
+        System.out.println(Error_type.getAttribute("tpye"));*/
     }
 }
