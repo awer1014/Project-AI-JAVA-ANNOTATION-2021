@@ -37,7 +37,6 @@ public class GetXmlAttribute {
 
     public void Get_Attribute_value(/*String file_name*/) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
 
-
         //DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         //DocumentBuilder builder = factory.newDocumentBuilder();
         //doc = builder.parse(new FileInputStream(new File(file_name +".xml")));// same xml comments as above.
@@ -46,19 +45,19 @@ public class GetXmlAttribute {
         NodeList Error_List = (NodeList) xpath.evaluate("/ErrorList/Errors/Error", doc, XPathConstants.NODESET);
         NodeList Line_List = (NodeList) xpath.evaluate("/ErrorList/Errors/Error/Linelist/line", doc, XPathConstants.NODESET);
         for (int i=0;i<Error_List.getLength();i++){
-          Element Error = (Element)Error_List.item(i);
-          Element Line = (Element)Line_List.item(i);
-          String type = Error.getAttribute("tpye");//print Error type
-          String Begin = Line.getAttribute("Begin");
-          String End = Line.getAttribute("End");
-          String Src = Line.getAttribute("src");
-          System.out.println("Error type: "+type);
-          System.out.println("Source code: "+Src);
-          System.out.println("Begin: "+Begin);
-          System.out.println("End: "+End);
-          
+            Element Error = (Element)Error_List.item(i);
+            Element Line = (Element)Line_List.item(i);
+            String type = Error.getAttribute("tpye");//print Error type
+            String Begin = Line.getAttribute("Begin");
+            String End = Line.getAttribute("End");
+            String Src = Line.getAttribute("src");
+            System.out.println("Error type: "+type);
+            System.out.println("Source code: "+Src);
+            System.out.println("Begin: "+Begin);
+            System.out.println("End: "+End);
+
         }
-      }
+    }
 
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException{
         //==============TestData==================
