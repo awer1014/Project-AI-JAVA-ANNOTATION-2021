@@ -40,7 +40,7 @@ public class Mapper
         map.put("介面:Comparable介面的排序應用", 35);
         map.put("迴圈:迴圈概念錯誤", 36);     
     }
-    public Integer getIndex(String key){
+    public Integer get_Index(String key) {
         //System.out.println(key);
         return map.get(key);
     }
