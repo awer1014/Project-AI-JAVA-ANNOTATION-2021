@@ -1,11 +1,11 @@
 import java.util.*;
 public class Source_Code_Sorter {
     //set ArrayList for SourceCode Attribute
-    ArrayList<String> Source_Code = new ArrayList<>();
-    ArrayList<Integer> Source_code_being_line = new ArrayList<>();
+    static ArrayList<String> Source_Code = new ArrayList<>();
+    static ArrayList<Integer> Source_code_being_line = new ArrayList<>();
     //get Source Code Value and add to ArrayList
-    int line_sum = 0;
-    public void add_SourceCode_and_line(String Code_name, int code_line) {
+    static int line_sum = 0;
+    public static void add_SourceCode_and_line(String Code_name, int code_line) {
         boolean ArrayListisEmpty = Source_Code.isEmpty();
         if (ArrayListisEmpty == true) {
               Source_Code.add(Code_name);
