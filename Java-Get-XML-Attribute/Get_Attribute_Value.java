@@ -53,9 +53,9 @@ public class Get_Attribute_Value {
             line_List.add(lb);
         }
         Collections.sort(line_List);
-
-
         //adjust lines position ...
+
+
         NodeList Source_Code_List = (NodeList) xpath.evaluate("/ErrorList/SourceCode_List/SourceCode", doc, XPathConstants.NODESET);
         //set ArrayList for SourceCode Attribute
         ArrayList<String> Source_Code = new ArrayList<>();
@@ -72,6 +72,8 @@ public class Get_Attribute_Value {
             int code_line = Integer.parseInt(Source.getAttribute("lines"));
             scs.add_SourceCode_and_line(Code_name, code_line);
         }
+
+
 
     }
 
