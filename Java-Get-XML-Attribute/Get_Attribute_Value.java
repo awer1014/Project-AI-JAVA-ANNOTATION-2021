@@ -20,8 +20,6 @@ public class Get_Attribute_Value {
         //ArrayList-->Mapper
         ArrayList<Line_Block> line_List = new ArrayList<Line_Block>();
         Mapper map = new Mapper();
-
-
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
 
@@ -30,11 +28,7 @@ public class Get_Attribute_Value {
             Element Error = (Element)Error_List.item(i);
             NodeList Line_List = (NodeList) xpath.evaluate("/ErrorList/Errors/Error/Linelist/line", Error, XPathConstants.NODESET);
             String type = Error.getAttribute("tpye");
-            //wtt.write_Error_type(type);
-            //System.out.println("Error type: "+type);
-            //System.out.println("Source code: "+Src);
-            //System.out.println("Begin: "+Begin);
-            //System.out.println("End: "+End);
+
             int key = map.get_Index(type);
             Line_Block lb = new Line_Block(key);
             for(int k = 0; k < Line_List.getLength(); k++){
@@ -53,7 +47,17 @@ public class Get_Attribute_Value {
             line_List.add(lb);
         }
         Collections.sort(line_List);
-        //adjust lines position ...
+
+        for (int i = 0;i<line_List.size();i++){
+          for(int k =0;k<line_List.get(i);k++){
+            System.out.println(line_List.get(i).get_file_name.String.valueOf(k));
+            System.out.println(line_List.get(i).get_begin(k));
+            System.out.println(line_List.get(i).get_end(k));
+            //System.out.println(line_List.get(i).get(block_begin));
+            //System.out.println(line_List.get(i).get(block_end));
+          }
+        }
+      //adjust lines position ...
 
 
         NodeList Source_Code_List = (NodeList) xpath.evaluate("/ErrorList/SourceCode_List/SourceCode", doc, XPathConstants.NODESET);
@@ -73,8 +77,11 @@ public class Get_Attribute_Value {
             scs.add_SourceCode_and_line(Code_name, code_line);
         }
 
-
-
     }
+    //wtt.write_Error_type(type);
+    //System.out.println("Error type: "+type);
+    //System.out.println("Source code: "+Src);
+    //System.out.println("Begin: "+Begin);
+    //System.out.println("End: "+End);
 
 }
