@@ -48,18 +48,19 @@ public class Get_Attribute_Value {
         }
         Collections.sort(line_List);
 
-        for (int i = 0;i<line_List.size();i++){
-          for(int k =0;k<line_List.get(i);k++){
-            System.out.println(line_List.get(i).get_file_name.String.valueOf(k));
-            System.out.println(line_List.get(i).get_begin(k));
-            System.out.println(line_List.get(i).get_end(k));
-            //System.out.println(line_List.get(i).get(block_begin));
-            //System.out.println(line_List.get(i).get(block_end));
-          }
+        for (int i = 0;i<line_List.i;i++){
+            Line_Block lb;
+            for(int k =0;k<block_begin.getLength(k);k++){
+                System.out.println(line_List.get(i).get_file_name(k));
+                System.out.println(line_List.get(i).get_begin(k));
+                System.out.println(line_List.get(i).get_end(k));
+                //System.out.println(line_List.get(i).get(block_begin));
+                //System.out.println(line_List.get(i).get(block_end));
+            }
         }
-      //adjust lines position ...
 
 
+        //get source code detail
         NodeList Source_Code_List = (NodeList) xpath.evaluate("/ErrorList/SourceCode_List/SourceCode", doc, XPathConstants.NODESET);
         //set ArrayList for SourceCode Attribute
         ArrayList<String> Source_Code = new ArrayList<>();
@@ -67,7 +68,7 @@ public class Get_Attribute_Value {
         //get Source Code Value and add to ArrayList
         int line_sum = 0;
         Source_Code_Sorter scs = new Source_Code_Sorter();
-        for (int i = 0; i < Source_Code_List.getLength(); i++){
+        for(int i = 0; i < Source_Code_List.getLength(); i++){
             //check ArrayList is empty or not
             boolean ArrayListisEmpty = Source_Code.isEmpty();
             //get Source Code
@@ -75,13 +76,8 @@ public class Get_Attribute_Value {
             String Code_name = Source.getAttribute("name");
             int code_line = Integer.parseInt(Source.getAttribute("lines"));
             scs.add_SourceCode_and_line(Code_name, code_line);
+
         }
-
+        
     }
-    //wtt.write_Error_type(type);
-    //System.out.println("Error type: "+type);
-    //System.out.println("Source code: "+Src);
-    //System.out.println("Begin: "+Begin);
-    //System.out.println("End: "+End);
-
 }
