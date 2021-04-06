@@ -28,19 +28,19 @@ public class Line_Block implements Comparable {
         else return 0;
     }
 
-    public int get_begin (int p) {
-      return block_begin.get(p);
+    public int get_begin (int Index) {
+      return block_begin.get(Index);
     }
 
-    public int get_end (int p) {
-      return block_end.get(p);
+    public int get_end (int Index) {
+      return block_end.get(Index);
     }
 
-    /*public String get_file_name (String p) {
-      return file_name.get(p);
-    }*/
+    public String get_file_name (int Index) {
+      return file_name.get(Index);
+    }
 
     public int get_Array_length(){
-      return sum;
+      return file_name.size();
     }
 }

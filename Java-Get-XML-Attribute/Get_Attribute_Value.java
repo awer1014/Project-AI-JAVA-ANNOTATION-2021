@@ -46,20 +46,22 @@ public class Get_Attribute_Value {
             }
             line_List.add(lb);
         }
+        //line_List.add(lb);
         Collections.sort(line_List);
 
-        for (int i = 0;i<line_List.i;i++){
-            Line_Block lb;
-            for(int k =0;k<block_begin.getLength(k);k++){
-                System.out.println(line_List.get(i).get_file_name(k));
-                System.out.println(line_List.get(i).get_begin(k));
-                System.out.println(line_List.get(i).get_end(k));
+        //test Attribute output
+        //for (int i = 0; i<line_List.getLength(i); i++){
+        System.out.println("===========NEW TEST===========");
+            for(int k =0; k<line_List.get(0).get_Array_length(); k++){
+                System.out.print(line_List.get(0).get_file_name(k));
+                System.out.print(line_List.get(0).get_begin(k));
+                System.out.println(line_List.get(0).get_end(k));
                 //System.out.println(line_List.get(i).get(block_begin));
                 //System.out.println(line_List.get(i).get(block_end));
-            }
-        }
+          }
+        //}
 
-
+        //try to make excel
         //get source code detail
         NodeList Source_Code_List = (NodeList) xpath.evaluate("/ErrorList/SourceCode_List/SourceCode", doc, XPathConstants.NODESET);
         //set ArrayList for SourceCode Attribute
@@ -78,6 +80,6 @@ public class Get_Attribute_Value {
             scs.add_SourceCode_and_line(Code_name, code_line);
 
         }
-        
+
     }
 }
