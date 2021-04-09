@@ -1,5 +1,4 @@
 import java.util.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -11,13 +10,16 @@ public class ExcelWriter {
     HSSFSheet sheet;
     private void createSheet(){
         workbook = new HSSFWorkbook();
+        //create file
+        //add file name
         sheet = workbook.createSheet("ErrorLocation");
-        // 創建Excel標題行，第一行
+        // create first Row ----> id
         HSSFRow headRow = sheet.createRow(0);
         headRow.createCell(0).setCellValue("id");
         for(int i = 1;i <= 36; i++){
             headRow.createCell(i).setCellValue("er"+i);
         }
+        //create Row for error gegin and error end
         for(int i = 1;i <= 6; i++){
             for(int k = 1;k <= 5; k++){
                 headRow.createCell(36+(i-1)*10+k).setCellValue("block_er"+i+"_b"+k);
@@ -31,7 +33,7 @@ public class ExcelWriter {
     private HSSFRow createRow(){
         HSSFRow dataRow = sheet.createRow(sheet.getLastRowNum() + 1);
         for(int i=0; i<97; i++){
-            dataRow.createCell(i).setCellValue(0); 
+            dataRow.createCell(i).setCellValue(0);
         }
         return dataRow;
     }
@@ -53,7 +55,7 @@ public class ExcelWriter {
                 workbook.close();
             } catch (IOException e) {
                 e.printStackTrace();
-            }   
+            }
         }
     }
     // 創建Excel的一行數據。
@@ -62,7 +64,7 @@ public class ExcelWriter {
         int ecount = 0;
         for (Line_Block lb : list) {
             ecount++;
-            int errorid = lb.key; 
+            int errorid = lb.key;
             dataRow.getCell(errorid).setCellValue(1);
             int pos = 36+(ecount-1)*10;
             for(int i=0; i<lb.block_begin.size(); i++){
