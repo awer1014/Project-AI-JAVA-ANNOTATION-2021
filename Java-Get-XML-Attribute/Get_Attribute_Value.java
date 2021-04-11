@@ -49,6 +49,7 @@ public class Get_Attribute_Value {
         //line_List.add(lb);
         Collections.sort(line_List);
 
+        //===============================================================================================
         //test Attribute output
         //for (int i = 0; i<line_List.getLength(i); i++){
         System.out.println("===========NEW TEST===========");
@@ -61,14 +62,19 @@ public class Get_Attribute_Value {
           }
         //}
 
+
+        //================================================================================================
         //try to make excel
         //get source code detail
         NodeList Source_Code_List = (NodeList) xpath.evaluate("/ErrorList/SourceCode_List/SourceCode", doc, XPathConstants.NODESET);
         //set ArrayList for SourceCode Attribute
+        //add Source Code file name
         ArrayList<String> Source_Code = new ArrayList<>();
-        ArrayList<Integer> Source_code_being_line = new ArrayList<>();
         //get Source Code Value and add to ArrayList
         int line_sum = 0;
+        //add Source code file's lines
+        ArrayList<Integer> Source_code_file_line = new ArrayList<>();
+
         Source_Code_Sorter scs = new Source_Code_Sorter();
         for(int i = 0; i < Source_Code_List.getLength(); i++){
             //check ArrayList is empty or not
