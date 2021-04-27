@@ -2,6 +2,7 @@ import java.util.*;
 public class Line_Block implements Comparable {
     int key;
     int sum = 0;
+
     ArrayList<Integer> block_begin = new ArrayList<>();
     ArrayList<Integer> block_end = new ArrayList<>();
     ArrayList<String> file_name = new ArrayList<>();
