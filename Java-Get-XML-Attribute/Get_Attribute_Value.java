@@ -95,6 +95,8 @@ public class Get_Attribute_Value {
         }
         //================================================================================================
     }
+
+    
     public static int get_Max_Error_num() {
       return Max_Error_num;
     }
