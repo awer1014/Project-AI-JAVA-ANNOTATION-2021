@@ -6,15 +6,18 @@ public class Line_Block implements Comparable {
     ArrayList<Integer> block_begin = new ArrayList<>();
     ArrayList<Integer> block_end = new ArrayList<>();
     ArrayList<String> file_name = new ArrayList<>();
+    ArrayList<String> error_Type = new ArrayList<>();
 
     public Line_Block (int k) {
         key = k;
     }
 
-    public void add_Block (int b, int e, String name) {
-        block_begin.add(b);
-        block_end.add(e);
+    public void add_Block ( String name, String Error_type, int begin, int end) {
+    //public void add_Block ( String name, int begin, int end) {
         file_name.add(name);
+        error_Type.add(Error_type);
+        block_begin.add(begin);
+        block_end.add(end);
         sum ++;
     }
 
@@ -30,18 +33,22 @@ public class Line_Block implements Comparable {
     }
 
     public int get_begin (int Index) {
-      return block_begin.get(Index);
+        return block_begin.get(Index);
     }
 
     public int get_end (int Index) {
-      return block_end.get(Index);
+        return block_end.get(Index);
     }
 
     public String get_file_name (int Index) {
-      return file_name.get(Index);
+        return file_name.get(Index);
     }
 
-    public int get_Array_length(){
-      return file_name.size();
+    public String get_Error_type (int Index) {
+        return error_Type.get(Index);
+    }
+
+    public int get_Array_length() {
+        return file_name.size();
     }
 }

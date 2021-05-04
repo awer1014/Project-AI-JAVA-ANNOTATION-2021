@@ -20,17 +20,17 @@ public class WriteToTxt
                     out.write(" <BOT> ");
                     out.write((map.get_Index(node.getNodeValue())).toString());
                     out.write(" <EOT> ");
-	        }
+            }
                 NodeList SourceCode_child=SourceCode_item.getChildNodes();
-	        out.write(" <BOM> ");
+            out.write(" <BOM> ");
                 for(int k=0;k<SourceCode_child.getLength();k++){
-	            Node SourceCode_child_ele=SourceCode_child.item(k);	        
-	            if(SourceCode_child_ele.getNodeType() == Node.ELEMENT_NODE){	                	                
-	                out.write(SourceCode_child_ele.getTextContent());	                
-	            }
-	        }
-	        out.write(" <EOM> ");
-	        out.write(" <EOTM> ");
+                Node SourceCode_child_ele=SourceCode_child.item(k);            
+                if(SourceCode_child_ele.getNodeType() == Node.ELEMENT_NODE){                                        
+                    out.write(SourceCode_child_ele.getTextContent());                    
+                }
+            }
+            out.write(" <EOM> ");
+            out.write(" <EOTM> ");
                 //out.write(SourceCode.getTextContent());
             }
             out.flush();

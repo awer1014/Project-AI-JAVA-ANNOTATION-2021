@@ -16,10 +16,12 @@ import java.util.*;
 
 public class Get_Attribute_Value {
     static int Max_Error_num = 0; //check max Error number
+
     public static void get_Error_Value(String file_name, Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
         //ArrayList-->Mapper
         ArrayList<Line_Block> line_List = new ArrayList<Line_Block>();
         Mapper map = new Mapper();
+
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
 
@@ -31,6 +33,7 @@ public class Get_Attribute_Value {
 
             int key = map.get_Index(type);
             Line_Block lb = new Line_Block(key);
+
             for(int k = 0; k < Line_List.getLength(); k++){
                 Element Line = (Element)Line_List.item(k);
                 //print Error Source code
@@ -42,7 +45,8 @@ public class Get_Attribute_Value {
                 //print Error End
                 int End = Integer.parseInt(Line.getAttribute("End"));
                 //wtt.write_Error_End(End);
-                lb.add_Block(Begin, End, src);
+                lb.add_Block(src,type,Begin, End);
+                //lb.add_Block(src,Begin, End);
                 Max_Error_num += 1;
             }
             line_List.add(lb);
@@ -55,6 +59,7 @@ public class Get_Attribute_Value {
 
         System.out.println("===========NEW TEST===========");
         for(int k =0; k<line_List.get(0).get_Array_length(); k++){
+            System.out.print(line_List.get(0).get_Error_type(k));
             System.out.print(line_List.get(0).get_file_name(k));
             System.out.print(line_List.get(0).get_begin(k));
             System.out.println(line_List.get(0).get_end(k));
@@ -96,7 +101,7 @@ public class Get_Attribute_Value {
         //================================================================================================
     }
 
-    
+
     public static int get_Max_Error_num() {
       return Max_Error_num;
     }
