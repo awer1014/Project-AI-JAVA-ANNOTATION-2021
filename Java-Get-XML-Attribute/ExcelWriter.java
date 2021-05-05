@@ -39,11 +39,12 @@ public class ExcelWriter {
     }
 
     public void write(String fileName, List<List<Line_Block>> list)  {
-        createSheet();
+        //public void write(String fileName, ArrayList<Line_Block> list)  {
 
+        createSheet();
+        //for (ArrayList<Line_Block> ls: list) {
         for (List<Line_Block> ls : list) {
             createCell(ls, sheet);
-
         }
         try {
             File xlsFile = new File(fileName);
