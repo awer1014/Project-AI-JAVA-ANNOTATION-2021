@@ -54,6 +54,5 @@ public class Line_Block implements Comparable {
 
     public int get_error_type_length() {
       return error_Type.size();
-
     }
 }

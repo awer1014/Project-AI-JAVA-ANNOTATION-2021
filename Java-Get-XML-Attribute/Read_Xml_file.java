@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 //import java.io.File;
 import javax.xml.parsers.*;
 //import javax.xml.parsers.DocumentBuilder;
@@ -15,7 +16,7 @@ import javax.xml.xpath.*;
 import org.xml.sax.SAXException;
 public class Read_Xml_file {
     private static Document doc;
-    public static void load_Xml_file(String file_name) {
+    public static void load_Xml_file(String file_name, Get_Attribute_Value target) {
         try {
             //read Xml file
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -24,9 +25,9 @@ public class Read_Xml_file {
             //read target file
             doc = builder.parse(new File (file_name+".xml") );
             System.out.println("Load OK!");
-            Get_Attribute_Value gav = new Get_Attribute_Value();
-            gav.get_Source_Value(file_name, doc);
-            gav.get_Error_Value(file_name, doc);
+            
+            target.get_Source_Value(file_name, doc);
+            target.get_Error_Value(file_name, doc);
 
         } catch(Exception e) {
             System.out.println("load_Xml_file went wrong here");

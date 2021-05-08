@@ -1,9 +1,11 @@
 #BlueJ class context
 comment0.target=Get_Attribute_Value
-comment1.params=file_name\ doc
-comment1.target=void\ get_Error_Value(java.lang.String,\ org.w3c.dom.Document)
+comment1.params=file_name
+comment1.target=void\ load_Xml_file(java.lang.String)
 comment2.params=file_name\ doc
-comment2.target=void\ get_Source_Value(java.lang.String,\ org.w3c.dom.Document)
-comment3.params=
-comment3.target=int\ get_Max_Error_num()
-numComments=4
+comment2.target=void\ get_Error_Value(java.lang.String,\ org.w3c.dom.Document)
+comment3.params=file_name\ doc
+comment3.target=void\ get_Source_Value(java.lang.String,\ org.w3c.dom.Document)
+comment4.params=
+comment4.target=int\ get_Max_Error_num()
+numComments=5

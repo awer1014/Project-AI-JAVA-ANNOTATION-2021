@@ -1,22 +1,31 @@
 import java.io.*;
-//import java.io.File;
 import javax.xml.parsers.*;
-//import javax.xml.parsers.DocumentBuilder;
-//import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.*;
-//import javax.xml.transform.dom.*;
-//import javax.xml.transform.stream.*;
-//import java.io.*;
 import org.w3c.dom.*;
-//import org.w3c.dom.CDATASection;
-//import org.w3c.dom.NodeList;
 import javax.xml.xpath.*;
 import org.xml.sax.SAXException;
 import java.util.*;
 
 public class Get_Attribute_Value {
     static int Max_Error_num = 0; //check max Error number
+    private static Document doc;
     static ArrayList<Line_Block> line_List;
+
+    public static void load_Xml_file(String file_name) {
+        try {
+            //read Xml file
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setNamespaceAware(true);
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            //read target file
+            doc = builder.parse(new File (file_name+".xml") );
+            System.out.println("Load OK!");
+        } catch(Exception e) {
+            System.out.println("load_Xml_file went wrong here");
+            e.printStackTrace();
+        }
+    }
+
     public static void get_Error_Value(String file_name, Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
         //ArrayList-->Mapper
         line_List = new ArrayList<Line_Block>();
@@ -35,14 +44,12 @@ public class Get_Attribute_Value {
             Line_Block lb = new Line_Block(key);
 
             for(int k = 0; k < Line_List.getLength(); k++){
-              //String type = Error.getAttribute("tpye");
+                //String type = Error.getAttribute("tpye");
                 Element Line = (Element)Line_List.item(k);
                 //print Error Source code
                 String src = Line.getAttribute("src");
-                //wtt.write_Error_sr-c(src);
                 //print Error Begin-
                 int Begin = Integer.parseInt(Line.getAttribute("Begin"));
-                //wtt.write_Error-_Begin(Begin);
                 //print Error End
                 int End = Integer.parseInt(Line.getAttribute("End"));
                 //wtt.write_Error_End(End);
@@ -57,38 +64,30 @@ public class Get_Attribute_Value {
 
         //===============================================================================================
         //test Attribute output
-
+        /*
         System.out.println("===========NEW TEST===========");
 
         for(int k = 0; k < line_List.size(); k++) {
-          for(int i = 0; i < line_List.get(k).get_error_type_length(); i++) {
-              System.out.print(line_List.get(k).get_Error_type(i) + line_List.get(k).key);
-              System.out.print(line_List.get(k).get_file_name(i));
-              System.out.print(line_List.get(k).get_begin(i));
-              System.out.println(line_List.get(k).get_end(i));
-          }
+            for(int i = 0; i < line_List.get(k).get_error_type_length(); i++) {
+                System.out.print(line_List.get(k).get_Error_type(i) +" "+ line_List.get(k).key);
+                System.out.print(line_List.get(k).get_file_name(i));
+                System.out.print(line_List.get(k).get_begin(i));
+                System.out.println(line_List.get(k).get_end(i));
+            }
         }
-        
         //================================================================================================
+        /*/
     }
 
+
+
     public static void get_Source_Value(String file_name, Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
+
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
-        //get source code detail
         NodeList Source_Code_List = (NodeList) xpath.evaluate("/ErrorList/SourceCode_List/SourceCode", doc, XPathConstants.NODESET);
-        //set ArrayList for SourceCode Attribute
-        //add Source Code file name
-        //ArrayList<String> Source_Code = new ArrayList<>();
-        //get Source Code Value and add to ArrayList
-        //int line_sum = 0;
-        //add Source code file's lines
-        //ArrayList<Integer> Source_code_file_line = new ArrayList<>();
-        //use Source_Code_Sorter to manage source code
         Source_Code_Sorter scs = new Source_Code_Sorter();
         for(int i = 0; i < Source_Code_List.getLength(); i++){
-            //check ArrayList is empty or not
-            //boolean ArrayListisEmpty = Source_Code.isEmpty();
             //get Source Code
             Element Source = (Element)Source_Code_List.item(i);
             String Code_name = Source.getAttribute("name");
@@ -98,16 +97,23 @@ public class Get_Attribute_Value {
 
         //================================================================================================
         //TEST
+        /*
         for(int i = 0; i < Source_Code_List.getLength(); i++) {
-          System.out.println("Source Code :" + scs.get_SourceCode(i));
-          System.out.println("Source Code Begin Line :" + scs.get_SourceCode_Begin_line(i));
+            System.out.println("Source Code :" + scs.get_SourceCode(i));
+            System.out.println("Source Code Begin Line :" + scs.get_SourceCode_Begin_line(i));
         }
+        //*/
         //================================================================================================
     }
 
+    //*
+    public static ArrayList<ArrayList<Line_Block>> get_list(int Index){
+      return line_List;//.get(line_List);
+    }
+    //*/
 
     public static int get_Max_Error_num() {
-      return Max_Error_num;
+        return Max_Error_num;
     }
     //try to make excel
 
