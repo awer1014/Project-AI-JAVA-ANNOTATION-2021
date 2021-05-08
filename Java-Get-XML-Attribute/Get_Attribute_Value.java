@@ -108,7 +108,7 @@ public class Get_Attribute_Value {
 
     //*
     public static ArrayList<ArrayList<Line_Block>> get_list(int Index){
-      return line_List;//.get(line_List);
+      return line_List.get(Index);
     }
     //*/
 
