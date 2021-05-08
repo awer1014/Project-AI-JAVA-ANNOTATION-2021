@@ -2,8 +2,7 @@ import java.io.*;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.NamedNodeMap;
-public class WriteToTxt
-{
+public class WriteToTxt {
     public static void writetxt(NodeList SourceCode_List, String path, String filename) {
         try {
             Mapper map = new Mapper();
@@ -23,10 +22,10 @@ public class WriteToTxt
             }
                 NodeList SourceCode_child=SourceCode_item.getChildNodes();
             out.write(" <BOM> ");
-                for(int k=0;k<SourceCode_child.getLength();k++){
-                Node SourceCode_child_ele=SourceCode_child.item(k);            
-                if(SourceCode_child_ele.getNodeType() == Node.ELEMENT_NODE){                                        
-                    out.write(SourceCode_child_ele.getTextContent());                    
+                for(int k=0;k<SourceCode_child.getLength();k++) {
+                Node SourceCode_child_ele=SourceCode_child.item(k);
+                if(SourceCode_child_ele.getNodeType() == Node.ELEMENT_NODE) {                                        
+                    out.write(SourceCode_child_ele.getTextContent());
                 }
             }
             out.write(" <EOM> ");

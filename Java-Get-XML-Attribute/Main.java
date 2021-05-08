@@ -18,7 +18,7 @@ public class Main {
         rxf.load_Xml_file(file_name, gav);
         //=====================Test======================
         //*
-        for(int i = 0; i < gav.get_list_size(); i++){
+        for(int i = 0; i < gav.get_list_size(); i++) {
           for (int j =0; j<gav.get_list_element_size(i); j++) {
               System.out.println(gav.get_list_Error_type(i, j));
               System.out.println(gav.get_list_file_name(i, j));

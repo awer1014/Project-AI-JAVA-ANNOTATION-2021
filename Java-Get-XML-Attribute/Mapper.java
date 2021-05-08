@@ -1,8 +1,7 @@
 import java.util.*;
-public class Mapper
-{
+public class Mapper {
     Map<String, Integer> map = new HashMap<>();
-    public Mapper(){
+    public Mapper() {
         map.put("正確:正確", 1);
         map.put("變數:重複宣告變數", 2);
         map.put("變數:變數未定義無法使用", 3);
@@ -38,7 +37,7 @@ public class Mapper
         map.put("抽象:不會分離變跟不變的部分", 33);
         map.put("介面:Comparable介面", 34);
         map.put("介面:Comparable介面的排序應用", 35);
-        map.put("迴圈:迴圈概念錯誤", 36);     
+        map.put("迴圈:迴圈概念錯誤", 36);
     }
     public Integer get_Index(String key) {
         //System.out.println(key);

@@ -35,7 +35,7 @@ public class Get_Attribute_Value {
         XPath xpath = xpf.newXPath();
 
         NodeList Error_List = (NodeList) xpath.evaluate("/ErrorList/Errors/Error", doc, XPathConstants.NODESET);
-        for (int i = 0; i < Error_List.getLength(); i++){
+        for (int i = 0; i < Error_List.getLength(); i++) {
             Element Error = (Element)Error_List.item(i);
             NodeList Line_List = (NodeList) xpath.evaluate("Linelist/line", Error, XPathConstants.NODESET);
             String type = Error.getAttribute("tpye");
@@ -45,7 +45,7 @@ public class Get_Attribute_Value {
             int key = map.get_Index(type);
             Line_Block lb = new Line_Block(key);
 
-            for(int k = 0; k < Line_List.getLength(); k++){
+            for(int k = 0; k < Line_List.getLength(); k++) {
                 //String type = Error.getAttribute("tpye");
                 Element Line = (Element)Line_List.item(k);
                 //print Error Source code
@@ -89,7 +89,7 @@ public class Get_Attribute_Value {
         XPath xpath = xpf.newXPath();
         NodeList Source_Code_List = (NodeList) xpath.evaluate("/ErrorList/SourceCode_List/SourceCode", doc, XPathConstants.NODESET);
         Source_Code_Sorter scs = new Source_Code_Sorter();
-        for(int i = 0; i < Source_Code_List.getLength(); i++){
+        for(int i = 0; i < Source_Code_List.getLength(); i++) {
             //get Source Code
             Element Source = (Element)Source_Code_List.item(i);
             String Code_name = Source.getAttribute("name");
@@ -137,7 +137,4 @@ public class Get_Attribute_Value {
     public static int get_Max_Error_num() {
         return Max_Error_num;
     }
-
-    //try to make excel
-
 }
