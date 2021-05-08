@@ -39,7 +39,9 @@ public class Get_Attribute_Value {
             Element Error = (Element)Error_List.item(i);
             NodeList Line_List = (NodeList) xpath.evaluate("Linelist/line", Error, XPathConstants.NODESET);
             String type = Error.getAttribute("tpye");
-            System.out.println(type);
+            //=====================Test======================
+            //System.out.println(type);
+            //=====================Test======================
             int key = map.get_Index(type);
             Line_Block lb = new Line_Block(key);
 
@@ -107,14 +109,35 @@ public class Get_Attribute_Value {
     }
 
     //*
-    public static ArrayList<ArrayList<Line_Block>> get_list(int Index){
-      return line_List.get(Index);
+    public static String get_list_Error_type(int list_Index, int Index) {
+      return line_List.get(list_Index).get_Error_type(Index);
     }
     //*/
+
+    public static String get_list_file_name(int list_Index, int Index) {
+      return line_List.get(list_Index).get_file_name(Index);
+    }
+
+    public static int get_list_Error_begin(int list_Index, int Index) {
+      return line_List.get(list_Index).get_begin(Index);
+    }
+
+    public static int get_list_Error_end(int list_Index, int Index) {
+      return line_List.get(list_Index).get_end(Index);
+    }
+
+    public static int get_list_size() {
+      return line_List.size();
+    }
+
+    public static int get_list_element_size(int list_Index) {
+      return line_List.get(list_Index).get_error_type_length();
+    }
 
     public static int get_Max_Error_num() {
         return Max_Error_num;
     }
+
     //try to make excel
 
 }

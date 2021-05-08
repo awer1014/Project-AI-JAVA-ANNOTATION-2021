@@ -16,7 +16,15 @@ public class Main {
         Get_Attribute_Value gav = new Get_Attribute_Value();
         Read_Xml_file rxf = new Read_Xml_file();
         rxf.load_Xml_file(file_name, gav);
-        //System.out.println(line_List.get(1).get_file_name(1));
+        for(int i = 0; i < gav.get_list_size(); i++){
+          for (int j =0; j<gav.get_list_element_size(i); j++) {
+              System.out.println(gav.get_list_Error_type(i, j));
+              System.out.println(gav.get_list_file_name(i, j));
+              System.out.println(gav.get_list_Error_begin(i, j));
+              System.out.println(gav.get_list_Error_end(i, j));
+          }
+        }
+
         //need to change to sort file
         //need to make file to excle
         //w.write(file_name,atv.line_List);
