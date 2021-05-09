@@ -9,7 +9,7 @@ import java.util.*;
 public class Get_Attribute_Value {
     static int Max_Error_num = 0; //check max Error number
     private static Document doc;
-    static ArrayList<Line_Block> line_List;
+    static List<Line_Block> line_List;
 
     public static void load_Xml_file(String file_name) {
         try {
@@ -26,7 +26,7 @@ public class Get_Attribute_Value {
         }
     }
 
-    public static void get_Error_Value(String file_name, Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
+    public static void get_Error_Value( Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
         //ArrayList-->Mapper
         line_List = new ArrayList<Line_Block>();
         Mapper map = new Mapper();
@@ -83,7 +83,7 @@ public class Get_Attribute_Value {
 
 
 
-    public static void get_Source_Value(String file_name, Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
+    public static void get_Source_Value( Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
 
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
@@ -136,5 +136,8 @@ public class Get_Attribute_Value {
 
     public static int get_Max_Error_num() {
         return Max_Error_num;
+    }
+    public static List<Line_Block> get_List_Line_Block_() {
+        return line_List;
     }
 }
