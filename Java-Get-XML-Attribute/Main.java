@@ -11,8 +11,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 public class Main {
     private static String Filepath = "";
-    private static BufferedReader in = new BufferedReader(
-            new InputStreamReader(System.in));  
+    private static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));  
     //private static LoadXml lx;
     private static XmlFileSearch xfs;
     private static File inputFile;
@@ -21,16 +20,18 @@ public class Main {
     static ArrayList<ArrayList<Line_Block>> list=new ArrayList<ArrayList<Line_Block>>();
     //static ArrayList<Line_Block> line_List;
     public static void main(String[] args) {
-        /*String file_name = "323";
+        /* <----- dust switch
+        String file_name = "323";
         ExcelWriter ew = new ExcelWriter();
         Get_Attribute_Value gav = new Get_Attribute_Value();
         Read_Xml_file rxf = new Read_Xml_file();
         rxf.load_Xml_file(file_name, gav);
         list.add(gav.line_List);
-        
-        ew.write(file_name,list);*/
+
+        ew.write(file_name,list);
+        //*/// <----- dust switch
         //=====================Test======================
-        
+
         try {
             Filepath = in.readLine();
             files = xfs.getXmlFileList(Filepath);
@@ -42,19 +43,22 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        /*for(int i = 0; i < gav.get_list_size(); i++) {
-            for (int j =0; j<gav.get_list_element_size(i); j++) {
-                System.out.println(gav.get_list_Error_type(i, j));
-                System.out.println(gav.get_list_file_name(i, j));
-                System.out.println(gav.get_list_Error_begin(i, j));
-                System.out.println(gav.get_list_Error_end(i, j));
-            }
-        }*/
-        //*/
+        /* <----- dust switch
+        for(int i = 0; i < gav.get_list_size(); i++) {
+        for (int j =0; j<gav.get_list_element_size(i); j++) {
+        System.out.println(gav.get_list_Error_type(i, j));
+        System.out.println(gav.get_list_file_name(i, j));
+        System.out.println(gav.get_list_Error_begin(i, j));
+        System.out.println(gav.get_list_Error_end(i, j));
+        }
+        }
+        //*/// <----- dust switch
         //=====================Test======================
+        /* <----- dust switch
         //need to change to sort file
         //need to make file to excle
-        //w.write(file_name,atv.line_List);
-        //write(file_name,line_list)
+        w.write(file_name,atv.line_List);
+        write(file_name,line_list);
+        //*/// <----- dust switch
     }
 }
