@@ -25,5 +25,7 @@ public class Source_Code_Sorter {
     public Integer get_SourceCode_Begin_line (int key) {
         return Source_code_being_line.get(key);
     }
-
+    public int get_Array_length() {
+        return Source_Code.size();
+    }
 }

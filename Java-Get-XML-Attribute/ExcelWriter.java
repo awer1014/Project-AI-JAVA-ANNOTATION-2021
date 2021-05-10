@@ -38,15 +38,16 @@ public class ExcelWriter {
         return dataRow;
     }
 
-    public void write(String fileName, List<List<Line_Block>> list)  {
+    public void write(String fileName, ArrayList<ArrayList<Line_Block>> list,File[] files)  {
         //public void write(String fileName, ArrayList<Line_Block> list)  {
 
         createSheet();
-        //for (ArrayList<Line_Block> ls: list) {
-        for (List<Line_Block> ls : list) {
-            createCell(ls, sheet);
+        //for (ArrayList<ArrayList<Line_Block>> ls: list) {
+        for (ArrayList<Line_Block> ls : list) {
+            createCell(ls, sheet,files);
         }
         try {
+            //System.out.println("XXXXXX:" + fileName);
             File xlsFile = new File(fileName);
             workbook.write(xlsFile);
         } catch (IOException e) {
@@ -60,10 +61,12 @@ public class ExcelWriter {
         }
     }
     // 創建Excel的一行數據。
-    private void createCell(List<Line_Block>  list, HSSFSheet sheet) {
+    private void createCell(List<Line_Block>  list, HSSFSheet sheet,File[] files) {
         HSSFRow dataRow=createRow();
         int ecount = 0;
+        int id_count = 0;
         for (Line_Block lb : list) {
+            dataRow.getCell(0).setCellValue(files[id_count].getName());
             ecount++;
             int errorid = lb.key;
             dataRow.getCell(errorid).setCellValue(1);
@@ -76,7 +79,7 @@ public class ExcelWriter {
                 dataRow.getCell(begin_c).setCellValue(begin);
                 dataRow.getCell(end_c).setCellValue(end);
             }
-
+            id_count++;
         }
         //dataRow.createCell(0).setCellValue(lb.getName());
         //dataRow.createCell(1).setCellValue(lb.getScore());

@@ -17,8 +17,8 @@ public class Main {
     private static XmlFileSearch xfs;
     private static File inputFile;
     private static File[] files;
-    ExcelWriter ew = new ExcelWriter();
-    static List<List<Line_Block>> list;
+    static ExcelWriter ew = new ExcelWriter();
+    static ArrayList<ArrayList<Line_Block>> list=new ArrayList<ArrayList<Line_Block>>();
     //static ArrayList<Line_Block> line_List;
     public static void main(String[] args) {
         /*String file_name = "323";
@@ -26,10 +26,11 @@ public class Main {
         Get_Attribute_Value gav = new Get_Attribute_Value();
         Read_Xml_file rxf = new Read_Xml_file();
         rxf.load_Xml_file(file_name, gav);
-        ew.write(file_name,rxf.line_List);*/
-        ExcelWriter ew = new ExcelWriter();
+        list.add(gav.line_List);
+        
+        ew.write(file_name,list);*/
         //=====================Test======================
-        //*
+        
         try {
             Filepath = in.readLine();
             files = xfs.getXmlFileList(Filepath);
@@ -37,7 +38,7 @@ public class Main {
             Get_Attribute_Value gav = new Get_Attribute_Value();
             Read_Xml_file rxf = new Read_Xml_file();
             rxf.load_Xml_file(files,Filepath,list);
-            ew.write("test",list);
+            ew.write("test.csv",list,files);
         } catch (Exception e) {
             e.printStackTrace();
         }

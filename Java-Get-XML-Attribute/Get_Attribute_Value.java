@@ -9,8 +9,9 @@ import java.util.*;
 public class Get_Attribute_Value {
     static int Max_Error_num = 0; //check max Error number
     private static Document doc;
-    static List<Line_Block> line_List;
-
+    static ArrayList<Line_Block> line_List= new ArrayList<>();;
+    static Source_Code_Sorter scs = new Source_Code_Sorter();
+    //static ArrayList<Source_Code_Sorter> list_scs = new ArrayList<>();
     public static void load_Xml_file(String file_name) {
         try {
             //read Xml file
@@ -26,7 +27,7 @@ public class Get_Attribute_Value {
         }
     }
 
-    public static void get_Error_Value( Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
+    public static void get_Error_Value(/*String file_name,*/ Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
         //ArrayList-->Mapper
         line_List = new ArrayList<Line_Block>();
         Mapper map = new Mapper();
@@ -66,7 +67,7 @@ public class Get_Attribute_Value {
 
         //===============================================================================================
         //test Attribute output
-        /*
+        
         System.out.println("===========NEW TEST===========");
 
         for(int k = 0; k < line_List.size(); k++) {
@@ -78,12 +79,12 @@ public class Get_Attribute_Value {
             }
         }
         //================================================================================================
-        /*/
+        
     }
 
 
 
-    public static void get_Source_Value( Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
+    public static void get_Source_Value(/*String file_name,*/ Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
 
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
@@ -96,6 +97,7 @@ public class Get_Attribute_Value {
             int code_line = Integer.parseInt(Source.getAttribute("lines"));
             scs.add_SourceCode_and_line(Code_name, code_line);
         }
+        //list_scs.add(scs);
 
         //================================================================================================
         //TEST
@@ -103,11 +105,26 @@ public class Get_Attribute_Value {
         for(int i = 0; i < Source_Code_List.getLength(); i++) {
             System.out.println("Source Code :" + scs.get_SourceCode(i));
             System.out.println("Source Code Begin Line :" + scs.get_SourceCode_Begin_line(i));
-        }
-        //*/
+        }*/
+        //
         //================================================================================================
     }
-
+    public static void add_total_lines()  {
+        int begin_temp,end_temp;
+        for(int k = 0; k < line_List.size(); k++) {
+            for(int i = 0; i < line_List.get(k).get_file_name_length(); i++) {
+                for(int j=0; j<scs.get_Array_length();j++){
+                    if(line_List.get(k).get_file_name(i).equals(scs.get_SourceCode(j))){
+                        begin_temp=line_List.get(k).get_begin(i);   begin_temp+=scs.get_SourceCode_Begin_line(j);   line_List.get(k).set_begin(i,begin_temp);
+                        end_temp=line_List.get(k).get_end(i);       end_temp+=scs.get_SourceCode_Begin_line(j);line_List.get(k).set_end(i,end_temp);
+                        
+                        /*System.out.print(line_List.get(k).get_begin(i)+scs.get_SourceCode_Begin_line(j));
+                        System.out.print(line_List.get(k).get_end(i)+scs.get_SourceCode_Begin_line(j));*/
+                    }
+                }
+            }
+        }
+    }
     //*
     public static String get_list_Error_type(int list_Index, int Index) {
       return line_List.get(list_Index).get_Error_type(Index);
