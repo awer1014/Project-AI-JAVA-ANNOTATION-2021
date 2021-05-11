@@ -13,7 +13,7 @@ public class Line_Block implements Comparable {
     }
 
     public void add_Block ( String name, String Error_type, int begin, int end) {
-    //public void add_Block ( String name, int begin, int end) {
+        //public void add_Block ( String name, int begin, int end) {
         file_name.add(name);
         error_Type.add(Error_type);
         block_begin.add(begin);
@@ -35,7 +35,7 @@ public class Line_Block implements Comparable {
     public int get_begin (int Index) {
         return block_begin.get(Index);
     }
-    
+
     public void set_begin (int Index,int temp) {
         block_begin.set(Index,temp);
     }
@@ -43,7 +43,7 @@ public class Line_Block implements Comparable {
     public int get_end (int Index) {
         return block_end.get(Index);
     }
-    
+
     public void set_end (int Index,int temp) {
         block_end.set(Index,temp);
     }
@@ -61,9 +61,10 @@ public class Line_Block implements Comparable {
     }
 
     public int get_error_type_length() {
-      return error_Type.size();
+        return error_Type.size();
     }
+
     public int get_file_name_length() {
-      return file_name.size();
+        return file_name.size();
     }
 }

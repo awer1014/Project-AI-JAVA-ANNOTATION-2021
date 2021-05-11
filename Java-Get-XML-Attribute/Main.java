@@ -33,13 +33,13 @@ public class Main {
         //=====================Test======================
         
         try {
+            Read_Xml_file rxf = new Read_Xml_file();
+            Get_Attribute_Value gav = new Get_Attribute_Value();
             Filepath = in.readLine();
             files = xfs.getXmlFileList(Filepath);
             //lx.getNode(files,Filepath);
-            Get_Attribute_Value gav = new Get_Attribute_Value();
-            Read_Xml_file rxf = new Read_Xml_file();
             rxf.load_Xml_file(files,Filepath,list);
-            ew.write("test.csv",list,rxf.file_id_list);
+            //ew.write("test.csv",list,files);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -54,9 +54,10 @@ public class Main {
         }
         //*/// <----- dust switch
         //=====================Test======================
-        /* <----- dust switch
         //need to change to sort file
         //need to make file to excle
+        /* <----- dust switch
+        
         w.write(file_name,atv.line_List);
         write(file_name,line_list);
         //*/// <----- dust switch
