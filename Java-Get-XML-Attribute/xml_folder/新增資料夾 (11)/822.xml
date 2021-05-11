@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\B2\Desktop\專研\Student code\822\822.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="newMain90.java"><![CDATA[import java . util . Scanner ; 
+class TEST { 
+void X ( int x ) { 
+x = 3 ; 
+} 
+public static void main ( ) { 
+Scanner k = new Scanner ( System . in ) ; 
+int y = 0 ; 
+y = k . nextInt ( ) ; 
+double z = X ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="函數:函數結構不清楚"><Message><![CDATA[newMain90:6~6
+ ()內需String [ ] args]]></Message><Linelist><line Begin="6" End="6" src="newMain90"/></Linelist></Error><Error tpye="函數:未傳遞參數或傳回值"><Message><![CDATA[
+newMain90:3~5
+void 本身無回傳值，因此以此例而言須將此改為double型別之動作，並提供一個回傳值。
+double X ( int x ) {
+x = 3 ;
+return x ;
+}
+newMain90:10~10
+X 函數預設須提供一個型別為int 的值進行傳遞，以此例而言須傳遞 y 。
+double z = X ( y ) ;
+]]></Message><Linelist><line Begin="3" End="5" src="newMain90"/><line Begin="10" End="10" src="newMain90"/></Linelist></Error></Errors></ErrorList>

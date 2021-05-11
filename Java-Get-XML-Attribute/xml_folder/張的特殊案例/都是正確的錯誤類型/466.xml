@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="466">
+	
+<SourceCode_List><SourceCode lines="48" name="Keeper.java"><![CDATA[import java.util.Scanner;
+class Keeper
+    {
+       String id;
+       String tel;
+    Keeper(String id,  String tel)
+        {
+        this.id=id;
+        this.tel=tel;
+        
+        }
+   void display()
+        {
+        System.out.println("飼主身分證字號:"+this.id);
+        System.out.println("飼主電話："+tel);
+        
+        }
+   
+    static public void main(String[] args)
+   {    
+       String a1,a2,a3,a4,a5;
+        
+        for(int i=0;i<100;i++)
+        {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("請輸入寵物種類:");
+        a1=scanner.nextLine(); 
+        System.out.println("請輸入寵物編號:");
+        a2=scanner.nextLine(); 
+        System.out.println("請輸入寵物名稱:");
+        a3=scanner.nextLine(); 
+        System.out.println("請輸入飼主身分證字號:");
+        a4=scanner.nextLine(); 
+        System.out.println("請輸入飼主電話:");
+        a5=scanner.nextLine(); 
+        pet K=new pet(a2,a3,a1);
+        Keeper S=new Keeper(a4,a5);
+		K.keeper = S;
+        K.display();
+        S.display();
+        K.speak();
+        int r=K.A();
+        System.out.println("總共"+r+"+隻寵物！");
+        }
+       
+   }
+}
+]]></SourceCode><SourceCode lines="50" name="pet.java"><![CDATA[ class pet
+    {
+        static int count;
+        String pid;
+        String name;
+        String type;
+		Keeper keeper;
+  pet(String pid, String name, String type, Keeper keeper)
+        {
+        this.pid=pid;
+        this.name=name;
+        this.type=type;
+        this.keeper = keeper;
+        count++;
+        
+        }
+        int A()
+        {
+        
+        return count;
+        }
+   void speak()
+    {
+        if(this.type.equals("貓"))
+        {
+        System.out.println("喵喵");
+        
+        }
+        else if(this.type.equals("狗"))
+        {
+        System.out.println("汪汪");
+        
+        }
+        
+        
+     }
+     void display() 
+     {
+        System.out.println("編號"+this.pid+"名稱"+this.name+"種類"+this.type);
+        keeper.display();
+        
+    }
+    static public void main(String[] args)
+   {
+     
+       
+       
+   }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="Keeper"/><line Begin="-1" End="-1" src="pet"/></Linelist></Error></Errors></ErrorList>

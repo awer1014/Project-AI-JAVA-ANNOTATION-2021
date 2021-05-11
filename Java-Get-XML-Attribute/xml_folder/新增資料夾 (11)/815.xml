@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="F:\個人資料夾\專研\check correct\815\815.xml">
+	
+<SourceCode_List><SourceCode lines="14" name="B0.java"><![CDATA[import java . util . Scanner ; 
+class TEST { 
+int X ( int x ) { 
+x = 3 ; 
+return x ; 
+} 
+public static void main ( String [ ] args ) { 
+Scanner k = new Scanner ( System . in ) ; 
+int y = 0 ; 
+y = k . nextInt ( ) ; 
+double z = X ( y ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[ok]]></Message><Linelist><line Begin="-1" End="-1" src="B0"/></Linelist></Error></Errors></ErrorList>

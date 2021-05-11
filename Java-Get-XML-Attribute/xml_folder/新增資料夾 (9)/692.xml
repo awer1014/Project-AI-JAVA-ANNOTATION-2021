@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="692">
+	
+<SourceCode_List><SourceCode lines="33" name="Keeper.java"><![CDATA[import java . util . Scanner ; 
+public class Keeper { 
+String id ; 
+String tel ; 
+void display ( ) { 
+System . out . println ( "Keeper's id: " + id ) ; 
+System . out . println ( "Keeper's tel: " + tel ) ; 
+} 
+Keeper ( String i , String t ) { 
+id = i ; 
+tel = t ; 
+} 
+public static void main ( ) { 
+Scanner scanner = new Scanner ( System . in ) ; 
+System . out . println ( "Please enter the pet's type: " ) ; 
+String Pt = scanner . nextLine ( ) ; 
+while ( Pt != 0 ) 
+{ 
+System . out . println ( "Please enter the pet's pid: " ) ; 
+String p = scanner . nextLine ( ) ; 
+System . out . println ( "Please enter the pet's name: " ) ; 
+String n = scanner . nextLine ( ) ; 
+System . out . println ( "Please enter the keeper's id: " ) ; 
+String i = scanner . nextLine ( ) ; 
+System . out . println ( "Please enter the keeper's tel: " ) ; 
+String t = scanner . nextLine ( ) ; 
+Keeper k = new Keeper ( i , t ) ; 
+Pet p = new Pet ( p , n , Pt , k ) ; 
+p . display ( ) ; 
+} 
+} 
+} 
+]]></SourceCode><SourceCode lines="26" name="Pet.java"><![CDATA[import java . util . Scanner ; 
+public class Pet { 
+public static int count = 0 ; 
+public String pid ; 
+public String name ; 
+public String type ; 
+Keeper keeper ; 
+void speak ( ) { 
+if ( type . equals ( "0" ) ) System . out . println ( "Pet's speak: " + "喵喵" ) ; 
+else System . out . println ( "Pet's speak: " + "汪汪" ) ; 
+} 
+void display ( ) { 
+System . out . println ( "Pet's pid: " + pid ) ; 
+System . out . println ( "Pet's name: " + name ) ; 
+System . out . println ( "Pet's type: " + type ) ; 
+keeper . display ( ) ; 
+} 
+Pet ( String p , String n , String t , Keeper keeper ) { 
+pid = p ; 
+name = n ; 
+type = t ; 
+this . keeper = keeper ; 
+count ++ ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA[Keeper:17~17
+JAVA字串比較使用equals函數較為通用
+while ( Pt.equals ( "0" ) == false ) 
+]]></Message><Linelist><line Begin="17" End="17" src="Keeper"/></Linelist></Error><Error tpye="變數:重複宣告變數"><Message><![CDATA[Keeper:20~20,Keeper:28~28
+變數p重複宣告]]></Message><Linelist><line Begin="20" End="20" src="Keeper"/><line Begin="28" End="28" src="Keeper"/></Linelist></Error></Errors></ErrorList>

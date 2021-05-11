@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\code\全部\新增資料夾 (5)\390.xml">
+	
+<SourceCode_List><SourceCode lines="27" name="KKBOX.java"><![CDATA[public class KKBOX{
+    static double length=1 , width=2 , height=3,a1,a2;
+    public double volume=length * width * height;
+    public double surfaceArea=2 *(length*width + width* height + height * length);
+    public double getvolume(){return volume;}
+    public double getsurfaceArea(){return surfaceArea;}
+    public void setvolume(double volume){
+        this.volume=volume;
+    }
+    
+    public void setsurfaceArea(double surfaceArea){
+        this.surfaceArea=surfaceArea;
+    }
+    
+     public static void main(String[] args)
+    {
+        double length = Double.parseDouble(args[0]);
+        double width = Double.parseDouble(args[1]);
+        double height = Double.parseDouble(args[2]);
+        KKBOX TKKBOX=new KKBOX();
+        System.out.println("��n = " + TKKBOX.getvolume());
+        System.out.println("���n = " + TKKBOX.getsurfaceArea());
+    }
+
+}
+
+   ]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[並非為建構子，不能使用this]]></Message><Linelist><line Begin="7" End="8" src="KKBOX"/><line Begin="11" End="13" src="KKBOX"/></Linelist></Error></Errors></ErrorList>

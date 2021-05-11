@@ -21,7 +21,7 @@ public class ExcelWriter {
         }
         //create Row for error gegin and error end
         for(int i = 1;i <= 6; i++){
-            for(int k = 1;k <= 5; k++){
+            for(int k = 1;k <= 16; k++){
                 headRow.createCell(36+(i-1)*10+k).setCellValue("block_er"+i+"_b"+k);
                 headRow.createCell(36+(i-1)*10+k+1).setCellValue("block_er"+i+"_e"+k);
             }
@@ -66,8 +66,10 @@ public class ExcelWriter {
         int ecount = 0;
         int id_count = 0;
         for (Line_Block lb : list) {
-            dataRow.getCell(0).setCellValue(files[id_count].getName());
+            String [] tokens=files[id_count].getName().split(".xml",2);
+            dataRow.getCell(0).setCellValue(tokens[0]);
             ecount++;
+            id_count++;
             int errorid = lb.key;
             dataRow.getCell(errorid).setCellValue(1);
             int pos = 36+(ecount-1)*10;
@@ -79,7 +81,7 @@ public class ExcelWriter {
                 dataRow.getCell(begin_c).setCellValue(begin);
                 dataRow.getCell(end_c).setCellValue(end);
             }
-            id_count++;
+            
         }
         //dataRow.createCell(0).setCellValue(lb.getName());
         //dataRow.createCell(1).setCellValue(lb.getScore());

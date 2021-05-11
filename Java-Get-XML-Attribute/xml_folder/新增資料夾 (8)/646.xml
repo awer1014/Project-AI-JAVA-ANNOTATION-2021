@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="646">
+	
+<SourceCode_List><SourceCode lines="24" name="newrandom0.java"><![CDATA[import java . util . Random ; 
+import java . util . List ; 
+import java . util . ArrayList ; 
+public class random { 
+public static void main ( String [ ] args ) { 
+String x = "春夏秋冬" ; 
+ArrayList < Integer > myList1 = new ArrayList < Integer > ( ) ; 
+ArrayList < Integer > myList2 = new ArrayList < Integer > ( ) ; 
+for ( int i = 0 ; 
+i < 4 ; 
+++ i ) 
+{ 
+myList1 . add ( i + 1 ) ; 
+} 
+while ( myList2 . size ( ) < 4 ) 
+{ 
+Integer ran = new Random ( ) . nextInt ( 4 ) ; 
+if ( myList2 . indexof ( myList1 . get ( ran ) ) < 0 ) { 
+myList2 . add ( myList1 . get ( ran ) ) ; 
+} 
+} 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:筆誤"><Message><![CDATA[indexof 應改為indexOf]]></Message><Linelist><line Begin="18" End="18" src="newrandom0"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\code\546\546.xml">
+	
+<SourceCode_List><SourceCode lines="21" name="Chineseletter.java"><![CDATA[public class Chineseletter{
+    public class static void main(Stirng[] args)
+    {
+     Object title= new title("教授");
+     Object receiver= new receiver("王");
+     Object content= new content( "很高興跟您連絡");
+     Object sender= new sender("銘哥");
+     Object date= new date("2019/01/05");
+     String getSender(sender);
+     
+     Chineseletter=new chineseletter(String title, String receiver, String sender, String date)
+     
+    
+    Chineseletter lt = new Chineseletter ("教授", "王", "很高興跟您連絡", "銘哥", "2019/01/05");
+        
+        
+    It.display();
+  
+
+     }
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:正確的產生物件"><Message><![CDATA[Chineseletter:1~2
+應先產生物件
+private String title,recevier,content,sender,date]]></Message><Linelist><line Begin="1" End="2" src="Chineseletter"/></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message><![CDATA[Chineseletter:1~2
+產生物件後需要正確使用物件資料
+public ChineseLetter(String title,String receiver,String content,String sender,String date)
+{
+this.title = title;
+this.receiver = receiver;
+this.content = content;
+this.sender = sender;
+this.date = date;
+}
+public String getReceiver()
+{
+return receiver;
+}
+public String getSender()
+{
+return sender;
+}
+public String getDate()
+{
+return date;
+}
+以及物件動作
+public void display()
+{
+System.out.printIn(receiver + " "  + title + ",您好");
+System.out.printIn(content);
+System.out.printIn(sender + " 敬上");
+System.out.printIn(date);
+}]]></Message><Linelist><line Begin="1" End="2" src="Chineseletter"/></Linelist></Error></Errors></ErrorList>

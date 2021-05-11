@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\題目\student_codes\done\447_pet\447.xml">
+	
+<SourceCode_List><SourceCode lines="17" name="Keeper.java"><![CDATA[
+public class Keeper
+{
+    private String id;
+    private String tel;
+    public Keeper(String id,String tel)
+    {
+        this.id=id;
+        this.tel=tel;
+    }
+    public void display()
+    {
+        System.out.println("身分證字號:"+id);
+        System.out.println("電話:"+tel);
+    }
+}
+]]></SourceCode><SourceCode lines="27" name="Pet.java"><![CDATA[public class Pet
+{
+    static int count;
+    private String pid;
+    private String name;
+    private String type;
+    public Pet(String pid,String name,String type)
+    {
+        this.pid=pid;
+        this.name=name;
+        this.type=type;
+    }
+    public void speak()
+    {
+        if(type.equals("狗"))
+            System.out.println("汪汪");
+        if(type.equals("貓"))
+            System.out.println("喵喵");
+    }
+    public void display()
+    {
+        System.out.println("編號:"+pid);
+        System.out.println("名稱:"+name);
+        System.out.println("種類:"+type);
+    }
+}
+]]></SourceCode><SourceCode lines="26" name="test.java"><![CDATA[import java.util.Scanner;
+public class test
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        while(true)
+        {
+            System.out.println("請輸入寵物種類:");
+            String s=sc.nextLine();
+            if(s.equals("0"))
+                break;
+            System.out.println("請輸入寵物編號:");
+            String sp=sc.nextLine();
+            System.out.println("請輸入寵物名稱:");
+            String sn=sc.nextLine();
+            System.out.println("請輸入飼主身分證字號:");
+            String se=sc.nextLine();
+            System.out.println("請輸入飼主電話:");
+            String st=sc.nextLine();
+            System.out.println("-------------------------------------");
+        }
+        System.out.println("您輸入的是:");
+    }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:建立物件之間的關係"><Message><![CDATA[因為寵物最多被一個飼主飼養，
+所以要在Pet新增一個物件資料 keeper kp;]]></Message><Linelist><line Begin="6" End="6" src="Pet"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[產生物件的語法是-
+     類別名稱 物件變數 = new 類別名稱(參數)
+Keeper keeper = new Keeper(se,st);
+Pet pet= new Pet (s,sp,sn,keeper);]]></Message><Linelist><line Begin="6" End="6" src="Keeper"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="633">
+	
+<SourceCode_List><SourceCode lines="27" name="KKBox.java"><![CDATA[import java.util.Scanner;
+public class KKBox
+{   double length;double width; double height;
+     
+    double volume()
+    {    return length*width*height;
+    }
+     double surfaceArea()
+   {   return 2*(length*width + width* height + height * length);
+    }
+    
+   public static void main(String[] args){
+     
+     Scanner scanner= newScanner(System.in);  
+     System.out.println("請輸入長:");
+     length=scanner.nextDouble();
+     System.out.println("請輸入寬:");
+     width=scanner.nextDouble();
+     System.out.println("請輸入高:");
+     height=scanner.nextDouble();
+     KKBox vol = new 
+     KKBox sur = new
+     system.out.println("體積："+ vol.volume());
+     system.out.println("表面積："+sur.surfaceArea()); 
+    }  
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:關鍵字錯誤"><Message><![CDATA[new 和 Scanner(System in)之間要空格 Scanner scanner= new Scanner(System.in);  ]]></Message><Linelist><line Begin="14" End="14" src="KKBox"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[應改為 KKBox bb = KKBox(); bb.x=length; bb.y = width; bb.z=height;  system.out.println("體積"+bb.volume()); system.out.println("表面積："+bb.surfaceArea()); ]]></Message><Linelist><line Begin="21" End="24" src="KKBox"/></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message><![CDATA[應改為 KKBox bb = KKBox(); bb.x=length; bb.y = width; bb.z=height;  system.out.println("體積"+bb.volume()); system.out.println("表面積："+bb.surfaceArea()); ]]></Message><Linelist><line Begin="21" End="24" src="KKBox"/></Linelist></Error></Errors></ErrorList>

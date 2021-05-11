@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="522">
+	
+<SourceCode_List><SourceCode lines="31" name="522-10.java"><![CDATA[import java . util . Scanner ; 
+public class Evaluation { 
+public static void main ( String [ ] args ) { 
+int num ; 
+String id ; 
+String name ; 
+double grade ; 
+double gp ; 
+Scanner scanner = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入種類  1(測驗), 2(作業), 3(心得報告): " ) ; 
+num = scanner . nextInt ( ) ; 
+System . out . println ( "請輸入學生學號: " ) ; 
+id = scanner . next ( ) ; 
+System . out . println ( "請輸入學生姓名: " ) ; 
+name = scanner . next ( ) ; 
+System . out . println ( "請輸入成績: " ) ; 
+grade = scanner . nextInt ( ) ; 
+System . out . println ( "請輸入成績比重: " ) ; 
+gp = scanner . nextDouble ( ) ; 
+System . out . println ( "您輸入的是: " ) ; 
+if ( num == 1 ) System . out . println ( "種類:測驗" ) ; 
+else if ( num == 2 ) System . out . println ( "種類:作業" ) ; 
+else if ( num == 3 ) System . out . println ( "種類:心得報告" ) ; 
+else System . out . println ( "無" ) ; 
+System . out . println ( "學生學號:" + id ) ; 
+System . out . println ( "學生姓名:" + name ) ; 
+System . out . println ( "成績: " + grade ) ; 
+System . out . println ( "成績比重: " + gp ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="9" name="522-20.java"><![CDATA[public class hw extends Evaluation { 
+String id ; 
+String name ; 
+double grade ; 
+double gp ; 
+String date ; 
+String description ; 
+} 
+]]></SourceCode><SourceCode lines="9" name="522-30.java"><![CDATA[public class report extends Evaluation { 
+String id ; 
+String name ; 
+double grade ; 
+double gp ; 
+String sth ; 
+String data ; 
+} 
+]]></SourceCode><SourceCode lines="10" name="exam.java"><![CDATA[public class exam extends Evaluation
+{
+    String id;
+    String name;
+    double grade;
+    double gp;
+    
+    System.out.println("請輸入考試日期: ");
+    System.out.println("請輸入考試範圍: ");
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:不熟悉JAVA程式結構"><Message><![CDATA[System.out.println("請輸入考試日期: ");
+與
+System.out.println("請輸入考試範圍: ");
+都要刪除，第一層不能出現執行的命令]]></Message><Linelist><line Begin="8" End="9" src="exam"/></Linelist></Error><Error tpye="繼承:使用繼承"><Message><![CDATA[第8行後面可以加入
+Evaluation(String id String name, double grade,double gp){
+        this.id = id;
+        this.name = name;
+        this.grade = grade;
+        this.gp = gp;
+    }]]></Message><Linelist><line Begin="4" End="8" src="10"/><line Begin="2" End="7" src="20"/><line Begin="2" End="7" src="30"/><line Begin="3" End="6" src="exam"/></Linelist></Error></Errors></ErrorList>

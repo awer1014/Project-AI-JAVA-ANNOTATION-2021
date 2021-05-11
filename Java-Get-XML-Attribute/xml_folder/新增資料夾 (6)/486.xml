@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\code\全部\新增資料夾 (6)\486.xml">
+	
+<SourceCode_List><SourceCode lines="91" name="4860.java"><![CDATA[public class Pet { 
+
+int count = 2 ; 
+
+int n ; 
+
+String pid ; 
+
+String name ; 
+
+String type ; 
+
+void speak ( String name ) { 
+
+if ( cat ) { 
+
+return 喵喵 ; 
+
+} 
+
+else if ( dog ) { 
+
+return 汪汪 ; 
+
+} 
+
+} 
+
+void display ( String pid , String name , String type ) { 
+
+pid = p ; 
+
+name = n ; 
+
+type = t ; 
+
+} 
+
+Pet ( String pid , String name , String type ) { 
+
+pid = p ; 
+
+name = n ; 
+
+type = t ; 
+
+} 
+
+} 
+
+public class Keeper { 
+
+String id ; 
+
+String tel ; 
+
+void display ( String id , String tel ) { 
+
+String id = id ; 
+
+String tel = tel ; 
+
+} 
+
+Keeper ( String id , String tel ) { 
+
+String id ; 
+
+string tel ; 
+
+} 
+
+public static void main ( String [ ] args ) { 
+
+System . out . println ( "type:" + type ) ; 
+
+System . out . println ( "pid:" + pid ) ; 
+
+System . out . println ( "name:" + name ) ; 
+
+System . out . println ( "id:" + id ) ; 
+
+System . out . println ( "tel:" + tel ) ; 
+
+System . out . println ( "speak:" + speak ) ; 
+
+} 
+
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:建立物件之間的關係"><Message><![CDATA[Keeper 需要寫在另一個Class。]]></Message><Linelist><line Begin="26" End="36" src="4860"/></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[只需寫
+Pet ( String pid , String name , String type ) { 
+this.pid=pid;
+this.name=name;
+this.type=type;
+}]]></Message><Linelist><line Begin="15" End="24" src="4860"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\標註錯誤檔案\new\xml錯誤\465.xml">
+	
+<SourceCode_List><SourceCode lines="57" name="465-20.java"><![CDATA[class pet { 
+
+private int count ; 
+
+String pid ; 
+
+String name ; 
+
+String type ; 
+
+pet ( String pid , String name , String type ) { 
+
+this . pid = pid ; 
+
+this . name = name ; 
+
+this . type = type ; 
+
+count ++ ; 
+
+} 
+
+int A ( ) { 
+
+return count ; 
+
+} 
+
+void speak ( ) { 
+
+if ( this . type == "貓" ) { 
+
+System . out . println ( "喵喵" ) ; 
+
+} 
+
+else if ( this . type == "狗" ) { 
+
+System . out . println ( "汪汪" ) ; 
+
+} 
+
+} 
+
+void display ( ) { 
+
+System . out . println ( "編號" + this . pid + "名稱" + this . name + "種類" + this . type ) ; 
+
+} 
+
+public static void main ( String [ ] args ) { 
+
+} 
+
+} 
+
+]]></SourceCode><SourceCode lines="79" name="465-10.java"><![CDATA[import java . util . Scanner ; 
+
+class Keeper { 
+
+String id ; 
+
+String tel ; 
+
+Keeper ( String id , String tel ) { 
+
+this . id = id ; 
+
+this . tel = tel ; 
+
+} 
+
+void display ( ) { 
+
+System . out . println ( "飼主身分證字號:" + this . id ) ; 
+
+System . out . println ( "飼主電話：" + tel ) ; 
+
+} 
+
+public static void main ( String [ ] args ) { 
+
+String a1 , a2 , a3 , a4 , a5 ; 
+
+for ( int i = 0 ; 
+
+i < 100 ; 
+
+i ++ ) 
+
+{ 
+
+Scanner scanner = new Scanner ( System . in ) ; 
+
+System . out . println ( "請輸入寵物種類:" ) ; 
+
+a1 = scanner . nextLine ( ) ; 
+
+System . out . println ( "請輸入寵物編號:" ) ; 
+
+a2 = scanner . nextLine ( ) ; 
+
+System . out . println ( "請輸入寵物名稱:" ) ; 
+
+a3 = scanner . nextLine ( ) ; 
+
+System . out . println ( "請輸入飼主身分證字號:" ) ; 
+
+a4 = scanner . nextLine ( ) ; 
+
+System . out . println ( "請輸入飼主電話:" ) ; 
+
+a5 = scanner . nextLine ( ) ; 
+
+pet K = new pet ( a2 , a3 , a1 ) ; 
+
+Keeper S = new Keeper ( a4 , a5 ) ; 
+
+K . display ( ) ; 
+
+S . display ( ) ; 
+
+K . speak ( ) ; 
+
+int r = K . A ( ) ; 
+
+System . out . println ( "總共" + r + "+隻寵物！" ) ; 
+
+} 
+
+} 
+
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA["==" 需要使用 equals]]></Message><Linelist><line Begin="37" End="37" src="20"/><line Begin="31" End="31" src="20"/></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message><![CDATA[pet物件類需要有一個物件資料，類型是Keeper以表示
+pet物件的Keeper是誰。
+可在第5行下加入private Keeper keeper;
+並且在pet ( String pid , String name , String type )的括弧裡加入 Keeper keeper;]]></Message><Linelist><line Begin="2" End="21" src="20"/></Linelist></Error></Errors></ErrorList>

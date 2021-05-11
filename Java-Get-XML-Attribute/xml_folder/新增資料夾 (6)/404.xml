@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\code\全部\新增資料夾 (6)\404.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="length.java"><![CDATA[public class length{
+	double a,b,c;
+	Length(double x,double y,double z){this.a=x;this.b=y;this.c=z;)
+	 volume(){return a*b;}
+	double surfaceArea(){return 2*a+2*b+2*c;}
+	}
+}
+public static void main(String[]args){
+	Length len1=new Length(double a,double b,double c);
+	System.out.println(a);
+	System.out.println(b);
+	System.out.println(c);
+	System.out.println(len1.volume);
+	System.out.println(len1.surfaceArea);
+	
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:撰寫main函式"><Message><![CDATA[main函式要寫在類別裡面]]></Message><Linelist><line Begin="7" End="7" src="length"/></Linelist></Error><Error tpye="函數:函數結構不清楚"><Message><![CDATA[宣告函數必須給回傳值型態
+物件也應該要給參數
+double volume(參數){return a*b;}]]></Message><Linelist><line Begin="4" End="4" src="length"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[沒宣告物件動作]]></Message><Linelist><line Begin="3" End="5" src="length"/><line Begin="9" End="9" src="length"/><line Begin="9" End="9" src="length"/></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message><![CDATA[物件動作要加上()]]></Message><Linelist><line Begin="13" End="14" src="length"/></Linelist></Error></Errors></ErrorList>

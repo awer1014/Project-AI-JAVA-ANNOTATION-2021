@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\標註錯誤檔案\new\xml正確\455.xml">
+	
+<SourceCode_List><SourceCode lines="37" name="OK.java"><![CDATA[import java.util.Scanner;
+public class OK
+{
+    static int WC(String a,String w)
+    {
+        int count=0;
+        for(int i=0;i<a.length();i++)
+        {
+         String as=a.substring(i,i+w.length());
+         if(as.equals(w))count++;
+        
+        }
+        return count;
+    }
+    
+    static int Count(String a)
+    { 
+        return a.length();
+    
+    }
+    
+    public static void main(String[] args)
+    {   
+        String num1;
+        String[] s={"0","1","2","3","4","5","6","7","8","9"};
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("請輸入數字：");
+        num1 = scanner.next();
+        System.out.println("輸入的數字長度："+Count(num1));
+        for(int k=0;k<10;k++)
+           {
+              System.out.println("數字："+s[k]+" 次數："+WC(num1,s[k])); 
+           }
+    
+    
+    }
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="OK"/></Linelist></Error></Errors></ErrorList>

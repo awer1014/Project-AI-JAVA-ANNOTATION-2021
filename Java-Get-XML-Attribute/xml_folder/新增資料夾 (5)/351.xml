@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\351.xml">
+	
+<SourceCode_List><SourceCode lines="33" name="newKKBox0.java"><![CDATA[public class KKBox { 
+
+int L ; 
+
+int W ; 
+
+int H ; 
+
+static int Test ( int volume ) { 
+
+ans = 1 ; 
+
+ans = L * W * H ; 
+
+return ans ; 
+
+} 
+
+public static void main ( String [ ] args ) { 
+
+L = 1 ; 
+
+W = 2 ; 
+
+H = 3 ; 
+
+System . out . println ( "volume:" + volume ( ans ) ) ; 
+
+} 
+
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="函數:函數概念不清楚"><Message><![CDATA[含數未宣告,
+請先宣告該函數.
+例如:
+int 函數名稱(參數){
+}]]></Message><Linelist><line Begin="27" End="27" src="newKKBox0"/></Linelist></Error><Error tpye="函數:未傳遞參數或傳回值"><Message><![CDATA[函數內未宣告參數值,
+請宣告該傳遞參數.
+int a = 1;
+函數(a);
+]]></Message><Linelist><line Begin="27" End="27" src="newKKBox0"/></Linelist></Error><Error tpye="物件:不會使用物件資料"><Message><![CDATA[物件資料必須宣告成static
+例如:
+static n = 1;]]></Message><Linelist><line Begin="3" End="3" src="newKKBox0"/><line Begin="5" End="5" src="newKKBox0"/><line Begin="7" End="7" src="newKKBox0"/></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message><![CDATA[變數未定義,
+請先宣告該變數.
+例如:
+int a = 1;]]></Message><Linelist><line Begin="11" End="11" src="newKKBox0"/></Linelist></Error></Errors></ErrorList>

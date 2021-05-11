@@ -2,4 +2,6 @@
 comment0.target=Read_Xml_file
 comment1.params=files\ path\ list
 comment1.target=void\ load_Xml_file(java.io.File[],\ java.lang.String,\ java.util.ArrayList)
-numComments=2
+comment2.params=max\ num
+comment2.target=int\ max_num(int,\ int)
+numComments=3

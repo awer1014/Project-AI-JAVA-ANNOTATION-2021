@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\83.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="ChineseLetter.java"><![CDATA[public class ChineseLetter extends Letter { 
+public ChineseLetter ( String a , String b , String c , String d , String e ) { 
+super ( a , b , c , d , e ) ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + title + ",您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + "敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="13" name="EnglishLetter.java"><![CDATA[public class EnglishLetter extends Letter { 
+public EnglishLetter ( String a , String b , String c , String d , String e ) { 
+super ( a , b , c , d , e ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + title + " " + receiver + "," ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="16" name="Letter.java"><![CDATA[public abstract class Letter { 
+public static String title ; 
+public static String receiver ; 
+public static String content ; 
+public static String sender ; 
+public static String date ; 
+public Letter ( String a , String b , String c , String d , String e ) { 
+title = a ; 
+receiver = b ; 
+content = c ; 
+sender = d ; 
+date = e ; 
+} 
+abstract public void display ( ) ; 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確]]></Message><Linelist><line Begin="-1" End="-1" src="ChineseLetter"/></Linelist></Error></Errors></ErrorList>

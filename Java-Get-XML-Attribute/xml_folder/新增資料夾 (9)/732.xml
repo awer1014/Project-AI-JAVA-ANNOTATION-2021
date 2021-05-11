@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="732">
+	
+<SourceCode_List><SourceCode lines="57" name="input.java"><![CDATA[import java . util . Scanner ; 
+class input { 
+static int count = 0 ; 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+public void print ( ) { 
+for ( int i = 0 ; 
+i < count ; 
+i ++ ) 
+{ 
+System . out . println ( "---------------------------------------" ) ; 
+System . out . println ( "你的輸入是 ：" ) ; 
+System . out . println ( "寵物種類 ：" ) ; 
+list . gettyper ( ) ; 
+System . out . println ( "寵物編號：" ) ; 
+list . getpid ( ) ; 
+System . out . println ( "寵物名稱 ：" ) ; 
+list . getname ( ) ; 
+System . out . println ( "飼主身份證字號 ：" ) ; 
+list . getid ( ) ; 
+System . out . println ( "飼主電話：" ) ; 
+list . gettel ( ) ; 
+System . out . println ( "你的寵物的叫聲：" ) ; 
+list . speak ( ) ; 
+System . out . println ( "總共有" + count + "隻寵物" ) ; 
+} 
+} 
+public static void main ( String [ ] args ) { 
+keeper list1 [ ] = new keepr [ 100 ] ; 
+pet list2 [ ] = new keeper [ 100 ] ; 
+String kind ; 
+for ( int i = 0 ; 
+i < 100 ; 
+i ++ ) 
+{ 
+System . out . println ( "請輸入寵物種類" ) ; 
+String type = keyboard . nextLine ( ) ; 
+while ( kind == "0" ) 
+{ 
+print ( ) ; 
+return ; 
+} 
+print ( ) ; 
+System . out . println ( "請輸入寵物編號" ) ; 
+String pid = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱" ) ; 
+String name = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入飼主身分證字號" ) ; 
+String id = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入飼主電話" ) ; 
+String tel = keyboard . nextLine ( ) ; 
+list1 [ i ] = new keeper ( id , tel ) ; 
+list2 [ i ] = new pet ( pid , name , type ) ; 
+count ++ ; 
+} 
+} 
+}
+]]></SourceCode><SourceCode lines="19" name="keeper.java"><![CDATA[class keeper { 
+String id ; 
+String tel ; 
+public keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+public void display ( ) { 
+System . out . print ( "身分證字號" + id ) ; 
+System . out . print ( "電話" + tel ) ; 
+} 
+public String getid ( ) { 
+return id ; 
+} 
+public String gettel ( ) { 
+return tel ; 
+} 
+}
+]]></SourceCode><SourceCode lines="28" name="pet.java"><![CDATA[class pet { 
+String pid ; 
+String name ; 
+String type ; 
+public pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+public void speak ( ) { 
+if ( type == "狗" ) { 
+System . out . println ( " 汪汪 " ) ; 
+} 
+else { 
+System . out . println ( " 喵喵 " ) ; 
+} 
+} 
+public String gettype ( ) { 
+return type ; 
+} 
+public String getpid ( ) { 
+return pid ; 
+} 
+public String getname ( ) { 
+return name ; 
+} 
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:筆誤"><Message><![CDATA[input:29~29
+pet list2 [ ] = new pet [ 100 ] ; ]]></Message><Linelist><line Begin="29" End="29" src="input"/></Linelist></Error><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA[pet:11~11
+JAVA字串比較使用equals函數較為通用
+if ( type.equals ( "狗" ) ) {]]></Message><Linelist><line Begin="11" End="11" src="pet"/></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message><![CDATA[pet:4~5
+應使用物件資料keeper keeper把寵物及飼主的關係建立起來
+String type ; 
+keeper keeper;
+public pet ( String pid , String name , String type ) { 
+
+pet:5~9
+在建構子內新增keeper參數來告知寵物的飼主是誰
+將這個物件的keeper設計成傳進來的keeper資料
+public pet ( String pid , String name , String type ) {   
+    this.pid = pid;
+    this.name = name;
+    this.type = type;
+    this.keeper = keeper;
+}
+
+input:52~52
+在建構子內新增keeper參數來告知寵物的飼主是誰
+list2[i] = new pet(pid, name, type, list1[i]);]]></Message><Linelist><line Begin="4" End="5" src="pet"/><line Begin="5" End="9" src="ipet"/><line Begin="52" End="52" src="input"/></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message><![CDATA[input:13~13,input:15~15,input:17~17,input:19~19,input:21~21,input:23~23
+list 變數沒有定義無法使用，可修改第5列程式，帶入兩個參數 list1, list2
+public void print ( keeper[] list1, pet[] list2 ) { 
+同時將第13, 15, 17, 23列的 list 變數改成 list2[i]
+同時將第19, 21列的 list 變數改成 list1[i]]]></Message><Linelist><line Begin="13" End="13" src="input"/><line Begin="15" End="15" src="input"/><line Begin="17" End="17" src="input"/><line Begin="19" End="19" src="input"/><line Begin="21" End="21" src="input"/><line Begin="23" End="23" src="input"/></Linelist></Error></Errors></ErrorList>

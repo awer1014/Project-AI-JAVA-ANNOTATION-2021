@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\435_test\435.xml">
+	
+<SourceCode_List><SourceCode lines="35" name="Test.java"><![CDATA[import java.util.Scanner;
+public class Test{
+boolean test(int num){
+    if(num<0||num>999999999999999999){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+public static void main(String[]args){
+    Test t=new Test();
+    Scanner input=new Scanner(System.in);
+    System.out.println("輸入0-999999999999999999整數");
+
+        while(true){
+            int num=input.nextInt();
+            int count=0;
+            if(num==0){
+                System.out.println("");
+            }
+            else if(r.rest(num)){
+                System.out.println("");
+            }
+            else{
+                while(num>0){
+                    num/=10;
+                    count;
+                }
+                System.out.println("輸入的數字長度為:");
+            }
+   
+   
+
+]]></SourceCode><SourceCode lines="27" name="Test2.java"><![CDATA[public class Test2
+{
+  int wordCount(String aString,String word){
+      int temp=0;
+        for(int i=0;i<aString.length()-word.length()+1;i++){
+            String tmp=aString.substring(i,i+word.length());
+            if(tmp.equals(word))
+               temp++;
+            }
+        return temp;
+    }
+    public static void main(String[]args){
+        String aString=args[0];
+        String word=args[1];
+        System.out.println("數字0出現次數:"+temp+
+                           "數字1出現次數:"+temp+
+                           "數字2出現次數:"+temp+
+                           "數字3出現次數:"+temp+
+                           "數字4出現次數:"+temp+
+                           "數字5出現次數:"+temp+
+                           "數字6出現次數:"+temp+
+                           "數字7出現次數:"+temp+
+                           "數字8出現次數:"+temp+
+                           "數字9出現次數:"+temp);
+    }
+    
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:筆誤"><Message><![CDATA[每個左括號應該要有其相對的右括號]]></Message><Linelist><line Begin="32" End="33" src="Test"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[因為要連結物件動作，所以要建立新的物件
+Test2 t=new Test2();        
+t.wordCount(aString,word);]]></Message><Linelist><line Begin="-1" End="-1" src="Test"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="755">
+	
+<SourceCode_List><SourceCode lines="52" name="Keeper.java"><![CDATA[import java . util . Scanner ; 
+import java . util . Random ; 
+public class Keeper { 
+public String id ; 
+public String tel ; 
+public Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+void display ( ) { 
+System . out . println ( "身分證字號" + id ) ; 
+System . out . println ( "飼主電話" + tel ) ; 
+} 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+public static int choosePet ( ) { 
+System . out . println ( "Choose a pet:" ) ; 
+System . out . println ( "1. 狗狗" ) ; 
+System . out . println ( "2. 貓貓" ) ; 
+int c = 0 ; 
+do 
+{ 
+c = keyboard . nextInt ( ) ; 
+} 
+while ( c > 2 || c < 1 ) ; 
+return c ; 
+} 
+public static int randomChoosePet ( ) { 
+int c = 0 ; 
+Random w = new Random ( ) ; 
+c = w . nextInt ( 2 ) + 1 ; 
+return c ; 
+} 
+public static void main ( String [ ] args ) { 
+String p , n , t , i , tel ; 
+int count ; 
+Scanner scanner = new Scanner ( System . in ) ; 
+Pet name1 = new Pet ( "狗狗" , "d001" , "Timmy" ) ; 
+Pet name2 = new Pet ( "貓貓" , "c001" , "Cathy" ) ; 
+p = scanner . nextLine ( ) ; 
+n = scanner . nextLine ( ) ; 
+t = scanner . nextLine ( ) ; 
+i = scanner . nextLine ( ) ; 
+tel = scanner . nextLine ( ) ; 
+System . out . println ( "寵物編號" + p ) ; 
+System . out . println ( "寵物名稱" + n ) ; 
+System . out . println ( "寵物類別" + t ) ; 
+System . out . println ( "身分證字號" + i ) ; 
+System . out . println ( "飼主電話" + tel ) ; 
+System . out . println ( "總和" + count ) ; 
+} 
+}
+]]></SourceCode><SourceCode lines="27" name="Pet.java"><![CDATA[import java . util . Scanner ; 
+public class Pet { 
+public static int count ; 
+public String pid ; 
+public String name ; 
+public String type ; 
+public Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+count ++ ; 
+} 
+public void setName ( int a ) { 
+if ( a == 1 ) this . name = "狗狗" ; 
+if ( a == 2 ) this . name = "貓貓" ; 
+} 
+public void speak ( int n ) { 
+if ( n == 1 ) this . name = "喵喵" ; 
+if ( n == 2 ) this . name = "旺旺" ; 
+} 
+void display ( ) { 
+System . out . println ( "寵物編號" + pid ) ; 
+System . out . println ( "寵物名稱" + name ) ; 
+System . out . println ( "寵物類別" + type ) ; 
+} 
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:筆誤"><Message><![CDATA[Keeper:35~35,Keeper:49~49
+35行未給予值，49行無法使用]]></Message><Linelist><line Begin="35" End="35" src="Keeper"/><line Begin="49" End="49" src="Keeper"/></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message><![CDATA[Pet:6~7
+應使用物件資料Keeper keeper把寵物及飼主的關係建立起來
+public String type ; 
+Keeper keeper;
+public Pet ( String pid , String name , String type ) { 
+
+Pet:7~12
+在建構子內新增Keeper參數來告知寵物的飼主是誰
+將這個物件的keeper設計成傳進來的keeper資料
+public Pet ( String pid , String name , String type ) { 
+    this.pid=pid;
+    this.name=name;
+    this.type=type;
+    this.keeper=keeper;
+    count++;
+}]]></Message><Linelist><line Begin="6" End="7" src="Pet"/><line Begin="7" End="12" src="Pet"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[Keeper:37~38
+移至
+Keeper:43~44
+建立物件於給予值之後，建構子才能取用資料
+tel = scanner . nextLine ( ) ;
+Keeper k1 = new Keeper(i,tel);
+Keeper k2 = new Keeper(i,tel);
+Pet name1 = new Pet("狗狗","d001","Timmy",k1);
+Pet name2 = new Pet("貓貓","c001","Cathy",k2);
+System . out . println ( "寵物編號" + p ) ; ]]></Message><Linelist><line Begin="37" End="38" src="Keeper"/><line Begin="43" End="44" src="Keeper"/></Linelist></Error></Errors></ErrorList>

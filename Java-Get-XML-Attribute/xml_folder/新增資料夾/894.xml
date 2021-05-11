@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\program_python\894\894.xml">
+	
+<SourceCode_List><SourceCode lines="21" name="newKKbox0.java"><![CDATA[public class KKbox { 
+int length ; 
+int width ; 
+int height ; 
+int volume , surfaceArea ; 
+KKbox ( int l , int w , int h ) { 
+length = l ; 
+width = w ; 
+height = h ; 
+volume = length * width * height ; 
+surfaceArea = 2 * ( length * width + width * height + height * length ) ; 
+} 
+void selfIntroduce ( ) { 
+System . out . println ( "體積: " + volume ) ; 
+System . out . println ( "表面積: " + surfaceArea ) ; 
+} 
+public static void main ( String [ ] args ) { 
+System . out . println ( selfIntroduce ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:正確的產生物件"><Message><![CDATA[要正確地產生物件需要合法的建構子]]></Message><Linelist><line Begin="1" End="5" src="newKKbox0"/></Linelist></Error></Errors></ErrorList>

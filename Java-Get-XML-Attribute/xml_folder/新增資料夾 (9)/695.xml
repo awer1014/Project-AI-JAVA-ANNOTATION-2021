@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="695">
+	
+<SourceCode_List><SourceCode lines="15" name="Keeper.java"><![CDATA[public class Keeper { 
+String id ; 
+String tel ; 
+public Keeper ( String i , String t ) { 
+this . id = i ; 
+this . tel = t ; 
+} 
+public String getid ( ) { 
+return id ; 
+} 
+void setid ( String i ) { 
+id = i ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="41" name="Pet.java"><![CDATA[import java . util . Scanner ; 
+public class Pet { 
+String pid ; 
+String name ; 
+String type ; 
+Keeper keeper ; 
+public Pet ( String t , String p , String n , Keeper keeper ) { 
+this . type = t ; 
+this . pid = p ; 
+this . name = n ; 
+this . keeper = keeper ; 
+} 
+public String getname ( ) { 
+return name ; 
+} 
+void setname ( String n ) { 
+name = n ; 
+} 
+public String getpid ( ) { 
+return pid ; 
+} 
+void setpid ( String p ) { 
+pid = p ; 
+} 
+public String gettype ( ) { 
+return type ; 
+} 
+void settype ( String t ) { 
+type = t ; 
+} 
+public void display ( ) { 
+System . out . println ( "寵物種類:" + gettype ( ) ) ; 
+System . out . println ( "寵物編號:" + getpid ( ) ) ; 
+System . out . println ( "寵物名稱:" + getname ( ) ) ; 
+} 
+void speak ( ) { 
+if ( type . euqals ( "狗" ) ) System . out . println ( "您寵物的叫聲是:汪汪" ) ; 
+else if ( type . euqals ( "貓" ) ) System . out . println ( "您的寵物的叫聲是:喵喵" ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="21" name="system.java"><![CDATA[import java . util . Scanner ; 
+public class system { 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+public static void main ( String [ ] args ) { 
+int count = 0 ; 
+String pid ; 
+String name ; 
+String type ; 
+while ( type == "0" ) 
+{ 
+System . out . println ( "請輸入寵物種類:" ) ; 
+type = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入寵物編號:" ) ; 
+pid = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱:" ) ; 
+name = keyboard . nextLine ( ) ; 
+count ++ ; 
+} 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:筆誤"><Message><![CDATA[Pet:37~38
+是 equals 不是 euqals]]></Message><Linelist><line Begin="37" End="38" src="Pet"/></Linelist></Error><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA[system:9~9
+JAVA字串比較使用equals函數較為通用
+while ( type.equals ( "0" ) ) 
+]]></Message><Linelist><line Begin="9" End="9" src="system"/></Linelist></Error></Errors></ErrorList>

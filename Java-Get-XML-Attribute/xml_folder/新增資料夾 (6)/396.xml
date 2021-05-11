@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\code\全部\新增資料夾 (6)\396.xml">
+	
+<SourceCode_List><SourceCode lines="25" name="KKBox.java"><![CDATA[class KKBox{
+    static double length,width,height;
+    static double volume,surfaceArea;
+a1(double y){
+    volume=y;
+         y=(length * width * height);
+         System.out.println("��n:"+y);
+    }
+a2(double x){
+    surfaceArea=x;
+    x=(2 *(length*width + width* height + height * length));
+    System.out.println("���n:"+x);
+    }
+    public static void main(String[] args){
+    System.out.println("�п�J��: ");
+    length=Integer.parseInt(args[0]); 
+    System.out.println("�п�J�e: ");
+    width=Integer.parseInt(args[1]);
+    System.out.println("�п�J��: ");
+    height=Integer.parseInt(args[2]);
+    
+    a1;
+    a2;
+}
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="函數:函數結構不清楚"><Message><![CDATA[應該要給變數型態，但沒給
+]]></Message><Linelist><line Begin="4" End="13" src="KKBox"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[因為要連結物件動作，所以要建立新的物件
+kkbox b = new kkbox();
+要呼叫函數:b.a1();b.a2();]]></Message><Linelist><line Begin="-1" End="-1" src="KKBox"/></Linelist></Error></Errors></ErrorList>

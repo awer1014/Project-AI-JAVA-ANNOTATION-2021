@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\游騰緯\子霆(校對)\90.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="Chineseletter.java"><![CDATA[public class Chineseletter extends letter { 
+public Chineseletter ( String title , String receiver , String content , String sender , String data ) { 
+super ( title , receiver , content , sender , data ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "title" + title ) ; 
+System . out . println ( "receiver" + receiver ) ; 
+System . out . println ( "content" + content ) ; 
+System . out . println ( "sender" + sender ) ; 
+System . out . println ( "data" + data ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="13" name="Englishletter.java"><![CDATA[public class Englishletter extends letter { 
+public Englishletter ( String title , String receiver , String content , String sender , String data ) { 
+super ( title , receiver , content , sender , data ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "title" + title ) ; 
+System . out . println ( "receiver" + receiver ) ; 
+System . out . println ( "content" + content ) ; 
+System . out . println ( "sender" + sender ) ; 
+System . out . println ( "data" + data ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="48" name="letter.java"><![CDATA[public abstract class letter { 
+String title , receiver , content , sender , data ; 
+public letter ( String title , String receiver , String content , String sender , String data ) { 
+title = title ; 
+receiver = receiver ; 
+content = content ; 
+sender = sender ; 
+data = data ; 
+} 
+String getitle ( ) { 
+return title ; 
+} 
+void setTitle ( ) { 
+title = title ; 
+} 
+String getreceiver ( ) { 
+return receiver ; 
+} 
+void setReceiver ( ) { 
+receiver = receiver ; 
+} 
+String getcontent ( ) { 
+return content ; 
+} 
+void setcontent ( ) { 
+content = content ; 
+} 
+String getsender ( ) { 
+return sender ; 
+} 
+void setsender ( ) { 
+sender = sender ; 
+} 
+String getdata ( ) { 
+return data ; 
+} 
+void setdata ( ) { 
+data = data ; 
+} 
+public void display ( ) { 
+System . out . println ( "title" + title ) ; 
+System . out . println ( "receiver" + receiver ) ; 
+System . out . println ( "content" + content ) ; 
+System . out . println ( "sender" + sender ) ; 
+System . out . println ( "data" + data ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message><![CDATA[應宣告為抽象動作後,display ( )的body就為空
+讓子類別去做複寫]]></Message><Linelist><line Begin="40" End="46" src="letter"/></Linelist></Error></Errors></ErrorList>

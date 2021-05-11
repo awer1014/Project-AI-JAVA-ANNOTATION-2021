@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\游騰緯\子霆(校對)\71.xml">
+	
+<SourceCode_List><SourceCode lines="31" name="ChineseLetter.java"><![CDATA[public class ChineseLetter extends Letter { 
+String getTitle ( ) { 
+return title ; 
+} 
+String getContent ( ) { 
+return content ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+void display ( ) { 
+System . out . println ( getReceiver ( ) + " " + getTitle ( ) + " , 您好" ) ; 
+System . out . println ( getContent ( ) ) ; 
+System . out . println ( getSender ( ) + " 敬上" ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="32" name="EnglishLetter.java"><![CDATA[public class EnglishLetter extends Letter { 
+String getTitle ( ) { 
+return title ; 
+} 
+String getContent ( ) { 
+return content ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+void display ( ) { 
+System . out . println ( "Dear " + getTitle ( ) + " " + getReceiver ( ) + "," ) ; 
+System . out . println ( getContent ( ) ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( getSender ( ) ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="13" name="Letter.java"><![CDATA[public abstract class Letter { 
+String title , content , sender , receiver , date ; 
+Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+void display ( ) { 
+} 
+} 
+]]></SourceCode><SourceCode lines="24" name="Sort.java"><![CDATA[import java . util . Arrays ; 
+public class Sort implements Comparable { 
+String date ; 
+static Letter [ ] list = { 
+new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) , new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2018/11/01" ) , new EnglishLetter ( "Professor" , "Liu" , "I am sorry!" , "K. Ming" , "2018/07/05" ) } 
+; 
+Sort ( String date ) { 
+this . date = list [ 0 ] . date ; 
+} 
+String getDate ( ) { 
+return list [ 1 ] . date ; 
+} 
+@ Override ; 
+public int compareTo ( Object o ) { 
+Sort obj = ( Sort ) o ; 
+if ( this . getDate ( ) . compareTo ( obj . getDate ( ) ) > 0 ) return 1 ; 
+else if ( this . getDate ( ) . compareTo ( obj . getDate ( ) ) < 0 ) return - 1 ; 
+else return 0 ; 
+} 
+public static void main ( String [ ] args ) { 
+Arrays . sort ( list ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="介面:Comparable介面"><Message><![CDATA[@Override public int compareTo(Object other){
+           Sort o = (Sort)other;
+           int thisdate, otherdate;
+           thisdate = DateToInt(this.getDate());
+           otherdate = DateToInt(o.getDate());
+           if(thisdate > otherdate)
+                      return 1;
+           else if(thisdate < otherdate)
+                      return -1;
+           else
+                      return 0;]]></Message><Linelist><line Begin="7" End="19" src="Sort"/></Linelist></Error><Error tpye="抽象:覆寫抽象動作"><Message><![CDATA[並沒有將共同物件宣告在Letter父類別
+此屬於"抽象類別_不清楚抽象類別的用途不會分離變跟不變的部分"的錯誤
+請多加上此錯誤類型。
+
+此處的display ( )並沒有宣告成抽象動作去讓子類別複寫
+此屬於"抽象_複寫抽象動作"的錯誤
+請多加上此錯誤類型。
+
+妳的"介面_comparable介面"所輸入的建議訊息有下列問題
+1.DateToInt()的這個動作沒有附上程式碼
+2.此同學的Sort類別的31、33行是有問題的,
+this . getDate ( ) . compareTo ( obj . getDate ( ) ) > 0
+不能直接這樣使用,應使用>或<的預算符
+請再多加說明原因。
+]]></Message><Linelist><line Begin="3" End="31" src="ChineseLetter"/><line Begin="3" End="31" src="EnglishLetter"/><line Begin="19" End="19" src="Letter"/></Linelist></Error></Errors></ErrorList>

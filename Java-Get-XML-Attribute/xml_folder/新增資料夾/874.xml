@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\program_python\新增題目\874\874.xml">
+	
+<SourceCode_List><SourceCode lines="14" name="newPet0.java"><![CDATA[import java . util . Scanner ; 
+class Pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+Keeper keeper ; 
+static String pet ; 
+void speak ( ) { 
+if ( type . equals ( "狗" ) ) System . out . println ( "您的寵物叫聲 : 汪汪" ) ; 
+else System . out . println ( "您的寵物叫聲 : 喵喵" ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="newPet0"/></Linelist></Error></Errors></ErrorList>

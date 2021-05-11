@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\標註錯誤檔案\new\xml正確\461.xml">
+	
+<SourceCode_List><SourceCode lines="25" name="MyStringUtil.java"><![CDATA[import java.util.Scanner;
+public class MyStringUtil{
+    static int countWord(String aStr,String word){
+        int count=0;
+        for(int i=0;i<aStr.length()-word.length()+1;i++){
+            String tmp=aStr.substring(i,i+word.length());
+            if(tmp.equals(word)){count++;}
+        }
+        return count;
+    }
+    public static void main(String args[]){
+        String aStr;
+        Scanner scanner =new Scanner(System.in);
+        aStr=scanner.nextLine();
+        String word[]={"0","1","2","3","4","5","6","7","8","9"};
+        int n=aStr.length();
+        System.out.println("輸入數字的長度 : "+n);
+        System.out.println("數字  次數");
+        for(int k=0;k<10;k++){
+            int count=countWord(aStr,word[k]);
+            System.out.println("  "+word[k]+"    "+count);
+        }
+    }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="MyStringUtil"/></Linelist></Error></Errors></ErrorList>

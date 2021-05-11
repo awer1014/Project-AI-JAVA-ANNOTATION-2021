@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="600">
+	
+<SourceCode_List><SourceCode lines="23" name="newChineseLetter0.java"><![CDATA[import java . util . Scanner ; 
+public class ChineseLetter extends Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+public String sender ; 
+protected String date ; 
+protected Scanner sc = new Scanner ( System . in ) ; 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + " " + title + "，" + "您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="24" name="newEnglishLetter0.java"><![CDATA[import java . util . Scanner ; 
+public class EnglishLetter extends Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+public String sender ; 
+protected String date ; 
+protected Scanner sc = new Scanner ( System . in ) ; 
+public EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear" + title + " " + receiver + "," ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="18" name="newEnvelop0.java"><![CDATA[import java . util . Scanner ; 
+public class Envelop { 
+protected String senderAddr ; 
+protected String receiverAddr ; 
+Letter letter ; 
+public Envelop ( String senderAddr , String receiverAddr , Letter letter ) { 
+this . senderAddr = senderAddr ; 
+this . receiverAddr = receiverAddr ; 
+this . letter = letter ; 
+} 
+public void display ( ) { 
+System . out . println ( "From: " + senderAddr + ", " ) ; 
+System . out . println ( "To: " + receiverAddr + ", " ) ; 
+System . out . println ( "信件內容：" ) ; 
+letter . display ( ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="4" name="newLetter0.java"><![CDATA[import java . util . Scanner ; 
+abstract public class Letter { 
+abstract void display ( ) } 
+]]></SourceCode><SourceCode lines="8" name="newTest0.java"><![CDATA[public class Test { 
+public void main ( ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+Envelop env = new Envelop ( "Taipei" , "Kaohsiung" , lt ) ; 
+env . display ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message><![CDATA[不變的物件資料應該宣告在抽象類別Letter裡
+所以應加入
+protected String title ,receiver ,content ,sender ,date;
+    Letter(String title, String receiver, String content, String sender, String date)
+    {
+        this.title = title;
+        this.receiver =receiver ;
+        this.content = content;
+        this.sender = sender;
+        this.date =date ;
+    }
+    public String getSender()
+    {
+        return sender;
+    }
+    public String getReceiver()
+    {
+        return receiver;
+    }        
+    public String getDate()
+    {
+        return date;
+    }]]></Message><Linelist><line Begin="-1" End="-1" src="newChineseLetter0"/><line Begin="-1" End="-1" src="newChineseLetter0"/></Linelist></Error></Errors></ErrorList>

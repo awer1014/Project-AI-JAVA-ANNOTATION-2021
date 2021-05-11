@@ -7,9 +7,9 @@ import org.xml.sax.SAXException;
 import java.util.*;
 
 public class Get_Attribute_Value {
-    static int Max_Error_num = 0; //check max Error number
+    static int Max_Error_num; //check max Error number
     private static Document doc;
-    static ArrayList<Line_Block> line_List= new ArrayList<>();;
+    static ArrayList<Line_Block> line_List= new ArrayList<>();
     static Source_Code_Sorter scs = new Source_Code_Sorter();
     //static ArrayList<Source_Code_Sorter> list_scs = new ArrayList<>();
     public static void load_Xml_file(String file_name) {
@@ -31,7 +31,7 @@ public class Get_Attribute_Value {
         //ArrayList-->Mapper
         line_List = new ArrayList<Line_Block>();
         Mapper map = new Mapper();
-
+        Max_Error_num=0;
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
 
@@ -70,19 +70,19 @@ public class Get_Attribute_Value {
         
         System.out.println("===========NEW TEST===========");
 
-        for(int k = 0; k < line_List.size(); k++) {
+        /*for(int k = 0; k < line_List.size(); k++) {
             for(int i = 0; i < line_List.get(k).get_error_type_length(); i++) {
                 System.out.print(line_List.get(k).get_Error_type(i) +" "+ line_List.get(k).key);
                 System.out.print(line_List.get(k).get_file_name(i));
                 System.out.print(line_List.get(k).get_begin(i));
                 System.out.println(line_List.get(k).get_end(i));
             }
-        }
+        }*/
         //================================================================================================
         
     }
 
-
+    
 
     public static void get_Source_Value(/*String file_name,*/ Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
 

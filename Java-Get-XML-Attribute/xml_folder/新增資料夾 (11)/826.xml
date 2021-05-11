@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\B2\Desktop\專研\Student code\826\826.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="newMain90.java"><![CDATA[class TEST { 
+int mx ; 
+int my ; 
+TEST ( int mx , int my ) { 
+mx = this . mx ; 
+my = this . my ; 
+} 
+public static void main ( ) { 
+TEST m = new TEST ( 2 , 3 ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:不熟悉JAVA程式結構"><Message><![CDATA[應為this.mx=mx
+        this.my=my]]></Message><Linelist><line Begin="5" End="6" src="newMain90"/></Linelist></Error></Errors></ErrorList>
