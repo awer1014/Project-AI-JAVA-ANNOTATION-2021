@@ -101,11 +101,11 @@ public class Get_Attribute_Value {
 
         //================================================================================================
         //TEST
-        /*
+        
         for(int i = 0; i < Source_Code_List.getLength(); i++) {
             System.out.println("Source Code :" + scs.get_SourceCode(i));
             System.out.println("Source Code Begin Line :" + scs.get_SourceCode_Begin_line(i));
-        }*/
+        }
         //
         //================================================================================================
     }

@@ -39,7 +39,7 @@ public class Main {
             Get_Attribute_Value gav = new Get_Attribute_Value();
             Read_Xml_file rxf = new Read_Xml_file();
             rxf.load_Xml_file(files,Filepath,list);
-            ew.write("test.csv",list,files);
+            ew.write("test.csv",list,rxf.file_id_list);
         } catch (Exception e) {
             e.printStackTrace();
         }
