@@ -216,4 +216,12 @@ public class Get_Attribute_Value {
         return line_List;
     }
 
+    public static int get_Error_Begin_Lines(int Index) {
+        return Error_Begin_Lines.get(Index);
+    }
+
+    public static int get_Error_End_Lines(int Index) {
+        return Error_End_Lines.get(Index);
+    }
+
 }

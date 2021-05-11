@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 public class Main {
     private static String Filepath = "";
-    private static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));  
+    private static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     //private static LoadXml lx;
     private static XmlFileSearch xfs;
     private static File inputFile;
@@ -31,7 +31,7 @@ public class Main {
         ew.write(file_name,list);
         //*/// <----- dust switch
         //=====================Test======================
-        
+
         try {
             Read_Xml_file rxf = new Read_Xml_file();
             Get_Attribute_Value gav = new Get_Attribute_Value();
@@ -39,7 +39,7 @@ public class Main {
             files = xfs.getXmlFileList(Filepath);
             //lx.getNode(files,Filepath);
             rxf.load_Xml_file(files,Filepath,list);
-            //ew.write("test.csv",list,files);
+            ew.write("test.csv",list,rxf.file_id_list);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,7 +57,7 @@ public class Main {
         //need to change to sort file
         //need to make file to excle
         /* <----- dust switch
-        
+
         w.write(file_name,atv.line_List);
         write(file_name,line_list);
         //*/// <----- dust switch
