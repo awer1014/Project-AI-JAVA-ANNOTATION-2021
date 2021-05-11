@@ -32,7 +32,8 @@ public class ExcelWriter {
 
     private HSSFRow createRow(){
         HSSFRow dataRow = sheet.createRow(sheet.getLastRowNum() + 1);
-        for(int i=0; i<97; i++){
+        //for(int i=0; i<97; i++){
+        for(int i=0; i<133; i++){
             dataRow.createCell(i).setCellValue(0);
         }
         return dataRow;
@@ -61,13 +62,16 @@ public class ExcelWriter {
         }
     }
     // 創建Excel的一行數據。
-    private void createCell(List<Line_Block>  list, HSSFSheet sheet,File[] files) {
+    private void createCell(/*String file_id,*/ List<Line_Block>  list, HSSFSheet sheet,File[] files) {
         HSSFRow dataRow=createRow();
         int ecount = 0;
         int id_count = 0;
         for (Line_Block lb : list) {
+            //System.out.println("file name: " + files[id_count].getName());
+            //System.out.println("id_count: " + id_count);
             String [] tokens=files[id_count].getName().split(".xml",2);
-            dataRow.getCell(0).setCellValue(tokens[0]);
+            //System.out.println("token: " + tokens[0]);
+            dataRow.getCell(0).setCellValue(tokens[0]);//.setCellValue(file_id);
             ecount++;
             id_count++;
             int errorid = lb.key;
@@ -78,10 +82,11 @@ public class ExcelWriter {
                 int end = lb.block_end.get(i);
                 int begin_c = pos+1+i*2;
                 int end_c = pos+2+i*2;
+                System.out.println("begin_c: "+begin_c);
                 dataRow.getCell(begin_c).setCellValue(begin);
                 dataRow.getCell(end_c).setCellValue(end);
             }
-            
+
         }
         //dataRow.createCell(0).setCellValue(lb.getName());
         //dataRow.createCell(1).setCellValue(lb.getScore());
