@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\program_python\891\891.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="newKKBox0.java"><![CDATA[public class KKBOx { 
+double l ; 
+double w ; 
+double h ; 
+static double volume ( ) { 
+double ans = l * w * h ; 
+return ans ; 
+} 
+public static void main ( Double [ ] n ) { 
+l = 2 ; 
+w = 3 ; 
+h = 4 ; 
+System . out . println ( ans ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:正確的產生物件"><Message><![CDATA[要正確地產生物件需要合法的建構子]]></Message><Linelist><line Begin="1" End="4" src="newKKBox0"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\Administrator\Desktop\新增資料夾\李欣陽\Student code\840\840.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="840.java"><![CDATA[import java . util . Scanner ; 
+public class Pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+public void speak ( String t ) { 
+if ( t == "貓" ) System . out . println ( "喵喵!" ) ; 
+else if ( t == "狗" ) System . out . println ( "汪汪!" ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA[ JAVA字串比較使用equals函數較為通用]]></Message><Linelist><line Begin="8" End="9" src="840"/></Linelist></Error></Errors></ErrorList>

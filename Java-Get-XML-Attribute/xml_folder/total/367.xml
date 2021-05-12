@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\張淯雯 done\新增10題\367\367\367.xml">
+	
+<SourceCode_List><SourceCode lines="36" name="KKBox.java"><![CDATA[
+public class KKBox
+{
+    private double length,width,height;
+
+    public KKBox(double length, double width, double height)
+    {
+        super();
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }
+
+    public double surfaceArea()
+    {
+        return surfaceArea(length, width, height);
+    }
+    
+    public double Volume() {
+        return Volume(length, width, height);
+    }
+    
+    public static double surfaceArea(double length, double width, double height) {
+        return 2 * (length * width + width * height + length * height);
+    }
+    
+    public static double Volume(double length, double width, double height) {
+        return length * width * height;
+    }
+    
+    public static void main(String[] args) {
+        KKBox cuboid = new KKBox(1, 2, 3);
+        System.out.println(cuboid.surfaceArea());
+        System.out.println(cuboid.Volume());
+    }
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:不會使用物件資料"><Message><![CDATA[物件動作為傳遞物件資料]]></Message><Linelist><line Begin="14" End="14" src="KKBox"/><line Begin="19" End="19" src="KKBox"/></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[他建構子不用給super]]></Message><Linelist><line Begin="8" End="8" src="KKBox"/></Linelist></Error><Error tpye="繼承:使用super產生繼承物件"><Message><![CDATA[super可以理解為是指向自己超（父）類物件的一個指標，而這個超類指的是離自己最近的一個父類。]]></Message><Linelist><line Begin="8" End="8" src="KKBox"/></Linelist></Error></Errors></ErrorList>

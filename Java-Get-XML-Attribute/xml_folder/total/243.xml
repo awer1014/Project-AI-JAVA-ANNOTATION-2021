@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\243.xml">
+	
+<SourceCode_List><SourceCode lines="44" name="Target.java"><![CDATA[import java.util.*;
+public class Target
+{
+    static int in;
+    static int out;
+    static int randomhit(){
+       int c= (int) (Math.random()+1);
+       if(c<0.5){in++; return 0;}
+       else{out++;return 1;}
+           
+    }
+    void toss(int n)
+    {
+       System.out.println("圓內次數 ="+in+"出現比率:");
+       System.out.println("圓外次數 ="+out+"出現比率:");
+    }
+    
+    public static void main(String[]args)
+    {
+       randomhit();
+       int in; 
+       int out;
+       for(int i=0;i<100000;i++)
+       {
+           randomhit();
+           toss(n);
+           
+        
+       }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[因為是物件動作
+所以要在物件動作函數前加上static
+例如
+static void 函數名稱(參數){
+
+}]]></Message><Linelist><line Begin="12" End="16" src="Target"/></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message><![CDATA[物件動作需要的變數未宣告
+請宣告一個函數給物件使用
+例如
+int n = 1;
+物件動作(n);]]></Message><Linelist><line Begin="27" End="27" src="Target"/></Linelist></Error></Errors></ErrorList>

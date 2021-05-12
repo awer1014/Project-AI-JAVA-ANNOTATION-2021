@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="512">
+	
+<SourceCode_List><SourceCode lines="50" name="10.java"><![CDATA[import java . util . Scanner ; 
+
+public class Evaluation { 
+
+public static void main ( String [ ] args ) { 
+
+String type ; 
+
+Scanner scan = new Scanner ( System . in ) ; 
+
+boolean b = true ; 
+
+while ( b ) 
+
+{ 
+
+System . out . print ( "請輸入種類 1(測驗),2(作業),3(心得報告) : " ) ; 
+
+String n = scan . next ( ) ; 
+
+int n1 = Integer . parseInt ( n ) ; 
+
+if ( n . equals ( "0" ) ) { 
+
+b = false ; 
+
+break ; 
+
+} 
+
+System . out . println ( "請輸入學生學號 : " ) ; 
+
+String number = scan . nextLine ( ) ; 
+
+System . out . println ( "請輸入學生姓名 : " ) ; 
+
+String name = scan . nextLine ( ) ; 
+
+System . out . println ( "請輸入成績 : " ) ; 
+
+String grade = scan . nextLine ( ) ; 
+
+System . out . println ( "請輸入成績比重 : " ) ; 
+
+String grade1 = scan . nextLine ( ) ; 
+
+System . out . println ( "請輸入考試日期 : " ) ; 
+
+String date = scan . nextLine ( ) ; 
+
+System . out . println ( "請輸入考試範圍 : " ) ; 
+
+String range = scan . nextLine ( ) ; 
+
+if ( n1 == 1 ) { 
+
+type = "測驗" ; 
+
+} 
+
+else if ( n1 == 2 ) { 
+
+type = "作業" ; 
+
+} 
+
+else if ( n1 == 3 ) { 
+
+type = "心得報告" ; 
+
+} 
+
+else type = "錯誤" ; 
+
+Student std = new Student ( number , name ) ; 
+
+Grades gra = new Grades ( grade , grade1 ) ; 
+
+Test t = new Test ( date , range ) ; 
+
+System . out . println ( "您輸入的是 : " ) ; 
+
+System . out . println ( "種類 : " + type ) ; 
+
+std . display ( ) ; 
+
+gra . display ( ) ; 
+
+t . display ( ) ; 
+
+System . out . println ( "======================" ) ; 
+
+} 
+
+} 
+
+} 
+
+]]></SourceCode><SourceCode lines="12" name="20.java"><![CDATA[public class Grades { 
+
+private String grade , grade1 ; 
+
+public Grades ( String num , String nam ) { 
+
+grade = num ; 
+
+grade1 = nam ; 
+
+} 
+
+public void display ( ) { 
+
+System . out . println ( "成績 : " + grade ) ; 
+
+System . out . println ( "成績比重 : " + grade1 ) ; 
+
+} 
+
+} 
+
+]]></SourceCode><SourceCode lines="12" name="30.java"><![CDATA[public class Student { 
+
+private String number , name ; 
+
+public Student ( String num , String nam ) { 
+
+number = num ; 
+
+name = nam ; 
+
+} 
+
+public void display ( ) { 
+
+System . out . println ( "學生學號 : " + number ) ; 
+
+System . out . println ( "學生姓名 : " + name ) ; 
+
+} 
+
+} 
+
+]]></SourceCode><SourceCode lines="12" name="40.java"><![CDATA[public class Test { 
+
+private String date , range ; 
+
+public Test ( String num , String nam ) { 
+
+date = num ; 
+
+range = nam ; 
+
+} 
+
+public void display ( ) { 
+
+System . out . println ( "考試日期 : " + date ) ; 
+
+System . out . println ( "考試範圍 : " + range ) ; 
+
+} 
+
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message><![CDATA[public class Grades 後面要加上 extends Evaluation]]></Message><Linelist><line Begin="1" End="1" src="20"/><line Begin="1" End="1" src="30"/><line Begin="1" End="1" src="40"/></Linelist></Error><Error tpye="抽象:繼承資料或動作"><Message><![CDATA[public class Evaluation 要改成 public abstract class Evaluation]]></Message><Linelist><line Begin="2" End="2" src="10"/></Linelist></Error></Errors></ErrorList>

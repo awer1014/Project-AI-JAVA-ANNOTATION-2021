@@ -7,16 +7,16 @@ import org.xml.sax.SAXException;
 import java.util.*;
 
 public class Get_Attribute_Value {
-    static int Max_Error_num; //check max Error number
-    private static Document doc;
-    static ArrayList<Line_Block> line_List= new ArrayList<>();
+     int Max_Error_num; //check max Error number
+    private  Document doc;
+     ArrayList<Line_Block> line_List= new ArrayList<>();
     //static ArrayList<Source_Code_Sorter> scs_list = new ArrayList<>();
-    static Source_Code_Sorter scs;// = new Source_Code_Sorter();
+     Source_Code_Sorter scs;// = new Source_Code_Sorter();
     //the two following ArrayList is for total line
-    static ArrayList<Integer> Error_Begin_Lines = new ArrayList<>();
-    static ArrayList<Integer> Error_End_Lines = new ArrayList<>();
+     ArrayList<Integer> Error_Begin_Lines = new ArrayList<>();
+     ArrayList<Integer> Error_End_Lines = new ArrayList<>();
     //static ArrayList<Source_Code_Sorter> list_scs = new ArrayList<>();
-    public static void load_Xml_file(String file_name) {
+    public void load_Xml_file(String file_name) {
         try {
             //read Xml file
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -31,12 +31,12 @@ public class Get_Attribute_Value {
         }
     }
 
-    public static void add_begin_block(int begin, int end){
+    public void add_begin_block(int begin, int end){
         Error_Begin_Lines.add(begin);
         Error_End_Lines.add(end);
     }
 
-    public static void add_total_lines(Document doc, Source_Code_Sorter scs) {
+    public void add_total_lines(Document doc, Source_Code_Sorter scs) {
         //to get error Attribute
         for(int k = 0; k < line_List.size(); k++) {
             for(int i = 0; i < line_List.get(k).get_error_type_length(); i++) {
@@ -58,12 +58,14 @@ public class Get_Attribute_Value {
                 //*/
                 //========================Test========================
                 //get index from scs's Source_Code Array
-                int Index = scs.find_IndexOf_Source_Code(file_name);
-                System.out.println("Index: " + Index);
+                int total_line = scs.find_IndexOf_Source_Code(file_name);
+                System.out.println("Index: " + total_line);
                 //Error_Begin_Lines & Error_End_Lines <--------- original line + begin_line
-                int new_Error_Begin_Line = org_begin + scs.get_SourceCode_Begin_line(Index);
+                int new_Error_Begin_Line = org_begin + scs.get_SourceCode_Begin_line(total_line);
+                line_List.get(k).set_begin(i,new_Error_Begin_Line);
                 System.out.println("Begin line: " + new_Error_Begin_Line);
-                int new_Error_End_Line = org_end + scs.get_SourceCode_Begin_line(Index);
+                int new_Error_End_Line = org_end + scs.get_SourceCode_Begin_line(total_line);
+                line_List.get(k).set_end(i,new_Error_End_Line);
                 System.out.println("End line: " + new_Error_End_Line);
                 //========================Test========================
                 //dust switch
@@ -94,7 +96,7 @@ public class Get_Attribute_Value {
 
     }
 
-    public static void get_Error_Value(/*String file_name,*/ Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
+    public void get_Error_Value(/*String file_name,*/ Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
         //ArrayList-->Mapper
         line_List = new ArrayList<Line_Block>();
         Mapper map = new Mapper();
@@ -148,7 +150,7 @@ public class Get_Attribute_Value {
 
     }
 
-    public static void get_Source_Value(/*String file_name,*/ Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
+    public void get_Source_Value(/*String file_name,*/ Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
 
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
@@ -184,43 +186,43 @@ public class Get_Attribute_Value {
         add_total_lines(doc, scs);
     }
 
-    public static String get_list_Error_type(int list_Index, int Index) {
+    public String get_list_Error_type(int list_Index, int Index) {
         return line_List.get(list_Index).get_Error_type(Index);
     }
 
-    public static String get_list_file_name(int list_Index, int Index) {
+    public String get_list_file_name(int list_Index, int Index) {
         return line_List.get(list_Index).get_file_name(Index);
     }
 
-    public static int get_list_Error_begin(int list_Index, int Index) {
+    public int get_list_Error_begin(int list_Index, int Index) {
         return line_List.get(list_Index).get_begin(Index);
     }
 
-    public static int get_list_Error_end(int list_Index, int Index) {
+    public int get_list_Error_end(int list_Index, int Index) {
         return line_List.get(list_Index).get_end(Index);
     }
 
-    public static int get_list_size() {
+    public int get_list_size() {
         return line_List.size();
     }
 
-    public static int get_list_element_size(int list_Index) {
+    public int get_list_element_size(int list_Index) {
         return line_List.get(list_Index).get_error_type_length();
     }
 
-    public static int get_Max_Error_num() {
+    public int get_Max_Error_num() {
         return Max_Error_num;
     }
 
-    public static List<Line_Block> get_List_Line_Block_() {
+    public List<Line_Block> get_List_Line_Block_() {
         return line_List;
     }
 
-    public static int get_Error_Begin_Lines(int Index) {
+    public int get_Error_Begin_Lines(int Index) {
         return Error_Begin_Lines.get(Index);
     }
 
-    public static int get_Error_End_Lines(int Index) {
+    public int get_Error_End_Lines(int Index) {
         return Error_End_Lines.get(Index);
     }
 

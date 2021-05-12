@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="491">
+	
+<SourceCode_List><SourceCode lines="44" name="count.java"><![CDATA[import java.util.Scanner;
+public class count{
+	int count=0;
+	String num;
+	int a,b,c,d,e,f,g,h,i,j,k,l;
+	int n;
+	int coumtWolrd(String num){
+	for(int i=0;i<num.length()+1;i++){
+	String temp=i;
+	if(temp.equals(word)a=count++;
+	else if(temp.equals("0")b=count++;
+	else if(temp.equals("1")c=count++;
+	else if(temp.equals("2")d=count++;
+	else if(temp.equals("3")e=count++;
+	else if(temp.equals("4")f=count++;
+	else if(temp.equals("5")g=count++;
+	else if(temp.equals("6")h=count++;
+	else if(temp.equals("7")i=count++;
+	else if(temp.equals("8")j=count++;
+	else if(temp.equals("9")k=count++;
+	
+	}	
+}
+class static void main(String args[]){
+	String num;
+	Scanner scanner = new Scanner(System.in);
+	int count=0;
+	a=(System.in)	
+	int coumtWolrd(String num){
+		int count=0;
+	}	System.out.println("��J���Ʀr����:"+ans);
+		System.out.println("�Ʀr    ����");
+		System.out.println("0",a);
+		System.out.println("1",b);
+		System.out.println("2",c);
+		System.out.println("3",d);
+		System.out.println("4",e);
+		System.out.println("5",f);
+		System.out.println("6",g);
+		System.out.println("7",h);
+		System.out.println("8",i);
+		System.out.println("9",j);
+	}
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:關鍵字錯誤"><Message><![CDATA[if 跟else if 都少一個右括號 if(temp.equals(word)) 跟 else if(temp.equals("0"))]]></Message><Linelist><line Begin="10" End="20" src="count"/></Linelist></Error><Error tpye="函數:函數結構不清楚"><Message><![CDATA[class static void main(String args[]) 改為 
+public static void main(String args[])]]></Message><Linelist><line Begin="24" End="24" src="count"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\標註錯誤檔案\new\xml正確\454.xml">
+	
+<SourceCode_List><SourceCode lines="21" name="number.java"><![CDATA[public class number{
+    static int countWord(String aStr, String word){
+    int count = 0;
+    for (int i=0; i < aStr.length() - word.length()+1; i++) {
+    String tmp = aStr.substring(i, i + word.length() );
+    if (tmp.equals(word)) count++;
+    }
+    return count;
+    }
+    public static void main (String[] args){
+    String num="4589751245954621";
+    System.out.println("輸入的數字長度："+num.length());
+    String []a={"1","2","3","4","5","6","7","8","9"};
+    System.out.println("數字     次數");
+    for(int i=0;i<10;i++){
+        String c=Integer.toString(i);
+        int d=countWord(num,c);
+        System.out.println(i+"        "+d);
+        }
+    }
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="number"/></Linelist></Error></Errors></ErrorList>

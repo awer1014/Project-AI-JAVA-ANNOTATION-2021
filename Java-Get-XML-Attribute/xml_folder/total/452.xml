@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\code\全部\新增資料夾 (6)\452.xml">
+	
+<SourceCode_List><SourceCode lines="45" name="new4520.java"><![CDATA[import java . util . Scanner ; 
+
+class Pet { 
+
+Scanner scanner = new Scanner ( System . in ) ; 
+
+public static int count ; 
+
+String pid ; 
+
+String name ; 
+
+String type ; 
+
+void speak ( ) { 
+
+if ( type == "貓" ) System . out . println ( "喵喵" ) ; 
+
+else System . out . println ( "汪汪" ) ; 
+
+} 
+
+void display ( ) { 
+
+System . out . println ( "請輸入寵物種類:" + pid ) ; 
+
+} 
+
+Pet ( String pid , String name , String type ) { 
+
+pid = scanner . nextLine ( ) ; 
+
+name = scanner . nextLine ( ) ; 
+
+type = scanner . nextLine ( ) ; 
+
+} 
+
+public static void main ( String [ ] args ) { 
+
+} 
+
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA[字串需使用equals來表示為==，type.equals("貓")]]></Message><Linelist><line Begin="9" End="9" src="new4520"/></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[建構子，需改成
+this.pid=pid;
+this.name=name;
+this.type=type;
+而 pet 前面要加 public]]></Message><Linelist><line Begin="15" End="19" src="new4520"/></Linelist></Error></Errors></ErrorList>

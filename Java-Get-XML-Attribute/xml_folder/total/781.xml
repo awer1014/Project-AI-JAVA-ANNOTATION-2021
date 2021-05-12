@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="G:\個人資料夾\專研\student code\781\781.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="Evaluation.java"><![CDATA[abstract public class Evaluation { 
+private String kind ; 
+public Evaluation ( String k ) { 
+kind = k ; 
+} 
+abstract public void ask ( ) ; 
+public void print ( ) { 
+String str = "" ; 
+if ( kind . equals ( "1" ) ) str += "測驗" ; 
+else if ( kind . equals ( "2" ) ) str += "作業" ; 
+else if ( kind . equals ( "3" ) ) str += "心得報告" ; 
+System . out . println ( "種類 : " + str ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="11" name="Exam.java"><![CDATA[public class Exam extends Evaluation { 
+public Exam ( String ask1 , String ask2 ) { 
+super ( ask1 , ask2 ) ; 
+} 
+public void ask ( ) { 
+System . out . println ( "考試日期:" + ask1 ) ; 
+System . out . println ( "考試範圍:" + ask2 ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="11" name="HomeWork.java"><![CDATA[public class HomeWork extends Evaluation { 
+public HomeWork ( String ask1 , String ask2 ) { 
+super ( ask1 , ask2 ) ; 
+} 
+public void ask ( ) { 
+System . out . println ( "截止日期:" + ask1 ) ; 
+System . out . println ( "作業描述:" + ask2 ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="11" name="Report.java"><![CDATA[public class Report extends Evaluation { 
+public Report ( String ask1 , String ask2 ) { 
+super ( ask1 , ask2 ) ; 
+} 
+public void ask ( ) { 
+System . out . println ( "報告內容:" + ask1 ) ; 
+System . out . println ( "參考文獻:" + ask2 ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="17" name="Student.java"><![CDATA[public class Student { 
+private String id , name , score , prop ; 
+public Student ( String i , String n , String s , String p ) { 
+id = i ; 
+name = n ; 
+score = s ; 
+prop = p ; 
+} 
+public void print ( ) { 
+System . out . println ( "學生學號: " + id ) ; 
+System . out . println ( "學生姓名: " + name ) ; 
+System . out . println ( "成績: " + score ) ; 
+System . out . println ( "成績比重: " + prop ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="58" name="Test.java"><![CDATA[import java . util . Scanner ; 
+public class Test { 
+public static void main ( String [ ] args ) { 
+Scanner scan = new Scanner ( System . in ) ; 
+boolean con = true ; 
+while ( con ) 
+{ 
+System . out . println ( "請輸入種類 1(測驗),2(作業),3(心得報告):" ) ; 
+String kind = scan . nextLine ( ) ; 
+if ( kind . equals ( "0" ) ) { 
+con = false ; 
+break ; 
+} 
+System . out . println ( "請輸入學生學號:" ) ; 
+String id = scan . nextLine ( ) ; 
+System . out . println ( "請輸入學生姓名:" ) ; 
+String name = scan . nextLine ( ) ; 
+System . out . println ( "請輸入成績:" ) ; 
+String score = scan . nextLine ( ) ; 
+System . out . println ( "請輸入成績比重:" ) ; 
+String prop = scan . nextLine ( ) ; 
+Student stu = new Student ( id , name , score , prop ) ; 
+Evaluation kk = new Evaluation ( kind ) ; 
+Evaluation eva = null ; 
+String ask1 , ask2 ; 
+if ( kind . equals ( "1" ) ) { 
+System . out . println ( "請輸入考試日期:" ) ; 
+ask1 = scan . nextLine ( ) ; 
+System . out . println ( "請輸入考試範圍:" ) ; 
+ask2 = scan . nextLine ( ) ; 
+eva = new Exam ( ask1 , ask2 ) ; 
+} 
+else if ( kind . equals ( "2" ) ) { 
+System . out . println ( "請輸入截止日期:" ) ; 
+ask1 = scan . nextLine ( ) ; 
+System . out . println ( "請輸入作業描述:" ) ; 
+ask2 = scan . nextLine ( ) ; 
+eva = new HomeWork ( ask1 , ask2 ) ; 
+} 
+else if ( kind . equals ( "3" ) ) { 
+System . out . println ( "請輸入報告內容:" ) ; 
+ask1 = scan . nextLine ( ) ; 
+System . out . println ( "請輸入參考文獻:" ) ; 
+ask2 = scan . nextLine ( ) ; 
+eva = new Report ( ask1 , ask2 ) ; 
+} 
+System . out . println ( "您輸入的是: " ) ; 
+if ( eva != null ) { 
+kk . print ( ) ; 
+stu . print ( ) ; 
+eva . ask ( ) ; 
+} 
+System . out . print ( "--------------------" ) ; 
+} 
+} 
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message><![CDATA[Evaluation:3~15,
+此為父類別因此須將重複項設為此物件之物件資料，宣告變數並更改建構子。
+protected String id , name , score , prop ;
+public Evaluation ( String i , String n , String s , String p ) {
+id = i ;
+name = n ;
+score = s ;
+prop = p ;
+}
+
+Exam:2~4,
+此為子類別因此須將此類別特有之物件資料進行宣告並更改建構子，依此類別為 date , range 。
+將重複類型資料藉由super從父類別進行獲取。
+protected String date , range ;
+public Exam ( String i , String n , String s , String p , String date , String range ) {
+super ( String i , String n , String s , String p ) ;
+this . date = date ;
+this . range = range ;
+}
+
+HomeWork:2~4,
+此為子類別因此須將此類別特有之物件資料進行宣告並更改建構子，依此類別為 deadline , description 。
+將重複類型資料藉由super從父類別進行獲取。
+protected String deadline , description ;
+public Exam ( String i , String n , String s , String p , String deadline , String description ) {
+super ( String i , String n , String s , String p ) ;
+this . deadline = deadline ;
+this . description = description ;
+}
+
+Report:2~4
+此為子類別因此須將此類別特有之物件資料進行宣告並更改建構子，依此類別為 content , literature 。
+將重複類型資料藉由super從父類別進行獲取。
+protected String content , literature ;
+public Exam ( String i , String n , String s , String p , String content , String literature ) {
+super ( String i , String n , String s , String p ) ;
+this . content = content ;
+this . literature = literature ;
+}
+]]></Message><Linelist><line Begin="2" End="4" src="Exam"/><line Begin="2" End="4" src="HomeWork"/><line Begin="2" End="4" src="Report"/></Linelist></Error><Error tpye="抽象:抽象動作"><Message><![CDATA[Evaluation:7~13
+抽象類別無法產生實體，因此此動作應為抽象動作。
+public abstract void print ( ) ;]]></Message><Linelist><line Begin="7" End="13" src="Evaluation"/></Linelist></Error><Error tpye="抽象:抽象類別不能直接產生物件"><Message><![CDATA[Test:23~23
+抽象類別無法直接產生物件，因此只能先定義名稱。
+Evaluation kk ;]]></Message><Linelist><line Begin="23" End="23" src="Test"/></Linelist></Error></Errors></ErrorList>

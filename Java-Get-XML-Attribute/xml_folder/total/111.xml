@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\游騰緯\子霆(校對)\111.xml">
+	
+<SourceCode_List><SourceCode lines="14" name="Person.java"><![CDATA[public class Person { 
+static String name ; 
+static int weight ; 
+static void selfIntroduce ( ) { 
+System . out . println ( "Hi!I am " + name + "  weights  " + weight ) ; 
+} 
+public static void main ( String [ ] args ) { 
+name = args [ 0 ] ; 
+weight = Integer . parseInt ( args [ 1 ] ) ; 
+Person Kent = new Person ( name , weight ) ; 
+selfIntroduce ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[缺少建構子:
+public Person(String name,int weight){
+	    this.name=name;
+	    this.weight=weight;
+ }
+
+11應改為:
+Person.selfIntroduce( ); ]]></Message><Linelist><line Begin="11" End="11" src="Person"/></Linelist></Error></Errors></ErrorList>

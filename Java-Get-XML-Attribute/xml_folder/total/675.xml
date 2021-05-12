@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="675">
+	
+<SourceCode_List><SourceCode lines="30" name="newkkbox0.java"><![CDATA[public class kkbox { 
+private double length ; 
+private double width ; 
+private double height ; 
+public kkbox ( ) { 
+this . height = height ; 
+this . length = length ; 
+this . width = width ; 
+} 
+public static void getSurfaceArea ( double length , double width , double height ) { 
+double SurfaceArea = 2 * ( length * width + width * height + length * height ) ; 
+System . out . println ( "長:" + length ) ; 
+System . out . println ( "高:" + height ) ; 
+System . out . println ( "寬:" + width ) ; 
+System . out . println ( "表面積體積為: " ) ; 
+System . out . printf ( "%.2f" , SurfaceArea ) ; 
+} 
+public static void getvolume ( double length , double width , double height ) { 
+double volume = length * width * height ; 
+double SurfaceArea = 2 * ( length * width + width * height + length * height ) ; 
+System . out . println ( "長:" + length ) ; 
+System . out . println ( "高:" + height ) ; 
+System . out . println ( "寬:" + width ) ; 
+System . out . println ( "表面積體積為: " ) ; 
+System . out . printf ( "%.2f" , SurfaceArea ) ; 
+System . out . println ( "體積為:" ) ; 
+System . out . printf ( "%.2f" , volume ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message><![CDATA[將public static void getSurfaceArea 改寫為 public double getSurfaceArea() {      return 2 *(length*width + width* height + height * length); } 將public static void getvolume 改寫為 public double getVolume() {	     return length*width*height;  }  並寫一個main public static void main(String[] args) {     Scanner sc = new Scanner(System.in);     KKBox box = new KKBox();     System.out.print("輸入長度: ");     box.length = sc.nextDouble();     System.out.print("輸入寬度: ");     box.width = sc.nextDouble();     System.out.print("輸入高度: ");     box.height = sc.nextDouble();      System.out.println("Volume: " + box.getVolume());     System.out.println("SurfaceArea: " + box.getSurfaceArea());  } ]]></Message><Linelist><line Begin="10" End="28" src="newkkbox0"/></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[函數內應寫
+return SurfaceArea = 2 * ( length * width + width * height + length * height ) ;即可]]></Message><Linelist><line Begin="10" End="17" src="newkkbox0"/><line Begin="18" End="28" src="newkkbox0"/></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message><![CDATA[將public static void getSurfaceArea 改寫為 public double getSurfaceArea() {      return 2 *(length*width + width* height + height * length); } 將public static void getvolume 改寫為 public double getVolume() {	     return length*width*height;  }  並寫一個main public static void main(String[] args) {     Scanner sc = new Scanner(System.in);     KKBox box = new KKBox();     System.out.print("輸入長度: ");     box.length = sc.nextDouble();     System.out.print("輸入寬度: ");     box.width = sc.nextDouble();     System.out.print("輸入高度: ");     box.height = sc.nextDouble();      System.out.println("Volume: " + box.getVolume());     System.out.println("SurfaceArea: " + box.getSurfaceArea());  } ]]></Message><Linelist><line Begin="10" End="28" src="newkkbox0"/></Linelist></Error></Errors></ErrorList>

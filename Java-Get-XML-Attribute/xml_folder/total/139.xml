@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\139.xml">
+	
+<SourceCode_List><SourceCode lines="21" name="newTest0.java"><![CDATA[public class Test { 
+
+public static void main ( String [ ] args ) { 
+
+Integer a = - 6 ; 
+
+double b = - 50 ; 
+
+float c = - 45 ; 
+
+Ststem . out . println ( Math . abs ( a ) ) ; 
+
+Ststem . out . println ( Math . abs ( b ) ) ; 
+
+Ststem . out . println ( Math . abs ( c ) ) ; 
+
+} 
+
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:關鍵字錯誤"><Message><![CDATA[輸出時需使用System.out.println()]]></Message><Linelist><line Begin="6" End="6" src="newTest0"/><line Begin="7" End="7" src="newTest0"/><line Begin="8" End="8" src="newTest0"/></Linelist></Error></Errors></ErrorList>

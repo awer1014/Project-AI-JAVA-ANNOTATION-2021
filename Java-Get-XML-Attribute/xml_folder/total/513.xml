@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="513">
+	
+<SourceCode_List><SourceCode lines="57" name="5130.java"><![CDATA[import java . util . Scanner ; 
+
+public class Evaluation { 
+
+public static void main ( ) { 
+
+String name ; 
+
+double number , grade , weight ; 
+
+int n ; 
+
+Scanner scan = new Scanner ( System . in ) ; 
+
+System . out . println ( "請輸入種類 1.測驗 2.作業 3.心得報告 :" ) ; 
+
+n = scan . nextInt ( ) ; 
+
+System . out . println ( "請輸入學生學號 :" ) ; 
+
+number = scan . nextDouble ( ) ; 
+
+System . out . println ( "請輸入學生姓名 :" ) ; 
+
+name = scan . next ( ) ; 
+
+System . out . println ( "請輸入成績 :" ) ; 
+
+grade = scan . nextDouble ( ) ; 
+
+System . out . println ( "請輸入成績比重 :" ) ; 
+
+weight = scan . nextDouble ( ) ; 
+
+if ( n == 1 ) { 
+
+Evaluation eva = new Exam ( ) ; 
+
+} 
+
+else if ( n == 2 ) { 
+
+Evaluation eva = new HomeWork ( ) ; 
+
+} 
+
+else { 
+
+Evaluation eva = new Report ( ) ; 
+
+} 
+
+} 
+
+} 
+
+]]></SourceCode><SourceCode lines="7" name="Exam.java"><![CDATA[import java.util.Scanner;
+public class Exam extends Evaluation
+{
+    public String day,range;
+    Scanner scan= new Scanner(System.in);
+}
+]]></SourceCode><SourceCode lines="5" name="HomeWork.java"><![CDATA[public class HomeWork extends Evaluation
+{
+    String eday,test;
+}
+]]></SourceCode><SourceCode lines="5" name="Report.java"><![CDATA[public class Report extends Evaluation
+{
+    String msi,xsw;
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:繼承資料或動作"><Message><![CDATA[public class Evaluation 改成 public abstract class Evaluation]]></Message><Linelist><line Begin="2" End="2" src="5130"/></Linelist></Error><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="Exam"/><line Begin="-1" End="-1" src="HomeWork"/><line Begin="-1" End="-1" src="Report"/></Linelist></Error></Errors></ErrorList>

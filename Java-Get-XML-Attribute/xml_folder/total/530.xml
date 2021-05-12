@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文研究\Data\黃崇睿xml\correct\530.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="ChineseLetter.java"><![CDATA[import java . util . Scanner ; 
+public class ChineseLetter extends Letter { 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + " " + title + ",您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="13" name="EnglishLetter.java"><![CDATA[public class EnglishLetter extends Letter { 
+public EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + title + " " + receiver + "," ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="16" name="Envelop.java"><![CDATA[public class Envelop { 
+protected Letter letter ; 
+protected String senderAddr , receiverAddr ; 
+public Envelop ( String senderAddr , String receiverAddr , Letter letter ) { 
+this . senderAddr = senderAddr ; 
+this . receiverAddr = receiverAddr ; 
+this . letter = letter ; 
+} 
+public void display ( ) { 
+System . out . println ( "From: " + senderAddr + "," + letter . getSender ( ) ) ; 
+System . out . println ( "To: " + receiverAddr + "," + letter . getReceiver ( ) + " " + letter . getTitle ( ) ) ; 
+System . out . println ( "信件內容:" ) ; 
+letter . display ( ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="48" name="Letter.java"><![CDATA[abstract public class Letter implements Comparable { 
+protected String title , receiver , content , sender , date ; 
+public Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getTitle ( ) { 
+return title ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+abstract public void display ( ) ; 
+@ Override ; 
+public int compareTo ( Object o ) { 
+int ans = 0 ; 
+Letter obj = ( Letter ) o ; 
+String d1 = this . getDate ( ) ; 
+String d2 = obj . getDate ( ) ; 
+int n1 = ( int ) ( d1 . charAt ( 2 ) ) * 10 + ( int ) ( d1 . charAt ( 3 ) ) ; 
+int n2 = ( int ) ( d2 . charAt ( 2 ) ) * 10 + ( int ) ( d2 . charAt ( 3 ) ) ; 
+if ( n1 > n2 ) return 1 ; 
+else if ( n1 < n2 ) return - 1 ; 
+else { 
+n1 = ( int ) ( d1 . charAt ( 5 ) ) * 10 + ( int ) ( d1 . charAt ( 6 ) ) ; 
+n2 = ( int ) ( d2 . charAt ( 5 ) ) * 10 + ( int ) ( d2 . charAt ( 6 ) ) ; 
+if ( n1 > n2 ) return 1 ; 
+else if ( n1 < n2 ) return - 1 ; 
+else { 
+n1 = ( int ) ( d1 . charAt ( 8 ) ) * 10 + ( int ) ( d1 . charAt ( 9 ) ) ; 
+n2 = ( int ) ( d2 . charAt ( 8 ) ) * 10 + ( int ) ( d2 . charAt ( 9 ) ) ; 
+if ( n1 > n2 ) return 1 ; 
+else if ( n1 < n2 ) return - 1 ; 
+else return 0 ; 
+} 
+} 
+} 
+} 
+]]></SourceCode><SourceCode lines="32" name="test.java"><![CDATA[import java . util . Scanner ; 
+public class test { 
+public static void main ( String [ ] args ) { 
+Letter [ ] list = { 
+new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) , new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2018/11/01" ) , new EnglishLetter ( "Professor" , "Liu" , "I am sorry!" , "K. Ming" , "2018/07/05" ) } 
+; 
+Letter tmp ; 
+for ( int i = 0 ; 
+i < 3 ; 
+i ++ ) 
+{ 
+for ( int j = 0 ; 
+j < 3 ; 
+j ++ ) 
+{ 
+if ( list [ i ] . compareTo ( list [ j ] ) == - 1 ) { 
+tmp = list [ i ] ; 
+list [ i ] = list [ j ] ; 
+list [ j ] = tmp ; 
+} 
+} 
+} 
+for ( int i = 0 ; 
+i < 3 ; 
+i ++ ) 
+{ 
+list [ i ] . display ( ) ; 
+System . out . println ( "===========" ) ; 
+} 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="ChineseLetter"/><line Begin="-1" End="-1" src="EnglishLetter"/><line Begin="-1" End="-1" src="Envelop"/><line Begin="-1" End="-1" src="Letter"/><line Begin="-1" End="-1" src="test"/></Linelist></Error></Errors></ErrorList>

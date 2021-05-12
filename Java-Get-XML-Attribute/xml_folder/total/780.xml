@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="G:\個人資料夾\專研\student code\780\780.xml">
+	
+<SourceCode_List><SourceCode lines="22" name="Evaluation.java"><![CDATA[import java . util . Scanner ; 
+abstract public class Evaluation { 
+protected String sNumber ; 
+protected String sName ; 
+protected double sGrade ; 
+protected double sProportion ; 
+Evaluation ( String sNumber , String sName , double sGrade , double sProportion ) { 
+this . sNumber = sNumber ; 
+this . sName = sName ; 
+this . sGrade = sGrade ; 
+this . sProportion = sProportion ; 
+} 
+void print ( ) { 
+System . out . println ( "您輸入的是:" ) ; 
+System . out . println ( "學生學號:" + sNumber ) ; 
+System . out . println ( "學生姓名:" + sName ) ; 
+System . out . println ( "成績:" + sGrade ) ; 
+System . out . println ( "比重:" + sProportion ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="11" name="Exam.java"><![CDATA[public class Exam extends Evaluation { 
+protected String date ; 
+protected String range ; 
+public Exam ( String sNumber , String sName , double sGrade , double sProportion , String date , String range ) { 
+super ( sNumber , sName , sGrade , sProportion ) ; 
+this . date = date ; 
+this . range = range ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="11" name="Homework.java"><![CDATA[public class Homework extends Evaluation { 
+protected String deadline ; 
+protected String description ; 
+public Homework ( String sNumber , String sName , double sGrade , double sProportion , String deadline , String description ) { 
+super ( sNumber , sName , sGrade , sProportion ) ; 
+this . deadline = deadline ; 
+this . description = description ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="11" name="Report.java"><![CDATA[public class Report extends Evaluation { 
+protected String content ; 
+protected String references ; 
+public Report ( String sNumber , String sName , double sGrade , double sProportion , String content , String references ) { 
+super ( sNumber , sName , sGrade , sProportion ) ; 
+this . content = content ; 
+this . references = references ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="45" name="Test.java"><![CDATA[import java . util . Scanner ; 
+public class Test { 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+private static Evaluation choose ( ) { 
+System . out . println ( "請輸入種類:" ) ; 
+System . out . println ( "1.測驗" ) ; 
+System . out . println ( "2.作業" ) ; 
+System . out . println ( "3.心得報告" ) ; 
+int c = 0 ; 
+do 
+{ 
+c = keyboard . nextInt ( ) ; 
+} 
+while ( c > 3 || c < 1 ) ; 
+return choice ( c ) ; 
+} 
+static Evaluation choice ( int c ) { 
+switch ( c ) { 
+case 1 : System . out . println ( "請輸入學生學號:" ) ; 
+System . out . println ( "請輸入學生姓名:" ) ; 
+System . out . println ( "請輸入成績:" ) ; 
+System . out . println ( "請輸入成績比重:" ) ; 
+System . out . println ( "請輸入考試日期" ) ; 
+System . out . println ( "請輸入考試範圍" ) ; 
+break ; 
+case 2 : System . out . println ( "請輸入學生學號:" ) ; 
+System . out . println ( "請輸入學生姓名:" ) ; 
+System . out . println ( "請輸入成績:" ) ; 
+System . out . println ( "請輸入成績比重:" ) ; 
+System . out . println ( "請輸入截止日期:" ) ; 
+System . out . println ( "請輸入作業描述:" ) ; 
+break ; 
+case 3 : System . out . println ( "請輸入學生學號:" ) ; 
+System . out . println ( "請輸入學生姓名:" ) ; 
+System . out . println ( "請輸入成績:" ) ; 
+System . out . println ( "請輸入成績比重:" ) ; 
+System . out . println ( "請輸入報告內容:" ) ; 
+System . out . println ( "請輸入參考文獻:" ) ; 
+break ; 
+} 
+return ev ; 
+} 
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:撰寫main函式"><Message><![CDATA[缺少main 函式。
+public static void main ( String [ ] args )
+{
+choose( ) ;
+}]]></Message><Linelist><line Begin="42" End="42" src="Test"/></Linelist></Error><Error tpye="抽象:抽象動作"><Message><![CDATA[Evaluation:13~19
+抽象類別無法產生實體，因此不會有一般動作，因此為抽象動作。
+public abstract void print ( ) ;]]></Message><Linelist><line Begin="13" End="19" src="Evaluation"/></Linelist></Error><Error tpye="抽象:覆寫抽象動作"><Message><![CDATA[Exam:8~8,
+需複寫父類別的 print ( ) 作為文字輸出資料。
+public void print ( ) 
+{
+System.out.println("您輸入的是:");
+System.out.println("學生學號:"+sNumber);
+System.out.println("學生姓名:"+sName);
+System.out.println("成績:"+sGrade);
+System.out.println("比重:"+sProportion);
+System.out.println("考試日期:"+date);
+System.out.println("考試範圍:"+range);
+}
+
+Homework:8~8,
+需複寫父類別的 print ( ) 作為文字輸出資料。
+public void print ( ) 
+{
+System.out.println("您輸入的是:");
+System.out.println("學生學號:"+sNumber);
+System.out.println("學生姓名:"+sName);
+System.out.println("成績:"+sGrade);
+System.out.println("比重:"+sProportion);
+System.out.println("截止日期:"+deadline);
+System.out.println("作業描述:"+description);
+}
+
+Report:8~8
+需複寫父類別的 print ( ) 作為文字輸出資料。
+public void print ( ) 
+{
+System.out.println("您輸入的是:");
+System.out.println("學生學號:"+sNumber);
+System.out.println("學生姓名:"+sName);
+System.out.println("成績:"+sGrade);
+System.out.println("比重:"+sProportion);
+System.out.println("報告內容:"+content);
+System.out.println("參考文獻:"+references);
+}
+]]></Message><Linelist><line Begin="8" End="8" src="Exam"/><line Begin="8" End="8" src="Homework"/><line Begin="8" End="8" src="Report"/></Linelist></Error></Errors></ErrorList>

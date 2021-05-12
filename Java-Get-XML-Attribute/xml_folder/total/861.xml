@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\program_python\861\861.xml">
+	
+<SourceCode_List><SourceCode lines="23" name="newPet0.java"><![CDATA[import java . util . Scanner ; 
+public class Pet { 
+static int count ; 
+private String pid ; 
+private String name ; 
+private String type ; 
+private int i ; 
+private String sound [ ] = { 
+"旺旺" , "喵喵" } 
+; 
+Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+public void display ( ) { 
+System . out . println ( "寵物種類； " + pid ) ; 
+System . out . println ( "寵物編號： " + type ) ; 
+System . out . println ( "寵物名稱： " + name ) ; 
+if ( pid == "貓" ) i = 1 ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA[兩個字串間的比較用equals函數較為恰當，如pid.equals("貓")]]></Message><Linelist><line Begin="20" End="20" src="newPet0"/></Linelist></Error></Errors></ErrorList>

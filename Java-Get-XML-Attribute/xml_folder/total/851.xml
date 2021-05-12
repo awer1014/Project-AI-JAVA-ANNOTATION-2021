@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\Administrator\Desktop\新增資料夾\李欣陽\Student code\851\851.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="851.java"><![CDATA[import java . util . Scanner ; 
+class PET { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+static void speak ( String s1 ) { 
+String strData5 ; 
+if ( s1 == "狗" ) System . out . println ( "你的寵物叫聲為:汪汪" ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA[ JAVA字串比較使用equals函數較為通用]]></Message><Linelist><line Begin="9" End="9" src="851"/></Linelist></Error></Errors></ErrorList>

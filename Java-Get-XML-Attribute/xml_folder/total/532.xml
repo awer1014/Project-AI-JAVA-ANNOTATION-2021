@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文研究\Data\黃崇睿xml\correct\532.xml">
+	
+<SourceCode_List><SourceCode lines="30" name="ChineseLetter.java"><![CDATA[public class ChineseLetter { 
+String title ; 
+private String receiver ; 
+String content ; 
+private String sender ; 
+private String date ; 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+void display ( ) { 
+System . out . println ( receiver + " " + title + ", 您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="7" name="Test.java"><![CDATA[public class Test { 
+public static void main ( ) { 
+ChineseLetter It = new ChineseLetter ( "教授" , "王" , "很高興與您聯絡" , "銘哥" , "2019/01/05" ) ; 
+It . display ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="ChineseLetter"/><line Begin="-1" End="-1" src="Test"/></Linelist></Error></Errors></ErrorList>

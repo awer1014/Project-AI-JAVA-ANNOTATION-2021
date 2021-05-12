@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\USER\Desktop\手機待儲存\專研程式碼標記錯誤\XML_Error\1.12\JavaAnnotationXMLProgram\code(正規化)\期末考題四\54\54.xml">
+	
+<SourceCode_List><SourceCode lines="30" name="ChineseLetter.java"><![CDATA[public class ChineseLetter extends Letter { 
+private String title ; 
+private String receiver ; 
+private String content ; 
+private String sender ; 
+private String date ; 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + " " + title + ", 您好\n" + content + "\n" + sender + " 敬上\n" + date ) ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+String getTitle ( ) { 
+return title ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="30" name="EnglishLetter.java"><![CDATA[public class EnglishLetter extends Letter { 
+private String title ; 
+private String receiver ; 
+private String content ; 
+private String sender ; 
+private String date ; 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + title + " " + receiver + ",\n" + content + "\nSincerely\n" + sender + "\n" + date ) ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+String getTitle ( ) { 
+return title ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="32" name="Letter.java"><![CDATA[import java . util . Date ; 
+import java . text . * ; 
+abstract public class Letter implements Comparable { 
+abstract void display ( ) ; 
+abstract String getSender ( ) ; 
+abstract String getReceiver ( ) ; 
+abstract String getTitle ( ) ; 
+abstract String getDate ( ) ; 
+private Date thisd , objd ; 
+public void inputDateTime ( Letter obj ) { 
+try { 
+SimpleDateFormat formatter = new SimpleDateFormat ( "yyyy/MM/dd" ) ; 
+thisd = formatter . parse ( this . getDate ( ) ) ; 
+objd = formatter . parse ( obj . getDate ( ) ) ; 
+} 
+catch ( ParseException e ) { 
+} 
+} 
+@ Override ; 
+public int compareTo ( Object o ) { 
+Letter obj = ( Letter ) o ; 
+inputDateTime ( obj ) ; 
+if ( thisd . getTime ( ) < objd . getTime ( ) ) { 
+return 1 ; 
+} 
+else if ( thisd . getTime ( ) > objd . getTime ( ) ) { 
+return - 1 ; 
+} 
+else return 0 ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="33" name="Test.java"><![CDATA[import java . util . Arrays ; 
+public class Test { 
+public static void main ( ) { 
+Letter [ ] list = { 
+new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) , new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2018/11/01" ) , new EnglishLetter ( "Professor" , "Liu" , "I am sorry!" , "K. Ming" , "2018/07/05" ) , new EnglishLetter ( "Professor" , "Liu" , "I am sorry!" , "K. Ming" , "2018/07/01" ) } 
+; 
+int min = 10000 ; 
+for ( int i = list . length - 1 ; 
+i >= 0 ; 
+i -- ) 
+{ 
+for ( int j = 0 ; 
+j < i ; 
+j ++ ) 
+{ 
+if ( list [ j ] . compareTo ( list [ j + 1 ] ) == - 1 ) { 
+Letter temp ; 
+temp = list [ j ] ; 
+list [ j ] = list [ j + 1 ] ; 
+list [ j + 1 ] = temp ; 
+} 
+} 
+} 
+for ( int i = 0 ; 
+i < list . length ; 
+i ++ ) 
+{ 
+list [ i ] . display ( ) ; 
+System . out . println ( "\n" ) ; 
+} 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message><![CDATA[物件資料是可以被子類別繼承的,只需在Letter宣告一次即可
+public abstract class Letter 
+{
+public String title,receiver,content,sender,date;
+Letter(String title, String receiver, String content, String sender, String date)
+{
+this.title= title;
+this.receiver=receiver;
+this.content=content;
+this.sender=sender;
+this.date=date;
+}
+}
+子類別的建構子再利用super做資料傳遞給上一層
+public class EnglishLetter extends Letter
+{
+public EnglishLetter(String title, String receiver, String content, String sender, String date)
+{
+super(title,receiver,content,sender,date);
+}
+}
+
+public class ChineseLetter extends Letter
+{
+public ChineseLetter(String title, String receiver, String content, String sender, String date)
+{
+super(title,receiver,content,sender,date);
+}
+}
+另一方面,將共同物件寫在父類別,
+宣告成public供所有類別做使用,
+子類別就不用再宣告一次物件動作
+public abstract class Letter 
+{
+public String getTitle()
+{
+return title;
+}
+public String getReceiver()
+{
+return receiver;
+}
+public String getContent()
+{
+return content;
+}
+public String getSender()
+{
+return sender;
+}
+public String getDate()
+{
+return date;
+}
+}]]></Message><Linelist><line Begin="2" End="6" src="ChineseLetter"/><line Begin="7" End="13" src="ChineseLetter"/><line Begin="17" End="28" src="ChineseLetter"/><line Begin="2" End="6" src="EnglishLetter"/><line Begin="7" End="13" src="EnglishLetter"/><line Begin="17" End="28" src="EnglishLetter"/><line Begin="5" End="8" src="Letter"/></Linelist></Error></Errors></ErrorList>

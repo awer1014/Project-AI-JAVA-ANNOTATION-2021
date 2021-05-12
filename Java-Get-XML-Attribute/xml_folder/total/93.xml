@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\93.xml">
+	
+<SourceCode_List><SourceCode lines="35" name="ChineseLetter.java"><![CDATA[import java . util . * ; 
+public class ChineseLetter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String date ; 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+void display ( ) { 
+System . out . println ( receiver + " " + title + ",您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+public static void main ( String [ ] args ) { 
+ChineseLetter it = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+it . display ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確]]></Message><Linelist><line Begin="-1" End="-1" src="ChineseLetter"/></Linelist></Error></Errors></ErrorList>

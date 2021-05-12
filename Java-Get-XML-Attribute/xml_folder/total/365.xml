@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\java標記程式編輯器\XML_Error_1.13_2021_02_25\JavaAnnotationXMLProgram\Data\365.xml">
+	
+<SourceCode_List><SourceCode lines="31" name="KKbox.java"><![CDATA[class KKbox
+{
+    double length,width,height;
+    
+    KKbox()
+    {
+        double length,width,height;
+    }
+    double volume()
+    {
+        return length*width*height;
+    }
+    double surfaceArea()
+    {
+        return (2 *(length*width + width* height + height * length));
+    }
+    public static void main(double[] args)
+    {
+        KKbox ans1 = new KKbox();
+        //KKbox ans2 = new KKbox();
+        ans1.length=args[0];
+        ans1.width=args[1];
+        ans1.height=args[2];
+        System.out.println("請輸入長:"+ans1.length);
+        System.out.println("請輸入寬:"+ans1.width);
+        System.out.println("請輸入高:"+ans1.height);
+        System.out.println("體積:"+ans1.volume());
+        System.out.println("表面積:"+ans1.surfaceArea());
+    }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="io:不會使用輸入scanner類別"><Message><![CDATA[因為不會使用scanner，所以印出的都是數值]]></Message><Linelist><line Begin="24" End="26" src="KKbox"/></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[因為建構子有參數，所以呼叫建構子也需要給參數 
+若要將參數識別字當成屬性，要用this存取屬性 
+]]></Message><Linelist><line Begin="5" End="8" src="KKbox"/></Linelist></Error></Errors></ErrorList>

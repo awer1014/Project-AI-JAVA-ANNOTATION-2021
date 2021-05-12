@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\標註錯誤檔案\new\xml錯誤\489.xml">
+	
+<SourceCode_List><SourceCode lines="36" name="MyMathUtil.java"><![CDATA[Import java.util.StringTokenizer;
+
+public class s MyMathUtil
+{
+
+public static void main(String[] args) {
+
+       String str="4589751245954621";   
+
+       int a=length(str):
+
+       System.out.println(a);
+
+       
+
+       for(int k=0;k<=9;k++){
+
+       String str1=[0123456789];
+
+       while (str.indexOf(str1[k], start) >= 0 && start < s.length()) {
+
+       count++;
+
+       start = str.indexOf(str1, start) + str1.length();
+
+      }
+
+       }
+
+      System.out.println(str1+count);
+
+}
+
+}
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="陣列:不會宣告陣列變數"><Message><![CDATA[陣列宣告方式錯誤]]></Message><Linelist><line Begin="9" End="9" src="MyMathUtil"/></Linelist></Error></Errors></ErrorList>

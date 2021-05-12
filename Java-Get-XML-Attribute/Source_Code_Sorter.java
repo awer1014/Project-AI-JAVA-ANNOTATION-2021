@@ -1,16 +1,17 @@
 import java.util.*;
 public class Source_Code_Sorter {
     //set ArrayList for SourceCode Attribute
-    static ArrayList<String> Source_Code = new ArrayList<>();
-    static ArrayList<Integer> Source_code_being_line = new ArrayList<>();
+    ArrayList<String> Source_Code = new ArrayList<>();
+    ArrayList<Integer> Source_code_being_line = new ArrayList<>();
     //get Source Code Value and add to ArrayList
-    static int line_sum = 0;
+     int line_sum = 0;
+    
     Source_Code_Sorter(){
-        this.Source_Code.clear();// = Source_Code.clear();
-        this.Source_code_being_line.clear();
+        //this.Source_Code.clear();// = Source_Code.clear();
+        //this.Source_code_being_line.clear();
     }
 
-    public static void add_SourceCode_and_line(String Code_name, int code_line, boolean array_last) {
+    public void add_SourceCode_and_line(String Code_name, int code_line, boolean array_last) {
         boolean ArrayListisEmpty = Source_Code.isEmpty();
         if ((ArrayListisEmpty == true) && (array_last == false)) {
             Source_Code.add(Code_name);

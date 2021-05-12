@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\a0973\OneDrive\桌面\新增資料夾\681.xml">
+	
+<SourceCode_List><SourceCode lines="42" name="newKKBox0.java"><![CDATA[import java . util . Scanner ; 
+
+public class KKBox { 
+
+double _length , _width , _height ; 
+
+double total1 , total2 ; 
+
+void getlength ( double length ) { 
+
+_length = length ; 
+
+} 
+
+void getwidth ( double width ) { 
+
+_width = width ; 
+
+} 
+
+void getheight ( double height ) { 
+
+_height = height ; 
+
+} 
+
+double volume ( ) { 
+
+total1 = _length * _width * _height ; 
+
+return total1 ; 
+
+} 
+
+double surfaceArea ( ) { 
+
+total2 = 2 * ( _length * _width + _width * _height + _height * _length ) ; 
+
+return total2 ; 
+
+} 
+
+public static void main ( String [ ] args ) { 
+
+double length , width , height ; 
+
+Scanner scanner = new Scanner ( System . in ) ; 
+
+KKBox x = new KKBox ( ) ; 
+
+System . out . println ( "請輸入長:" ) ; 
+
+length = scanner . nextDouble ( ) ; 
+
+scanner . nextLine ( ) ; 
+
+x . getlength ( length ) ; 
+
+System . out . println ( "請輸入寬:" ) ; 
+
+width = scanner . nextDouble ( ) ; 
+
+scanner . nextLine ( ) ; 
+
+x . getwidth ( width ) ; 
+
+System . out . println ( "請輸入高:" ) ; 
+
+height = scanner . nextDouble ( ) ; 
+
+scanner . nextLine ( ) ; 
+
+x . getheight ( height ) ; 
+
+System . out . println ( "體積:" + x . volume ( ) ) ; 
+
+System . out . println ( "表面積:" + x . surfaceArea ( ) ) ; 
+
+} 
+
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="io:不會使用輸入scanner類別"><Message><![CDATA[27行應改成
+double length = scanner.nextDouble();
+31行應改成
+double width = scanner.nextDouble
+35行應改成
+double height = scanner.nextDouble
+28 32 36行是多餘的]]></Message><Linelist><line Begin="27" End="28" src="newKKBox0"/><line Begin="31" End="32" src="newKKBox0"/><line Begin="35" End="36" src="newKKBox0"/></Linelist></Error></Errors><SourceCode_List><SourceCode lines="8" name="newSeason0.java"><![CDATA[class Season { 
+void x ( ) { 
+String c [ ] = { 
+"春" , "夏" , "秋" , "冬" } 
+; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="陣列:不會宣告陣列變數"><Message><![CDATA[正常的main函式撰寫應為
+public static void main()
+陣列宣告應為
+String[] c={"春","夏","秋","冬"};
+
+]]></Message><Linelist><line Begin="2" End="2" src="newSeason0"/><line Begin="3" End="4" src="newSeason0"/></Linelist></Error></Errors></ErrorList>

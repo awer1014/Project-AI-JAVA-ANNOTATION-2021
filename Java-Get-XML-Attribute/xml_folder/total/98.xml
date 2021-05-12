@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\游騰緯\子霆(校對)\98.xml">
+	
+<SourceCode_List><SourceCode lines="54" name="ChineseLetter.java"><![CDATA[import java . util . * ; 
+public class ChineseLetter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String date ; 
+private ChineseLetter ( ) { 
+} 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+static String getSender ( ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String s = sc . nextLine ( ) ; 
+return s ; 
+} 
+static String getReceiver ( ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String s = sc . nextLine ( ) ; 
+return s ; 
+} 
+static String getDate ( ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String s = sc . nextLine ( ) ; 
+return s ; 
+} 
+static String getTitle ( ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String s = sc . nextLine ( ) ; 
+return s ; 
+} 
+static String getContent ( ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String s = sc . nextLine ( ) ; 
+return s ; 
+} 
+public void display ( ) { 
+System . out . println ( title + receiver + " " + "您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + "敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+public static void main ( String [ ] args ) { 
+System . out . println ( "分別輸入:別稱，姓名，內容，寄件者，日期" ) ; 
+ChineseLetter letter = new ChineseLetter ( ) ; 
+letter . display ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:不會使用物件資料"><Message><![CDATA[17-41應改為:
+Scanner需在public static void main ( String [ ] args ) { }
+中執行，且變數不應取相同名稱
+
+50應改為:
+ChineseLetter中應引入變數
+例:ChineseLetter letter = new ChineseLetter (a,b,c,d,e ) ; ]]></Message><Linelist><line Begin="17" End="41" src="ChineseLetter"/><line Begin="50" End="50" src="ChineseLetter"/></Linelist></Error></Errors></ErrorList>

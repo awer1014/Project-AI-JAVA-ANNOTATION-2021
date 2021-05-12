@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 
-public class XmlFileSearch 
-{
+public class XmlFileSearch {
     private static File f;
     private static File[] files;
 
@@ -10,5 +9,6 @@ public class XmlFileSearch
         f = new File (directory);
         files = f.listFiles(new FileFilter());
         return files;
-        }
+    }
+
 }

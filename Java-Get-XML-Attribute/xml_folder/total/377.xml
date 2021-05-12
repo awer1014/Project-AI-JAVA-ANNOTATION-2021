@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\code\全部\新增資料夾 (5)\377.xml">
+	
+<SourceCode_List><SourceCode lines="22" name="season.java"><![CDATA[
+public class season
+{
+    
+     String OK(){
+        String[] season ={ "春夏秋冬"};
+		return null;
+    }
+    
+
+    
+
+     public static void main(String[] argv){
+    
+    season ss = new season();
+    
+    Math.random();
+    System.out.print("今天的心情是 = " + ss.OK());
+    
+  }    
+}
+]]></SourceCode><SourceCode lines="20" name="Season.java"><![CDATA[
+/**
+ * Write a description of class Test2 here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class Season
+{
+    string a="春";
+    string b="夏";
+    string c="秋";
+    string d="冬";
+    public static void main(String[] args)
+    {
+            Random ran=new Random();
+            System.out.println(ran.nextInt(3));
+    }       
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:關鍵字錯誤"><Message><![CDATA[在java裡字串的資料型態要大寫]]></Message><Linelist><line Begin="10" End="13" src="Season"/></Linelist></Error><Error tpye="函數:函數庫使用錯誤"><Message><![CDATA[要使用random函式要import java.util.Random;]]></Message><Linelist><line Begin="1" End="1" src="Season"/></Linelist></Error></Errors></ErrorList>

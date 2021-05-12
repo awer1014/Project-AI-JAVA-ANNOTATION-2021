@@ -36,23 +36,25 @@ public class ExcelWriter {
         // 往Excel表中遍歷寫入數據
     }
 
-    private HSSFRow createRow(){
+    private HSSFRow createRow() {
         HSSFRow dataRow = sheet.createRow(sheet.getLastRowNum() + 1);
         //for(int i=0; i<97; i++){
-        for(int i=0; i<total_cell; i++){
+        for(int i=0; i<total_cell; i++) {
             dataRow.createCell(i).setCellValue(0);
         }
         return dataRow;
     }
 
-    public void write(String fileName, ArrayList<ArrayList<Line_Block>> list,ArrayList<String> file_id_list)  {
+    public void write(String fileName, ArrayList<ArrayList<Line_Block>> list, ArrayList<String> file_id_list) {
         //public void write(String fileName, ArrayList<Line_Block> list)  {
 
         createSheet();
         Read_Xml_file rxf = new Read_Xml_file();
         //for (ArrayList<ArrayList<Line_Block>> ls: list) {
-        for(int i=0,j=0; i<list.size()&&j<file_id_list.size(); i++,j++ ){//String fil : file_id_list&&ArrayList<Line_Block> ls ;ls<list.size(); ls++
-            createCell(list.get(i), sheet,file_id_list.get(j));
+        for(int i=0,j=0; i<list.size()&&j<file_id_list.size(); i++,j++ ) {//String fil : file_id_list&&ArrayList<Line_Block> ls ;ls<list.size(); ls++
+            createCell(list.get(i), sheet, file_id_list.get(j));
+            //System.out.println("ew.list:" + list.get(i));
+            //System.out.println("ew.file_id:" + file_id_list.get(j));
         }
 
         try {
@@ -70,16 +72,18 @@ public class ExcelWriter {
         }
     }
     // 創建Excel的一行數據。
-    private void createCell(/*String file_id,*/ List<Line_Block>  list, HSSFSheet sheet,String file_id_list) {
+    private void createCell(/*String file_id,*/ List<Line_Block>  list, HSSFSheet sheet, String file_id_list) {
         HSSFRow dataRow=createRow();
         //int id_count = 0;
         int ecount=0;
+        //System.out.println("ew file id: " + file_id_list);
+        dataRow.getCell(0).setCellValue(file_id_list);
         for (Line_Block lb : list) {
             //System.out.println("file name: " + files[id_count].getName());
             //System.out.println("id_count: " + id_count);
             //String [] tokens=files[id_count].getName().split(".xml",2);
-            //System.out.println("token: " + tokens[0]);
-            dataRow.getCell(0).setCellValue(file_id_list);//.setCellValue(file_id);
+            //System.out.println("ew file id: " + file_id_list);
+            //dataRow.getCell(0).setCellValue(file_id_list);//.setCellValue(file_id);
 
             //id_count++;
             int errorid = lb.key;

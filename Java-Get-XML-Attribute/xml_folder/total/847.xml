@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="G:\個人資料夾\專研\校對\Student code\847\847.xml">
+	
+<SourceCode_List><SourceCode lines="15" name="847.java"><![CDATA[class pet { 
+private int count ; 
+String pid ; 
+String name ; 
+String type ; 
+void speak ( ) { 
+if ( this . type == "貓" ) { 
+System . out . println ( "喵喵" ) ; 
+} 
+else if ( this . type == "狗" ) { 
+System . out . println ( "汪汪" ) ; 
+} 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA[ JAVA字串比較使用equals函數較為通用]]></Message><Linelist><line Begin="7" End="7" src="847"/><line Begin="10" End="10" src="847"/></Linelist></Error></Errors></ErrorList>

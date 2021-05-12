@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\游騰緯\子霆(校對)\59.xml">
+	
+<SourceCode_List><SourceCode lines="30" name="ChineseLetter.java"><![CDATA[public class ChineseLetter extends Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+protected String sender ; 
+protected String date ; 
+public void getSender ( ) { 
+this . sender = sender ; 
+} 
+public void getReceiver ( ) { 
+this . receiver = receiver ; 
+} 
+public void getDate ( ) { 
+this . date = date ; 
+} 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . sender = sender ; 
+this . content = content ; 
+this . date = date ; 
+} 
+void display ( ) { 
+System . out . println ( receiver + "  " + title + "  您好!!" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + "      敬上!!" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="24" name="EnglishLetter.java"><![CDATA[public class EnglishLetter extends Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+protected String sender ; 
+protected String date ; 
+public void getSender ( ) { 
+this . sender = sender ; 
+} 
+public void getReceiver ( ) { 
+this . receiver = receiver ; 
+} 
+public void getDate ( ) { 
+this . date = date ; 
+} 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . sender = sender ; 
+this . content = content ; 
+this . date = date ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="9" name="Letter.java"><![CDATA[abstract public class Letter { 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+Letter lte = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+ChineseLetter . display ( ) ; 
+EnglishLetter . display ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message><![CDATA[ChineseLetter和EnglishLetter的資料可放到
+Letter中共用，繼承Letter的資料]]></Message><Linelist><line Begin="2" End="6" src="ChineseLetter"/><line Begin="2" End="6" src="EnglishLetter"/><line Begin="7" End="15" src="ChineseLetter"/><line Begin="7" End="15" src="EnglishLetter"/><line Begin="16" End="22" src="EnglishLetter"/><line Begin="16" End="22" src="ChineseLetter"/></Linelist></Error><Error tpye="抽象:抽象類別不能直接產生物件"><Message><![CDATA[應加在ChineseLetter和EnglishLetter內
+
+並且5.6行應改為呼叫:
+lt.display();
+lte.display();]]></Message><Linelist><line Begin="2" End="7" src="Letter"/></Linelist></Error></Errors></ErrorList>
