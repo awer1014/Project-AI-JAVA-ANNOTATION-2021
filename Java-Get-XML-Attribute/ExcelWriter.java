@@ -91,7 +91,8 @@ public class ExcelWriter {
             int pos = 36+(ecount)*32;
             //System.out.println(36+(ecount-1)*32);
             //System.out.println("最初pos : "+pos+" 最初ecount : "+ecount);
-            for(int i=0; i<lb.block_begin.size(); i++){
+            for(int i=0; i < lb.block_begin.size(); i++){
+                //System.out.println("block begin size: "+lb.block_begin.size());
                 int begin = lb.block_begin.get(i);
                 int end = lb.block_end.get(i);
                 //System.out.println("pos: "+pos);
