@@ -1,4 +1,3 @@
-import numpy as np
 from keras_layer_normalization import LayerNormalization
 from keras_multi_head import MultiHeadAttention
 from keras_position_wise_feed_forward import FeedForward
@@ -6,14 +5,14 @@ from keras_pos_embd import TrigPosEmbedding
 from keras_embed_sim import EmbeddingRet, EmbeddingSim
 from .backend import keras
 from .gelu import gelu
-
-
+import tensorflow as tf 
+ 
 __all__ = [
     'get_custom_objects', 'get_encoders', 'get_decoders', 'get_model', 'decode',
     'attention_builder', 'feed_forward_builder', 'get_encoder_component', 'get_decoder_component',
 ]
-
-
+ 
+ 
 def get_custom_objects():
     return {
         'gelu': gelu,
@@ -24,20 +23,22 @@ def get_custom_objects():
         'EmbeddingRet': EmbeddingRet,
         'EmbeddingSim': EmbeddingSim,
     }
-
-
+ 
+ 
 def _wrap_layer(name,
                 input_layer,
                 build_func,
                 dropout_rate=0.0,
-                trainable=True):
+                trainable=True,
+				addNormalLayer = True):
     """Wrap layers with residual, normalization and dropout.
-
+ 
     :param name: Prefix of names for internal layers.
     :param input_layer: Input layer.
     :param build_func: A callable that takes the input tensor and generates the output tensor.
     :param dropout_rate: Dropout rate.
     :param trainable: Whether the layers are trainable.
+	:addNormalLayer: Whether add the Add& Normalized Layer
     :return: Output layer.
     """
     build_output = build_func(input_layer)
@@ -50,21 +51,23 @@ def _wrap_layer(name,
         dropout_layer = build_output
     if isinstance(input_layer, list):
         input_layer = input_layer[0]
-    add_layer = keras.layers.Add(name='%s-Add' % name)([input_layer, dropout_layer])
-    normal_layer = LayerNormalization(
+    if addNormalLayer:
+        add_layer = keras.layers.Add(name='%s-Add' % name)([input_layer, dropout_layer])
+        normal_layer = LayerNormalization(
         trainable=trainable,
         name='%s-Norm' % name,
-    )(add_layer)
-    return normal_layer
-
-
+        )(add_layer)
+        return normal_layer
+    else:
+        return dropout_layer
+		
 def attention_builder(name,
                       head_num,
                       activation,
                       history_only,
                       trainable=True):
     """Get multi-head self-attention builder.
-
+ 
     :param name: Prefix of names for internal layers.
     :param head_num: Number of heads in multi-head self-attention.
     :param activation: Activation for multi-head self-attention.
@@ -81,21 +84,23 @@ def attention_builder(name,
             name=name,
         )(x)
     return _attention_builder
-
-
+ 
+ 
 def feed_forward_builder(name,
                          hidden_dim,
                          activation,
                          trainable=True):
     """Get position-wise feed-forward layer builder.
-
+ 
     :param name: Prefix of names for internal layers.
     :param hidden_dim: Hidden dimension of feed forward layer.
     :param activation: Activation for feed-forward layer.
     :param trainable: Whether the layer is trainable.
     :return:
     """
+
     def _feed_forward_builder(x):
+        print("feed_forward_builder input type:", type(x))
         return FeedForward(
             units=hidden_dim,
             activation=activation,
@@ -104,7 +109,7 @@ def feed_forward_builder(name,
         )(x)
     return _feed_forward_builder
 
-
+ 
 def get_encoder_component(name,
                           input_layer,
                           head_num,
@@ -114,7 +119,7 @@ def get_encoder_component(name,
                           dropout_rate=0.0,
                           trainable=True,):
     """Multi-head self-attention and feed-forward layer.
-
+ 
     :param name: Prefix of names for internal layers.
     :param input_layer: Input layer.
     :param head_num: Number of heads in multi-head self-attention.
@@ -153,8 +158,8 @@ def get_encoder_component(name,
         trainable=trainable,
     )
     return feed_forward_layer
-
-
+ 
+ 
 def get_decoder_component(name,
                           input_layer,
                           encoded_layer,
@@ -165,7 +170,7 @@ def get_decoder_component(name,
                           dropout_rate=0.0,
                           trainable=True):
     """Multi-head self-attention, multi-head query attention and feed-forward layer.
-
+ 
     :param name: Prefix of names for internal layers.
     :param input_layer: Input layer.
     :param encoded_layer: Encoded layer from encoder.
@@ -219,8 +224,8 @@ def get_decoder_component(name,
         trainable=trainable,
     )
     return feed_forward_layer
-
-
+ 
+ 
 def get_encoders(encoder_num,
                  input_layer,
                  head_num,
@@ -230,7 +235,7 @@ def get_encoders(encoder_num,
                  dropout_rate=0.0,
                  trainable=True):
     """Get encoders.
-
+ 
     :param encoder_num: Number of encoder components.
     :param input_layer: Input layer.
     :param head_num: Number of heads in multi-head self-attention.
@@ -254,8 +259,8 @@ def get_encoders(encoder_num,
             trainable=trainable,
         )
     return last_layer
-
-
+ 
+ 
 def get_decoders(decoder_num,
                  input_layer,
                  encoded_layer,
@@ -266,7 +271,7 @@ def get_decoders(decoder_num,
                  dropout_rate=0.0,
                  trainable=True):
     """Get decoders.
-
+ 
     :param decoder_num: Number of decoder components.
     :param input_layer: Input layer.
     :param encoded_layer: Encoded layer from encoder.
@@ -292,9 +297,10 @@ def get_decoders(decoder_num,
             trainable=trainable,
         )
     return last_layer
-
+ 
 #張小姐游先生請看此處
-def get_model(token_num,
+def get_model(input_len,
+              token_num,
               embed_dim,
               encoder_num,
               decoder_num,
@@ -308,7 +314,7 @@ def get_model(token_num,
               embed_trainable=None,
               trainable=True):
     """Get full model without compilation.
-
+ 
     :param token_num: Number of distinct tokens.
     :param embed_dim: Dimension of token embedding.
     :param encoder_num: Number of encoder components.
@@ -329,7 +335,7 @@ def get_model(token_num,
     if not isinstance(token_num, list):
         token_num = [token_num, token_num]
     encoder_token_num, decoder_token_num = token_num
-
+ 
     if not isinstance(embed_weights, list):
         embed_weights = [embed_weights, embed_weights]
     encoder_embed_weights, decoder_embed_weights = embed_weights
@@ -337,7 +343,7 @@ def get_model(token_num,
         encoder_embed_weights = [encoder_embed_weights]
     if decoder_embed_weights is not None:
         decoder_embed_weights = [decoder_embed_weights]
-
+ 
     if not isinstance(embed_trainable, list):
         embed_trainable = [embed_trainable, embed_trainable]
     encoder_embed_trainable, decoder_embed_trainable = embed_trainable
@@ -345,7 +351,7 @@ def get_model(token_num,
         encoder_embed_trainable = encoder_embed_weights is None
     if decoder_embed_trainable is None:
         decoder_embed_trainable = decoder_embed_weights is None
-
+ 
     if use_same_embed:
         encoder_embed_layer = decoder_embed_layer = EmbeddingRet(
             input_dim=encoder_token_num,
@@ -387,7 +393,10 @@ def get_model(token_num,
         dropout_rate=dropout_rate,
         trainable=trainable,
     )
+    #flatten = keras.layers.Flatten()(encoded_layer)
+    #錯誤分類器1
     #add error classification mlp network
+    '''
     error_feed_forward_layer1 = _wrap_layer(
         name="error_feed_forward_layer1",
         input_layer=encoded_layer,
@@ -398,21 +407,71 @@ def get_model(token_num,
             trainable=trainable,
         ),
         dropout_rate=dropout_rate,
-        trainable=trainable,
+        trainable=trainable, 
+        addNormalLayer = False,
     )
-    error_feed_forward_output = _wrap_layer(
-        name="error_feed_forward_output",
+
+    error_feed_forward_output1 = _wrap_layer(
+        name="error_feed_forward_output1",
         input_layer=error_feed_forward_layer1,
         build_func=feed_forward_builder(
-            name="error_feed_forward_output",
+            name="error_feed_forward_output1",
             hidden_dim=36,
-            activation="sigmoid",
+            activation="softmax",
+            trainable=trainable,
+        ),
+        dropout_rate=0.0,
+        trainable=trainable,
+        addNormalLayer = False,
+    )
+    '''
+    print("encoded_layer:", encoded_layer)
+    print("encoded_layer shape:", encoded_layer.shape)
+    flatten_state = keras.layers.Reshape((input_len*embed_dim,))(encoded_layer)
+    print("flatten_state:", flatten_state.shape)
+    error_feed_forward_layer1 = keras.layers.Dense(hidden_dim, activation="relu" )(flatten_state)
+    error_feed_forward_output1 = keras.layers.Dense(36,activation="softmax",name="error_feed_forward_output1")(error_feed_forward_layer1)
+    print("flatten_state:", flatten_state.shape)	
+    print("error_feed_forward_output1:", error_feed_forward_output1.shape)	
+    concatted = keras.layers.Concatenate()([error_feed_forward_output1, flatten_state])
+    
+    #分類器2
+    '''
+    error_feed_forward_layer2 = _wrap_layer(
+        name="error_feed_forward_layer2",
+        input_layer=concatted,
+        build_func=feed_forward_builder(
+            name="error_feed_forward_layer2",
+            hidden_dim=hidden_dim,
+            activation="relu", 
             trainable=trainable,
         ),
         dropout_rate=dropout_rate,
         trainable=trainable,
+        addNormalLayer = False,
     )
-    #######################################此處可免
+    error_feed_forward_output2 = _wrap_layer(
+        name="error_feed_forward_output2",
+        input_layer=error_feed_forward_layer2,
+        build_func=feed_forward_builder(
+            name="error_feed_forward_output2",
+            hidden_dim=60, #段落數量
+            activation="sigmoid",
+            trainable=trainable,
+        ),
+        dropout_rate=0.0,
+        trainable=trainable,
+        addNormalLayer = False,
+    )
+    '''
+    error_feed_forward_layer2 = keras.layers.Dense(hidden_dim, activation="relu" )(concatted)
+    error_feed_forward_output2 = keras.layers.Dense(60,activation="sigmoid" , name="error_feed_forward_output2")(error_feed_forward_layer2)
+
+    print("error_feed_forward_output2:", error_feed_forward_output2.shape)	
+
+
+######################################此處可免
+    """
     decoder_input = keras.layers.Input(shape=(None,), name='Decoder-Input')
     decoder_embed, decoder_embed_weights = decoder_embed_layer(decoder_input)
     decoder_embed = TrigPosEmbedding(
@@ -434,9 +493,11 @@ def get_model(token_num,
         trainable=trainable,
         name='Decoder-Output',
     )([decoded_layer, decoder_embed_weights])
-    return keras.models.Model(inputs=[encoder_input, decoder_input], outputs=[error_feed_forward_output, output_layer])
-
-
+    """
+    model = keras.models.Model(inputs=[encoder_input], outputs=[error_feed_forward_output1, error_feed_forward_output2])
+    model.summary()
+    return model 
+ 
 def _get_max_suffix_repeat_times(tokens, max_len):
     detect_len = min(max_len, len(tokens))
     next = [-1] * detect_len
@@ -452,72 +513,4 @@ def _get_max_suffix_repeat_times(tokens, max_len):
         if next[i] >= 0 and (i + 1) % (i - next[i]) == 0:
             max_repeat = max(max_repeat, (i + 1) // (i - next[i]))
     return max_repeat
-
-
-def decode(model,
-           tokens,
-           start_token,
-           end_token,
-           pad_token,
-           top_k=1,
-           temperature=1.0,
-           max_len=10000,
-           max_repeat=10,
-           max_repeat_block=10):
-    """Decode with the given model and input tokens.
-
-    :param model: The trained model.
-    :param tokens: The input tokens of encoder.
-    :param start_token: The token that represents the start of a sentence.
-    :param end_token: The token that represents the end of a sentence.
-    :param pad_token: The token that represents padding.
-    :param top_k: Choose the last token from top K.
-    :param temperature: Randomness in boltzmann distribution.
-    :param max_len: Maximum length of decoded list.
-    :param max_repeat: Maximum number of repeating blocks.
-    :param max_repeat_block: Maximum length of the repeating block.
-    :return: Decoded tokens.
-    """
-    is_single = not isinstance(tokens[0], list)
-    if is_single:
-        tokens = [tokens]
-    batch_size = len(tokens)
-    decoder_inputs = [[start_token] for _ in range(batch_size)]
-    outputs = [None for _ in range(batch_size)]
-    output_len = 1
-    while len(list(filter(lambda x: x is None, outputs))) > 0:
-        output_len += 1
-        batch_inputs, batch_outputs = [], []
-        max_input_len = 0
-        index_map = {}
-        for i in range(batch_size):
-            if outputs[i] is None:
-                index_map[len(batch_inputs)] = i
-                batch_inputs.append(tokens[i][:])
-                batch_outputs.append(decoder_inputs[i])
-                max_input_len = max(max_input_len, len(tokens[i]))
-        for i in range(len(batch_inputs)):
-            batch_inputs[i] += [pad_token] * (max_input_len - len(batch_inputs[i]))
-        predicts = model.predict([np.array(batch_inputs), np.array(batch_outputs)])
-        for i in range(len(predicts)):
-            if top_k == 1:
-                last_token = predicts[i][-1].argmax(axis=-1)
-            else:
-                probs = [(prob, j) for j, prob in enumerate(predicts[i][-1])]
-                probs.sort(reverse=True)
-                probs = probs[:top_k]
-                indices, probs = list(map(lambda x: x[1], probs)), list(map(lambda x: x[0], probs))
-                probs = np.array(probs) / temperature
-                probs = probs - np.max(probs)
-                probs = np.exp(probs)
-                probs = probs / np.sum(probs)
-                last_token = np.random.choice(indices, p=probs)
-            decoder_inputs[index_map[i]].append(last_token)
-            if last_token == end_token or\
-                    (max_len is not None and output_len >= max_len) or\
-                    _get_max_suffix_repeat_times(decoder_inputs[index_map[i]],
-                                                 max_repeat * max_repeat_block) >= max_repeat:
-                outputs[index_map[i]] = decoder_inputs[index_map[i]]
-    if is_single:
-        outputs = outputs[0]
-    return outputs
+ 
