@@ -1,6 +1,6 @@
 import numpy as np
 from keras_layer_normalization import LayerNormalization
-#from keras_multi_head import MultiHeadAttention
+from keras_multi_head import MultiHeadAttention
 from tensorflow_fast_attention.fast_attention import  Attention, SelfAttention #New here
 #from keras_position_wise_feed_forward import FeedForward
 from keras_position_wise_feed_forward.feed_forward import FeedForward
@@ -21,8 +21,7 @@ def get_custom_objects():
     return {
         'gelu': gelu,
         'LayerNormalization': LayerNormalization,
-        'Attention': Attention,
-        'SelfAttention': SelfAttention,
+		'MultiHeadAttention': MultiHeadAttention,
         'FeedForward': FeedForward,
         'TrigPosEmbedding': TrigPosEmbedding,
         'EmbeddingRet': EmbeddingRet,
@@ -34,7 +33,8 @@ def _wrap_layer(name,
                 input_layer,
                 build_func,
                 dropout_rate=0.0,
-                trainable=True):
+                trainable=True,
+                addNormalLayer = True):
     """Wrap layers with residual, normalization and dropout.
 
     :param name: Prefix of names for internal layers.
@@ -47,7 +47,7 @@ def _wrap_layer(name,
     print("Start Warpping................................")
     
     if isinstance(input_layer, list):
-        build_output = build_func(input_layer[0], input_layer[1])
+        build_output = build_func(input_layer)
     else:
         build_output = build_func(input_layer)
     if dropout_rate > 0.0:
@@ -66,13 +66,13 @@ def _wrap_layer(name,
     )(add_layer)
     return normal_layer
 
-			
+
 def attention_builder(name,
                       embed_dim,
                       head_num,
                       activation,
                       history_only,
-					  dropout_rate=0.0,
+                      dropout_rate=0.0,
                       trainable=True):
     """Get multi-head self-attention builder.
 
@@ -103,24 +103,19 @@ def attention_builder(name,
                projection_matrix_type=None,
                nb_random_features=0):
     """
-    def _attention_builder(x, y): #Attention(hidden_size, num_heads, dropout)
-        return Attention(
-			hidden_size=embed_dim,
-			num_heads=head_num,
-			attention_dropout=dropout_rate,
-			nb_random_features= int(embed_dim / 2), #16
-			causal=False,
-			projection_matrix_type=True
-        )(x, y)
+    def _attention_builder(x): #Attention(hidden_size, num_heads, dropout)
+        return MultiHeadAttention(
+            head_num=head_num,
+            activation=activation,
+            history_only=history_only,
+            trainable=trainable,
+            name=name,
+        )(x)
     return _attention_builder
 
 def self_attention_builder(name,
-                      embed_dim,
-                      head_num,
+                      hidden_dim,
                       activation,
-                      history_only,
-                      masked=False,
-					  dropout_rate=0.0,
                       trainable=True):
     """Get multi-head self-attention builder.
 
@@ -132,40 +127,6 @@ def self_attention_builder(name,
     :param trainable: Whether the layer is trainable.
     :return:
     """
-    """ OLD:
-	def _attention_builder(x):
-        return MultiHeadAttention(
-            head_num=head_num,
-            activation=activation,
-            history_only=history_only,
-            trainable=trainable,
-            name=name,
-        )(x)
-	SelfAttention: New Params
-               hidden_size,
-               num_heads,
-               attention_dropout,
-               kernel_transformation=relu_kernel_transformation,
-               numerical_stabilizer=0.001,
-               causal=False,
-               projection_matrix_type=None,
-               nb_random_features=0):
-    """
-    def _attention_builder(x): #SelfAttention(hidden_size, num_heads, dropout)
-        print("OOOO:", x)
-        print("embed_dim:", embed_dim)
-        print("head_num:", head_num)
-        print("dropout_rate:", dropout_rate)
-        print("masked:", masked)		
-        return SelfAttention(
-			hidden_size=embed_dim,
-			num_heads=head_num,
-			attention_dropout=dropout_rate,
-			nb_random_features= int(embed_dim / 2), #16
-			causal=masked,
-			projection_matrix_type=True
-        )(x)
-    return _attention_builder
 
 
 def feed_forward_builder(name,
@@ -189,7 +150,6 @@ def feed_forward_builder(name,
         )(x)
     return _feed_forward_builder
 
-
 def get_encoder_component(name,
                           input_layer,
 						  embed_dim,
@@ -212,6 +172,7 @@ def get_encoder_component(name,
     :param trainable: Whether the layers are trainable.
     :return: Output layer.
     """
+    print("name: ", name)
     attention_name = '%s-MultiHeadSelfAttention' % name
     feed_forward_name = '%s-FeedForward' % name
     attention_layer = _wrap_layer( 
@@ -245,10 +206,10 @@ def get_encoder_component(name,
     return feed_forward_layer
 
 
+'''
 def get_decoder_component(name,
                           input_layer,
                           encoded_layer,
-                          embed_dim,
                           head_num,
                           hidden_dim,
                           attention_activation=None,
@@ -276,27 +237,22 @@ def get_decoder_component(name,
         input_layer=input_layer,
         build_func=self_attention_builder(
             name=self_attention_name,
-            embed_dim=embed_dim,
             head_num=head_num,
             activation=attention_activation,
             history_only=True,
-            dropout_rate=dropout_rate,
             trainable=trainable,
-			masked=True,
         ),
         dropout_rate=dropout_rate,
         trainable=trainable,
     )
     query_attention_layer = _wrap_layer(
         name=query_attention_name,
-        input_layer=[self_attention_layer, encoded_layer],
+        input_layer=[self_attention_layer, encoded_layer, encoded_layer],
         build_func=attention_builder(
             name=query_attention_name,
-            embed_dim=embed_dim,
             head_num=head_num,
             activation=attention_activation,
             history_only=False,
-            dropout_rate=dropout_rate,
             trainable=trainable,
         ),
         dropout_rate=dropout_rate,
@@ -315,12 +271,12 @@ def get_decoder_component(name,
         trainable=trainable,
     )
     return feed_forward_layer
-
+'''
 
 def get_encoders(encoder_num,
                  input_layer,
-				 embed_dim,
                  head_num,
+                 embed_dim,
                  hidden_dim,
                  attention_activation=None,
                  feed_forward_activation=gelu,
@@ -344,13 +300,13 @@ def get_encoders(encoder_num,
         last_layer = get_encoder_component(
             name='Encoder-%d' % (i + 1),
             input_layer=last_layer,
-            embed_dim=embed_dim,
             head_num=head_num,
+            embed_dim=embed_dim,
             hidden_dim=hidden_dim,
             attention_activation=attention_activation,
             feed_forward_activation=feed_forward_activation,
             dropout_rate=dropout_rate,
-            trainable=trainable
+            trainable=trainable,
         )
     return last_layer
 
@@ -358,7 +314,6 @@ def get_encoders(encoder_num,
 def get_decoders(decoder_num,
                  input_layer,
                  encoded_layer,
-				 embed_dim,
                  head_num,
                  hidden_dim,
                  attention_activation=None,
@@ -384,7 +339,6 @@ def get_decoders(decoder_num,
             name='Decoder-%d' % (i + 1),
             input_layer=last_layer,
             encoded_layer=encoded_layer,
-            embed_dim=embed_dim,
             head_num=head_num,
             hidden_dim=hidden_dim,
             attention_activation=attention_activation,
@@ -393,12 +347,12 @@ def get_decoders(decoder_num,
             trainable=trainable,
         )
     return last_layer
-	
 
-def get_model(max_input_len,
+
+def get_model(input_len,
+              token_num,
               errNum,
               lbNum,
-              token_num,
               embed_dim,
               encoder_num,
               head_num,
@@ -406,7 +360,6 @@ def get_model(max_input_len,
               attention_activation=None,
               feed_forward_activation=gelu,
               dropout_rate=0.0,
-              use_same_embed=True,
               embed_weights=None,
               embed_trainable=None,
               trainable=True):
@@ -429,30 +382,32 @@ def get_model(max_input_len,
     :param trainable: Whether the layers are trainable.
     :return: Keras model.
     """
-    #tn = token_num
-
-    encoder_token_num = token_num
-
-    encoder_max_input_len = max_input_len
-
-    encoder_embed_weights = embed_weights
+    if not isinstance(token_num, list) :
+        token_num = [token_num, token_num]
+    encoder_token_num, decoder_token_num = token_num
+    if not isinstance(embed_weights, list):
+        embed_weights = [embed_weights, embed_weights]
+    encoder_embed_weights, decoder_embed_weights = embed_weights
     if encoder_embed_weights is not None:
         encoder_embed_weights = [encoder_embed_weights]
-
-    encoder_embed_trainable = embed_trainable
+    
+ 
+    if not isinstance(embed_trainable, list):
+        embed_trainable = [embed_trainable, embed_trainable]
+    encoder_embed_trainable, decoder_embed_trainable = embed_trainable
     if encoder_embed_trainable is None:
         encoder_embed_trainable = encoder_embed_weights is None
-
+    
     encoder_embed_layer = EmbeddingRet(
             input_dim=encoder_token_num,
             output_dim=embed_dim,
             mask_zero=True,
             weights=encoder_embed_weights,
             trainable=encoder_embed_trainable,
-            name='Token-Embedding',
-    )
-
-    encoder_input = tf.keras.Input(shape=(encoder_max_input_len,), name='Encoder-Input') #None-> 32, 11
+            name='Encoder-Token-Embedding',
+        )
+        
+    encoder_input = keras.layers.Input(shape=(None,), name='Encoder-Input') #None-> 32, 11
     print("In get_model: encoder_input: ", encoder_input.shape)
     encoder_embed = TrigPosEmbedding(
         mode=TrigPosEmbedding.MODE_ADD,
@@ -462,19 +417,24 @@ def get_model(max_input_len,
     encoded_layer = get_encoders(
         encoder_num=encoder_num,
         input_layer=encoder_embed,
-		embed_dim=embed_dim,
         head_num=head_num,
+        embed_dim=embed_dim,
         hidden_dim=hidden_dim,
         attention_activation=attention_activation,
         feed_forward_activation=feed_forward_activation,
         dropout_rate=dropout_rate,
-        trainable=trainable
+        trainable=trainable,
     )
-
+    modelTest = keras.models.Model(inputs=[encoder_input], outputs=[encoded_layer])
+    print("modelTestmodelTestmodelTestmodelTestmodelTest")
+    modelTest.summary()
+	#flatten = keras.layers.Flatten()(encoded_layer)
+    #錯誤分類器1
+    #add error classification mlp network
+ 
     print("encoded_layer:", encoded_layer)
     print("encoded_layer shape:", encoded_layer.shape)
-    print("max_input_len, embed_dim:", max_input_len, embed_dim)	
-    flatten_state = keras.layers.Reshape((max_input_len*embed_dim,))(encoded_layer)
+    flatten_state = keras.layers.Reshape((input_len*embed_dim,))(encoded_layer)
     print("flatten_state:", flatten_state.shape)
     error_feed_forward_layer1 = keras.layers.Dense(hidden_dim, activation="relu" )(flatten_state)
     error_feed_forward_output1 = keras.layers.Dense(errNum,activation="softmax",name="error_feed_forward_output1")(error_feed_forward_layer1)
@@ -495,7 +455,6 @@ def get_model(max_input_len,
     model.summary()
     return model 
 	
-
 def _get_max_suffix_repeat_times(tokens, max_len):
     detect_len = min(max_len, len(tokens))
     next = [-1] * detect_len
@@ -511,36 +470,3 @@ def _get_max_suffix_repeat_times(tokens, max_len):
         if next[i] >= 0 and (i + 1) % (i - next[i]) == 0:
             max_repeat = max(max_repeat, (i + 1) // (i - next[i]))
     return max_repeat
-
-
-def decode(model,
-           tokens, #that is , encode_input
-           top_k=1,
-           temperature=1.0,
-           max_len=10000,
-           max_repeat=10,
-           max_repeat_block=10):
-    """Decode with the given model and input tokens.
-
-    :param model: The trained model.
-    :param tokens: The input tokens of encoder.
-    :param start_token: The token that represents the start of a sentence.
-    :param end_token: The token that represents the end of a sentence.
-    :param pad_token: The token that represents padding.
-    :param top_k: Choose the last token from top K.
-    :param temperature: Randomness in boltzmann distribution.
-    :param max_len: Maximum length of decoded list.
-    :param max_repeat: Maximum number of repeating blocks.
-    :param max_repeat_block: Maximum length of the repeating block.
-    :return: Decoded tokens.
-    """
-    is_single = not isinstance(tokens[0], list)
-    if is_single:
-        tokens = [tokens]
-    batch_size = len(tokens)#number of inputs to translate
-	#model = keras.models.Model(inputs=[encoder_input], outputs=[error_feed_forward_output1, #error_feed_forward_output2])
-    out1, out2 = model.predict(tokens)
-    print("out1.shape", out1.shape)
-    print("out2.shape", out2.shape)	
-
-    return out1, out2

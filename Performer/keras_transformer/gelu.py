@@ -1,5 +1,5 @@
 import math
-from keras_performer import backend as K
+from .backend import backend as K
 
 
 def gelu(x):
