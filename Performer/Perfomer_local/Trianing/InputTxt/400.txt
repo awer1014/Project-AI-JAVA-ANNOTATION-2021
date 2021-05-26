@@ -1,0 +1,1 @@
+ <BOC> import java.util.Random; <CR> public class test { <CR> public static void main(String[] args) { <CR>        Random ran = new Random(); <CR>        System.out.println(ran.nextString("�K","�L","��","�V"); <CR> } <CR> } <CR>  <EOC> 
