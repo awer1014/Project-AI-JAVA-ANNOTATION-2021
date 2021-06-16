@@ -7,7 +7,7 @@ __all__ = [
     'metrics', 'models', 'losses', 'optimizers', 'regularizers', 'TF_KERAS',
 ]
 
-TF_KERAS = strtobool(os.environ.get('TF_KERAS', '0'))
+TF_KERAS = strtobool(os.environ.get('TF_KERAS', '1'))
 
 if TF_KERAS:
     from tensorflow import keras
@@ -30,3 +30,4 @@ models = keras.models
 losses = keras.losses
 optimizers = keras.optimizers
 regularizers = keras.regularizers
+#dot = keras.dot

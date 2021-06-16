@@ -6,7 +6,9 @@ from tensorflow_fast_attention.fast_attention import  Attention, SelfAttention #
 from keras_position_wise_feed_forward.feed_forward import FeedForward
 from keras_pos_embd import TrigPosEmbedding
 from keras_embed_sim import EmbeddingRet, EmbeddingSim
+#from backend import keras
 import keras
+#from gelu import gelu
 from keras_performer import gelu
 import tensorflow as tf
 import sys
@@ -485,7 +487,7 @@ def get_model(max_input_len,
     #分類器2
  
     error_feed_forward_layer2 = keras.layers.Dense(hidden_dim, activation="relu" )(concatted)
-    error_feed_forward_output2 = keras.layers.Dense(lbNum,activation="sigmoid" , name="error_feed_forward_output2")(error_feed_forward_layer2)
+    error_feed_forward_output2 = keras.layers.Dense(lbNum,activation="relu" ,name="error_feed_forward_output2")(error_feed_forward_layer2)
 
     print("error_feed_forward_output2:", error_feed_forward_output2.shape)	
 

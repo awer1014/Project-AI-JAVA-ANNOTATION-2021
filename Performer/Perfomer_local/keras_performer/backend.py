@@ -7,7 +7,7 @@ __all__ = [
     'metrics', 'models', 'losses', 'optimizers', 'regularizers', 'TF_KERAS',
 ]
 
-TF_KERAS = strtobool(os.environ.get('TF_KERAS', '0'))
+TF_KERAS = strtobool(os.environ.get('TF_KERAS', '1'))
 
 if TF_KERAS:
     import tensorflow as tf

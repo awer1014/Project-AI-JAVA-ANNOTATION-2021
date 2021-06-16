@@ -1,4 +1,7 @@
+#from backend import keras
+#from backend import backend as K
 from keras_position_wise_feed_forward.backend import keras
+#from keras_position_wise_feed_forward import backend as K
 from keras_position_wise_feed_forward.backend import backend as K
 
 
