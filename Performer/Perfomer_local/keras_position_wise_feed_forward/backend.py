@@ -18,7 +18,7 @@ if TF_KERAS:
     from tensorflow.keras import backend
     from tensorflow.keras import datasets
     #from tensorflow.keras import engine
-    from tensorflow.python.keras import engine
+    from tensorflow.python.keras import engine #if you use PC with tf version use this 
     from tensorflow.keras import layers
     from tensorflow.keras import preprocessing
     from tensorflow.keras import wrappers
