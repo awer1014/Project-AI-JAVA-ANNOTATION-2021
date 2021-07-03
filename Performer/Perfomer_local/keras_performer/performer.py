@@ -7,7 +7,8 @@ from keras_position_wise_feed_forward.feed_forward import FeedForward
 from keras_pos_embd import TrigPosEmbedding
 from keras_embed_sim import EmbeddingRet, EmbeddingSim
 #from backend import keras
-import keras
+#import keras #change to tf.keras
+from tensorflow import keras #tf ed
 #from gelu import gelu
 from keras_performer import gelu
 import tensorflow as tf
