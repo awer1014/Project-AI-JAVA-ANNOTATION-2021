@@ -745,8 +745,8 @@ def getAugmentedCode(tree, changeVariable=True, permuStatement=True):
 
 import re          
 if __name__ == '__main__' :
-    sourcefile = 'test.java'
-    destfile = "newtest"
+    sourcefile = 'Main9.java'
+    destfile = "newMain9"
     #sourcefile = "Main9new.java" #revised code
     #destfile="Main9newChanged.java" # variable renamed code
     with open(sourcefile, 'r', encoding='utf8') as myFile:
@@ -764,7 +764,7 @@ if __name__ == '__main__' :
 
         for num in range(time):
             print("***", num)
-            newCode = getAugmentedCode(tree, changeVariable=False, permuStatement=False)
+            newCode = getAugmentedCode(tree, changeVariable=True, permuStatement=False)
             print(newCode)
             filename = destfile + str(num) + ".java"
             write_to_file(newCode, filename)
