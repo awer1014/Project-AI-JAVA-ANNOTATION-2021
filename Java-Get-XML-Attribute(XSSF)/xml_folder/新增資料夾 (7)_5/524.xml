@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\標註錯誤檔案\new\xml錯誤\524.xml">
+	
+<SourceCode_List><SourceCode lines="9" name="Student.java"><![CDATA[public class Student extends type
+{   String name;
+    String id;
+    public String Sudent(String name,String id){
+    name=this.name;
+    id=this.id;
+    }
+ }
+]]></SourceCode><SourceCode lines="11" name="Exam.java"><![CDATA[public class Exam extends type
+{
+   String grade,range;
+   public Exam(String grade,String range){
+   grade=this.grade;
+   range=this.range;
+   }
+   public String getExam(){
+   return grade;}
+}
+]]></SourceCode><SourceCode lines="12" name="Homework.java"><![CDATA[public class Homework extends type
+{   String data;
+    String discribe;
+    public Homework(String data,String discribe)
+    {
+        
+    }
+    public String getHomework(){
+    return data;}
+      
+}
+]]></SourceCode><SourceCode lines="41" name="Test.java"><![CDATA[import java.util.*;
+public class Test
+{  
+   public static void main(String[]args){
+   String s,type,id,name,grade,per,data,range;
+   Scanner scan=new Scanner(System.in);
+   
+   System.out.print("請輸入種類:1(測驗), 2(作業), 3(心得報告)");
+   type=scan.nextLine();
+   System.out.print("請輸入學生學號:");
+   id=scan.nextLine();
+   
+   System.out.print("請輸入學生姓名:");
+   name=scan.nextLine();
+   
+   System.out.print("請輸入成績");
+   grade=scan.nextLine();
+   
+   System.out.print("請輸入成績比重");
+   per=scan.nextLine();
+   
+   System.out.print("請輸入考試日期");
+   data=scan.nextLine();
+   System.out.print("請輸入考試範圍");
+   range=scan.nextLine();
+   int num=0;
+   while(true){
+       s=scan.nextLine();
+       break;
+   }
+   System.out.println("您輸入的是:");
+   System.out.println("種類:"+type);
+   System.out.println("學生學號:"+id);
+   System.out.println("學生姓名:"+name);
+   System.out.println("成績:"+grade);
+   System.out.println("成績比重:"+per);
+   System.out.println("考試日期:"+data);
+   System.out.println("考試範圍"+range);
+ } 
+}
+]]></SourceCode><SourceCode lines="9" name="type.java"><![CDATA[public abstract class type
+{
+    public type()
+    {
+        
+    }
+
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:繼承資料或動作"><Message><![CDATA[public String Sudent 不需要 String]]></Message><Linelist><line Begin="4" End="4" src="Student"/></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message><![CDATA[name=this.name; 跟 id=this.id; 要更改為
+this.name=name; this.id=id;]]></Message><Linelist><line Begin="5" End="6" src="Student"/></Linelist></Error></Errors></ErrorList>

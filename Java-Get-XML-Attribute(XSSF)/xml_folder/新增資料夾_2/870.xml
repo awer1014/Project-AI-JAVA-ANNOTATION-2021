@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\program_python\新增題目\870\870.xml">
+	
+<SourceCode_List><SourceCode lines="18" name="newPet0.java"><![CDATA[import java . util . Scanner ; 
+public class Pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+Keeper keeper ; 
+Pet ( String type , String pid , String name , Keeper keeper ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+this . keeper = keeper ; 
+count ++ ; 
+} 
+void speak ( ) { 
+if ( type . equals ( "貓" ) ) if ( type . equals ( "狗" ) ) } 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="newPet0"/></Linelist></Error></Errors></ErrorList>

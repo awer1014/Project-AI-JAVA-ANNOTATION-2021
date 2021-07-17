@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\標註錯誤檔案\new\xml錯誤\468.xml">
+	
+<SourceCode_List><SourceCode lines="51" name="4680.java"><![CDATA[public class Pet { 
+
+private static int count ; 
+
+private String pid , name , type ; 
+
+private Keeper keeper ; 
+
+public Pet ( String p , String n , String t , Keeper k ) { 
+
+pid = p ; 
+
+name = n ; 
+
+type = t ; 
+
+count ++ ; 
+
+keeper = k ; 
+
+} 
+
+public void speak ( ) { 
+
+System . out . print ( "您的寵物叫聲是 : " ) ; 
+
+if ( name == "狗" ) System . out . println ( "汪汪" ) ; 
+
+else System . out . println ( "喵喵" ) ; 
+
+} 
+
+public void display ( ) { 
+
+System . out . println ( "寵物種類 : " + type ) ; 
+
+System . out . println ( "寵物編號 : " + pid ) ; 
+
+System . out . println ( "寵物名稱 : " + name ) ; 
+
+} 
+
+public static int getcount ( ) { 
+
+return count ; 
+
+} 
+
+} 
+
+]]></SourceCode><SourceCode lines="17" name="Keeper.java"><![CDATA[public class Keeper
+{
+    private String id,tel,name;
+    public Keeper(String n,String i,String t)
+    {
+        id =i;
+        tel = t;
+        name = n;
+    }
+    public void display()
+    {
+        System.out.println("飼主名稱 : "+name);
+        System.out.println("飼主身分證字號 : "+id);
+        System.out.println("飼主電話 : "+tel);
+    }
+}
+]]></SourceCode><SourceCode lines="43" name="Test.java"><![CDATA[import java.util.Scanner;
+public class Test
+{
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        boolean b = true;
+        while(b)
+        {
+            System.out.print("請輸入寵物種類(貓或狗) : ");
+            String pt = scan.nextLine();
+            if(pt.equals("0"))
+            {
+                b = false;
+                break;
+            }
+            System.out.print("請輸入寵物編號 : ");
+            String pp = scan.nextLine();
+            System.out.print("請輸入寵物名稱 : ");
+            String pn = scan.nextLine();
+            System.out.print("請輸入飼主名稱 : ");
+            String kn = scan.nextLine();
+            System.out.print("請輸入飼主身分證字號 : ");
+            String ki = scan.nextLine();
+            System.out.print("請輸入飼主電話 : ");
+            String kt = scan.nextLine();
+            System.out.print("--------------------");
+            
+            Keeper k = new Keeper(kn,ki,kt);
+            Pet p = new Pet(pp,pn,pt,k);
+            
+            System.out.println("您輸入的是 : ");
+            
+            p.display();
+            k.display();
+            p.speak();
+            System.out.print("--------------------");
+        }
+        System.out.println("總共"+Pet.getcount()+"隻寵物!");
+        
+    }
+}
+]]></SourceCode></SourceCode_List><Errors/></ErrorList>

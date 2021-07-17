@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="775">
+	
+<SourceCode_List><SourceCode lines="38" name="Exam.java"><![CDATA[import java . util . Scanner ; 
+public class Exam { 
+public static void main ( String [ ] args ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String test , id , name , gread , gp , date , range ; 
+System . out . print ( "請輸入種類1(測驗)，2(作業)，3(心得報告)：" ) ; 
+test = sc . nextLine ( ) ; 
+System . out . print ( "請輸入學生學號：" ) ; 
+id = sc . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名：" ) ; 
+name = sc . nextLine ( ) ; 
+System . out . print ( "請輸入成績：" ) ; 
+gread = sc . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重：" ) ; 
+gp = sc . nextLine ( ) ; 
+System . out . print ( "請輸入考試日期：" ) ; 
+date = sc . nextLine ( ) ; 
+System . out . print ( "請輸入考試範圍：" ) ; 
+range = sc . nextLine ( ) ; 
+if ( test . equals ( "1" ) ) { 
+Kindsoftest kindsoftest = new Test ( name , id , gread , date , gp , range ) ; 
+Test . print ( ) ; 
+System . out . println ( "-----------------------------------" ) ; 
+} 
+else if ( test . equals ( "2" ) ) { 
+Kindsoftest kindsoftest = new Hwork ( name , id , gread , date , gp , range ) ; 
+Hwork . print ( ) ; 
+System . out . println ( "-----------------------------------" ) ; 
+} 
+else { 
+Kindsoftest kindsoftest = new Mind ( name , id , gread , date , gp , range ) ; 
+Mind . print ( ) ; 
+System . out . println ( "-----------------------------------" ) ; 
+} 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="16" name="Hwork.java"><![CDATA[public class Hwork extends Kindsoftest { 
+public Hwork ( String name , int id , int gread , int date , double gp , String range ) { 
+super ( name , id , gread , date , gp , range ) ; 
+} 
+void print ( ) { 
+System . out . println ( "種類：作業" ) ; 
+System . out . println ( "學生學號：" + name ) ; 
+System . out . println ( "學生姓名：" + id ) ; 
+System . out . println ( "成績：" + gread ) ; 
+System . out . println ( "成績比重：" + gp ) ; 
+System . out . println ( "考試日期：" + date ) ; 
+System . out . println ( "考試範圍：" + range ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="15" name="Kindsoftest.java"><![CDATA[abstract public class Kindsoftest { 
+protected String name , range ; 
+protected int id , gread , date ; 
+protected double gp ; 
+public Kindsoftest ( String name , int id , int gread , int date , double gp , String range ) { 
+this . id = id ; 
+this . name = name ; 
+this . gread = gread ; 
+this . gp = gp ; 
+this . date = date ; 
+this . range = range ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="16" name="Mind.java"><![CDATA[public class Mind extends Kindsoftest { 
+public Mind ( String name , int id , int gread , int date , double gp , String range ) { 
+super ( name , id , gread , date , gp , range ) ; 
+} 
+void print ( ) { 
+System . out . println ( "種類：心得報告" ) ; 
+System . out . println ( "學生學號：" + name ) ; 
+System . out . println ( "學生姓名：" + id ) ; 
+System . out . println ( "成績：" + gread ) ; 
+System . out . println ( "成績比重：" + gp ) ; 
+System . out . println ( "考試日期：" + date ) ; 
+System . out . println ( "考試範圍：" + range ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="15" name="Test.java"><![CDATA[public class Test extends Kindsoftest { 
+public Test ( String name , int id , int gread , int date , double gp , String range ) { 
+super ( name , id , gread , date , gp , range ) ; 
+} 
+void print ( ) { 
+System . out . println ( "種類：測驗" ) ; 
+System . out . println ( "學生學號：" + name ) ; 
+System . out . println ( "學生姓名：" + id ) ; 
+System . out . println ( "成績：" + gread ) ; 
+System . out . println ( "成績比重：" + gp ) ; 
+System . out . println ( "考試日期：" + date ) ; 
+} 
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message><![CDATA[Kindsoftest:2~2,
+range為Exam子類別的物件資料，不應出現在父類別，直接刪除。
+protected String name ;
+
+Kindsoftest:3~3,
+date為Exam子類別的物件資料，不應出現在父類別，直接刪除。
+protected int id , gread ;
+
+Kindsoftest:5~12,
+range 和 date 為Exam子類別的物件資料，不應出現在父類別的建構子中，直接刪除。
+public Kindsoftest ( String name , int id , int gread , double gp ) {
+this . name = name ;
+this . id = id ;
+this . gread = gread ;
+this . gp = gp ;
+}
+
+Hwork:2~4,
+date 和 range 為 Exam 子類別的物件資料，於此類別專有的物件資料為 deadline 和 description，應將建構子做更改。
+public Hwork ( String name , int id , int gread , double gp , String deadline , String description ) {
+super ( name , id , gread , gp );
+this . deadline = deadline ;
+this . description = description ;
+}
+
+Mind:2~4,
+date 和 range 為 Exam 子類別的物件資料，於此類別專有的物件資料為 content 和 literature，應將建構子做更改。
+public Mind ( String name , int id , int gread , double gp , String content , String literature ) {
+super ( name , id , gread , gp );
+this . content = content ;
+this . literature = literature ;
+}
+
+Test:2~4,
+此類別應作為 Exam 類別較為合適，於此類別專有的物件資料為 date 和 range，應將建構子做更改。
+public Exam ( String name , int id , int gread , double gp , String date , String range ) {
+super ( name , id , gread , gp );
+this . date = date ;
+this . range = range ;
+}
+
+]]></Message><Linelist><line Begin="2" End="2" src="Kindsoftest"/><line Begin="3" End="3" src="Kindsoftest"/><line Begin="5" End="12" src="Kindsoftest"/><line Begin="2" End="4" src="Hwork"/><line Begin="2" End="4" src="Mind"/><line Begin="2" End="4" src="Test"/></Linelist></Error><Error tpye="抽象:抽象動作"><Message><![CDATA[Kindsoftest:12~12,
+缺少抽象動作
+public abstract void print ( ) ;]]></Message><Linelist><line Begin="12" End="12" src="Kindsoftest"/></Linelist></Error><Error tpye="運算:運算錯誤:型態不符無法運算"><Message><![CDATA[Exam:21~21,
+id 建構子型態為 Int ，gread 建構子型態為 Int ，gp 建構子型態為 Double ，但輸入資料皆為 String ，因此需要轉型。
+Kindsoftest kindsoftest = new Test ( name , Integer.parseInt ( id ) , Integer.parseInt ( gread ) , date , double.parseDouble ( gp ) , range ) ; 
+
+Exam:26~26,
+id 建構子型態為 Int ，gread 建構子型態為 Int ，gp 建構子型態為 Double ，但輸入資料皆為 String ，因此需要轉型。
+Kindsoftest kindsoftest = new Hwork ( name , Integer.parseInt ( id ) , Integer.parseInt ( gread ) , date , double.parseDouble ( gp ) , range ) ; 
+
+Exam:31~31
+id 建構子型態為 Int ，gread 建構子型態為 Int ，gp 建構子型態為 Double ，但輸入資料皆為 String ，因此需要轉型。
+Kindsoftest kindsoftest = new Mind ( name , Integer.parseInt ( id ) , Integer.parseInt ( gread ) , date , double.parseDouble ( gp ) , range ) ; ]]></Message><Linelist><line Begin="21" End="21" src="Exam"/><line Begin="26" End="26" src="Exam"/><line Begin="31" End="31" src="Exam"/></Linelist></Error></Errors></ErrorList>

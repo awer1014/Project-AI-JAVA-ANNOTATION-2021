@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\標註錯誤檔案\new\xml正確\463.xml">
+	
+<SourceCode_List><SourceCode lines="93" name="parent.java"><![CDATA[public class parent
+
+{
+
+   static int count;
+
+  String pay;
+
+  String name;
+
+  String type;
+
+  void speak()
+
+  {
+
+  {if(type.equals("��"))
+
+   System.out.println("�p�p");
+
+   if(type.equals("��"))
+
+  System.out.println("�L�L");
+
+  
+
+       }
+
+    }
+
+    void display()
+
+    { System.out.println(this.pay);
+
+       System.out.println(this.name);
+
+      System.out.println(this.type);
+
+    }
+
+    parent(String pay, String name, String type)
+
+    {
+
+       this.pay=pay;
+
+       this.name= name;
+
+       this.type= type;  
+
+       count++; 
+
+    }
+
+}
+
+/* public class Keeper
+
+{ String id;
+
+ String tel;
+
+  void display()
+
+  {
+
+   System.out.println(this.id);
+
+    System.out.println(this.tel);
+
+    
+
+    
+
+    }
+
+  Keeper(String id,  String tel)
+
+  {this.id=id;
+
+    this.tel=tel;  
+
+  }
+
+  
+
+  
+
+  
+
+}*/
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="parent"/></Linelist></Error></Errors></ErrorList>

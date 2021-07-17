@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Source Code\143\143.xml">
+	
+<SourceCode_List><SourceCode lines="26" name="test.java"><![CDATA[/*
+1.���D�w�q�G��ܥX�m�W�~�ְ��y
+2.���O��ơGstatic String name
+			static int age
+			static String country
+3.���O�ʧ@�Gstatic void selfIntroduce(){
+			System.out.println("Hello!I am "+name+" aged "+age+".I come from "+country+".");}
+4.���յ��G�G���\
+5.�������G�G3
+*/
+
+public class test{
+	static String name;
+	static int age;
+	static String country;
+	static void selfIntroduce(){
+	System.out.println("Hello!I am "+name+" aged "+age+".I come from "+country+".");
+	}
+	public static void main(String[] args){
+		name = args[0];
+		age = Integer.parseInt(args[1]);
+		country = args[2];
+		selfIntroduce();
+	}
+
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:物件資料/物件動作概念"><Message><![CDATA[物件動作建議在新增物件後再呼叫,
+因為全域變數可能會因其他動作而被更改,
+為了避免資料被覆蓋,
+請先新增物件,並給在呼叫物件動作時給予參數.
+例如:
+類別 物件名稱 = new 類別();
+物件.物件動作(參數...);
+]]></Message><Linelist><line Begin="16" End="18" src="test"/><line Begin="23" End="23" src="test"/></Linelist></Error></Errors></ErrorList>

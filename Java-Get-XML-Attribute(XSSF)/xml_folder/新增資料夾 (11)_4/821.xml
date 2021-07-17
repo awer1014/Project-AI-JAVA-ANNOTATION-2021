@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\B2\Desktop\新增10題\821\821.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="821.java"><![CDATA[import java . util . Scanner ; 
+class TEST { 
+void X ( int x ) { 
+x = 3 ; 
+} 
+public static void main ( String [ ] args ) { 
+Scanner k = new Scanner ( System . in ) ; 
+int y = 0 ; 
+y = k . nextInt ( ) ; 
+double z = X ( 2 ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message><![CDATA[X(2)無法轉成double]]></Message><Linelist><line Begin="10" End="10" src="821"/></Linelist></Error></Errors></ErrorList>

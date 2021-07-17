@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="792">
+	
+<SourceCode_List><SourceCode lines="12" name="Evaluation.java"><![CDATA[abstract public class Evaluation { 
+protected String name ; 
+protected String number ; 
+protected double test ; 
+public Evaluation ( String name , String number , double test ) { 
+this . name = name ; 
+this . number = number ; 
+this . test = test ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="21" name="Exam.java"><![CDATA[public class Exam extends Evaluation { 
+String testrange ; 
+String testday ; 
+public Exam ( String a , String b , double c , double w , String tr , String td ) { 
+super ( a , b , c , w ) ; 
+this . testrange = tr ; 
+this . testday = td ; 
+} 
+public void print ( ) { 
+System . out . print ( "您輸入的是：" + "\r\n" ) ; 
+System . out . print ( "種類為測驗：" + "\r\n" ) ; 
+System . out . print ( "學生學號：" + number + "\r\n" ) ; 
+System . out . print ( "學生姓名：" + name + "\r\n" ) ; 
+System . out . print ( "成績：" + test + "\r\n" ) ; 
+System . out . print ( "成績比重：" + testq + "\r\n" ) ; 
+System . out . print ( "考試日期：" + data + "\r\n" ) ; 
+System . out . print ( "考試範圍：" + rang + "\r\n" ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="21" name="Report.java"><![CDATA[public class Report extends Evaluation { 
+String htestrange ; 
+String htestday ; 
+public Report ( String a , String b , double c , double w , String tr , String td ) { 
+super ( a , b , c , w ) ; 
+this . rtestrange = tr ; 
+this . rtestday = td ; 
+} 
+public void print ( ) { 
+System . out . print ( "您輸入的是：" ) ; 
+System . out . print ( "種類為測驗:" ) ; 
+System . out . print ( "學生學號：" + number + "\r\n" ) ; 
+System . out . print ( "學生姓名：" + name + "/n" ) ; 
+System . out . print ( "成績：" + test + "\r\n" ) ; 
+System . out . print ( "成績比重：" + testq + "\r\n" ) ; 
+System . out . print ( "截止日期：" + data + "\r\n" ) ; 
+System . out . print ( "作業描述：" + work + "\r\n" ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="22" name="test3.java"><![CDATA[import java . util . * ; 
+public class test3 { 
+public static void main ( String [ ] args ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String x , y ; 
+double c , w ; 
+System . out . print ( "請輸入種類 1(測驗), 2(作業), 3(心得報告):" ) ; 
+int num = sc . nextInt ( ) ; 
+String n = sc . nextLine ( ) ; 
+System . out . print ( "請輸入學生學號:" ) ; 
+x = sc . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名:" ) ; 
+y = sc . nextLine ( ) ; 
+String cid , cad , cname , cphone ; 
+System . out . print ( "請輸入成績：" ) ; 
+c = sc . nextDouble ( ) ; 
+System . out . print ( "請輸入成績比重：" ) ; 
+w = sc . nextDouble ( ) ; 
+} 
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message><![CDATA[Evaluation:9~9
+子類別均有print ( ) 函式進行輸出，且此函數為此抽象類別之動作，因不同的子類別有不同的print ( )，因此判斷其為抽象動作。
+public abstract void print ( ) ;]]></Message><Linelist><line Begin="9" End="9" src="Evaluation"/></Linelist></Error><Error tpye="繼承:使用super產生繼承物件"><Message><![CDATA[Exam:5~5,
+使用super 從父類別拿取相同的資料時，super的建構子函數需與父類別的建構子架構相同。
+因此以此例而言，父類別之建構子參數為三個，因此需更改為三個。
+super ( a , b , c ) ;
+
+Report:5~5
+使用super 從父類別拿取相同的資料時，super的建構子函數需與父類別的建構子架構相同。
+因此以此例而言，父類別之建構子參數為三個，因此需更改為三個。
+super ( a , b , c ) ;]]></Message><Linelist><line Begin="5" End="5" src="Exam"/><line Begin="5" End="5" src="Report"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="G:\個人資料夾\專研\student code\790\790.xml">
+	
+<SourceCode_List><SourceCode lines="19" name="Evaluation.java"><![CDATA[abstract public class Evaluation { 
+protected String stuno ; 
+protected String name ; 
+protected double score , rate ; 
+public Evaluation ( String stuno , String name , double score , double rate , String x , String y ) { 
+this . stuno = stuno ; 
+this . name = name ; 
+this . score = score ; 
+this . rate = rate ; 
+} 
+double getScore ( ) { 
+return score ; 
+} 
+double getRate ( ) { 
+return rate ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="13" name="Exam.java"><![CDATA[import java . util . * ; 
+public class Exam extends Evaluation { 
+public Exam ( String stuno , String name , double score , double rate , String date , String range ) { 
+super ( stuno , name , score , rate , date , range ) ; 
+} 
+void print ( ) { 
+System . out . println ( "您輸入的是:" ) ; 
+System . out . println ( "種類:測驗" ) ; 
+System . out . println ( "學生學號:" + stuno ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="8" name="Homework.java"><![CDATA[import java . util . * ; 
+public class Homework extends Evaluation { 
+public Homework ( String stuno , String name , double score , double rate , String endtime , String work ) { 
+super ( stuno , name , score , rate , endtime , work ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="7" name="Report.java"><![CDATA[public class Report extends Evaluation { 
+public Report ( String stuno , String name , double score , double rate , String content , String book ) { 
+super ( stuno , name , score , rate , content , book ) ; 
+} 
+} 
+
+]]></SourceCode><SourceCode lines="47" name="Test.java"><![CDATA[import java . util . * ; 
+public class Test { 
+static Scanner scanner = new Scanner ( System . in ) ; 
+public static void main ( String [ ] args ) { 
+int c = 0 ; 
+String sname , sstuno ; 
+double sscore , srate ; 
+System . out . print ( "請輸入種類 1(測驗),2(作業),3(心得報告):" ) ; 
+c = scanner . nextInt ( ) ; 
+System . out . print ( "請輸入學生學號:" ) ; 
+sstuno = scanner . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名:" ) ; 
+sname = scanner . nextLine ( ) ; 
+System . out . print ( "請輸入成績:" ) ; 
+sscore = scanner . nextDouble ( ) ; 
+scanner . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重:" ) ; 
+srate = scanner . nextDouble ( ) ; 
+scanner . nextLine ( ) ; 
+if ( c == 1 ) { 
+String ddate , rrange ; 
+System . out . print ( "請輸入考試日期:" ) ; 
+ddate = scanner . nextLine ( ) ; 
+System . out . print ( "請輸入考試範圍:" ) ; 
+rrange = scanner . nextLine ( ) ; 
+Evaluation ev = new Exam ( sstuno , sname , sscore , srate , ddate , rrange ) ; 
+} 
+if ( c == 2 ) { 
+String endtime , work ; 
+System . out . print ( "請輸入截止日期:" ) ; 
+endtime = scanner . nextLine ( ) ; 
+System . out . print ( "請輸入作業描述:" ) ; 
+work = scanner . nextLine ( ) ; 
+Evaluation ev = new Homework ( sstuno , sname , sscore , srate , endtime , work ) ; 
+} 
+if ( c == 3 ) { 
+String content , book ; 
+System . out . print ( "請輸入報告內容:" ) ; 
+content = scanner . nextLine ( ) ; 
+System . out . print ( "請輸入參考文獻:" ) ; 
+book = scanner . nextLine ( ) ; 
+Evaluation ev = new Report ( sstuno , sname , sscore , srate , content , book ) ; 
+} 
+} 
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message><![CDATA[Evaluation:5~5,
+父類別物件資料僅四項 x , y 為多餘的。
+public Evaluation ( String stuno , String name , double score , double rate  ) { 
+this . stuno = stuno ; 
+this . name = name ; 
+this . score = score ; 
+this . rate = rate ; 
+} 
+Exam:4~4,
+能從父類別獲取的資料僅有父類別擁有的物件資料，因此date和range無法獲得，且這兩項應設為自身物件資料。
+super ( stuno , name , score , rate ) ;
+this . date = date ;
+this . range = range ;
+
+Homework:4~4,
+能從父類別獲取的資料僅有父類別擁有的物件資料，因此endtime和work無法獲得，且這兩項應設為自身物件資料。
+super ( stuno , name , score , rate ) ;
+this . endtime = endtime ;
+this . work = work ;
+
+Report:3~3
+能從父類別獲取的資料僅有父類別擁有的物件資料，因此content和book無法獲得，且這兩項應設為自身物件資料。
+super ( stuno , name , score , rate ) ;
+this . content = content ;
+this . book = book ;]]></Message><Linelist><line Begin="5" End="5" src="Evaluation"/><line Begin="4" End="4" src="Exam"/><line Begin="4" End="4" src="Homework"/><line Begin="3" End="3" src="Report"/></Linelist></Error><Error tpye="抽象:抽象動作"><Message><![CDATA[Evaluation:11~13,
+抽象類別無法產生實體，因此此動作應為抽象動作。
+abstract double getScore ( ) ;
+
+Evaluation:14~16
+抽象類別無法產生實體，因此此動作應為抽象動作。
+abstract double getRate ( ) ;]]></Message><Linelist><line Begin="11" End="13" src="Evaluation"/><line Begin="14" End="16" src="Evaluation"/></Linelist></Error></Errors></ErrorList>

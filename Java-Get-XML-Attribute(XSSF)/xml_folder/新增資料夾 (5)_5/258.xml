@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\258.xml">
+	
+<SourceCode_List><SourceCode lines="32" name="Test2.java"><![CDATA[import java.util.StringTokenizer;
+public class Test2{
+    public static void main(String[]args){
+        String str="abcd++ef";
+        System.out.println(str.toLowerCase());
+    }    
+public class Test2StringTokenizer{
+    public static void main(String[]args){
+        StringTokenizer str=new StringTokenizer();
+        String tk;
+        while(str.hasMoreTokens()){
+             tk=str.nextToken();
+             System.out.println(tk);
+            }
+        }
+    }
+int Test2(String str,String word){
+    int count=0;
+       for(int i=0;i<str.length()-word.length()+1;i++){
+           String tmp=str.substring(i,i+word.length());
+           if(tmp.equals(word))
+              count++;
+           }
+    return count;
+}
+public static void main(String[]args){
+      String str=new str(args[0]);
+      String str=new str(args[1]);
+      System.out.println(str);    
+    }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:不熟悉JAVA程式結構"><Message><![CDATA[public class 必須新增新的java程式檔,
+請先新增新的java程式.
+]]></Message><Linelist><line Begin="7" End="16" src="Test2"/></Linelist></Error><Error tpye="其他:撰寫main函式"><Message><![CDATA[main 函數已被宣告過,
+函數名稱不可相同.]]></Message><Linelist><line Begin="26" End="30" src="Test2"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[本程式沒有該類別,
+請先新增該類別,
+再產生物件.
+]]></Message><Linelist><line Begin="27" End="27" src="Test2"/><line Begin="28" End="28" src="Test2"/></Linelist></Error><Error tpye="變數:重複宣告變數"><Message><![CDATA[該變數已被宣告,
+若要賦予該變數新資料,
+直接更新該變數即可.
+例如:
+String name = "Alex";
+name = "Chirs";]]></Message><Linelist><line Begin="28" End="28" src="Test2"/></Linelist></Error></Errors></ErrorList>

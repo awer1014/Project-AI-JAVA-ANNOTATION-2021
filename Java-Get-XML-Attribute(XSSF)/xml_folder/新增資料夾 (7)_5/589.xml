@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文研究\Data\黃崇睿xml\error\589.xml">
+	
+<SourceCode_List><SourceCode lines="6" name="ChineseLetter.java"><![CDATA[public class ChineseLetter extends Letter { 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="6" name="EnglishLetter.java"><![CDATA[public class EnglishLetter extends Letter { 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="28" name="Letter.java"><![CDATA[abstract public class Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+protected String sender ; 
+protected String date ; 
+Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public void display2 ( ) { 
+System . out . println ( "Dear " + receiver + " " + title + "," ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + " " + title + ", 您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + "   敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="6" name="non.java"><![CDATA[public class non extends Letter { 
+non ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="40" name="test.java"><![CDATA[import java . util . Scanner ; 
+public class test { 
+public static void main ( String [ ] args ) { 
+Scanner input = new Scanner ( System . in ) ; 
+boolean b = true ; 
+while ( b ) 
+{ 
+System . out . print ( "input Chinese orEnglish (輸入0為終止): " ) ; 
+String ltt = input . nextLine ( ) ; 
+if ( ltt . equals ( "0" ) ) { 
+b = false ; 
+break ; 
+} 
+System . out . print ( "input title:" ) ; 
+String title = input . nextLine ( ) ; 
+System . out . print ( "input receiver:" ) ; 
+String receiver = input . nextLine ( ) ; 
+System . out . print ( "input content :" ) ; 
+String content = input . nextLine ( ) ; 
+System . out . print ( "input sender :" ) ; 
+String sender = input . nextLine ( ) ; 
+System . out . print ( "input date :" ) ; 
+String date = input . nextLine ( ) ; 
+Letter lt ; 
+if ( ltt . equals ( "Chinese" ) ) { 
+lt = new ChineseLetter ( title , receiver , content , sender , date ) ; 
+lt . display ( ) ; 
+} 
+else if ( ltt . equals ( "English" ) ) { 
+lt = new EnglishLetter ( title , receiver , content , sender , date ) ; 
+lt . display2 ( ) ; 
+} 
+else { 
+lt = new non ( title , receiver , content , sender , date ) ; 
+System . out . println ( "您可能輸入的大小寫錯誤或是拼字錯誤造成無法印出!!" ) ; 
+} 
+} 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message><![CDATA[Letter:14~26
+這裡只需一個抽象動作display();
+public abstract void display();
+然後再由
+ChineseLetter:4~5,EnglishLetter:4~5
+實作display
+public void display()
+{
+
+}]]></Message><Linelist><line Begin="14" End="26" src="Letter"/><line Begin="4" End="5" src="ChineseLetter"/><line Begin="4" End="5" src="EnglishLetter"/></Linelist></Error><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="non"/><line Begin="-1" End="-1" src="test"/></Linelist></Error></Errors></ErrorList>

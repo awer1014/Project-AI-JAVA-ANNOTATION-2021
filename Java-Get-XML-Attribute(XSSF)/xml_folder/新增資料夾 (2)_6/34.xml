@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\USER\Desktop\手機待儲存\專研程式碼標記錯誤\XML_Error\1.12\JavaAnnotationXMLProgram\code(正規化)\期末考題二\34(x)\34.xml">
+	
+<SourceCode_List><SourceCode lines="22" name="ChineseLetter.java"><![CDATA[public class ChineseLetter extends Letter
+{
+    String ChineseLetter;
+    Letter lt = new ChineseLetter ("教授", "王", "很高興跟您連絡", "銘哥", "2019/01/05");
+    void display()
+    {
+        System.out.println("王 教授, 您好");
+        System.out.println("很高興跟您連絡");
+        System.out.println("銘哥 敬上");
+        System.out.println("2019/01/05");
+    }
+    lt.display();
+    public ChineseLetter(String ChineseLetter)
+    {
+        this.ChineseLetter=ChineseLetter;
+    }
+    public  String LT()
+    {
+        return;
+    }
+}
+]]></SourceCode><SourceCode lines="23" name="EnglishLetter.java"><![CDATA[public class EnglishLetter extends Letter
+{
+    String EnglishLetter;
+    Letter lt = new EnglishLetter("Professor", "Wang", "I am glad to write to you!", "J. J. Lin", "2019/01/05");
+    void display()
+    {
+        System.out.println("Dear Professor Wang, ");
+        System.out.println("I am glad to write to you!");
+        System.out.println("Sincerely");
+        System.out.println("J. J. Lin");
+        System.out.println("2019/01/05");
+    }
+    lt.display();
+    public EnglishLetter(String EnglishLetter)
+    {
+        this.EnglishLetter=EnglishLetter;
+    }
+    public  String LT()
+    {
+        return;
+    }
+}
+]]></SourceCode><SourceCode lines="31" name="Letter.java"><![CDATA[abstract public class Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+protected String sender ; 
+protected String date ; 
+public Letter ( ) { 
+} 
+public Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+abstract void display ( ) ; 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+public static void main ( String [ ] args ) { 
+String receiver = args [ 0 ] ; 
+} 
+abstract protected String LT ( ) ; 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:不熟悉JAVA程式結構"><Message><![CDATA[不能直接在ChineseLetter/EnglishLetter直接呼叫
+lt.display();
+這屬於語法上的錯誤
+應該在Letter類別的main函式去做呼叫
+public abstract class Letter 
+{
+public static void main (String[] args)
+{
+Letter lt;
+Letter lt = new ChineseLetter ("教授", "王", "很高興跟您連絡", "銘哥", "2019/01/05");
+lt.display(); 
+Letter lt = new EnglishLetter("Professor", "Wang", "I am glad to write to you!", "J. J. Lin", "2019/01/05");
+lt.display();
+}	
+}]]></Message><Linelist><line Begin="12" End="12" src="ChineseLetter"/><line Begin="13" End="13" src="EnglishLetter"/></Linelist></Error><Error tpye="抽象:抽象動作"><Message><![CDATA[在Letter宣告抽象動作,讓子類別去做覆寫
+而不是直接把測資和結果寫死
+public abstract class Letter
+{
+public abstract void display();
+}
+public class ChineseLetter extends Letter
+{
+void display(){
+System.out.print(getReceiver() + " " + getTitle() +",您好");
+System.out.print(getContent());
+System.out.print(getSender() +" 敬上");
+System.out.print(getDate());
+}
+}
+public class EnglishLetter extends Letter
+{
+void display(){
+System.out.print("Dear "+getTitle()+getReceiver()+",");
+System.out.print(getContent());
+System.out.print("Sincerely");
+System.out.print(getSender());
+System.out.print(getDate());
+}
+}]]></Message><Linelist><line Begin="5" End="11" src="ChineseLetter"/><line Begin="5" End="12" src="ChineseLetter"/></Linelist></Error><Error tpye="物件:不會使用物件資料"><Message><![CDATA[ChineseLetter所新宣告的 Letter物件資料
+Letter lt = new ChineseLetter ("教授", "王", "很高興跟您連絡", "銘哥", "2019/01/05");
+EnglishLetter所新宣告的 Letter物件資料
+Letter lt = new EnglishLetter("Professor", "Wang", "I am glad to write to you!", "J. J. Lin", "2019/01/05");
+這兩列程式碼應當宣告在Letter類別,
+因為Letter屬於父類別,才能在Letter宣告一個有著ChineseLetter/EnglishLetter建構子的物件
+並且寫在main函式當中
+public abstract class Letter 
+{
+public static void main (String[] args)
+{
+Letter lt;
+Letter lt = new ChineseLetter ("教授", "王", "很高興跟您連絡", "銘哥", "2019/01/05");
+lt.display(); 
+Letter lt = new EnglishLetter("Professor", "Wang", "I am glad to write to you!", "J. J. Lin", "2019/01/05");
+lt.display();
+}	
+}]]></Message><Linelist><line Begin="4" End="4" src="ChineseLetter"/><line Begin="4" End="4" src="EnglishLetter"/></Linelist></Error><Error tpye="繼承:使用super產生繼承物件"><Message><![CDATA[子類別的建構子再利用super做資料傳遞給上一層
+public class EnglishLetter extends Letter
+{
+public EnglishLetter(String title, String receiver, String content, String sender, String date)
+{
+super(title,receiver,content,sender,date)
+}
+}
+
+public class ChineseLetter extends Letter
+{
+public ChineseLetter(String title, String receiver, String content, String sender, String date)
+{
+super(title,receiver,content,sender,date)
+}
+}]]></Message><Linelist><line Begin="13" End="16" src="ChineseLetter"/><line Begin="14" End="17" src="EnglishLetter"/></Linelist></Error></Errors></ErrorList>

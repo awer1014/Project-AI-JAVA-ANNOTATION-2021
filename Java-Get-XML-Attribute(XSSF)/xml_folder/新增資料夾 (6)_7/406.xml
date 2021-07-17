@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\code\全部\新增資料夾 (6)\406.xml">
+	
+<SourceCode_List><SourceCode lines="8" name="rand.java"><![CDATA[import java.util.Random;
+public class rand{
+//	String s="�K�L��V";
+}
+	public static void main(String[]args){
+	Random ran=new Random();
+	System.out.println(ramd.nextLine("�K�L��V"));	
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:筆誤"><Message><![CDATA[少一個"}"]]></Message><Linelist><line Begin="8" End="8" src="rand"/></Linelist></Error><Error tpye="其他:關鍵字錯誤"><Message><![CDATA[物件名稱呼叫錯誤]]></Message><Linelist><line Begin="7" End="7" src="rand"/></Linelist></Error><Error tpye="函數:函數庫使用錯誤"><Message><![CDATA[nextLine()方法的結束符只是Enter鍵，
+即nextLine()方法返回的是Enter鍵之前的所有字元，
+它是可以得到帶空格的字串的]]></Message><Linelist><line Begin="7" End="7" src="rand"/></Linelist></Error></Errors></ErrorList>

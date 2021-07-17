@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文\correct code\535\535.xml">
+	
+<SourceCode_List><SourceCode lines="36" name="ChineseLetter.java"><![CDATA[public class ChineseLetter { 
+private String title ; 
+private String receiver ; 
+private String content ; 
+private String sender ; 
+private String date ; 
+public void display ( ) { 
+System . out . println ( this . getReceiver ( ) + this . getTitle ( ) + ",您好" ) ; 
+System . out . println ( this . getContent ( ) ) ; 
+System . out . println ( this . getSender ( ) + " 敬上" ) ; 
+System . out . println ( this . getDate ( ) ) ; 
+} 
+public String getTitle ( ) { 
+return title ; 
+} 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getContent ( ) { 
+return content ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:撰寫main函式"><Message><![CDATA[ChineseLetter:34~35
+程式寫完應按照題意輸出
+public static void main ( String [ ] args ) { 
+ChineseLetter it = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+it . display ( ) ; 
+}]]></Message><Linelist><line Begin="34" End="35" src="ChineseLetter"/></Linelist></Error></Errors></ErrorList>

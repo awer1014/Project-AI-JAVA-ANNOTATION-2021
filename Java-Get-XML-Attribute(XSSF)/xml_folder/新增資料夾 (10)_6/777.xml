@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="F:\個人資料夾\專研\check correct\777\777.xml">
+	
+<SourceCode_List><SourceCode lines="25" name="Evaluation0.java"><![CDATA[abstract public class Evaluation { 
+protected String id ; 
+protected String type ; 
+protected String name ; 
+protected double g ; 
+protected double w ; 
+public Evaluation ( String id , String name , double g , double w , String type ) { 
+this . id = id ; 
+this . name = name ; 
+this . g = g ; 
+this . w = w ; 
+this . type = type ; 
+} 
+abstract public void A ( ) ; 
+abstract public void B ( ) ; 
+abstract public void Dis ( String a , String b ) ; 
+public void display ( ) { 
+System . out . println ( "種類 : " + type ) ; 
+System . out . println ( "學生學號 : " + id ) ; 
+System . out . println ( "學生姓名 : " + name ) ; 
+System . out . println ( "成績 : " + g ) ; 
+System . out . println ( "成績比重 : " + w ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="16" name="Exam0.java"><![CDATA[public class Exam extends Evaluation { 
+public Exam ( String id , String name , double g , double w , String type ) { 
+super ( id , name , g , w , type ) ; 
+} 
+public void A ( ) { 
+System . out . println ( "請輸入考試日期" ) ; 
+} 
+public void B ( ) { 
+System . out . println ( "請輸入考試範圍" ) ; 
+} 
+public void Dis ( String a , String b ) { 
+System . out . println ( "考試日期 : " + a ) ; 
+System . out . println ( "考試日期 : " + b ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="16" name="HomeWork0.java"><![CDATA[public class HomeWork extends Evaluation { 
+public HomeWork ( String id , String name , double g , double w , String type ) { 
+super ( id , name , g , w , type ) ; 
+} 
+public void A ( ) { 
+System . out . println ( "請輸入截止日期" ) ; 
+} 
+public void B ( ) { 
+System . out . println ( "請輸入作業描述" ) ; 
+} 
+public void Dis ( String a , String b ) { 
+System . out . println ( "截止日期 : " + a ) ; 
+System . out . println ( "作業描述 : " + b ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="16" name="Report0.java"><![CDATA[public class Report extends Evaluation { 
+public Report ( String id , String name , double g , double w , String type ) { 
+super ( id , name , g , w , type ) ; 
+} 
+public void A ( ) { 
+System . out . println ( "請輸入報告內容" ) ; 
+} 
+public void B ( ) { 
+System . out . println ( "請輸入參考文獻" ) ; 
+} 
+public void Dis ( String a , String b ) { 
+System . out . println ( "報告內容 : " + a ) ; 
+System . out . println ( "參考文獻 : " + b ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="40" name="Test0.java"><![CDATA[import java . util . Scanner ; 
+public class Test { 
+public static void main ( String [ ] args ) { 
+Scanner scan = new Scanner ( System . in ) ; 
+boolean b = true ; 
+while ( b ) 
+{ 
+System . out . print ( "請輸入種類 1(測驗) 2(作業) 3(心得報告): " ) ; 
+String t = scan . nextLine ( ) ; 
+if ( t . equals ( "0" ) ) { 
+b = false ; 
+break ; 
+} 
+System . out . print ( "請輸入學生學號 : " ) ; 
+String sid = scan . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名 : " ) ; 
+String sn = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績 : " ) ; 
+double sg = scan . nextDouble ( ) ; 
+String enter = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重 : " ) ; 
+double sw = scan . nextDouble ( ) ; 
+enter = scan . nextLine ( ) ; 
+Evaluation e ; 
+if ( t . equals ( "1" ) ) e = new Exam ( sid , sn , sg , sw , t ) ; 
+else if ( t . equals ( "2" ) ) e = new HomeWork ( sid , sn , sg , sw , t ) ; 
+else e = new Report ( sid , sn , sg , sw , t ) ; 
+e . A ( ) ; 
+String aa = scan . nextLine ( ) ; 
+e . B ( ) ; 
+String bb = scan . nextLine ( ) ; 
+System . out . println ( "您輸入的是 : " ) ; 
+e . display ( ) ; 
+e . Dis ( aa , bb ) ; 
+System . out . print ( "-------------------- please cilck enter" ) ; 
+enter = scan . nextLine ( ) ; 
+} 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[ok]]></Message><Linelist><line Begin="-1" End="-1" src="Evaluation0"/></Linelist></Error></Errors></ErrorList>

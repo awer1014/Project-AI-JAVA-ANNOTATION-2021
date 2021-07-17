@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\a2744\OneDrive\桌面\專研JAVA\確認是否正確\704\704.xml">
+	
+<SourceCode_List><SourceCode lines="15" name="Keeper.java"><![CDATA[public class Keeper { 
+public String id ; 
+public String tel ; 
+public Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+public void display ( ) { 
+System . out . println ( "飼主身分證字號：" + id ) ; 
+System . out . println ( "飼主電話：" + tel ) ; 
+} 
+public static void main ( ) { 
+} 
+} 
+]]></SourceCode><SourceCode lines="46" name="Pet.java"><![CDATA[import java . util . Scanner ; 
+public class Pet { 
+public static int count ; 
+public String pid ; 
+public String name ; 
+public String type ; 
+Keeper keeper ; 
+public Pet ( String pid , String name , String type , Keeper keeper ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+this . keeper = keeper ; 
+count ++ ; 
+} 
+public void speak ( ) { 
+System . out . println ( "您的寵物叫聲是：" ) ; 
+if ( type . equals ( "狗" ) ) System . out . println ( "汪汪" ) ; 
+else if ( type . equals ( "貓" ) ) System . out . println ( "喵喵" ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "寵物種類:" + type ) ; 
+System . out . println ( "寵物編號：" + pid ) ; 
+System . out . println ( "寵物名稱：" + name ) ; 
+keeper . display ( ) ; 
+} 
+public static void main ( ) { 
+String ty , p , n , i , te ; 
+Scanner scanner = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入寵物種類:" ) ; 
+ty = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入寵物編號：" ) ; 
+p = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱：" ) ; 
+n = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入飼主身分證字號：" ) ; 
+i = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入飼主電話：" ) ; 
+te = scanner . nextLine ( ) ; 
+Keeper k = new Keeper ( i , te ) ; 
+Pet a = new Pet ( p , n , ty , k ) ; 
+a . display ( ) ; 
+k . display ( ) ; 
+a . speak ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確]]></Message><Linelist><line Begin="-1" End="-1" src="Keeper"/></Linelist></Error></Errors></ErrorList>

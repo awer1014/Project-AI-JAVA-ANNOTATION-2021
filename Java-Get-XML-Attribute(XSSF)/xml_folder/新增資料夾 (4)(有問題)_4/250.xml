@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\250.xml">
+	
+<SourceCode_List><SourceCode lines="10" name="String.java"><![CDATA[import java.util.StringTokenizer;
+import java.util.Scanner;
+class String{
+    public static void main(String[] args){
+        String str;
+        Scanner scanner = new Scanner(System.in);
+        String str= scanner.nextLine();//?????
+        StringTokenizer st = new StringTokenizer(args[0]/*一定要放""?*/," ");
+    }
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:不熟悉JAVA程式結構"><Message><![CDATA[Class名稱不可使用關鍵字]]></Message><Linelist><line Begin="3" End="3" src="String"/></Linelist></Error><Error tpye="函數:函數庫使用錯誤"><Message><![CDATA[要宣告StringTokenizer時,
+要新增一個StringTokenizer並給其字串.
+例如:
+StringTokenizer st = new StringTokenizer("內容");]]></Message><Linelist><line Begin="8" End="8" src="String"/></Linelist></Error><Error tpye="變數:重複宣告變數"><Message><![CDATA[相同的變數只能宣告一次]]></Message><Linelist><line Begin="7" End="7" src="String"/></Linelist></Error></Errors></ErrorList>

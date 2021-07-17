@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\320.xml">
+	
+<SourceCode_List><SourceCode lines="25" name="Word.java"><![CDATA[import java.util.Scanner;
+public class Word
+{
+    public static void main(String[] args) {
+           String s = "This is a test. The test is not easy.";
+           String[] tokens = s.split(" " || ".");
+           int a=tokens.lenght();
+           int b=0;
+           for(int k=0;k<a;k++){  
+               for(int i=k+1;i<a;i++){
+                   for(int j=0;j<k;j++){
+                   if(tokens[k].equals(tokens[j]) continue;
+                   else if(tokens[k].equals(tokens[i]) b++;
+            }
+        }
+    }   
+           System.out.println("會輸出：");
+           System.out.println("Word   Frequency:");
+           System.out.println("-----------------------");
+           
+  
+        
+    }   
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:筆誤"><Message><![CDATA[缺少運算符號,
+請先確認該運算式是否缺少運算符.]]></Message><Linelist><line Begin="12" End="12" src="Word"/><line Begin="13" End="13" src="Word"/></Linelist></Error><Error tpye="其他:關鍵字錯誤"><Message><![CDATA[該函數庫運算式split的關鍵字錯誤,
+請確認split內的關鍵字.]]></Message><Linelist><line Begin="6" End="6" src="Word"/></Linelist></Error><Error tpye="函數:函數庫使用錯誤"><Message><![CDATA[該函數庫使用錯誤,
+請先確認StringTokenizer的函數庫.]]></Message><Linelist><line Begin="7" End="7" src="Word"/><line Begin="1" End="1" src="Word"/></Linelist></Error></Errors></ErrorList>

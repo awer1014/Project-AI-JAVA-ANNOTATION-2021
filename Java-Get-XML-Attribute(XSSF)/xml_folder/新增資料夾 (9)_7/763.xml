@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="763">
+	
+<SourceCode_List><SourceCode lines="23" name="Pet.java"><![CDATA[class Pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+Pet ( ) { 
+count ++ ; 
+} 
+Pet ( String name , String type , String pid ) { 
+count ++ ; 
+this . name = name ; 
+this . type = type ; 
+this . pid = pid ; 
+} 
+void speak ( Pet x ) { 
+} 
+void display ( ) { 
+System . out . println ( "Name:" + name ) ; 
+System . out . println ( "pid:" + pid ) ; 
+System . out . println ( "type:" + type ) ; 
+} 
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:不會使用物件資料"><Message><![CDATA[Pet:15~15
+speak內不需要參數
+void speak()]]></Message><Linelist><line Begin="15" End="15" src="Pet"/></Linelist></Error></Errors></ErrorList>

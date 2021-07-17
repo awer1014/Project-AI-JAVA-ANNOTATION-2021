@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\winni\Desktop\專研\student_codes\標註錯誤檔案\new\xml正確\459.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="Keeper.java"><![CDATA[
+public class Keeper
+{
+    String id;
+    String tel;
+    void diaplay(){
+        System.out.println("飼主身分證字號:"+id);
+        System.out.println("飼主電話:"+tel);
+        //System.out.println("您寵物叫聲:"+speak());
+    }
+    Keeper(String id,String tel){
+        this.id=id;
+        this.tel=tel;
+    }
+}
+]]></SourceCode><SourceCode lines="58" name="Pet.java"><![CDATA[import java.util.Scanner;
+public class Pet
+{   
+    static int count;
+    String pid;
+    String name;
+    String type;
+    Keeper keeper;
+    Pet(String type,String pid,String name, Keeper keeper){
+        this.pid = pid;
+        this.name = name;
+        this.type = type;
+        this.keeper = keeper;
+        count++;
+    }
+    void speak(){
+        if(type.equals("貓"));
+        if(type.equals("狗"));
+    }
+    void display(){
+        System.out.println("您輸入的是:");
+        System.out.println("寵物種類:"+type);
+        System.out.println("寵物編號:"+pid);
+        System.out.println("寵物名稱:"+name);
+        keeper.diaplay();
+    }
+    
+    public static void main(String args[])
+    {   String pid;
+        String name;
+        String type;
+        String hostname;
+        String hosttel;
+        Scanner ppid = new Scanner(System.in);
+        
+            
+            System.out.println("請輸入寵物種類:");
+            type = ppid.nextLine();
+            System.out.println("請輸入寵物編號:");
+            pid = ppid.nextLine();
+            System.out.println("請輸入寵物名稱:");
+            name = ppid.nextLine();
+        
+            count++;
+        
+            System.out.println("請輸入飼主身份證字號:");
+            
+            hostname=ppid.nextLine();
+            System.out.println("請輸入飼主電話:");
+            hosttel=ppid.nextLine();
+         Keeper host = new Keeper(hostname,hosttel);
+        Pet a = new Pet(type,pid,name, host);
+        a.display();
+       
+        host.diaplay();
+    }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="Keeper"/></Linelist></Error></Errors></ErrorList>

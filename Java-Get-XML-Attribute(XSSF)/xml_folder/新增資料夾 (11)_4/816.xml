@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="G:\個人資料夾\專研\student code\816\816.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="B0.java"><![CDATA[import java . util . Scanner ; 
+class TEST { 
+int X ( int x ) { 
+x = 3 ; 
+} 
+public static void main ( String [ ] args ) { 
+Scanner k = new Scanner ( System . in ) ; 
+int y = 0 ; 
+y = k . nextInt ( ) ; 
+double z = X ( y ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message><![CDATA[B0:4~5
+此為 int 型別之動作，應回傳 int 型別之資料，以此例而言須回傳 x 。
+return x ;]]></Message><Linelist><line Begin="4" End="5" src="B0"/></Linelist></Error></Errors></ErrorList>

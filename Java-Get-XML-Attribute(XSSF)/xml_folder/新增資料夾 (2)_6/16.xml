@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\USER\Desktop\手機待儲存\專研程式碼標記錯誤\XML_Error\1.12\JavaAnnotationXMLProgram\code(正規化)\期末考題二\16\16.xml">
+	
+<SourceCode_List><SourceCode lines="6" name="ChineseLetter.java"><![CDATA[public class ChineseLetter extends Letter { 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="6" name="EnglishLetter.java"><![CDATA[public class EnglishLetter extends Letter { 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="35" name="Letter.java"><![CDATA[abstract public class Letter { 
+String title , receiver , content , sender , date ; 
+Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+void display ( int flage ) { 
+if ( flage == 1 ) { 
+System . out . println ( receiver + " " + title + ", 您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+else { 
+System . out . println ( "Dear " + receiver + " " + title ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+} 
+]]></SourceCode><SourceCode lines="9" name="Test.java"><![CDATA[public class Test { 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( 1 ) ; 
+Letter lt1 = new EnglishLetter ( "Wang" , "Professor" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+lt1 . display ( 2 ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message><![CDATA[當宣告一個使用ChineseLetter/EnglishLetter的建構子的物件時,
+即可使用ChineseLetter/EnglishLetter中所覆寫得的抽象動作,
+而不是使用flag的方式來分別呼叫不同的輸出
+public abstract class Letter{
+public abstract void display();
+}
+public class ChineseLetter extends Letter{
+void display(){
+System.out.print(getReceiver() + " " + getTitle() +",您好");
+System.out.print(getContent());
+System.out.print(getSender() +" 敬上");
+System.out.print(getDate());
+}
+}
+public class EnglishLetter extends Letter{
+void display(){
+System.out.print("Dear "+getTitle()+getReceiver()+",");
+System.out.print(getContent());
+System.out.print("Sincerely");
+System.out.print(getSender());
+System.out.print(getDate());
+}
+}
+public class Test { 
+public static void main (String[] args){
+Letter lt;
+Letter lt = new ChineseLetter ("教授", "王", "很高興跟您連絡", "銘哥", "2019/01/05");
+lt.display(); 
+Letter lt = new EnglishLetter("Professor", "Wang", "I am glad to write to you!", "J. J. Lin", "2019/01/05");
+lt.display();
+}	
+}]]></Message><Linelist><line Begin="19" End="33" src="Letter"/><line Begin="4" End="4" src="Test"/><line Begin="6" End="6" src="Test"/></Linelist></Error></Errors></ErrorList>

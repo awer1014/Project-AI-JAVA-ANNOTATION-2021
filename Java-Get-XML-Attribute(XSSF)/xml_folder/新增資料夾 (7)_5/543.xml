@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文研究\Data\黃崇睿xml\error\543.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="ChineseLetter.java"><![CDATA[public class ChineseLetter extends Letter { 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+public void display ( ) { 
+System . out . println ( getReceiver ( ) + " " + getTitle ( ) + ", 您好" ) ; 
+System . out . println ( getContent ( ) ) ; 
+System . out . println ( getSender ( ) + " 敬上" ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="13" name="EnglishLetter.java"><![CDATA[public class EnglishLetter extends Letter { 
+public EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + getTitle ( ) + " " + getReceiver ( ) + "," ) ; 
+System . out . println ( getContent ( ) ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( getSender ( ) ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="31" name="Letter.java"><![CDATA[abstract public class Letter { 
+protected String title , receiver , content , sender , date ; 
+public Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+abstract public void display ( ) ; 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+public String getTitle ( ) { 
+return title ; 
+} 
+public String getContent ( ) { 
+return content ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:繼承資料或動作"><Message><![CDATA[Letter:28~29
+根據題意應加上
+Letter It = new EnglishLetter]]></Message><Linelist><line Begin="28" End="29" src="Letter"/></Linelist></Error><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="ChineseLetter"/><line Begin="-1" End="-1" src="EnglishLetter"/></Linelist></Error></Errors></ErrorList>

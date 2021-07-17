@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\使用者\Desktop\Lesson\專題\code\正確\22\22.xml">
+	
+<SourceCode_List><SourceCode lines="29" name="ChineseLetter.java"><![CDATA[public class ChineseLetter{
+    String title,receiver,content,sender,date;
+    public ChineseLetter(String title, String receiver, String content, String sender, String date){
+        this.title = title;
+        this.receiver = receiver;
+        this.content = content;
+        this.sender = sender;
+        this.date = date;
+    }
+    public void display(){
+        System.out.println(receiver + " " + title + ",您好");
+        System.out.println(content);
+        System.out.println(sender + "敬上");
+        System.out.println(date);
+    }
+    public String getSender(String Sender){
+        return Sender;
+    }
+    public String getReceiver(String Receiver){
+        return Receiver;
+    }
+    public String getDate(String Date){
+        return Date;
+    }
+    public static void main(String[] args){
+        ChineseLetter It = new ChineseLetter("教授", "王", "很高興跟您連絡", "銘哥", "2019/01/05");
+        It.display();
+    }
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message/><Linelist><line Begin="-1" End="-1" src="ChineseLetter"/></Linelist></Error></Errors></ErrorList>

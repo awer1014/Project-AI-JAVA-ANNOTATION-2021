@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="764">
+	
+<SourceCode_List><SourceCode lines="32" name="York.java"><![CDATA[import java . util . StringTokenizer ; 
+import java . util . Scanner ; 
+public class York { 
+static Scanner scanner = new Scanner ( System . in ) ; 
+static String input = scanner . nextLine ( ) ; 
+static int word [ ] = { 
+} 
+; 
+public static int math ( String a ) { 
+int c = a . length ( ) ; 
+return c ; 
+} 
+public static String word ( ) { 
+String space = " " ; 
+int count = 0 ; 
+word [ 0 ] = 0 ; 
+for ( int i = 0 ; 
+i < input . length ( ) - word [ 0 ] . length ( ) + 1 ; 
+i ++ ) 
+{ 
+String check = input . substring ( i , i + word . length ( ) ) ; 
+if ( check . equals ( word ) ) count ++ ; 
+} 
+System . out . println ( word + " " + count ) ; 
+return space ; 
+} 
+public static void main ( String [ ] args ) { 
+System . out . println ( "輸入的數字長度：" + math ( input ) ) ; 
+System . out . println ( word ( ) ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="陣列:不會宣告陣列變數"><Message><![CDATA[York:6~6
+第6列的陣列初值設定錯誤，會導致陣列內容是空的。
+根據題意，應該修改成下列程式，代表有10個空間分別是0~9出現的次數。
+static int word [ ] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+
+]]></Message><Linelist><line Begin="6" End="6" src="York"/></Linelist></Error></Errors></ErrorList>

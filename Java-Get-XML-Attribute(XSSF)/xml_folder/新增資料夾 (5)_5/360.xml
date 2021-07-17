@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\360">
+	
+<SourceCode_List><SourceCode lines="13" name="number.java"><![CDATA[public class number{
+    public static void main(String[] args){
+        double volume(){
+            return l*w*h;
+        }
+        double surfaceArea(){
+            return a+a+a;
+        }
+        system.out.println("體積: "+a);
+        system.out.printfln("表面積: "+(a+a+a))
+    }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="函數:函數結構不清楚"><Message><![CDATA[不可在函數中再宣告函數,
+每個函數都是一個個體.
+例如:
+static double volume (double l, double w, double h){
+}
+static double surfacearea (double l, double w, double h){
+}
+public static void main(String[] args){
+}]]></Message><Linelist><line Begin="3" End="5" src="number"/><line Begin="6" End="8" src="number"/></Linelist></Error></Errors></ErrorList>
