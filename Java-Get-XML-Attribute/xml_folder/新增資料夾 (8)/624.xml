@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="624">
-	
-<SourceCode_List><SourceCode lines="7" name="fourseasons.java"><![CDATA[import java.util.Random;
-public class fourseasons
-{
-   static String[]={"春","夏","秋","冬"};
-   
-}
-]]></SourceCode></SourceCode_List><Errors><Error tpye="陣列:不會宣告陣列變數"><Message><![CDATA[更改為 static String[] s={"春","夏","秋","冬"};]]></Message><Linelist><line Begin="4" End="4" src="fourseasons"/></Linelist></Error></Errors></ErrorList>

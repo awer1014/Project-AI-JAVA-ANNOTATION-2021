@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\code\全部\新增資料夾 (6)\400.xml">
-	
-<SourceCode_List><SourceCode lines="7" name="test.java"><![CDATA[import java.util.Random;
-public class test {
-public static void main(String[] args) {
-       Random ran = new Random();
-       System.out.println(ran.nextString("�K","�L","��","�V");
-}
-}]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:筆誤"><Message><![CDATA[少一個")"]]></Message><Linelist><line Begin="5" End="5" src="test"/></Linelist></Error><Error tpye="函數:函數庫使用錯誤"><Message><![CDATA[nextString函數使用有誤]]></Message><Linelist><line Begin="5" End="5" src="test"/></Linelist></Error></Errors></ErrorList>
