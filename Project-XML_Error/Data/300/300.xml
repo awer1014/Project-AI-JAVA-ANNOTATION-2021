@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\300.xml">
+	
+<SourceCode_List><SourceCode lines="17" name="Customer.java"><![CDATA[public class Customer
+{
+    private String gc;
+    private String dz;
+    private String l;
+    private String t;
+
+    public Customer(String s4,String s5,String s6,String s7)
+    {
+        String gc = s4;
+        String dz = s5;
+        String l = s6;
+        String t = s7;
+    }
+    
+}
+]]></SourceCode><SourceCode lines="16" name="Item.java"><![CDATA[public class Item{
+    private String number;
+    private String name;
+    private double money;
+    private int l;
+    private double j;
+    Item(String s1 ,String s2,double d1,double d2,int i){
+        String number = s1;
+        String name = s2;
+        double money = d1;
+        int l = i;
+        double j = d2;    
+    }
+    
+}
+]]></SourceCode><SourceCode lines="24" name="Order.java"><![CDATA[public class Order{
+    private String bh;
+    private String day;
+    private String hb;
+    private Customer cu;
+    private Item[] i = new Item[10];
+    public Order(String s1,String s2,String s3){
+        String bh = s1;
+        String day = s2;
+        String hb = s3;
+    }
+    public void setCustomer(Customer c){
+        cu = c;
+    }
+    public void setItem(int a,Item b){
+        i[a] = b ;
+    }
+    public void display(int i){
+    System.out.println("訂單編號 ： "+ bh);
+    System.out.println("日期 ： "+day);
+    System.out.println("貨幣單位 ： "+hb);
+    }
+}
+]]></SourceCode><SourceCode lines="46" name="Test4.java"><![CDATA[import java.util.Scanner;
+public class Test4
+{
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        System.out.print("請輸入訂單編號 ： ");
+        String s1 = scan.next();
+        System.out.print("請輸入日期 ： ");
+        String s2 = scan.next();
+        System.out.print("請輸入貨幣單位 ： ");
+        String s3 = scan.next();
+        Order o = new Order(s1,s2,s3);
+        
+        System.out.print("------------------------------------");
+        System.out.print("請輸入客戶公司行號 ： ");
+        String s4 = scan.next();
+        System.out.print("請輸入客戶地址 ： ");
+        String s5 = scan.next();
+        System.out.print("請輸入連絡人 ： ");
+        String s6 = scan.next();
+        System.out.print("請輸入客戶電話 ： ");
+        String s7 = scan.next();
+        System.out.print("------------------------------------");
+        Customer c = new Customer(s4,s5,s6,s7);
+        o.setCustomer(c);
+        int i;
+        for(i=0;i<10;i++){
+            System.out.print("請輸入訂購貨品編號 ： ");
+            String s8 = scan.next();
+            System.out.print("請輸入訂購貨品名稱 ： ");
+            String s9 = scan.next();
+            System.out.print("請輸入訂購貨品單價 ： ");
+            double d1 = scan.nextDouble();
+            System.out.print("請輸入訂購貨品數量 ： ");
+            int i1 = scan.nextInt();
+            System.out.print("請輸入訂購貨品折扣 ： ");
+            double d2 = scan.nextDouble();
+            Item b = new Item(s8,s9,d1,d2,i1);
+            if(s8.equals("0"))break;
+            else o.setItem(i,b);
+        }
+        System.out.println("您輸入的訂單資料如下 ： ");
+        o.display(i);
+    }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[建構子是將獲得的資料賦予給物件,
+使用方法如下:
+物件(參數){
+this.物件資料 = 參數; 
+}]]></Message><Linelist><line Begin="10" End="10" src="Customer"/><line Begin="11" End="11" src="Customer"/><line Begin="12" End="12" src="Customer"/><line Begin="13" End="13" src="Customer"/><line Begin="8" End="8" src="Item"/><line Begin="9" End="9" src="Item"/><line Begin="10" End="10" src="Item"/><line Begin="11" End="11" src="Item"/><line Begin="12" End="12" src="Item"/><line Begin="8" End="8" src="Order"/><line Begin="9" End="9" src="Order"/><line Begin="10" End="10" src="Order"/><line Begin="13" End="13" src="Order"/><line Begin="16" End="16" src="Order"/></Linelist></Error></Errors></ErrorList>

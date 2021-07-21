@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Source Code\212\212.xml">
+	
+<SourceCode_List><SourceCode lines="30" name="Exam.java"><![CDATA[public class Exam{
+    String name;
+    String date;
+    int time;
+    double score; 
+    Exam(String n , String d , int t , double s){
+        name = n;
+        date = d;
+        time = t;
+        score = s;        
+    }
+    /*void setExam(String name,String date,Int time,Double score){
+        name=n;
+        date=d;
+        time=t;
+        score=s;
+    }*/
+    double getMaxScore(){
+        return score;
+    }
+    void listExam(){
+        System.out.println(" exam name "+name+" exam date "+date+" exam time "+time+" exam score "+score);
+    }
+    public static void main(String args[]){
+       Exam Midexam=new Exam(args[0],args[1],Integer.parseInt(args[2]),Double.parseDouble(args[3]));
+       Exam lastexam=new Exam(args[4],args[5],Integer.parseInt(args[6]),Double.parseDouble(args[4]));
+       Midexam.listExam();
+       lastexam.listExam();
+    }
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[建構子是將物件資料傳遞給物件,
+建構子的使用方法為:
+物件名稱(要給的物件資料){
+this.物件資料 = 要給的物件資料;
+.....
+}]]></Message><Linelist><line Begin="6" End="11" src="Exam"/></Linelist></Error><Error tpye="變數:重複宣告變數"><Message><![CDATA[args[n]的值已被宣告,
+無法改變該變數型態.
+需要宣告新變數.
+例如:args[1],Integer.parseInt(args[2])]]></Message><Linelist><line Begin="26" End="26" src="Exam"/></Linelist></Error></Errors></ErrorList>

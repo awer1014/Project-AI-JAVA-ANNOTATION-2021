@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\357.xml">
+	
+<SourceCode_List><SourceCode lines="35" name="newKKBox0.java"><![CDATA[public class KKBox { 
+
+static int length ; 
+
+static int width ; 
+
+static int height ; 
+
+static void num ( ) { 
+
+System . out . println ( "請輸入長" + length ) ; 
+
+System . out . println ( "請輸入寬" + width ) ; 
+
+System . out . println ( "請輸入高" + height ) ; 
+
+int volume = length * width * height ; 
+
+int surfaceArea = 2 * ( length * width + width * height + height * length ) ; 
+
+System . out . println ( "體積" + volume ) ; 
+
+System . out . println ( "表面積" + surfaceArea ) ; 
+
+} 
+
+public static void main ( String [ ] ar ) { 
+
+num ( ) ; 
+
+} 
+
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="函數:函數庫使用錯誤"><Message><![CDATA[未import Scanner 函數庫,
+請在第一行輸入,
+import java.util.Scanner;]]></Message><Linelist><line Begin="1" End="1" src="newKKBox0"/></Linelist></Error><Error tpye="函數:函數結構不清楚"><Message><![CDATA[Println 後只能輸出結果,
+不能接收數值,
+若需要接收數值,
+需宣告Scanner scanner = new Scanner (System.in);
+再將值賦予給變數.
+Value = scanner.nextInt();]]></Message><Linelist><line Begin="6" End="6" src="newKKBox0"/><line Begin="7" End="7" src="newKKBox0"/><line Begin="8" End="8" src="newKKBox0"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\346">
+	
+<SourceCode_List><SourceCode lines="61" name="newKKBox0.java"><![CDATA[import java . util . Scanner ; 
+
+public class KKBox { 
+
+public double volume ( double length , 
+
+double width , 
+
+double height ) { 
+
+return length * width * height ; 
+
+} 
+
+public double surfaceArea ( double length , 
+
+double width , 
+
+double height ) { 
+
+return 2 * ( length * width + width * height + height * length ) ; 
+
+} 
+
+public static void main ( String [ ] args ) { 
+
+double length , 
+
+width , 
+
+height ; 
+
+Scanner scanner = new Scanner ( System . in ) ; 
+
+length = scanner . nextInt ( ) ; 
+
+width = scanner . nextInt ( ) ; 
+
+height = scanner . nextInt ( ) ; 
+
+double p1 = volume ( length , 
+
+width , 
+
+height ) ; 
+
+double p2 = surfaceArea ( length , 
+
+width , 
+
+height ) ; 
+
+System . out . println ( "體積 : " + p1 ) ; 
+
+System . out . println ( "表面積 : " + p2 ) ; 
+
+} 
+
+} 
+
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message><![CDATA[函數中未宣告類別動作，須要宣告成類別動作才可執行。
+例如:
+public static double volume(double length,double width,double height){
+}
+public static double surfaceArea(double length,double width,double height){
+}]]></Message><Linelist><line Begin="3" End="13" src="newKKBox0"/><line Begin="15" End="18" src="newKKBox0"/></Linelist></Error></Errors></ErrorList>
