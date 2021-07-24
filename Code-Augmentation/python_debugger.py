@@ -11,7 +11,7 @@ import CG
 detector = UniversalDetector()
 
 priority = {
-"=":1,"+=":1,"-=":1, "*=": 1, "/=":1,"%=": 1, 
+"=":1,"+=":1,"-=":1, "*=": 1, "/=":1,"%=": 1,
 "?": 2,  ":": 2,
 "||": 3,
 "&&": 4,
@@ -24,7 +24,7 @@ priority = {
 "+": 11, "-": 11,
 "*": 12, "/": 12, "%": 12,
 "!": 13, "~": 13,
-"++": 14, "--": 14, 
+"++": 14, "--": 14,
 "(": 15, ")": 15, "[": 15, "]": 15
 }
 
@@ -33,13 +33,13 @@ def getPriority(c) :
 		return priority[c]
 	else:
 		return 0
-NEWLINE = 	"abcdefgijkoooopppp" 	
+NEWLINE = 	"abcdefgijkoooopppp"
 symbols = {"{",  "}", ";", NEWLINE}
 
 varList=list(string.ascii_letters)
 varNameCandicates = [] # The candicate list for var names
 for i in range(10):
-    varNameCandicates = varNameCandicates +  [e+str(i) for e in varList] 
+    varNameCandicates = varNameCandicates +  [e+str(i) for e in varList]
 varNameCandicates= varNameCandicates + varList
 
 # Given a tokens to be written
@@ -82,58 +82,58 @@ def getJavaTokensFromString(A):
 # Transforming rule 1: local variable name changing
 ###################
 def change_variable(tree):
- 
+
 #processing vars in each function
     for _, mnode in tree.filter(javalang.tree.MethodDeclaration):
         declareVars = list()
         referencedVars = list()
         referencedQuaVars=list()
         usedVarNames = set()
-        for _, node in mnode.filter(javalang.tree.LocalVariableDeclaration): #local variable               
+        for _, node in mnode.filter(javalang.tree.LocalVariableDeclaration): #local variable
             declarators = node.__getattribute__("declarators")
             for vnode in declarators:
                 usedVarNames.add( vnode.__getattribute__("name") )
                 declareVars.append(vnode)
-                            
+
         for _, node in mnode.filter(javalang.tree.FormalParameter): #arguments
             usedVarNames.add( node.__getattribute__("name") )
             declareVars.append(node)
 
- 
+
         for _, mrnode in mnode.filter(javalang.tree.MemberReference):
             qualifier = mrnode.__getattribute__("qualifier")
             if  qualifier =="": # a pure local variable, not member variable
                 referencedVars.append(mrnode)
             if  not qualifier is None: # a pure local variable, not member variable
                 referencedQuaVars.append(mrnode)
-                
 
 
-    #Start change names        
+
+    #Start change names
         count = len(usedVarNames)
         random.shuffle(varNameCandicates)
         newVarNames = varNameCandicates[:count]
         varMap = dict(zip(usedVarNames, newVarNames))
-    #Vars    
+    #Vars
         for node in declareVars:
             #print("old declared name:", node.__getattribute__("name"))
             #print("new declared name:", varMap[node.__getattribute__("name")])
             node.__setattr__("name", varMap[node.__getattribute__("name")])
-            
-        for node in referencedVars:            
+
+        for node in referencedVars:
             node.__setattr__("member", varMap.get(node.__getattribute__("member"), node.__getattribute__("member")))
 
-        for node in referencedQuaVars:            
+        for node in referencedQuaVars:
              node.__setattr__("qualifier", varMap.get(node.__getattribute__("qualifier"), node.__getattribute__("qualifier")))
 
-        
-    tokens = toJava(tree)    
+
+    tokens = toJava(tree)
     code_tokens= getJavaTokensFromString(tokens)
-    
-    
+
+
     return (code_tokens)
     #write_to_file(code_tokens, time)
-      
+
 
 ###################
 # Transforming rule 2: changing function orders
@@ -147,12 +147,12 @@ def change_fun_order(tree):
             mnode_list = [mnode for mnode in body if mnode not in fnode_list]
             if len(mnode_list)>0:
                 random.shuffle (mnode_list)
-                
+
                 body = fnode_list + mnode_list
                 cnode.__setattr__("body", body)
-    return tree        
+    return tree
 
-    
+
 ##
 ## The Tree to Java code here
 ## Return a string
@@ -161,7 +161,7 @@ stack=[]
 def toJava(node):
     stack=[]
     return 	toJava2(node)
-	
+
 def toJava2(node):
     if node is None: return ""
     result = ""
@@ -169,21 +169,21 @@ def toJava2(node):
     if type(node).__name__ == "BlockStatement":
         statements = node.__getattribute__("statements")
         result += "{ " +  " ".join( [toJava(sta) for sta in statements] ) + "}"
-  
+
     elif type(node).__name__ == "CatchClauseParameter":
-        name = node.__getattribute__("name") # 
+        name = node.__getattribute__("name") #
         types = node.__getattribute__("types") # None or list
         if not types is None:
             result += " ".join( e for e in types) + " " + name
 
-  
+
     elif type(node).__name__ == "CatchClause":
         block = node.__getattribute__("block") # None or list
         parameter = node.__getattribute__("parameter")  # None or object
         result += " catch ( "
         if not parameter is None:
             result += toJava(parameter)
-        result += " )  { "    
+        result += " )  { "
         if not block is None:
            result +=  " ".join( [ toJava(b) for b in block] )
         result += " }  "
@@ -194,13 +194,13 @@ def toJava2(node):
         if not arguments is None:
            result +=  ",".join( [ toJava(arg) for arg in arguments] )
         result += ")"
-            
+
     elif type(node).__name__ == "TryStatement":
         block = node.__getattribute__("block") # None or list
         catches = node.__getattribute__("catches")  # None or list
         finally_block = node.__getattribute__("finally_block")  # None or list
 
-        result += "try " + " { " 
+        result += "try " + " { "
         if not block is None:
            result +=  " ".join( [ toJava(b) for b in block] )
         result += " } "
@@ -209,17 +209,17 @@ def toJava2(node):
         if not finally_block is None:
            result += "finally { "+ " ".join( [ toJava(f) for f in finally_block] ) +  " } "
 
-        
+
     elif type(node).__name__ == "BreakStatement":
         result += "break ;"
-        
+
     elif type(node).__name__ == "This":
         postfix_operators = node.__getattribute__("postfix_operators")
         prefix_operators = node.__getattribute__("prefix_operators")
         selectors = node.__getattribute__("selectors")
         if not prefix_operators is None and len(prefix_operators)>0:
             result = " ".join([e for e in prefix_operators] )+result
-            
+
         result += "this"
         if not selectors is None and len(selectors)>0:
             for e in selectors:
@@ -230,30 +230,30 @@ def toJava2(node):
 
         if not postfix_operators is None and len(postfix_operators)>0:
             result += " ".join([e for e in postfix_operators] )
-        
+
     elif type(node).__name__ == "SuperConstructorInvocation":
         arguments = node.__getattribute__("arguments")
         result += "super("
         if not arguments  is None and len(arguments)>0 :
             result += ",".join([toJava(e) for e in arguments] )
-        result += ")" 
+        result += ")"
 
     elif type(node).__name__ == "ArraySelector":
         index = node.__getattribute__("index")
-        result += " [" + toJava(index) + "] " 
+        result += " [" + toJava(index) + "] "
 
-      
+
     elif type(node).__name__ == "Cast":
         expression = node.__getattribute__("expression")
         ttype = node.__getattribute__("type")
-        
+
         result += "( " + toJava(ttype) + " ) "
         opr=toJava(expression)
         if len(list(javalang.tokenizer.tokenize(opr ))) > 1:
             result += " (" + opr + ") "
         else:
              result += opr
-                
+
     elif type(node).__name__ == "ForControl":
         condition = node.__getattribute__("condition")
         init = node.__getattribute__("init") # init may be object of list
@@ -262,8 +262,8 @@ def toJava2(node):
         if (type(init) is list):
             result += "( " + ",".join( [ toJava(e) for e in init ] ) +";" + toJava(condition) + ";"
         else:
-            result += "( " + toJava(init) +";" + toJava(condition) + ";" 
-        result+= ",".join( [toJava(upd) for upd in update])        
+            result += "( " + toJava(init) +";" + toJava(condition) + ";"
+        result+= ",".join( [toJava(upd) for upd in update])
         result += ") "
 
     elif type(node).__name__ == "TernaryExpression":
@@ -273,7 +273,7 @@ def toJava2(node):
         result += toJava(condition) + " ? " + toJava(if_true)
         if not if_false is None:
             result += " : " + toJava(if_false)
-        
+
 
     elif type(node).__name__ == "IfStatement":
         condition = node.__getattribute__("condition")
@@ -290,7 +290,7 @@ def toJava2(node):
                 result += "case " + toJava(c) + " : "
         else:
             result += "default " + toJava(case) + ": "
-           
+
         result += "".join( [ toJava(statement) for statement in statements] )
 
     elif type(node).__name__ == "SwitchStatement":
@@ -310,11 +310,11 @@ def toJava2(node):
         condition = node.__getattribute__("condition")
         body = node.__getattribute__("body")
         result += "do " + NEWLINE + " " + toJava(body) + " while ( " + toJava(condition) + " ) ; "
-        
+
     elif type(node).__name__ == "ForStatement":
         body = node.__getattribute__("body")
         control = node.__getattribute__("control")
-        
+
         result += "for " + toJava(control) + NEWLINE + " " +  toJava(body)
     elif type(node).__name__ == "EnhancedForControl":
         iterable = node.__getattribute__("iterable")
@@ -322,8 +322,8 @@ def toJava2(node):
         result += " ( "+ toJava(var) + " : "+	toJava(iterable)	+" ) "
     elif type(node).__name__ == "ContinueStatement":
         result += " continue ; "
-  
-  
+
+
     elif type(node).__name__ == "ReturnStatement":
         expression = node.__getattribute__("expression")
         result += "return" + " "
@@ -351,7 +351,7 @@ def toJava2(node):
         body = node.__getattribute__("body")
         result += 'new ' + toJava(reftype) + "( "
         if not arguments is None:
-            result +=  ",".join( [toJava(arg) for arg in arguments])            
+            result +=  ",".join( [toJava(arg) for arg in arguments])
         result += ")"
         if not selectors is None and len(selectors)>0:
             for selector in selectors:
@@ -364,25 +364,25 @@ def toJava2(node):
         result += 'this'
         for selector in selectors:
             result += "."+ toJava(selector)
-         
+
 
     elif type(node).__name__ == "StatementExpression":
         expression = node.__getattribute__("expression")
         result += toJava(expression) + " ; "
-        
-    elif type(node).__name__ == "Assignment":       
+
+    elif type(node).__name__ == "Assignment":
         left_expression = node.__getattribute__("expressionl")
         assigment_type = node.__getattribute__("type") # =
-        right_expression = node.__getattribute__("value")      
-        result += toJava(left_expression) + " " + assigment_type + " " + toJava(right_expression) 
+        right_expression = node.__getattribute__("value")
+        result += toJava(left_expression) + " " + assigment_type + " " + toJava(right_expression)
 
     elif type(node).__name__ == "VariableDeclaration":
         tty = node.__getattribute__("type")
         declarators = node.__getattribute__("declarators")
         result += toJava(tty) + " "
         result += ",".join([toJava(dec) for dec in declarators ])
-        
-   
+
+
     elif type(node).__name__ == "LocalVariableDeclaration":
         tty = node.__getattribute__("type")
         declarators = node.__getattribute__("declarators")
@@ -394,9 +394,9 @@ def toJava2(node):
 
     elif type(node).__name__ == "ArrayInitializer":
         initializers = node.__getattribute__("initializers")
-        result += "{ " 
+        result += "{ "
         if not initializers is None and len(initializers)>0:
-            result += ",".join(toJava(e) for e in initializers) 
+            result += ",".join(toJava(e) for e in initializers)
         result += "} "
 
     elif type(node).__name__ == "ArrayCreator":
@@ -410,7 +410,7 @@ def toJava2(node):
                 if e is not None: dim = toJava(e)
                 result += " [ " +  dim + "]"
         result += toJava(initializer)
-        
+
 
     elif type(node).__name__ == "VariableDeclarator":
         dimensions = node.__getattribute__("dimensions")
@@ -435,7 +435,7 @@ def toJava2(node):
         selectors=node.__getattribute__("selectors")
         postfix_operators=node.__getattribute__("postfix_operators")
         prefix_operators=node.__getattribute__("prefix_operators")
-        
+
         if (not qualifier is None) and (qualifier !=""):
             result += qualifier + "." + member + " "
         else:
@@ -443,16 +443,16 @@ def toJava2(node):
         result += "(" + " "
         if not arguments is None:
             result +=  ",".join( [toJava(arg) for arg in arguments])
-    
+
         result += ")" + " "
-        
+
         if not selectors is None and len(selectors)>0:
             result += '.'+ ' '.join( [ toJava(sel) for sel in selectors])
-            
-        if not  prefix_operators is None and len(prefix_operators)>0: 
+
+        if not  prefix_operators is None and len(prefix_operators)>0:
             result =  ' '.join(prefix_operators)+ result
 
-        if not  postfix_operators is None and len(postfix_operators)>0: 
+        if not  postfix_operators is None and len(postfix_operators)>0:
             result +=  ' '.join(postfix_operators)
 
     elif type(node).__name__ == "FormalParameter":
@@ -477,7 +477,7 @@ def toJava2(node):
     elif type(node).__name__ == "TypeArgument":
         tty = node.__getattribute__("type")
         result += toJava(tty)
-        
+
     elif type(node).__name__ == "ReferenceType":
         name = node.__getattribute__("name")
         dimensions = node.__getattribute__("dimensions")
@@ -487,7 +487,7 @@ def toJava2(node):
         if not sub_type is None:
            result +=  "." + toJava(sub_type)
         if not arguments is None:
-           result +=  "<" +  ",".join( [ toJava(arg) for arg in arguments]) + "> " 
+           result +=  "<" +  ",".join( [ toJava(arg) for arg in arguments]) + "> "
         if not dimensions is None:
             for dim in dimensions:
                 if dim is None:
@@ -509,40 +509,40 @@ def toJava2(node):
         '''
         if len(list(javalang.tokenizer.tokenize(opl))) > 1 and operator != "+" and operator != "-":
             opl = '(' + opl + ')'
-        '''			
+        '''
         opr = toJava(operandr)
         '''
         if len(list(javalang.tokenizer.tokenize(opr))) > 1 and operator != "+":
             opr = '(' + opr + ')'
-        '''	
-        stack.pop()  
-        parent_op=None		
+        '''
+        stack.pop()
+        parent_op=None
         if len(stack)>0:
-            parent_op = stack[-1]	
+            parent_op = stack[-1]
         currentPriority = getPriority(operator)
         parrentPriority	= getPriority(parent_op)
         if 	currentPriority < parrentPriority :
             result += "(" + opl + " "
-            result += operator + " "      
+            result += operator + " "
             result +=  opr + ")"
         else:
             result +=  opl + " "
-            result += operator + " "      
-            result +=  opr 
-		
+            result += operator + " "
+            result +=  opr
+
     elif type(node).__name__ == "Literal":
         value = node.__getattribute__("value")
         postfix_operators = node.__getattribute__("postfix_operators")
         prefix_operators = node.__getattribute__("prefix_operators")
-        if not  prefix_operators is None and len(prefix_operators)>0: 
+        if not  prefix_operators is None and len(prefix_operators)>0:
             result =  ' '.join(prefix_operators)+result
-           
+
         result += value + " "
-            
-        if not  postfix_operators is None and len(postfix_operators)>0: 
+
+        if not  postfix_operators is None and len(postfix_operators)>0:
             result +=   ' '.join(postfix_operators)
 
-        
+
     elif type(node).__name__ == "MemberReference":
         member = node.__getattribute__("member")
         postfix_operators = node.__getattribute__("postfix_operators")
@@ -551,16 +551,16 @@ def toJava2(node):
         selectors = node.__getattribute__("selectors")
         if (not qualifier is None) and (qualifier!=""):
             result += qualifier +"."
-        if not  prefix_operators is None and len(prefix_operators)>0: 
+        if not  prefix_operators is None and len(prefix_operators)>0:
             result =  ' '.join(prefix_operators)+result
-           
+
         result += member
         if not selectors is None:
             result += '.'.join( [ toJava(sel) for sel in selectors])
-            
-        if not  postfix_operators is None and len(postfix_operators)>0: 
+
+        if not  postfix_operators is None and len(postfix_operators)>0:
             result +=   ' '.join(postfix_operators)
-            
+
 
     elif type(node).__name__ == "CompilationUnit":
         imports = node.__getattribute__("imports")
@@ -594,7 +594,7 @@ def toJava2(node):
             result += "import" + " "
             if static is True:
                 result += "static" + " "
- 
+
             xx = lambda w: path + ".*" if w else path
             result += xx(wildcard) + " "
             result += ";" + " "
@@ -621,10 +621,10 @@ def toJava2(node):
                     for sbd in bd:
                         result += toJava(sbd) + " "
                     result += " } "
-                else:    
+                else:
                  result += toJava(bd) + "  "
         result += " }"
-        
+
 
     elif type(node).__name__ == "ClassDeclaration":
         annotations = node.__getattribute__("annotations")
@@ -642,7 +642,7 @@ def toJava2(node):
         if not extends  is None:
             result += " extends " + toJava(extends) + " "
         if not implements  is None:
-            result += " implements " + " , ".join(toJava(imp) for imp in implements) + " "   
+            result += " implements " + " , ".join(toJava(imp) for imp in implements) + " "
         result += "{" + " "
         if not body is None:
             for bd in body:
@@ -651,7 +651,7 @@ def toJava2(node):
                     for sbd in bd:
                         result += toJava(sbd) + " "
                     result += " } "
-                else:    
+                else:
                  result += toJava(bd) + " "
         result += " }"
 
@@ -670,12 +670,12 @@ def toJava2(node):
             result += toJava(tty) + " "
         if not declarators is None:
             result += ",".join( [toJava(declarator) for declarator in declarators] )
-            
+
             result += ";" + " "
             # result.append(";")
     elif type(node).__name__ == "Annotation":
         element = node.__getattribute__("element")
-        name = node.__getattribute__("name")	
+        name = node.__getattribute__("name")
         result += "@"+name+" ; "
 
     elif type(node).__name__ == "MethodDeclaration":
@@ -690,7 +690,7 @@ def toJava2(node):
         type_parameters = node.__getattribute__("type_parameters")
         abstract=False
         for ann in annotations:
-            result +=toJava(ann) 
+            result +=toJava(ann)
         if not modifiers is None:
             for modifier in sorted( modifiers):
                 if  modifier=="abstract":  abstract=True
@@ -708,10 +708,10 @@ def toJava2(node):
             # result.append(name)
             # result.append("(")
             if not parameters is None:
-                result +=  ",".join( [toJava(parameter) for parameter in parameters])            
+                result +=  ",".join( [toJava(parameter) for parameter in parameters])
             result += ") " + " "
             if not throws is None and len(throws)>0:
-                result += " throws " + ",".join(throws)    
+                result += " throws " + ",".join(throws)
             # result.append(") {")
         if not abstract :
             if not body is None:
@@ -735,7 +735,7 @@ pp = pprint.PrettyPrinter(indent=4)
 
 def getAugmentedCode(tree, changeVariable=True, permuStatement=True):
     if permuStatement: tree = change_fun_order(tree) #CG.cdPermuteCode(tree) #
-    if changeVariable: 
+    if changeVariable:
         newCode = change_variable(tree) #a list of tokens
     else:
         newCode = pyd.toJava(tree)	#a string
@@ -743,29 +743,29 @@ def getAugmentedCode(tree, changeVariable=True, permuStatement=True):
         #print(newCode)
     return newCode
 
-import re          
-if __name__ == '__main__' :
-    sourcefile = 'Main9.java'
-    destfile = "newMain9"
-    #sourcefile = "Main9new.java" #revised code
-    #destfile="Main9newChanged.java" # variable renamed code
-    with open(sourcefile, 'r', encoding='utf8') as myFile:
-        data = myFile.read()        
-        data = re.sub(r'static +public', 'public static', data)
-        data = re.sub(r'public +abstract', 'abstract public', data)
-        data = re.sub(r'protected +abstract', 'abstract protected', data)
+def main(filename):
+	import re
+	if __name__ == '__main__' :
+	    sourcefile = filename+".java"
+	    destfile = "new"+filename
+	    #sourcefile = "Main9new.java" #revised code
+	    #destfile="Main9newChanged.java" # variable renamed code
+	    with open(sourcefile, 'r', encoding='utf8') as myFile:
+	        data = myFile.read()
+	        data = re.sub(r'static +public', 'public static', data)
+	        data = re.sub(r'public +abstract', 'abstract public', data)
+	        data = re.sub(r'protected +abstract', 'abstract protected', data)
 
-        tree = javalang.parse.parse(data)
-        print(tree)
-        pp.pprint(toJava(tree))
-       
-        
-        time = 1
+	        tree = javalang.parse.parse(data)
+	        print(tree)
+	        pp.pprint(toJava(tree))
 
-        for num in range(time):
-            print("***", num)
-            newCode = getAugmentedCode(tree, changeVariable=True, permuStatement=False)
-            print(newCode)
-            filename = destfile + str(num) + ".java"
-            write_to_file(newCode, filename)
 
+	        time = 1
+
+	        for num in range(time):
+	            print("***", num)
+	            newCode = getAugmentedCode(tree, changeVariable=True, permuStatement=False)
+	            print(newCode)
+	            filename = destfile + str(num) + ".java"
+	            write_to_file(newCode, filename)

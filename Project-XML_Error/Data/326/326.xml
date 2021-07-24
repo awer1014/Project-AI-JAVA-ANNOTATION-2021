@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\326.xml">
+	
+<SourceCode_List><SourceCode lines="40" name="Target.java"><![CDATA[import java.util.Random;
+import java.util.Scanner;
+public class Target
+{
+ int I = 0;
+  void toss(int n)
+  {
+     for(int K = 0;K <= n;k++)
+     {
+       int RANDOMX = (int)(Math.random()*5)+(-2);
+       int RANDOMY = (int)(Math.random()*5)+(-2);
+       if(RANDOMX*RANDOMY >= 1)
+         {
+            I++;
+         }
+
+     }
+       return I;
+  }
+
+ public static void main(String[] args) 
+ {
+
+    Scanner scan = new Scanner(System.in);
+    int n,RANDOMX,RANDOMY;
+    System.out.println("請輸入模擬次數：");
+    if (scan.hasNextInt())
+    {
+      n = scan.nextInt();
+    }
+    System.out.println("圓內次數 ="+ n-I);
+    System.out.println("出現比率 :"+ (n-I)/n);
+    System.out.println("圓外次數 ="+ I);
+    System.out.println("出現比率 :"+ I/n);
+ }
+
+
+
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="變數:不了解局部變數的概念"><Message><![CDATA[變數宣告但為初始化,
+會導致變數無法使用.
+若要宣告並初始化變數,
+可以參考範例:
+int n;
+n = 0;]]></Message><Linelist><line Begin="25" End="25" src="Target"/></Linelist></Error></Errors></ErrorList>

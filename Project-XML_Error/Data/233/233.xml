@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\233.xml">
+	
+<SourceCode_List><SourceCode lines="23" name="Items.java"><![CDATA[public class Items
+{
+    private String itemCode;
+    private String iName;
+    private double price;
+    private int num;
+    private double discount;
+    private Order oders;
+    Items(String itemCode, String iName, double price, int num, double discount )
+    {
+    this.itemCode =itemCode;
+    this.iName = iName;
+    this.price= price;
+    this.num= num;
+    this.discount= discount;
+    }
+    
+    
+    
+    
+    
+}
+]]></SourceCode><SourceCode lines="16" name="Order.java"><![CDATA[
+public class Order
+{   
+    private String orderNum;
+    private String Date;
+    private String dollarUnit;
+    company company;
+    public Order(String orderNum,String Date,String dollarUnit)
+    {
+        orderNum = orderNum;
+        Date= Date;
+        dollarUnit= dollarUnit;
+    }
+
+}
+]]></SourceCode><SourceCode lines="44" name="Test.java"><![CDATA[import java.util.Scanner;
+public class Test
+{
+    
+    public static void main(String[] args){
+    
+    Scanner scan = new Scanner (System.in);
+    Items[] item=new Items[10];
+    System.out.println("請輸入訂單編號：");
+    String code = scan.nextLine();
+    System.out.println("請輸入日期：");
+    String date = scan.nextLine();
+    System.out.println("請輸入貨幣單位：");
+    String x = scan.nextLine();
+    Order od = new Order( code, date, x);
+    System.out.println("請輸入客戶公司行號：");
+    String cname = scan.nextLine();
+    System.out.println("請輸入客戶地址：");
+    String caddress = scan.nextLine();
+    System.out.println("請輸入連絡人：");
+    String crelatives = scan.nextLine();
+    System.out.println("請輸入客戶電話：");
+    String cphone= scan.nextLine();
+    company cp = new company( cname,caddress,crelatives,cphone);
+    while(true){
+    System.out.println("請輸入訂購貨品編號：");
+    String code= scan.nextLine();
+    if( code.equals('0'))break;
+    
+    System.out.println("請輸入訂購貨品名稱：");
+    String iname= scan.nextLine();
+    System.out.println("請輸入訂購貨品單價：");
+    String iprice= scan.nextdouble();
+    System.out.println("請輸入訂購貨品數量：");
+    String inum= scan.nextInt();
+    System.out.println("請輸入訂購貨品折扣：");
+    String idiscount= scan.nextdouble();
+    
+    }
+    
+    }
+    }
+
+]]></SourceCode><SourceCode lines="17" name="company.java"><![CDATA[
+public class company
+{
+     
+     private String company;
+     private String address;
+     private String relatives;
+     private String phone;
+     public company(String c, String a, String r, String p){
+     this.company = c;  
+     this.address = a;
+     this.relatives =r;
+     this.phone =p;
+     }
+     
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="函數:函數庫使用錯誤"><Message><![CDATA[Scanner 函數庫使用錯誤
+常用的函數庫有:
+int : nextInt()
+String: nextLine()
+double: nextDouble()
+]]></Message><Linelist><line Begin="33" End="33" src="Test"/><line Begin="37" End="37" src="Test"/></Linelist></Error><Error tpye="變數:重複宣告變數"><Message><![CDATA[該變數已被宣告,
+若需更新該變數,
+只需重新賦予該變數新的資料即可.
+例如:
+String name = "Alex";
+name = "Chris";]]></Message><Linelist><line Begin="27" End="27" src="Test"/></Linelist></Error><Error tpye="運算:運算錯誤:型態不符無法運算"><Message><![CDATA[該變數的變數型態與Scanner 所輸入的變數型態不同,
+若要獲得輸入的資料並賦予給該變數,
+兩者的資料型態必須相同.
+例如:
+int money= scan.nextInt();
+double price= scan.nextDouble();
+]]></Message><Linelist><line Begin="33" End="33" src="Test"/><line Begin="35" End="35" src="Test"/><line Begin="37" End="37" src="Test"/></Linelist></Error></Errors></ErrorList>

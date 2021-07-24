@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\247.xml">
+	
+<SourceCode_List><SourceCode lines="29" name="Target.java"><![CDATA[import java.util.Random;
+public class Target
+{
+   static int sum1=0,sum2=0,n;
+   static double a,b;
+   static void toss(double n)
+   {
+       n=100000;
+       for(int i=0;i<n;i++)
+       {
+           
+           Random rand=new Random();
+           double x=rand.nextDouble();double y=rand.nextDouble();
+           if((x*x+y*y)>1)sum1++;
+           a=sum1/n;
+           System.out.println("圓外次數="+sum1+"出現比率"+a);
+           if((x*x+y*y)<1)sum2++;
+           b=sum2/n;
+           System.out.println("圓內次數="+sum2+"出現比率"+b);
+       }
+   }
+    public static int  main(String [] args)
+   {
+       Random rand=new Random();
+       double x=rand.nextDouble();double y=rand.nextDouble();
+       n=Integer.parseInt(args[0]);
+       System.out.println(Target.toss(n));
+   }
+}]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:撰寫main函式"><Message><![CDATA[Main 函數不需要回傳數值,
+大部分宣告,
+通常都是public static void main (String [] args ){
+}]]></Message><Linelist><line Begin="22" End="28" src="Target"/></Linelist></Error><Error tpye="運算:運算錯誤:型態不符無法運算"><Message><![CDATA[類別後的動作Target.toss (n),
+代表toss()必須回傳數值
+故需宣告函數回傳型態
+再return 一個值]]></Message><Linelist><line Begin="27" End="27" src="Target"/></Linelist></Error></Errors></ErrorList>

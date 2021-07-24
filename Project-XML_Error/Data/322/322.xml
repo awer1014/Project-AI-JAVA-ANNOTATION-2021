@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\322.xml">
+	
+<SourceCode_List><SourceCode lines="42" name="player.java"><![CDATA[
+public class player
+{
+    String name;
+    int ticket;
+    double total=0;
+    player(String name,int ticket,double total)
+    {
+        this.name=name;
+        this.ticket=ticket;
+        this.total=total;
+    }
+    
+    void name(){
+        this.name=name;
+    }
+    
+    double total(int ticket){
+        for(int n=1;n>=ticket;n++)
+        {
+            total +=ticket;
+        return total;
+        }
+    }
+    
+    double ticket(int ticket,double total)
+    {
+        double ans;
+        ans = ticket/total;
+        return ans;
+    }
+    
+    public static void main(String args[])
+    {
+        player p = new player(name,ticket);
+        double ans = p.gettotal();
+        System.out.println("姓名:" + name);
+        System.out.println("得票數:" + ticket);
+        System.out.println("得票比率:" + ans + "%");
+    }
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:關鍵字錯誤"><Message><![CDATA[該變數與其傳遞函數的函數型態不同,
+建議把變數型態改成相同在傳遞.
+例如:
+double 變數名稱 (int a, double b){
+double c =a+b;
+return c
+}
+改成
+double 變數名稱 (double a, double b){
+double c =a+b;
+return c
+}]]></Message><Linelist><line Begin="5" End="5" src="player"/></Linelist></Error><Error tpye="函數:函數庫使用錯誤"><Message><![CDATA[函數未宣告,
+若需要使用該函數,
+請在class中宣告.
+例如:
+int 函數名稱(參數) {
+}]]></Message><Linelist><line Begin="36" End="36" src="player"/></Linelist></Error><Error tpye="函數:函數概念不清楚"><Message><![CDATA[函數回傳值,
+必須在運算結束後再進行回傳.]]></Message><Linelist><line Begin="18" End="24" src="player"/></Linelist></Error><Error tpye="物件:不會使用物件資料"><Message><![CDATA[物件要使用的物件資料,
+需要宣告成static
+例如:
+static int n ;]]></Message><Linelist><line Begin="4" End="4" src="player"/><line Begin="5" End="5" src="player"/><line Begin="6" End="6" src="player"/></Linelist></Error><Error tpye="物件:正確的產生物件"><Message><![CDATA[物件的建構子需要物件資料不足
+請給足需要的物件資料]]></Message><Linelist><line Begin="35" End="35" src="player"/></Linelist></Error></Errors></ErrorList>
