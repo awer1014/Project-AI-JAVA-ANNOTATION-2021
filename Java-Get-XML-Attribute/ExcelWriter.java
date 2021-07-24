@@ -10,8 +10,8 @@ public class ExcelWriter {
     HSSFSheet sheet;
     int error_type =36;
     int max_error_type =6;
-    int max_block=16;
-    int total_cell =1+error_type+(max_error_type*max_block*2);
+    int max_block=14;
+    int total_cell =1+error_type+(max_error_type*max_block);
     private void createSheet(){
         workbook = new HSSFWorkbook();
         //create file
@@ -24,12 +24,31 @@ public class ExcelWriter {
             headRow.createCell(i).setCellValue("er"+i);
         }
         //create Row for error gegin and error end
+        int pos=36;
         for(int i = 1;i <= max_error_type; i++){
-            for(int k = 0;k < max_block; k++){
+            int nextIndex = 1;
+            int begin_index=1;
+            int end_index=1;
+            for(int k = 1;k <= max_block; k++){
+                pos += 1;
+                if(k%2==1){
+                        headRow.createCell(pos).setCellValue("block_er"+i+"_b"+begin_index);
+                        begin_index++;
+                        //System.out.println("pos: "+pos);
+                        //System.out.println("block_er"+i+"_b"+nextIndex+",line:"+l+"----"+"i: "+i+" K: "+nextIndex+" l: "+l);
+                    }
+                    else if(k%2==0){
+                        headRow.createCell(pos).setCellValue("block_er"+i+"_e"+end_index);
+                        end_index++;
+                        //System.out.println("pos: "+pos);
+                        //System.out.println("block_er"+i+"_e"+nextIndex+",line:"+l+"----"+"i: "+i+" K: "+nextIndex+" l: "+l);
+                    }
+                    /*
                 headRow.createCell(36+(i-1)*32+k*2+1).setCellValue("block_er"+i+"_b"+(k+1));
                 //System.out.println("i = "+i+" k = "+k+" ,block_er"+i+"_k"+(k+1)+" : "+(36+(i-1)*32+k*2+1));
                 headRow.createCell(36+(i-1)*32+k*2+2).setCellValue("block_er"+i+"_e"+(k+1));
                 //System.out.println("i = "+i+" k = "+k+" ,block_er"+i+"_e"+(k+1)+" : "+(36+(i-1)*32+k*2+2));
+                */
             }
         }
         //headRow.createCell(1).setCellValue("分數");
@@ -88,7 +107,7 @@ public class ExcelWriter {
             //id_count++;
             int errorid = lb.key;
             dataRow.getCell(errorid).setCellValue(1);
-            int pos = 36+(ecount)*32;
+            int pos = error_type+(ecount)*max_block;
             //System.out.println(36+(ecount-1)*32);
             //System.out.println("最初pos : "+pos+" 最初ecount : "+ecount);
             for(int i=0; i < lb.block_begin.size(); i++){

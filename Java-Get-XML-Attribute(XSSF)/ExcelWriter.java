@@ -15,7 +15,6 @@ import java.io.OutputStream;
 
 public class ExcelWriter {
     String path = "test.xlsx";
-    //Workbook workbook = null;
     XSSFWorkbook workbook;
     XSSFSheet sheet;
     private int error_type =36;
@@ -42,7 +41,7 @@ public class ExcelWriter {
             int nextIndex = 1;
             for(int k = 1;k <= max_block; k++){
                 
-                for(int l = 1;l <= javaLength; l++){
+                for(int l = 0;l < javaLength; l++){
                     pos += 1;
                     
                     if(k%2==1){
@@ -50,7 +49,6 @@ public class ExcelWriter {
                         headRow.createCell(pos).setCellValue("block_er"+i+"_b"+nextIndex+",line:"+l);
                         //System.out.println("pos: "+pos);
                         //System.out.println("block_er"+i+"_b"+nextIndex+",line:"+l+"----"+"i: "+i+" K: "+nextIndex+" l: "+l);
-                        
                     }
                     else if(k%2==0){
                         next =true;
@@ -62,11 +60,18 @@ public class ExcelWriter {
                 if(next==true){ nextIndex+=1;}
             }
         }
+        /*測試用
+        XSSFRow dataRow=createRow();
+        for(int i=0;i<total_cell;i++){
+            dataRow.createCell(i).setCellValue(i);
+        }
+        */
         //headRow.createCell(1).setCellValue("分數");
         // 往Excel表中遍歷寫入數據
     }
 
     private XSSFRow createRow() {
+        
         XSSFRow dataRow = sheet.createRow(sheet.getLastRowNum() + 1);
         //for(int i=0; i<97; i++){
         for(int i=0; i<total_cell; i++) {
@@ -77,7 +82,6 @@ public class ExcelWriter {
 
     public void write(String fileName, ArrayList<ArrayList<Line_Block>> list, ArrayList<String> file_id_list) {
         //public void write(String fileName, ArrayList<Line_Block> list)  {
-
         createSheet();
         Read_Xml_file rxf = new Read_Xml_file();
         //for (ArrayList<ArrayList<Line_Block>> ls: list) {
@@ -105,8 +109,7 @@ public class ExcelWriter {
     private void createCell(/*String file_id,*/ List<Line_Block>  list, XSSFSheet sheet, String file_id_list) {
         XSSFRow dataRow=createRow();
         //int id_count = 0;
-        int ecount=0;
-        int pos = error_type + ecount * javaLength;
+        int pos = error_type;
         //System.out.println("ew file id: " + file_id_list);
         dataRow.getCell(0).setCellValue(file_id_list);
         for (Line_Block lb : list) {
@@ -115,7 +118,6 @@ public class ExcelWriter {
             //String [] tokens=files[id_count].getName().split(".xml",2);
             //System.out.println("ew file id: " + file_id_list);
             //dataRow.getCell(0).setCellValue(file_id_list);//.setCellValue(file_id);
-
             //id_count++;
             int errorid = lb.key;
             dataRow.getCell(errorid).setCellValue(1);
@@ -124,26 +126,27 @@ public class ExcelWriter {
             //System.out.println("最初pos : "+pos+" 最初ecount : "+ecount);
             for(int i=0; i < lb.block_begin.size(); i++){
                 //System.out.println("block begin size: "+lb.block_begin.size());
-                
                 int begin = lb.block_begin.get(i);
+                if(begin == -1)                      //原檔案所標示的-1代表為整個檔案，在這邊將-1放入到陣列第0個位子做表示
+                    begin =1;
+                else 
+                    begin +=1;                      //將原本的位置放在此陣列的1~javaLength做表示
                 int end = lb.block_end.get(i);
-                //System.out.println("pos: "+pos);
+                if(end == -1)
+                    end =1;
+                else 
+                    end +=1;
+                    
                 int begin_c = pos+begin;
                 dataRow.getCell(begin_c).setCellValue(1);
-                //System.out.println("begin_c_pos: "+begin_c+" b"+i+": "+begin+ " ecount:"+ecount+" current_pos:"+pos);
-                ecount++;
+                //System.out.println("begin_c_pos: "+begin_c+" b"+i+": "+begin+" current_pos:"+pos);
+                
                 pos +=javaLength;
-                //System.out.println("begin_c: "+begin_c+", i="+i+" ecount : "+ecount);
                 int end_c = pos+end;
                 dataRow.getCell(end_c).setCellValue(1);
-                //System.out.println("end_c_pos: "+end_c+" e"+i+": "+end+ " ecount:"+ecount+" current_pos:"+pos);
-                ecount++;
+                //System.out.println("end_c_pos: "+end_c+" e"+i+": "+end+ " current_pos:"+pos);
+                
                 pos += javaLength;
-                //System.out.println("end_c: "+end_c+", i="+i+" ecount : "+ecount);
-                //System.out.println("--------------------------------------------------");
-                
-                
-
             }
             
         }

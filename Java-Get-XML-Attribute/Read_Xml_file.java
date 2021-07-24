@@ -33,11 +33,11 @@ public class Read_Xml_file {
             target.get_Source_Value(file_name, doc);
             target.get_Error_Value( file_name,doc);
             target.add_total_lines();*/
-            System.out.println("files.length"+files.length);
+            //System.out.println("files.length"+files.length);
             for (int i = 0; i < files.length ; i++ ) {
-                System.out.println("=========================");
-                System.out.println("file name : "+files[i].getName());
-                System.out.println("=========================");
+                /*System.out.println("=========================");
+                //System.out.println("file name : "+files[i].getName());
+                System.out.println("=========================");*/
 
                 String [] tokens=files[i].getName().split(".xml",2);
                 
@@ -54,7 +54,7 @@ public class Read_Xml_file {
 
                 list.add(target.line_List);
                 file_id_list.add(tokens[0]);
-                System.out.println("rxf.list id :"+ tokens[0]);
+                //System.out.println("rxf.list id :"+ tokens[0]);
                 //String [] tokens = files[i].getName().split(".xml",2);
                 //wtt.writetxt(SourceCode_List, path, tokens[0]);
             }

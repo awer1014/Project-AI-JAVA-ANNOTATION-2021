@@ -44,10 +44,11 @@ public class Get_Attribute_Value {
                 String file_name = line_List.get(k).get_file_name(i)+".java";
                 int org_begin = line_List.get(k).get_begin(i);
                 int org_end = line_List.get(k).get_end(i);
+                /*
                 System.out.println("---------------");
                 System.out.println(file_name);
                 System.out.println(org_begin);
-                System.out.println(org_end);
+                System.out.println(org_end);*/
                 //========================Test========================
                 //dust switch
                 /*
@@ -59,14 +60,14 @@ public class Get_Attribute_Value {
                 //========================Test========================
                 //get index from scs's Source_Code Array
                 int total_line = scs.find_IndexOf_Source_Code(file_name);
-                System.out.println("Index: " + total_line);
+                //System.out.println("Index: " + total_line);
                 //Error_Begin_Lines & Error_End_Lines <--------- original line + begin_line
                 int new_Error_Begin_Line = org_begin + scs.get_SourceCode_Begin_line(total_line);
                 line_List.get(k).set_begin(i,new_Error_Begin_Line);
-                System.out.println("Begin line: " + new_Error_Begin_Line);
+                //System.out.println("Begin line: " + new_Error_Begin_Line);
                 int new_Error_End_Line = org_end + scs.get_SourceCode_Begin_line(total_line);
                 line_List.get(k).set_end(i,new_Error_End_Line);
-                System.out.println("End line: " + new_Error_End_Line);
+                //System.out.println("End line: " + new_Error_End_Line);
                 //========================Test========================
                 //dust switch
                 /*
@@ -165,16 +166,16 @@ public class Get_Attribute_Value {
             }
             Element Source = (Element)Source_Code_List.item(i);
             String Code_name = Source.getAttribute("name");
-            System.out.println("Code_name: " + Code_name);
+            //System.out.println("Code_name: " + Code_name);
             int code_line = Integer.parseInt(Source.getAttribute("lines"));
-            System.out.println("code_line: " + code_line);
+            //System.out.println("code_line: " + code_line);
             scs.add_SourceCode_and_line(Code_name, code_line, array_last);
         }
         //list_scs.add(scs);
 
         //================================================================================================
         //TEST
-        //*
+        /*
         for(int i = 0; i < Source_Code_List.getLength(); i++) {
             System.out.println("Source Code :" + scs.get_SourceCode(i));
             System.out.println("Source Code Begin Line :" + scs.get_SourceCode_Begin_line(i));
