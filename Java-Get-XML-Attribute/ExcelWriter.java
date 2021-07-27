@@ -113,7 +113,15 @@ public class ExcelWriter {
             for(int i=0; i < lb.block_begin.size(); i++){
                 //System.out.println("block begin size: "+lb.block_begin.size());
                 int begin = lb.block_begin.get(i);
+                if(begin == -1)                      //原檔案所標示的-1代表為整個檔案，在這邊將-1放入到陣列第0個位子做表示
+                    begin =1;
+                else 
+                    begin +=1;  
                 int end = lb.block_end.get(i);
+                if(end == -1)
+                    end =1;
+                else 
+                    end +=1;
                 //System.out.println("pos: "+pos);
                 int begin_c = pos+1+i*2;
                 //System.out.println("begin_c: "+begin_c+", i="+i+" ecount : "+ecount);
