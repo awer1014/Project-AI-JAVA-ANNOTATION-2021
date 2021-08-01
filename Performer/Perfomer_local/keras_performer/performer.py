@@ -486,10 +486,17 @@ def get_model(max_input_len,
     concatted = keras.layers.Concatenate()([error_feed_forward_output1, flatten_state])
     
     #分類器2
- 
+    #relu ed
+    ''' 
     error_feed_forward_layer2 = keras.layers.Dense(hidden_dim, activation="relu" )(concatted)
     error_feed_forward_output2 = keras.layers.Dense(lbNum,activation="relu" ,name="error_feed_forward_output2")(error_feed_forward_layer2)
-
+    '''
+    error_feed_forward_layer2 = keras.layers.Dense(hidden_dim, 
+                                                   activation=tf.keras.layers.LeakyReLU(alpha=0.3))(concatted)
+    error_feed_forward_output2 = keras.layers.Dense(lbNum,
+                                                    activation=tf.keras.layers.LeakyReLU(alpha=0.3),
+                                                    name="error_feed_forward_output2")(error_feed_forward_layer2)
+    
     print("error_feed_forward_output2:", error_feed_forward_output2.shape)	
 
 

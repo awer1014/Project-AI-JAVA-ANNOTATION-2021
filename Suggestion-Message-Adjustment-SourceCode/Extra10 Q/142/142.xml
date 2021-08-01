@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Source Code\142\142.xml">
+	
+<SourceCode_List><SourceCode lines="15" name="MyMath.java"><![CDATA[public class MyMath {
+		static int a(int N){
+			int sum=1;
+			for(int i=1;i<=N;i++){
+				sum=sum*i;
+			}
+			sum*=2;
+			return sum;
+		}
+		public static void main(String[] args){
+			int N=Integer.parseInt(args[0]);
+			System.out.println("N!:"+a(N) );
+		}
+}
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:筆誤"><Message><![CDATA[n!的算法為:
+n*(n-1)*(n-2)*(n-3)*(n-4)....*1
+]]></Message><Linelist><line Begin="2" End="9" src="MyMath"/></Linelist></Error></Errors></ErrorList>

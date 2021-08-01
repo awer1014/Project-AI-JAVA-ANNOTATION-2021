@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\346">
 	
-<SourceCode_List><SourceCode lines="61" name="newKKBox0.java"><![CDATA[import java . util . Scanner ; 
+<SourceCode_List><SourceCode lines="61" name="KKBox.java"><![CDATA[import java . util . Scanner ; 
 
 public class KKBox { 
 
@@ -65,4 +65,4 @@ System . out . println ( "表面積 : " + p2 ) ;
 public static double volume(double length,double width,double height){
 }
 public static double surfaceArea(double length,double width,double height){
-}]]></Message><Linelist><line Begin="3" End="13" src="newKKBox0"/><line Begin="15" End="18" src="newKKBox0"/></Linelist></Error></Errors></ErrorList>
+}]]></Message><Linelist><line Begin="3" End="13" src="KKBox"/><line Begin="15" End="18" src="KKBox"/></Linelist></Error></Errors></ErrorList>

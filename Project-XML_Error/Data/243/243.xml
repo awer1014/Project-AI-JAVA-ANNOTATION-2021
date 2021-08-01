@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="E:\Code\Project\Project-XML_Error\Data\243.xml">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Code\Project-AI-JAVA-ANNOTATION-2021\Project-XML_Error\Data\243\243.xml">
 	
 <SourceCode_List><SourceCode lines="44" name="Target.java"><![CDATA[import java.util.*;
 public class Target
@@ -43,8 +43,8 @@ public class Target
 
 
 
-]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA[因為是物件動作
-所以要在物件動作函數前加上static
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message><![CDATA[因為是類別動作
+所以要在類別動作函數前加上static
 例如
 static void 函數名稱(參數){
 
