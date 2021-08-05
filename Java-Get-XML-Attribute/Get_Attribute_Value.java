@@ -7,14 +7,15 @@ import org.xml.sax.SAXException;
 import java.util.*;
 
 public class Get_Attribute_Value {
-     int Max_Error_num; //check max Error number
+    int line_sum;//單份所有java檔加起來的總行數
+    int max_line_block_num; //單份段落數
     private  Document doc;
-     ArrayList<Line_Block> line_List= new ArrayList<>();
+    ArrayList<Line_Block> line_List= new ArrayList<>();
     //static ArrayList<Source_Code_Sorter> scs_list = new ArrayList<>();
-     Source_Code_Sorter scs;// = new Source_Code_Sorter();
+    Source_Code_Sorter scs;// = new Source_Code_Sorter();
     //the two following ArrayList is for total line
-     ArrayList<Integer> Error_Begin_Lines = new ArrayList<>();
-     ArrayList<Integer> Error_End_Lines = new ArrayList<>();
+    ArrayList<Integer> Error_Begin_Lines = new ArrayList<>();
+    ArrayList<Integer> Error_End_Lines = new ArrayList<>();
     //static ArrayList<Source_Code_Sorter> list_scs = new ArrayList<>();
     public void load_Xml_file(String file_name) {
         try {
@@ -101,7 +102,7 @@ public class Get_Attribute_Value {
         //ArrayList-->Mapper
         line_List = new ArrayList<Line_Block>();
         Mapper map = new Mapper();
-        Max_Error_num=0;
+        max_line_block_num=0;
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
         //to get Error_List Attribute
@@ -115,7 +116,8 @@ public class Get_Attribute_Value {
             //=====================Test======================
             int key = map.get_Index(type);
             Line_Block lb = new Line_Block(key);
-
+            int line_block_num=0;
+            
             for(int k = 0; k < Line_List.getLength(); k++) {
                 //String type = Error.getAttribute("tpye");
                 Element Line = (Element)Line_List.item(k);
@@ -128,13 +130,15 @@ public class Get_Attribute_Value {
                 //wtt.write_Error_End(End);
                 lb.add_Block(src,type,Begin,End);
                 //lb.add_Block(src,Begin, End);
-                Max_Error_num += 1;
+                line_block_num += 1;
             }
+            if(line_block_num>max_line_block_num) max_line_block_num=line_block_num;
             line_List.add(lb);
         }
         //line_List.add(lb);
         Collections.sort(line_List); //need to sort for safe
         get_Source_Value(doc);
+        //System.out.println("total line_block"+max_line_block_num);
         //===============================================================================================
         //test Attribute output
 
@@ -152,7 +156,7 @@ public class Get_Attribute_Value {
     }
 
     public void get_Source_Value(/*String file_name,*/ Document doc) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
-
+        line_sum=0;
         XPathFactory xpf = XPathFactory.newInstance();
         XPath xpath = xpf.newXPath();
         NodeList Source_Code_List = (NodeList) xpath.evaluate("/ErrorList/SourceCode_List/SourceCode", doc, XPathConstants.NODESET);
@@ -168,17 +172,18 @@ public class Get_Attribute_Value {
             String Code_name = Source.getAttribute("name");
             //System.out.println("Code_name: " + Code_name);
             int code_line = Integer.parseInt(Source.getAttribute("lines"));
+            line_sum+=code_line;
             //System.out.println("code_line: " + code_line);
             scs.add_SourceCode_and_line(Code_name, code_line, array_last);
         }
         //list_scs.add(scs);
-
+        //System.out.println("total line"+line_sum);
         //================================================================================================
         //TEST
         /*
         for(int i = 0; i < Source_Code_List.getLength(); i++) {
-            System.out.println("Source Code :" + scs.get_SourceCode(i));
-            System.out.println("Source Code Begin Line :" + scs.get_SourceCode_Begin_line(i));
+        System.out.println("Source Code :" + scs.get_SourceCode(i));
+        System.out.println("Source Code Begin Line :" + scs.get_SourceCode_Begin_line(i));
         }
         //*/
         //================================================================================================
@@ -211,8 +216,11 @@ public class Get_Attribute_Value {
         return line_List.get(list_Index).get_error_type_length();
     }
 
-    public int get_Max_Error_num() {
-        return Max_Error_num;
+    public int get_line_block_num() {
+        return max_line_block_num;
+    }
+    public int get_line_sum() {
+        return line_sum;
     }
 
     public List<Line_Block> get_List_Line_Block_() {

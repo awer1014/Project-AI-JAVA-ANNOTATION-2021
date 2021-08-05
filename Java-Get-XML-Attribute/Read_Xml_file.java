@@ -15,8 +15,10 @@ import org.w3c.dom.*;
 import javax.xml.xpath.*;
 import org.xml.sax.SAXException;
 public class Read_Xml_file {
-    int max=0;
-    private String max_file_name="";
+    int max_line_block_num=0;//找出最大段落數
+    int max_line_sum=0;//找出最大 所有java檔加起來的總行數
+    private String max_line_block_num_file_name="";
+    private String max_line_sum_file_name="";
     //static List<List<Line_Block>> list;
     Get_Attribute_Value target = new Get_Attribute_Value();
     public ArrayList<String> file_id_list=new ArrayList<>();
@@ -48,8 +50,11 @@ public class Read_Xml_file {
                 //SourceCode_List = doc.getElementsByTagName("SourceCode");
                 //target.get_Source_Value(doc);//dust for test might need to reuse
                 target.get_Error_Value(doc);
-                //if(target.Max_Error_num>max)max_file_name=files[i].getName();
-                max=max_num(max,target.Max_Error_num);
+                if(target.get_line_block_num()>max_line_block_num)max_line_block_num_file_name=files[i].getName();
+                max_line_block_num=max_num(max_line_block_num,target.get_line_block_num());
+                //System.out.println("file_name = "+files[i].getName()+"，total line: "+target.line_block_num);
+                if(target.get_line_sum()>max_line_sum)max_line_sum_file_name=files[i].getName();
+                max_line_sum=max_num(max_line_sum,target.get_line_sum());
                 //target.add_total_lines();
 
                 list.add(target.line_List);
@@ -58,7 +63,8 @@ public class Read_Xml_file {
                 //String [] tokens = files[i].getName().split(".xml",2);
                 //wtt.writetxt(SourceCode_List, path, tokens[0]);
             }
-            //System.out.println("max = "+max+" ，file_name = "+max_file_name);
+            System.out.println("max_line_block_num = "+max_line_block_num+" ，file_name = "+max_line_block_num_file_name);
+            System.out.println("max_line_sum = "+max_line_sum+" ，file_name = "+max_line_sum_file_name);
         } catch(Exception e) {
             System.out.println("load_Xml_file went wrong here");
             //System.out.println("檔案 : "+files[i].getName()+"load_Xml_file went wrong here");
