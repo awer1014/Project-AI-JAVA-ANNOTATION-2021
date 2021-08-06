@@ -56,7 +56,7 @@ def ChangeLineBlock(begin, end , permutation):
                 elif(next_index!=temp+1 and continuous==True):
                     line_block.append(new_begin,oldVec[oldVec[next_index-1]])
                     index = next_index
-                    
+                    #need to fix
      
 def XmlGenerate(src_dict,copyNum,xmlfiledir,case):
     for i in range(copyNum)
