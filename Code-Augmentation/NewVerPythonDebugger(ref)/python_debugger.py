@@ -1572,6 +1572,7 @@ pp = pprint.PrettyPrinter(indent=4)
 import re
 
 def readJavaFile(filename):
+    #print(filename)
     with open(filename, 'r', encoding='utf8') as myFile:
         data = myFile.read()        
         data = re.sub(r'static +public', 'public static', data)
