@@ -1,0 +1,39 @@
+def parseSentence(x):	
+	tokenizer = RegexpTokenizer(r"[\w']+|[].,:!?;=+-\\*/@#$%^&_(){}~|\"[]")
+	tokens=[]
+	state="START"
+	chrs=""
+	for i in range(len(x)):
+		#print(ord(x[i]))
+		if (ord(x[i])>255):
+			inp="U"
+		else:
+			inp="E"
+	
+		if state=="START":
+			if inp=="E":
+				state="ASCII"
+				chrs=x[i]
+			else:
+				state="UNICODE"
+				tokens.append(x[i])
+			
+		elif state=="ASCII":
+			if inp=="E":
+				chrs += x[i]
+			else:#U
+				state="UNICODE"
+				tokens += tokenizer.tokenize(chrs) #wordpunct_tokenize(chrs)  #nltk.word_tokenize(chrs)
+				chrs=""
+				tokens.append(x[i])
+	
+		elif state=="UNICODE":
+			if inp=="E":
+				state="ASCII"
+				chrs=x[i]
+			else:
+				state="UNICODE"
+				tokens.append(x[i])
+	if len(chrs)>0:
+		tokens += tokenizer.tokenize(chrs) #wordpunct_tokenize(chrs)  # nltk.word_tokenize(chrs) 
+	return tokens

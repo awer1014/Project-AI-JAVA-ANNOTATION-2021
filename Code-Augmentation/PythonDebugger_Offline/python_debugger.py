@@ -1624,7 +1624,7 @@ if __name__ == '__main__' :
         write_to_file(newCode1, filename)
         print("First Map: ", variableMap )
         print("First Permutation: ", sortPermutation(permutation1) )
- 
+        print("type(permutation1): ", type(permutation1) )    
         '''
         newCode2,variableMap, permutation2 = AST(tree2).getAugmentedCode(changeVariable=True, permuStatement=True, variableMap=variableMap)
         #print(newCode2)

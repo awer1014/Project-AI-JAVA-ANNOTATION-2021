@@ -24,8 +24,8 @@ if __name__ == '__main__' :
         sourcefiles = listdir_fullpath(sourcefiledir)
         for sourcefile in sourcefiles:
             destfile = destfiledir + "\\" + sourcefile
-            print(sourcefile)
-            newCode = normalizeCode(sourcefile)
+            print(sourcefiledir+"\\"+sourcefile)
+            newCode = normalizeCode(sourcefiledir+"\\"+sourcefile)
             pyd.write_to_file(newCode, destfile)
 
 
