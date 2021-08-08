@@ -1572,7 +1572,8 @@ pp = pprint.PrettyPrinter(indent=4)
 import re
 
 def readJavaFile(filename):
-    with open(filename, 'r', encoding='utf8') as myFile:
+    #print(filename)
+    with open(filename, 'r', encoding=getEncoding(filename)) as myFile:
         data = myFile.read()        
         data = re.sub(r'static +public', 'public static', data)
         data = re.sub(r'public +abstract', 'abstract public', data)
@@ -1624,7 +1625,7 @@ if __name__ == '__main__' :
         write_to_file(newCode1, filename)
         print("First Map: ", variableMap )
         print("First Permutation: ", sortPermutation(permutation1) )
-        print("type(permutation1): ", type(permutation1) )    
+ 
         '''
         newCode2,variableMap, permutation2 = AST(tree2).getAugmentedCode(changeVariable=True, permuStatement=True, variableMap=variableMap)
         #print(newCode2)

@@ -102,14 +102,21 @@ def xmlGenerate(xml_name,xml_source_dir,list_src_dict,copyNum,output_copyfiledir
                 new_end=int(old_end)
                 src=line.get("src")
                 #追蹤用   print("src",src)
-                line_blocks=changeLineBlock(new_begin,new_end,list_src_dict[src])#進入changeLineBlock將舊段落對照permutation產生新的段落   
-                #追蹤用   print("line_blocks",line_blocks)
-                for line_block in line_blocks:
+                if(new_begin == new_end == -1):#當new_begin&new_end都為-1時沒辦法丟入changeLineBlock()去轉換新的段落，所以直接拿原檔的行號做輸出
+                    #print("new_begin: ",new_begin,", new_end: ",new_end)
                     element=ET.SubElement(new_Linelist,"new_line")#將產生出的新段落放入new_Linelist的子節點
-                    element.set('Begin',str(line_block[0]))#設置節點的屬性 因為line_block裡面是list ex:[2,3,4,5,6] 所以抓的是list初始位置
-                    element.set('End',str(line_block[-1]))#設置節點的屬性 因為line_block裡面是list ex:[2,3,4,5,6] 所以抓的是list最後位置
+                    element.set('Begin',old_begin)#因為tree.write()沒辦法參照"-1"的int值所以拿沒轉換過的old_begin的str值設值
+                    element.set('End',old_end)#因為tree.write()沒辦法參照"-1"的int值所以拿沒轉換過的old_end的str值設值
                     element.set('src',src)
-                    #追蹤用   print("element.attrib",element.attrib)
+                else:
+                    line_blocks=changeLineBlock(new_begin,new_end,list_src_dict[src])#進入changeLineBlock將舊段落對照permutation產生新的段落   
+                    #追蹤用   print("line_blocks",line_blocks)
+                    for line_block in line_blocks:
+                        element=ET.SubElement(new_Linelist,"new_line")#將產生出的新段落放入new_Linelist的子節點
+                        element.set('Begin',str(line_block[0]))#設置節點的屬性 因為line_block裡面是list ex:[2,3,4,5,6] 所以抓的是list初始位置
+                        element.set('End',str(line_block[-1]))#設置節點的屬性 因為line_block裡面是list ex:[2,3,4,5,6] 所以抓的是list最後位置
+                        element.set('src',src)
+                        #追蹤用   print("element.attrib",element.attrib)
 
 
     for Error in root.iter("Error"):#將原本Linelist的每個line節點作清空

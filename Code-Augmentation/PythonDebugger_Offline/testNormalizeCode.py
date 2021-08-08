@@ -23,6 +23,7 @@ if __name__ == '__main__' :
             os.mkdir(destfiledir)  #create dest case dir
         sourcefiles = listdir_fullpath(sourcefiledir)
         for sourcefile in sourcefiles:
+            if not sourcefile.lower().endswith(".java"): continue
             destfile = destfiledir + "\\" + sourcefile
             print(sourcefiledir+"\\"+sourcefile)
             newCode = normalizeCode(sourcefiledir+"\\"+sourcefile)
