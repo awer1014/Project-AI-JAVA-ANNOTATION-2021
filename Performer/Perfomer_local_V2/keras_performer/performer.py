@@ -554,10 +554,12 @@ def decode(model,
     is_single = not isinstance(tokens[0], list)
     if is_single:
         tokens = [tokens]
+    print("tokens length: ", len(tokens))
     batch_size = len(tokens)#number of inputs to translate
-	#model = keras.models.Model(inputs=[encoder_input], outputs=[error_feed_forward_output1, #error_feed_forward_output2])
-    out1, out2, *temp = model.predict(tokens)
-    print("out1.shape", out1.shape)
-    print("out2.shape", out2.shape)
+    #model = keras.models.Model(inputs=[encoder_input], outputs=[error_feed_forward_output1, #error_feed_forward_output2])
+    out1, *out2 = model.predict(tokens)
+    print("out1.shape: ", out1.shape)
+    print("out2 length: ", len(out2))
+    print("out2[0] shape: ", out2[0].shape)
 
     return out1, out2
