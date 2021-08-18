@@ -1,0 +1,37 @@
+<ErrorList id="C:\Users\User\Desktop\正確正規化\592\592.xml">
+	
+<SourceCode_List><SourceCode lines="35" name="ChineseLetter.java">import java . util . * ; 
+public class ChineseLetter { 
+public String title ; 
+public String receiver ; 
+public String content ; 
+public String sender ; 
+public String date ; 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public static void main ( String [ ] args ) { 
+ChineseLetter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+void display ( ) { 
+System . out . println ( getReceiver ( ) + " " + title + ",您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( getSender ( ) + " 敬上" ) ; 
+System . out . print ( getDate ( ) ) ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確</Message><Linelist><line Begin="-1" End="-1" src="ChineseLetter" /></Linelist></Error></Errors></ErrorList>

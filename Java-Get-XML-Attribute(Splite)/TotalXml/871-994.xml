@@ -1,0 +1,15 @@
+<ErrorList id="D:\program_python\新增題目\871.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="parent.java">public class parent { 
+static int count ; 
+String pay ; 
+String name ; 
+String type ; 
+void speak ( ) { 
+if ( type . equals ( "  " ) ) 
+System . out . println ( " p p" ) ; 
+if ( type . equals ( " ¯" ) ) 
+System . out . println ( " L L" ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確。</Message><Linelist><line Begin="-1" End="-1" src="parent" /></Linelist></Error></Errors></ErrorList>

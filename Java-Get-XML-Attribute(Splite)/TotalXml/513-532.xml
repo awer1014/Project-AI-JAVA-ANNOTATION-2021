@@ -1,0 +1,43 @@
+<ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\513\513.xml">
+	
+<SourceCode_List><SourceCode lines="29" name="Evaluation.java">import java . util . Scanner ; 
+public class Evaluation { 
+public static void main ( ) { 
+String name ; 
+double number , grade , weight ; 
+int n ; 
+Scanner scan = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入種類 1.測驗 2.作業 3.心得報告 :" ) ; 
+n = scan . nextInt ( ) ; 
+System . out . println ( "請輸入學生學號 :" ) ; 
+number = scan . nextDouble ( ) ; 
+System . out . println ( "請輸入學生姓名 :" ) ; 
+name = scan . next ( ) ; 
+System . out . println ( "請輸入成績 :" ) ; 
+grade = scan . nextDouble ( ) ; 
+System . out . println ( "請輸入成績比重 :" ) ; 
+weight = scan . nextDouble ( ) ; 
+if ( n == 1 ) { 
+Evaluation eva = new Exam ( ) ; 
+} 
+else if ( n == 2 ) { 
+Evaluation eva = new HomeWork ( ) ; 
+} 
+else { 
+Evaluation eva = new Report ( ) ; 
+} 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="Exam.java">import java . util . Scanner ; 
+public class Exam extends Evaluation { 
+public String day , range ; 
+Scanner scan = new Scanner ( System . in ) ; 
+} 
+</SourceCode><SourceCode lines="4" name="HomeWork.java">public class HomeWork extends Evaluation { 
+String eday , test ; 
+} 
+</SourceCode><SourceCode lines="4" name="Report.java">public class Report extends Evaluation { 
+String msi , xsw ; 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:繼承資料或動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+例如，本程式Evaluation類別，需改成public abstract class Evaluation。</Message><Linelist><line Begin="2" End="2" src="Evaluation" /></Linelist></Error></Errors></ErrorList>

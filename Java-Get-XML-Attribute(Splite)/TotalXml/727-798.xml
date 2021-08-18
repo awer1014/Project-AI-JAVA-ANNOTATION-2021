@@ -1,0 +1,67 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\727\727.xml">
+	
+<SourceCode_List><SourceCode lines="9" name="Keeper.java">public class Keeper { 
+String id ; 
+String tel ; 
+public void displayid ( ) { 
+System . out . println ( "飼主身份證字號:" + this . id ) ; 
+System . out . println ( "飼主電話:" + this . tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="49" name="Pet.java">import java . util . Scanner ; 
+public class Pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+void speak ( ) { 
+if ( this . type == "dog" ) 
+System . out . println ( "汪汪" ) ; 
+else 
+System . out . println ( "喵喵" ) ; 
+} 
+void display ( ) { 
+System . out . println ( "寵物種類:" + this . type ) ; 
+System . out . println ( "寵物編號:" + this . pid ) ; 
+System . out . println ( "寵物名稱:" + this . name ) ; 
+System . out . println ( ) ; 
+} 
+public static void main ( String [ ] args ) { 
+String Data ; 
+Scanner keyboard = new Scanner ( System . in ) ; 
+int T = 1 ; 
+while ( T == 1 ) { 
+System . out . print ( "請輸入寵物種類:" ) ; 
+Data = keyboard . nextLine ( ) ; 
+if ( Data == "0" ) { 
+T = 0 ; 
+break ; 
+} 
+System . out . print ( Data ) ; 
+System . out . println ( ) ; 
+System . out . print ( "請輸入寵物編號:" ) ; 
+Data = keyboard . nextLine ( ) ; 
+System . out . print ( Data ) ; 
+System . out . println ( ) ; 
+System . out . print ( "請輸入寵物編號:" ) ; 
+Data = keyboard . nextLine ( ) ; 
+System . out . print ( Data ) ; 
+System . out . println ( ) ; 
+System . out . print ( "請輸入飼主身份證字號:" ) ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+例如，
+if ( type.equals ( "dog" ) )</Message><Linelist><line Begin="35" End="35" src="Pet" /></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。
+例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+可利用建構子建立keeper物件變數的值，例如:
+Pet ( String pid , String name , String type ,  Keeper keeper) { 
+    ...
+    this.keeper = keeper;
+}</Message><Linelist><line Begin="3" End="3" src="Pet" /><line Begin="40" End="40" src="Pet" /><line Begin="40" End="44" src="Pet" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,73 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\new\80\80.xml">
+	
+<SourceCode_List><SourceCode lines="6" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="12" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+void display ( ) { 
+System . out . println ( "Dear " + receiver + " " + title + "," + "你好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="15" name="Envelop.java">public class Envelop { 
+String senderAddr , receiverAddr ; 
+Letter letter ; 
+public Envelop ( String senderAddr , String receiverAddr , Letter letter ) { 
+this . senderAddr = senderAddr ; 
+this . receiverAddr = receiverAddr ; 
+this . letter = letter ; 
+} 
+void display ( ) { 
+System . out . println ( "From: " + senderAddr + ", " + letter . getSender ( ) ) ; 
+System . out . println ( "To: " + receiverAddr + ", " + letter . getReceiver ( ) + " " + letter . getTitle ( ) ) ; 
+letter . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="29" name="Letter.java">public abstract class Letter { 
+String title , receiver , content , sender , date ; 
+public Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+void display ( ) { 
+System . out . println ( receiver + " " + title + "," + "你好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+String getTitle ( ) { 
+return title ; 
+} 
+} 
+</SourceCode><SourceCode lines="8" name="Main.java">public class Main { 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+Envelop env = new Envelop ( "Taipei" , "Kaohsiung" , lt ) ; 
+env . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+
+本程式Letter類別的display()動作應隨不同的的子類別(ChineseLetter和EnglishLetter)有不同的變化，因此，在Letter類別須宣告為抽象動作，
+例如:
+public abstract void display ( ) ;
+而ChineseLetter類別和EnglishLetter類別則分別寫各自的display()函式。</Message><Linelist><line Begin="13" End="18" src="Letter" /></Linelist></Error></Errors></ErrorList>

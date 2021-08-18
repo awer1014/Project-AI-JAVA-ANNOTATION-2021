@@ -2,23 +2,30 @@ import java.util.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFDataFormat;
+import org.apache.poi.xssf.usermodel.XSSFFormulaEvaluator;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.FileOutputStream;
 public class ExcelWriter {
-    HSSFWorkbook workbook;
-    HSSFSheet sheet;
-    int error_type =36;
-    int max_error_type =6;
-    int max_block=14;
-    int total_cell =1+error_type+(max_error_type*max_block);
+    XSSFWorkbook workbook;
+    XSSFSheet sheet;
+    int error_type = 36;
+    int max_error_type = 6;
+    int max_block = 54;
+    int total_cell = 1+error_type+(max_error_type*max_block);
     private void createSheet(){
-        workbook = new HSSFWorkbook();
+        workbook = new XSSFWorkbook();
         //create file
         //add file name
         sheet = workbook.createSheet("ErrorLocation");
         // create first Row ----> id
-        HSSFRow headRow = sheet.createRow(0);
+        XSSFRow headRow = sheet.createRow(0);
         headRow.createCell(0).setCellValue("id");
         for(int i = 1;i <= error_type; i++){
             headRow.createCell(i).setCellValue("er"+i);
@@ -55,8 +62,8 @@ public class ExcelWriter {
         // 往Excel表中遍歷寫入數據
     }
 
-    private HSSFRow createRow() {
-        HSSFRow dataRow = sheet.createRow(sheet.getLastRowNum() + 1);
+    private XSSFRow createRow() {
+        XSSFRow dataRow = sheet.createRow(sheet.getLastRowNum() + 1);
         //for(int i=0; i<97; i++){
         for(int i=0; i<total_cell; i++) {
             dataRow.createCell(i).setCellValue(0);
@@ -76,10 +83,10 @@ public class ExcelWriter {
             //System.out.println("ew.file_id:" + file_id_list.get(j));
         }
 
-        try {
+        try(FileOutputStream os = new FileOutputStream(fileName)) {
             //System.out.println("XXXXXX:" + fileName);
-            File xlsFile = new File(fileName);
-            workbook.write(xlsFile);
+            //File xlsxFile = new File(fileName);
+            workbook.write(os);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -91,8 +98,8 @@ public class ExcelWriter {
         }
     }
     // 創建Excel的一行數據。
-    private void createCell(/*String file_id,*/ List<Line_Block>  list, HSSFSheet sheet, String file_id_list) {
-        HSSFRow dataRow=createRow();
+    private void createCell(/*String file_id,*/ List<Line_Block>  list, XSSFSheet sheet, String file_id_list) {
+        XSSFRow dataRow=createRow();
         //int id_count = 0;
         int ecount=0;
         //System.out.println("ew file id: " + file_id_list);
@@ -116,7 +123,7 @@ public class ExcelWriter {
                 if(begin == -1)                      //原檔案所標示的-1代表為整個檔案，在這邊將-1放入到陣列第0個位子做表示
                     begin =1;
                 else 
-                    begin +=1;  
+                    begin +=1; 
                 int end = lb.block_end.get(i);
                 if(end == -1)
                     end =1;

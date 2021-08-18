@@ -1,0 +1,68 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\37\37.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+void display ( ) { 
+System . out . println ( receiver + " " + title + ", 您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="13" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+void display ( ) { 
+System . out . println ( "Dear " + receiver + " " + title ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="16" name="Envelop.java">public class Envelop { 
+String senderAddr , receiverAddr ; 
+Letter letter ; 
+Envelop ( String senderAddr , String receiverAddr , Letter letter ) { 
+this . senderAddr = senderAddr ; 
+this . receiverAddr = receiverAddr ; 
+this . letter = letter ; 
+} 
+void display ( ) { 
+System . out . println ( "From: " + senderAddr + ", " + letter . sender ) ; 
+System . out . println ( "To: " + receiverAddr + ", " + letter . receiver + " " + letter . title ) ; 
+System . out . println ( "信件內容: " ) ; 
+letter . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="25" name="Letter.java">abstract public class Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+protected String sender ; 
+protected String date ; 
+public Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+abstract public void display ( ) ; 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:不會使用物件之間的關係"><Message>當A物件擁有B物件時，A物件可以直接呼叫B物件的物件動作去取得該動作回傳值。
+Envelop第10行letter.sender
+在呼叫letter物件中的物件資料時,
+應呼叫getSender()來回傳return sender</Message><Linelist><line Begin="9" End="10" src="Envelop" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,22 @@
+<ErrorList id="C:\Users\B2\Desktop\真84號正規化\850\850.xml">
+	
+<SourceCode_List><SourceCode lines="19" name="Pet.java">import java . util . Scanner ; 
+public class Pet { 
+static int count = 0 ; 
+String pid , name , type ; 
+Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+Pet ( ) { 
+} 
+void speak ( ) { 
+if ( this . type == "貓" ) 
+System . out . println ( "喵喵" ) ; 
+else 
+System . out . println ( "汪汪" ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+JAVA字串比較使用equals函數較為通用。</Message><Linelist><line Begin="7" End="7" src="Pet" /></Linelist></Error></Errors></ErrorList>

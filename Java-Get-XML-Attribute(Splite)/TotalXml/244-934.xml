@@ -1,0 +1,18 @@
+<ErrorList id="C:\Users\user\Desktop\新增資料夾 (4)\244\244.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="Word.java">import java . util . * ; 
+public class Word { 
+public static void main ( String [ ] args ) { 
+Scanner scanner = new Scanner ( System . in ) ; 
+StringTokenizer st = scanner ; 
+String tk ; 
+while ( st . hasMoreTokens ( ) ) { 
+tk = st . nextToken ( ) ; 
+System . out . println ( tk ) ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數庫使用錯誤"><Message>引用函數錯誤，請確認所呼叫的函數或函數庫是否存在。
+
+StringTokenizer物件使用錯誤，請先了解StringTokenizer的各種運算函數，
+再進行呼叫。</Message><Linelist><line Begin="5" End="5" src="Word" /></Linelist></Error></Errors></ErrorList>

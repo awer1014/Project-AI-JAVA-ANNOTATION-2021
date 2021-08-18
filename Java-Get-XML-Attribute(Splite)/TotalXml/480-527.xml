@@ -1,0 +1,54 @@
+<ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\480\480.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="Keeper.java">public class Keeper { 
+String Id ; 
+String Tel ; 
+Keeper ( String i , String t ) { 
+Id = i ; 
+Tel = t ; 
+} 
+public void display ( ) { 
+System . out . println ( "飼主身分證字號：" + Id ) ; 
+System . out . println ( "飼主電話：" + Tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="23" name="Pet.java">public class Pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+Pet ( String t , String p , String n ) { 
+type = t ; 
+name = n ; 
+pid = p ; 
+} 
+void speak ( ) { 
+if ( type == "狗" ) 
+System . out . println ( "您的寵物叫聲是：汪汪\r\n" ) ; 
+else 
+System . out . println ( "您的寵物叫聲是：喵喵\r\n" ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "寵物種類：" + type ) ; 
+System . out . println ( "寵物編號：" + pid ) ; 
+System . out . println ( "寵物名稱：" + name ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="16" name="shop.java">import java . util . Scanner ; 
+public class shop { 
+public static void main ( String [ ] args ) { 
+System . out . println ( "請輸入寵物種類：" ) ; 
+System . out . println ( "請輸入寵物編號：" ) ; 
+System . out . println ( "請輸入寵物名稱：" ) ; 
+System . out . println ( "請輸入飼主身分證字號：" ) ; 
+System . out . println ( "請輸入飼主電話：" ) ; 
+Pet p = new Pet ( args [ 0 ] , args [ 1 ] , args [ 2 ] ) ; 
+Keeper user = new Keeper ( args [ 3 ] , args [ 4 ] ) ; 
+p . display ( ) ; 
+user . display ( ) ; 
+p . speak ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+例如，可以在本程式的Keeper類別中加入private Keeper keeper，
+並在本程式的Pet類別中加入Keeper keeper。</Message><Linelist><line Begin="4" End="4" src="Keeper" /></Linelist></Error></Errors></ErrorList>

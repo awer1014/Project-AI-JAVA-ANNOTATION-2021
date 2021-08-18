@@ -1,0 +1,85 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\705(未完成)\705.xml">
+	
+<SourceCode_List><SourceCode lines="24" name="Keeper.java">import java . util . Scanner ; 
+public class Keeper { 
+String id ; 
+String tel ; 
+void Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+void display ( ) { 
+System . out . println ( "請輸入飼主身份證字號:" + id ) ; 
+System . out . println ( "請輸入飼主身份證字號:" + tel ) ; 
+} 
+public static void main ( String [ ] args ) { 
+String id ; 
+String tel ; 
+Keeper x = new Keeper ( ) ; 
+Scanner keyboard = new Scanner ( System . in ) ; 
+System . out . println ( "飼主身份證字號:" ) ; 
+id = keyboard . nextLine ( ) ; 
+System . out . println ( "飼主電話:" ) ; 
+tel = keyboard . nextLine ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="41" name="pet.java">import java . util . Scanner ; 
+public class pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+void Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+String Speak ( ) { 
+if ( pid == "貓" ) { 
+return "喵喵" ; 
+} 
+else if ( pid == "狗" ) { 
+return "汪汪" ; 
+} 
+} 
+void display ( ) { 
+System . out . println ( "寵物種類:" + pid ) ; 
+System . out . println ( "寵物編號:" + type ) ; 
+System . out . println ( "寵物名稱:" + name ) ; 
+} 
+public static void main ( String [ ] args ) { 
+String pid ; 
+String name ; 
+String type ; 
+pet x = new pet ( ) ; 
+Scanner keyboard = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入寵物種類:" ) ; 
+pid = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入寵物編號:" ) ; 
+type = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱:" ) ; 
+name = keyboard . nextLine ( ) ; 
+String spe = pid . Speak ( ) ; 
+System . out . println ( "您的寵物叫聲是:" + spe ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message>函數必須要宣告回傳值的型態，否則要在函數宣告前加上void。
+此外，函式邏輯必須完備，避免造成某些狀況無傳回值。
+再者，呼叫函數時則需要注意傳遞正確型態的參數。
+例如，speak()當輸入的不是貓也不是狗時，會造成沒有回傳值。</Message><Linelist><line Begin="32" End="39" src="pet" /></Linelist></Error><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+例如，
+if ( pid.equals ( "貓" ) )</Message><Linelist><line Begin="33" End="33" src="pet" /><line Begin="36" End="36" src="pet" /></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。
+例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+可利用建構子建立keeper物件變數的值，例如，
+public Pet(String pid, String name, String type, Keeper keeper) {    
+    ...
+    this.keeper = keeper;
+}</Message><Linelist><line Begin="3" End="3" src="pet" /><line Begin="21" End="21" src="pet" /><line Begin="21" End="25" src="pet" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+例如:
+Keeper x = new Keeper(id, tel);</Message><Linelist><line Begin="11" End="11" src="Keeper" /><line Begin="8" End="8" src="pet" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>建構子本身不是物件動作函數，因此不能在建構子前面加上void關鍵字，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。
+例如:
+public Keeper ( String id , String tel )</Message><Linelist><line Begin="3" End="3" src="Keeper" /><line Begin="21" End="21" src="pet" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。
+語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。
+以本程式為例，pet物件具有speak動作，因此應該將pid . Speak ( )  改為x . Speak ( ) 。</Message><Linelist><line Begin="16" End="16" src="pet" /></Linelist></Error></Errors></ErrorList>

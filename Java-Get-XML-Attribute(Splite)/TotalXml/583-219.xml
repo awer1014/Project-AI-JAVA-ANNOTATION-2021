@@ -1,0 +1,121 @@
+<ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文研究\Data\黃崇睿xml\error\583.xml">
+	
+<SourceCode_List><SourceCode lines="26" name="chineseletter.java">public class chineseletter { 
+public String title , receiver , content , sender , date ; 
+public chineseletter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+String getsender ( ) { 
+return sender ; 
+} 
+String getreceiver ( ) { 
+return receiver ; 
+} 
+String getdate ( ) { 
+return date ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + " " + title + ",您好!" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + "敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="31" name="englishletter.java">public class englishletter { 
+public String title , receiver , content , sender , date ; 
+public englishletter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+String getsender ( ) { 
+return sender ; 
+} 
+String getreceiver ( ) { 
+return receiver ; 
+} 
+String getdate ( ) { 
+return date ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + title + " " + receiver + "," ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely!" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+public static void main ( String [ ] args ) { 
+englishletter it = new englishletter ( "Professor" , "Wang" , "I am glad to join yuor class" , "K.J.Fan" , "2019/1/05" ) ; 
+it . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="36" name="envelop.java">public class envelop { 
+public String senderAddr , receiverAddr , receiver , sender , title , content , date ; 
+public envelop ( String senderAddr , String receiverAddr , chineseletter chineseletter ) { 
+this . senderAddr = senderAddr ; 
+this . receiverAddr = receiverAddr ; 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public void display ( ) { 
+System . out . println ( "From: " + senderAddr + ", " + sender ) ; 
+System . out . println ( "To: " + receiverAddr + ", " + receiver + " " + title ) ; 
+System . out . println ( "信件內容:" ) ; 
+System . out . println ( receiver + " " + title + ",您好!" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + "敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+String getsender ( ) { 
+return sender ; 
+} 
+String getreceiver ( ) { 
+return receiver ; 
+} 
+String getdate ( ) { 
+return date ; 
+} 
+public static void main ( String [ ] args ) { 
+chineseletter it = new chineseletter ( "教授" , "王" , "很高興能夠上您的課程" , "絜哥" , "2019/1/05" ) ; 
+envelop env = new envelop ( "Taipei" , "Tainan" , it ) ; 
+env . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="27" name="letter.java">abstract public class letter { 
+private String title , receiver , content , sender , date ; 
+private void letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+String getsender ( ) { 
+return sender ; 
+} 
+String getreceiver ( ) { 
+return receiver ; 
+} 
+String getdate ( ) { 
+return date ; 
+} 
+abstract public void display ( ) ; 
+public static void main ( String [ ] args ) { 
+chineseletter it = new chineseletter ( "教授" , "王" , "很高興能夠上您的課程" , "絜哥" , "2019/1/05" ) ; 
+it . display ( ) ; 
+englishletter it1 = new englishletter ( "Professor" , "Wang" , "I am glad to join yuor class" , "K.J.Fan" , "2019/1/05" ) ; 
+it1 . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如，本程式的chineseletter與englishletter與letter就可刪除
+String title , ...; </Message><Linelist><line Begin="21" End="21" src="chineseletter" /><line Begin="6" End="6" src="englishletter" /><line Begin="22" End="22" src="letter" /></Linelist></Error></Errors></ErrorList>

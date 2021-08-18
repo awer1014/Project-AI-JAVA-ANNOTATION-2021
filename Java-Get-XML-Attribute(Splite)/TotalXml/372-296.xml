@@ -1,0 +1,40 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\372\372.xml">
+	
+<SourceCode_List><SourceCode lines="36" name="KKBox.java">class KKBox { 
+double length ; 
+double width ; 
+double height ; 
+double volume ; 
+double surf ; 
+KKBox ( double length , double width , double height ) { 
+this . length = length ; 
+this . width = width ; 
+this . height = height ; 
+} 
+double vol ( double length , double width , double height ) { 
+double volume = length * width * height ; 
+return volume ; 
+} 
+double volume ( ) { 
+return volume ; 
+} 
+double sur ( double length , double width , double height ) { 
+double surf = 2 * length * width + width * height + height * length ; 
+return surf ; 
+} 
+double surfaceArea ( ) { 
+return surf ; 
+} 
+public static void main ( String [ ] args ) { 
+double length = Double . parseDouble ( args [ 0 ] ) ; 
+double width = Double . parseDouble ( args [ 1 ] ) ; 
+double height = Double . parseDouble ( args [ 2 ] ) ; 
+KKBox ex = new KKBox ( length , width , height ) ; 
+double vol = ex . volume ( ) ; 
+double sur = ex . surfaceArea ( ) ; 
+System . out . println ( "體積:" + vol + "表面積" + sur ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:物件資料/物件動作概念"><Message>物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。</Message><Linelist><line Begin="19" End="21" src="KKBox" /></Linelist></Error></Errors></ErrorList>

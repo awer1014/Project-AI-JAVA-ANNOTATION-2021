@@ -1,0 +1,33 @@
+<ErrorList id="C:\Users\User\Desktop\錯誤正規化\629\629.xml">
+	
+<SourceCode_List><SourceCode lines="22" name="TEST1.java">public class Cuboid { 
+double length , width , height ; 
+public Cuboid ( double length , double width , double height ) { 
+System . out . println ( "輸入長" ) ; 
+double length = scanner . nextLine ( ) ; 
+System . out . println ( "輸入寬" ) ; 
+double width = scanner . nextLine ( ) ; 
+System . out . println ( "輸入高" ) ; 
+double height = scanner . nextLine ( ) ; 
+} 
+public static double Surface ( double length , double width , double height ) { 
+return 2 * length * width + width * height + length * height ; 
+} 
+public static double Volume ( double length , double width , double height ) { 
+return length * width * height ; 
+} 
+public static void main ( String [ ] args ) { 
+System . out . println ( cuboid . Surface ( ) ) ; 
+System . out . println ( cuboid . Volume ( ) ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="io:不會使用輸入scanner類別"><Message>"若需要從鍵盤輸入資料,需先引進Scanner 函數庫，如:
+import java.util.Scanner;
+接下來，宣告Scanner 物件，並呼叫適當的函數讀取不同型態的資料。
+如:
+Scanner scan = new Scanner();
+int p = scan.nextInt(); //讀取數值
+scan.nextLine(); //清除Enter空值"
+應在main裡使用 Scanner scanner = new Scanner(System.in);  再將其程式碼加在後面 System.out.println("輸入長"); double length= scanner.nextDouble(); System.out.println("輸入寬"); double width = scanner.nextDouble(); System.out.println("輸入高"); double height= scanner.nextDouble();</Message><Linelist><line Begin="14" End="14" src="TEST1" /><line Begin="16" End="16" src="TEST1" /><line Begin="18" End="18" src="TEST1" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+物件宣告動作內 應為 this.length = length; this.width = width; this.height = height;  </Message><Linelist><line Begin="13" End="18" src="TEST1" /></Linelist></Error><Error tpye="變數:重複宣告變數"><Message>變數名稱重複宣告
+public static double Surface(double length, double width, double height) public static double Volume(double length, double width, double height) 此兩段程式碼為宣告物件動作 後面()內應改為 public static double Surface()  public static double Volume() 括弧內不需重複宣告</Message><Linelist><line Begin="9" End="9" src="TEST1" /><line Begin="2" End="2" src="TEST1" /></Linelist></Error></Errors></ErrorList>

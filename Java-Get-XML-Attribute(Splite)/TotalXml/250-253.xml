@@ -1,0 +1,18 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\250\250.xml">
+	
+<SourceCode_List><SourceCode lines="11" name="String.java">import java . util . StringTokenizer ; 
+import java . util . Scanner ; 
+class String { 
+public static void main ( String [ ] args ) { 
+String str ; 
+Scanner scanner = new Scanner ( System . in ) ; 
+String str = scanner . nextLine ( ) ; 
+StringTokenizer st = new StringTokenizer ( args [ 0 ] , " " ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="其他:關鍵字錯誤"><Message>檢查關鍵字(如 public，class， int，String，,...)，標點符號，以及函數名稱是否有誤。
+
+class名稱不可使用關鍵字</Message><Linelist><line Begin="3" End="3" src="String" /></Linelist></Error><Error tpye="函數:函數庫使用錯誤"><Message>引用函數錯誤，請確認所呼叫的函數或函數庫是否存在。
+
+StringTokenizer物件使用錯誤，請先了解StringTokenizer的各種運算函數，
+再進行呼叫。</Message><Linelist><line Begin="8" End="8" src="String" /></Linelist></Error><Error tpye="變數:重複宣告變數"><Message>變數名稱重複宣告</Message><Linelist><line Begin="7" End="7" src="String" /></Linelist></Error></Errors></ErrorList>

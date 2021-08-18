@@ -1,0 +1,25 @@
+<ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\473\473.xml">
+	
+<SourceCode_List><SourceCode lines="23" name="TestString.java">public class TestString { 
+public static void mian ( String [ ] args ) { 
+int size ; 
+String s = args [ 0 ] ; 
+size = s . length ( ) ; 
+int [ ] a = new int [ 9 ] ; 
+for ( int k = 0 ; k &lt; 9 ; k ++ ) 
+a [ k ] = 0 ; 
+for ( int k = 0 ; k &lt; size ; k ++ ) { 
+char c ; 
+c = s . charAt ( k ) ; 
+System . out . println ( c ) ; 
+a [ c - '0' ] ++ ; 
+} 
+System . out . println ( "長度= " + size ) ; 
+for ( int k = 0 ; k &lt; 9 ; k ++ ) { 
+if ( a [ k ] &gt; 0 ) { 
+System . out . println ( k + "個數= " + a [ k ] ) ; 
+} 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確。</Message><Linelist><line Begin="-1" End="-1" src="TestString" /></Linelist></Error></Errors></ErrorList>

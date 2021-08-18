@@ -1,0 +1,87 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\28\28.xml">
+	
+<SourceCode_List><SourceCode lines="6" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+public EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="19" name="Envelop.java">public class Envelop { 
+String senderAddr ; 
+String receiverAddr ; 
+Letter letter ; 
+Envelop ( String sA , String rA , Letter letter ) { 
+senderAddr = sA ; 
+receiverAddr = rA ; 
+letter = letter ; 
+} 
+String Sender = Letter . getSender ( ) ; 
+String Receiver = Letter . getReceiver ( ) ; 
+String Title = Letter . getTitle ( ) ; 
+public void display ( ) { 
+System . out . println ( "From: " + senderAddr + ", " + Sender ) ; 
+System . out . println ( "To: " + receiverAddr + ", " + Receiver + " " + Title ) ; 
+System . out . println ( "信件內容:" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="39" name="Letter.java">abstract public class Letter { 
+protected static String title ; 
+protected static String receiver ; 
+protected static String content ; 
+protected static String sender ; 
+protected static String date ; 
+public Letter ( String t , String r , String c , String s , String d ) { 
+title = t ; 
+receiver = r ; 
+content = c ; 
+sender = s ; 
+date = d ; 
+} 
+public static String getSender ( ) { 
+return sender ; 
+} 
+public static String getReceiver ( ) { 
+return receiver ; 
+} 
+public static String getTitle ( ) { 
+return title ; 
+} 
+public void display ( int flag ) { 
+if ( flag == 1 ) { 
+System . out . println ( receiver + ' ' + title + ",您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+else { 
+System . out . println ( "Dear " + title + " " + receiver + ',' ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+} 
+</SourceCode><SourceCode lines="13" name="Test.java">public class Test { 
+public static void main ( String [ ] args ) { 
+ChineseLetter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+Envelop env = new Envelop ( "Taipei" , "Kaohsiung" , lt ) ; 
+env . display ( ) ; 
+lt . display ( 1 ) ; 
+Letter lts = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+Envelop envs = new Envelop ( "Taipei" , "Kaohsiung" , lt ) ; 
+envs . display ( ) ; 
+lts . display ( 2 ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+使用抽象動作的覆寫機制，不需使用旗標方式來判斷以呼叫不同的動作。</Message><Linelist><line Begin="3" End="17" src="Letter" /><line Begin="6" End="6" src="Test" /><line Begin="10" End="10" src="Test" /></Linelist></Error><Error tpye="物件:不會使用物件之間的關係"><Message>當A物件擁有B物件時，A物件可以直接呼叫B物件的物件動作去取得該動作回傳值。
+例如，
+String Sender = letter . getSender ( ) ; 
+String Receiver = letter . getReceiver ( ) ; 
+String Title = letter . getTitle ( ) ; 
+</Message><Linelist><line Begin="2" End="3" src="Envelop" /><line Begin="10" End="10" src="Envelop" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,81 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\706\706.xml">
+	
+<SourceCode_List><SourceCode lines="24" name="Keeper.java">import java . util . Scanner ; 
+public class Keeper { 
+String id ; 
+String tel ; 
+void Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+void display ( ) { 
+System . out . println ( "請輸入飼主身份證字號:" + id ) ; 
+System . out . println ( "請輸入飼主身份證字號:" + tel ) ; 
+} 
+public static void main ( String [ ] args ) { 
+String id ; 
+String tel ; 
+Scanner keyboard = new Scanner ( System . in ) ; 
+System . out . println ( "飼主身份證字號:" ) ; 
+id = keyboard . nextLine ( ) ; 
+System . out . println ( "飼主電話:" ) ; 
+tel = keyboard . nextLine ( ) ; 
+Keeper x = new Keeper ( id , tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="53" name="pet.java">import java . util . Scanner ; 
+public class pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+Keeper keeper ; 
+void Pet ( String pid , String name , String type , Keeper keeper ) { 
+count ++ ; 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+this . keeper = keeper ; 
+} 
+String Speak ( ) { 
+if ( pid . equals ( "貓" ) ) { 
+return "喵喵" ; 
+} 
+else if ( pid . equals ( "狗" ) ) { 
+return "汪汪" ; 
+} 
+} 
+void display ( ) { 
+System . out . println ( "寵物種類:" + pid ) ; 
+System . out . println ( "寵物編號:" + type ) ; 
+System . out . println ( "寵物名稱:" + name ) ; 
+keeper . display ( ) ; 
+} 
+public static void main ( String [ ] args ) { 
+String pid ; 
+String name ; 
+String type ; 
+String id ; 
+String tel ; 
+Scanner keyboard = new Scanner ( System . in ) ; 
+System . out . println ( "飼主身份證字號:" ) ; 
+id = keyboard . nextLine ( ) ; 
+System . out . println ( "飼主電話:" ) ; 
+tel = keyboard . nextLine ( ) ; 
+Keeper k = new Keeper ( id , tel ) ; 
+Scanner keyboard = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入寵物種類:" ) ; 
+pid = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入寵物編號:" ) ; 
+type = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱:" ) ; 
+name = keyboard . nextLine ( ) ; 
+pet x = new pet ( pid , name , type , k ) ; 
+String spe = x . Speak ( ) ; 
+System . out . println ( "您的寵物叫聲是:" + spe ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="io:重複宣告scanner物件"><Message>因為鍵盤只有一個，Scanner物件可以宣告一次即可，不需要針對每一次讀取鍵盤，宣告不同的scanner物件。</Message><Linelist><line Begin="35" End="35" src="pet" /><line Begin="41" End="41" src="pet" /></Linelist></Error><Error tpye="函數:未傳遞參數或傳回值"><Message>函數必須要宣告回傳值的型態，否則要在函數宣告前加上void。
+此外，函式邏輯必須完備，避免造成某些狀況無傳回值。
+再者，呼叫函數時則需要注意傳遞正確型態的參數。
+例如，speak()當輸入的不是貓也不是狗時，會造成沒有回傳值。</Message><Linelist><line Begin="7" End="14" src="pet" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>建構子本身不是物件動作函數，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。</Message><Linelist><line Begin="14" End="14" src="Keeper" /><line Begin="16" End="16" src="pet" /></Linelist></Error></Errors></ErrorList>

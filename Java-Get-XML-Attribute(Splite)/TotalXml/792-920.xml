@@ -1,0 +1,99 @@
+<ErrorList id="F:\個人資料夾\專研\debug\死去\NormalizedCODES\792\792.xml">
+	
+<SourceCode_List><SourceCode lines="11" name="Evaluation.java">abstract public class Evaluation { 
+protected String name ; 
+protected String number ; 
+protected double test ; 
+public Evaluation ( String name , String number , double test ) { 
+this . name = name ; 
+this . number = number ; 
+this . test = test ; 
+} 
+} 
+</SourceCode><SourceCode lines="20" name="Exam.java">public class Exam extends Evaluation { 
+String testrange ; 
+String testday ; 
+public Exam ( String a , String b , double c , double w , String tr , String td ) { 
+super ( a , b , c , w ) ; 
+this . testrange = tr ; 
+this . testday = td ; 
+} 
+public void print ( ) { 
+System . out . print ( "您輸入的是：" + "\r\n" ) ; 
+System . out . print ( "種類為測驗：" + "\r\n" ) ; 
+System . out . print ( "學生學號：" + number + "\r\n" ) ; 
+System . out . print ( "學生姓名：" + name + "\r\n" ) ; 
+System . out . print ( "成績：" + test + "\r\n" ) ; 
+System . out . print ( "成績比重：" + testq + "\r\n" ) ; 
+System . out . print ( "考試日期：" + data + "\r\n" ) ; 
+System . out . print ( "考試範圍：" + rang + "\r\n" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="20" name="HomeWork.java">public class HomeWork extends Evaluation { 
+String htestrange ; 
+String htestday ; 
+public homework ( String a , String b , double c , double w , String tr , String td ) { 
+super ( a , b , c , w ) ; 
+this . htestrange = tr ; 
+this . htestday = td ; 
+} 
+public void print ( ) { 
+System . out . print ( "您輸入的是：" + "\r\n" ) ; 
+System . out . print ( "種類為測驗" + "\r\n" ) ; 
+System . out . print ( "學生學號：" + number + "\r\n" ) ; 
+System . out . print ( "學生姓名：" + name + "/n" ) ; 
+System . out . print ( "成績：" + test + "\r\n" ) ; 
+System . out . print ( "成績比重：" + testq + "\r\n" ) ; 
+System . out . print ( "截止日期：" + data + "\r\n" ) ; 
+System . out . print ( "作業描述：" + work + "\r\n" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="20" name="Report.java">public class Report extends Evaluation { 
+String htestrange ; 
+String htestday ; 
+public Report ( String a , String b , double c , double w , String tr , String td ) { 
+super ( a , b , c , w ) ; 
+this . rtestrange = tr ; 
+this . rtestday = td ; 
+} 
+public void print ( ) { 
+System . out . print ( "您輸入的是：" ) ; 
+System . out . print ( "種類為測驗:" ) ; 
+System . out . print ( "學生學號：" + number + "\r\n" ) ; 
+System . out . print ( "學生姓名：" + name + "/n" ) ; 
+System . out . print ( "成績：" + test + "\r\n" ) ; 
+System . out . print ( "成績比重：" + testq + "\r\n" ) ; 
+System . out . print ( "截止日期：" + data + "\r\n" ) ; 
+System . out . print ( "作業描述：" + work + "\r\n" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="21" name="test3.java">import java . util . * ; 
+public class test3 { 
+public static void main ( String [ ] args ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String x , y ; 
+double c , w ; 
+System . out . print ( "請輸入種類 1(測驗), 2(作業), 3(心得報告):" ) ; 
+int num = sc . nextInt ( ) ; 
+String n = sc . nextLine ( ) ; 
+System . out . print ( "請輸入學生學號:" ) ; 
+x = sc . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名:" ) ; 
+y = sc . nextLine ( ) ; 
+String cid , cad , cname , cphone ; 
+System . out . print ( "請輸入成績：" ) ; 
+c = sc . nextDouble ( ) ; 
+System . out . print ( "請輸入成績比重：" ) ; 
+w = sc . nextDouble ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+在子類別均有print()動作，可在父類別宣告print()為抽象動作再讓子類別覆寫，例如:
+public abstract void print ( ) ;</Message><Linelist><line Begin="8" End="8" src="Evaluation" /><line Begin="10" End="10" src="Evaluation" /></Linelist></Error><Error tpye="繼承:使用super產生繼承物件"><Message>在JAVA，super代表父類別，例如，子類別的建構子可以使用super()函式呼叫父類別的建構子，來建立父類別物件，接著建立本身的物件。
+super的建構子函數需與父類別的建構子架構相同。
+例如:
+class B extends A {
+   B() {
+     super();
+	 ...
+}</Message><Linelist><line Begin="5" End="5" src="Exam" /><line Begin="13" End="13" src="Report" /></Linelist></Error></Errors></ErrorList>

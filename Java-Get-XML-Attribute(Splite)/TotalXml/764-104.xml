@@ -1,0 +1,32 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\764\764.xml">
+	
+<SourceCode_List><SourceCode lines="28" name="York.java">import java . util . StringTokenizer ; 
+import java . util . Scanner ; 
+public class York { 
+static Scanner scanner = new Scanner ( System . in ) ; 
+static String input = scanner . nextLine ( ) ; 
+static int word [ ] = { } ; 
+public static int math ( String a ) { 
+int c = a . length ( ) ; 
+return c ; 
+} 
+public static String word ( ) { 
+String space = " " ; 
+int count = 0 ; 
+word [ 0 ] = 0 ; 
+for ( int i = 0 ; i &lt; input . length ( ) - word [ 0 ] . length ( ) + 1 ; i ++ ) { 
+String check = input . substring ( i , i + word . length ( ) ) ; 
+if ( check . equals ( word ) ) 
+count ++ ; 
+} 
+System . out . println ( word + " " + count ) ; 
+return space ; 
+} 
+public static void main ( String [ ] args ) { 
+System . out . println ( "輸入的數字長度：" + math ( input ) ) ; 
+System . out . println ( word ( ) ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="陣列:不會宣告陣列變數"><Message>陣列初值設定錯誤，會導致陣列內容是空的，應該給於適當的初值。
+例如，
+static int word [ ] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };</Message><Linelist><line Begin="8" End="8" src="York" /></Linelist></Error></Errors></ErrorList>

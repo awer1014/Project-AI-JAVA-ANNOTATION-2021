@@ -1,0 +1,84 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\9\9.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+public ChineseLetter ( String t , String r , String c , String s , String d ) { 
+super ( t , r , c , s , d ) ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + title + ", 您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="13" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+public EnglishLetter ( String r , String t , String c , String s , String d ) { 
+super ( r , t , c , s , d ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + title + receiver + "," ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="15" name="Envelop.java">public class Envelop { 
+String senderAddr , receiverAddr , sender , receiver , title ; 
+Letter letter ; 
+public Envelop ( String sAddr , String rAddr , Letter lt ) { 
+senderAddr = sAddr ; 
+receiverAddr = rAddr ; 
+letter = lt ; 
+} 
+public void Envelopdisplay ( ) { 
+System . out . println ( "From: " + senderAddr + lt . getSender ( ) ) ; 
+System . out . println ( "To: " + receiverAddr + lt . getReceiver ( ) ) ; 
+System . out . println ( "信件內容:" + lt . getContent ( ) ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="30" name="Letter.java">abstract public class Letter { 
+protected String title , receiver , content , sender , date ; 
+public Letter ( String t , String r , String c , String s , String d ) { 
+title = t ; 
+receiver = r ; 
+content = c ; 
+sender = s ; 
+date = d ; 
+} 
+public String getContent ( ) { 
+return content ; 
+} 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + title + receiver + "," ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="16" name="main.java">public class main { 
+public static void main ( String [ ] args ) { 
+Letter itChinese , itEnglish ; 
+itChinese = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+itEnglish = new EnglishLetter ( "Professor " , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+Envelop env = new Envelop ( "Taipei" , "Kaohsiung" , itChinese ) ; 
+System . out . println ( "==================以下為第三題和第一題" ) ; 
+env . Envelopdisplay ( ) ; 
+itChinese . display ( ) ; 
+System . out . println ( "==================以下為第二題" ) ; 
+itChinese . display ( ) ; 
+System . out . println ( "" ) ; 
+itEnglish . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確。</Message><Linelist><line Begin="-1" End="-1" src="ChineseLetter" /></Linelist></Error></Errors></ErrorList>

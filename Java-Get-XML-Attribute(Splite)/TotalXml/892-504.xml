@@ -1,0 +1,21 @@
+<ErrorList id="D:\program_python\新增題目\892.xml">
+	
+<SourceCode_List><SourceCode lines="17" name="kkbox.java">public class kkbox { 
+int l , w , h ; 
+double volume ( ) { 
+double ans = 1 ; 
+ans = l * w * h ; 
+return ans ; 
+} 
+public static void main ( String [ ] args ) { 
+int l = Inter . paraeInt ( args [ 0 ] ) ; 
+int w = Inter . paraeInt ( args [ 1 ] ) ; 
+int h = Inter . paraeInt ( args [ 2 ] ) ; 
+System . put . println ( " ø" + l ) ; 
+System . put . println ( "¼e" + w ) ; 
+System . put . println ( "° " + h ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數結構不清楚"><Message>函數的宣告架構如下:
+回傳值型態 函數名稱(參數型態 參數，...) { ... }
+如volume(double l , double w , double h)</Message><Linelist><line Begin="11" End="15" src="kkbox" /></Linelist></Error></Errors></ErrorList>

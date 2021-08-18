@@ -1,0 +1,76 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\51\51.xml">
+	
+<SourceCode_List><SourceCode lines="20" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+ChineseLetter ( String t , String r , String c , String s , String d ) { 
+title = t ; 
+receiver = r ; 
+content = c ; 
+sender = s ; 
+date = d ; 
+} 
+public void display ( ) { 
+System . out . println ( getReceiver ( ) + " " + this . title + ", 您好" ) ; 
+System . out . println ( this . content ) ; 
+System . out . println ( getSender ( ) + " 敬上" ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="21" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+EnglishLetter ( String t , String r , String c , String s , String d ) { 
+title = t ; 
+receiver = r ; 
+content = c ; 
+sender = s ; 
+date = d ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + this . title + " " + getReceiver ( ) + "," ) ; 
+System . out . println ( this . content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( getSender ( ) ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="14" name="Letter.java">abstract public class Letter { 
+protected String title , receiver , content , sender , date ; 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+abstract public void display ( ) ; 
+} 
+</SourceCode><SourceCode lines="9" name="Test.java">public class Test { 
+public static void main ( String [ ] args ) { 
+Letter le = new ChineseLetter ( "同學" , "黃" , "很高興跟您連絡" , "彭" , "2019/01/05" ) ; 
+Letter lt = new EnglishLetter ( "Student" , "Huang" , "I am glad to write to you!" , "Pon" , "2019/01/05" ) ; 
+le . display ( ) ; 
+lt . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="繼承:使用super產生繼承物件"><Message>在JAVA，super代表父類別，例如，子類別的建構子可以使用super()函式呼叫父類別的建構子，來建立父類別物件，接著建立本身的物件。例如:
+class B extends A {
+   B() {
+     super();
+	 ...
+}
+例如:
+public class EnglishLetter extends Letter
+{
+public EnglishLetter(String t,String r,String c,String s,String d)
+{
+super(t,r,c,s,d)
+}
+}</Message><Linelist><line Begin="6" End="12" src="ChineseLetter" /><line Begin="9" End="15" src="EnglishLetter" /></Linelist></Error></Errors></ErrorList>

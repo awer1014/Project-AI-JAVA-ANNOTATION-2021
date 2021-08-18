@@ -1,0 +1,58 @@
+<ErrorList id="C:\Users\User\Desktop\錯誤正規化\677\677.xml">
+	
+<SourceCode_List><SourceCode lines="24" name="KKbox.java">public class KKbox { 
+static int length ; 
+int width ; 
+int height ; 
+int volume , surfaceArea ; 
+KKbox ( int l , int w , int h ) { 
+length = l ; 
+width = w ; 
+height = h ; 
+volume = length * width * height ; 
+surfaceArea = 2 * length * width + width * height + height * length ; 
+} 
+void selfIntroduce ( ) { 
+System . out . println ( "體積: " + volume ) ; 
+System . out . println ( "表面積: " + surfaceArea ) ; 
+} 
+public static void main ( String [ ] args ) { 
+System . out . println ( "請輸入長 :1" ) ; 
+System . out . println ( "請輸入寬 :2" ) ; 
+System . out . println ( "請輸入高 :3" ) ; 
+System . out . println ( selfIntroduce ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message>需分辨函數與變數的不同。
+例如本段14,15行呼叫函數 volume 以及 surfaceArea
+但兩者並不是函數 而是一個變數值
+應改為
+    double volume()
+    {
+        return length*width*height;
+    }
+    double surfaceArea()
+    {
+        return length*width + width* height + height * length;
+    }
+並在main中呼叫
+System.out.println("The volume is"+data.volume());
+System.out.println("The surfaceArea is"+data.surfaceArea());</Message><Linelist><line Begin="11" End="14" src="KKbox" /><line Begin="7" End="7" src="KKbox" /><line Begin="19" End="20" src="KKbox" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+例如本程式應將體積和表面積分開寫成兩個函式 並在main中呼叫</Message><Linelist><line Begin="11" End="14" src="KKbox" /></Linelist></Error><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>"物件資料/動作與類別資料/動作的差別在於有無static宣告。
+有static宣告的是類別資料/動作，物件資料/動作則無static宣告。
+類別資料/動作只有一份，且為類別與所有該類別的物件共享，
+物件資料則是每個物件各有獨立的一份，彼此不相關。"
+本程式14,15行呼叫函數 volume 以及 surfaceArea 但兩者並不是函數 而是一個變數值 應改為     double volume()     {         return length*width*height;     }     double surfaceArea()     {         return length*width + width* height + height * length;     } 並在main中呼叫  KKBox data=new KKBox(length,width,height); System.out.println("The volume is"+data.volume()); System.out.println("The surfaceArea is"+data.surfaceArea());</Message><Linelist><line Begin="11" End="14" src="KKbox" /><line Begin="19" End="21" src="KKbox" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>"建構子本身不是物件動作函數，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。此外，建構子可將獲得的參數資料，透過this指令賦予給物件或類別資料,如:
+建構子(參數){
+...
+this.物件資料 = 參數; 
+}"
+本程式因後面有呼叫函數應改為
+    double volume()
+    {
+        return length*width*height;
+    }
+    double surfaceArea()
+    {
+        return length*width + width* height + height * length;
+    }</Message><Linelist><line Begin="19" End="20" src="KKbox" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,23 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\382\382.xml">
+	
+<SourceCode_List><SourceCode lines="20" name="Exam2.java">public class Exam2 { 
+exit ( StringToInt number ) { 
+switch ( number - 1 / 13 ) { 
+case 0 : 
+return "春" ; 
+case 1 : 
+return "夏" ; 
+case 2 : 
+return "秋" ; 
+default : 
+return "冬" ; 
+} 
+} 
+public static void main ( String [ ] args ) { 
+Exam ex = new Exam ( ) ; 
+ex . SetExam ( args [ 0 ] ) ; 
+System . out . printf ( Exit ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message>函數必須要宣告回傳值的型態，否則要在函數宣告前加上void。此外，函式邏輯必須完備，避免造成某些狀況無傳回值。再者，呼叫函數時則需要注意傳遞正確型態的參數。</Message><Linelist><line Begin="2" End="2" src="Exam2" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>在此類別中沒有Exam，若要新增一個物件，
+要用存在的類別-Exam2 ex new Exam2();</Message><Linelist><line Begin="15" End="15" src="Exam2" /></Linelist></Error></Errors></ErrorList>

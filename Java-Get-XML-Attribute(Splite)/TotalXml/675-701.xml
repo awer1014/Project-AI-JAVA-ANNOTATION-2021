@@ -1,0 +1,45 @@
+<ErrorList id="C:\Users\User\Desktop\錯誤正規化\675\675.xml">
+	
+<SourceCode_List><SourceCode lines="30" name="kkbox.java">public class kkbox { 
+private double length ; 
+private double width ; 
+private double height ; 
+public kkbox ( ) { 
+this . height = height ; 
+this . length = length ; 
+this . width = width ; 
+} 
+public static void getSurfaceArea ( double length , double width , double height ) { 
+double SurfaceArea = 2 * length * width + width * height + length * height ; 
+System . out . println ( "長:" + length ) ; 
+System . out . println ( "高:" + height ) ; 
+System . out . println ( "寬:" + width ) ; 
+System . out . println ( "表面積體積為: " ) ; 
+System . out . printf ( "%.2f" , SurfaceArea ) ; 
+} 
+public static void getvolume ( double length , double width , double height ) { 
+double volume = length * width * height ; 
+double SurfaceArea = 2 * length * width + width * height + length * height ; 
+System . out . println ( "長:" + length ) ; 
+System . out . println ( "高:" + height ) ; 
+System . out . println ( "寬:" + width ) ; 
+System . out . println ( "表面積體積為: " ) ; 
+System . out . printf ( "%.2f" , SurfaceArea ) ; 
+System . out . println ( "體積為:" ) ; 
+System . out . printf ( "%.2f" , volume ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>"物件資料/動作與類別資料/動作的差別在於有無static宣告。
+有static宣告的是類別資料/動作，物件資料/動作則無static宣告。
+類別資料/動作只有一份，且為類別與所有該類別的物件共享，
+物件資料則是每個物件各有獨立的一份，彼此不相關。"
+應將public static void getSurfaceArea 改寫為 public double getSurfaceArea() {      return 2 *(length*width + width* height + height * length); } 將public static void getvolume 改寫為 public double getVolume() {	     return length*width*height;  }  並寫一個main public static void main(String[] args) {     Scanner sc = new Scanner(System.in);     KKBox box = new KKBox();     System.out.print("輸入長度: ");     box.length = sc.nextDouble();     System.out.print("輸入寬度: ");     box.width = sc.nextDouble();     System.out.print("輸入高度: ");     box.height = sc.nextDouble();      System.out.println("Volume: " + box.getVolume());     System.out.println("SurfaceArea: " + box.getSurfaceArea());  } </Message><Linelist><line Begin="7" End="14" src="kkbox" /><line Begin="18" End="28" src="kkbox" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>"建構子本身不是物件動作函數，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。此外，建構子可將獲得的參數資料，透過this指令賦予給物件或類別資料,如:
+建構子(參數){
+...
+this.物件資料 = 參數; 
+}"
+例如本段函數內應寫
+return SurfaceArea = 2 * ( length * width + width * height + length * height ) ;即可</Message><Linelist><line Begin="7" End="14" src="kkbox" /><line Begin="18" End="28" src="kkbox" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>"物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。"
+應將public static void getSurfaceArea 改寫為 public double getSurfaceArea() {      return 2 *(length*width + width* height + height * length); } 將public static void getvolume 改寫為 public double getVolume() {	     return length*width*height;  }  並寫一個main public static void main(String[] args) {     Scanner sc = new Scanner(System.in);     KKBox box = new KKBox();     System.out.print("輸入長度: ");     box.length = sc.nextDouble();     System.out.print("輸入寬度: ");     box.width = sc.nextDouble();     System.out.print("輸入高度: ");     box.height = sc.nextDouble();      System.out.println("Volume: " + box.getVolume());     System.out.println("SurfaceArea: " + box.getSurfaceArea());  } </Message><Linelist><line Begin="7" End="14" src="kkbox" /><line Begin="18" End="28" src="kkbox" /></Linelist></Error></Errors></ErrorList>

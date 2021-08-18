@@ -1,0 +1,116 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\new\74\74.xml">
+	
+<SourceCode_List><SourceCode lines="55" name="ChineseLetter.java">public class ChineseLetter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String date ; 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+String gettitle ( ) { 
+return title ; 
+} 
+void settitle ( String a ) { 
+title = a ; 
+} 
+String getreceiver ( ) { 
+return receiver ; 
+} 
+void setreceiver ( String b ) { 
+receiver = b ; 
+} 
+String getcontent ( ) { 
+return content ; 
+} 
+void setcontent ( String c ) { 
+content = c ; 
+} 
+String getsender ( ) { 
+return sender ; 
+} 
+void setsender ( String d ) { 
+sender = d ; 
+} 
+String getdata ( ) { 
+return date ; 
+} 
+void setdate ( String e ) { 
+date = e ; 
+} 
+void display ( ) { 
+System . out . println ( receiver + " " + title + ", 您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+public static void main ( String [ ] args ) { 
+ChineseLetter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="56" name="EnglishLetter.java">public class EnglishLetter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String date ; 
+public EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+String gettitle ( ) { 
+return title ; 
+} 
+void settitle ( String a ) { 
+title = a ; 
+} 
+String getreceiver ( ) { 
+return receiver ; 
+} 
+void setreceiver ( String b ) { 
+receiver = b ; 
+} 
+String getcontent ( ) { 
+return content ; 
+} 
+void setcontent ( String c ) { 
+content = c ; 
+} 
+String getsender ( ) { 
+return sender ; 
+} 
+void setsender ( String d ) { 
+sender = d ; 
+} 
+String getdata ( ) { 
+return date ; 
+} 
+void setdate ( String e ) { 
+date = e ; 
+} 
+void display ( ) { 
+System . out . println ( "Dear " + title + " " + receiver ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+public static void main ( String [ ] args ) { 
+EnglishLetter lt = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如，
+ChineseLetter和EnglishLetter類別的
+共同資料，如title，receiver，...可放到父類別
+Letter中，並宣告為protected。</Message><Linelist><line Begin="9" End="9" src="ChineseLetter" /><line Begin="13" End="13" src="ChineseLetter" /><line Begin="20" End="20" src="ChineseLetter" /><line Begin="40" End="40" src="ChineseLetter" /><line Begin="44" End="44" src="ChineseLetter" /><line Begin="33" End="39" src="ChineseLetter" /><line Begin="6" End="8" src="ChineseLetter" /><line Begin="10" End="12" src="ChineseLetter" /><line Begin="14" End="19" src="ChineseLetter" /><line Begin="21" End="32" src="ChineseLetter" /><line Begin="41" End="43" src="ChineseLetter" /><line Begin="51" End="53" src="ChineseLetter" /><line Begin="14" End="14" src="EnglishLetter" /><line Begin="18" End="19" src="EnglishLetter" /><line Begin="37" End="37" src="EnglishLetter" /><line Begin="44" End="44" src="EnglishLetter" /><line Begin="20" End="26" src="EnglishLetter" /><line Begin="2" End="13" src="EnglishLetter" /><line Begin="15" End="17" src="EnglishLetter" /><line Begin="27" End="32" src="EnglishLetter" /><line Begin="38" End="43" src="EnglishLetter" /><line Begin="52" End="54" src="EnglishLetter" /></Linelist></Error></Errors></ErrorList>

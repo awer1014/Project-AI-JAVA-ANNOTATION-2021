@@ -1,0 +1,135 @@
+<ErrorList id="F:\個人資料夾\專研\debug\新增資料夾\NormalizedCODES\781\781.xml">
+	
+<SourceCode_List><SourceCode lines="18" name="Evaluation.java">abstract public class Evaluation { 
+private String kind ; 
+public Evaluation ( String k ) { 
+kind = k ; 
+} 
+abstract public void ask ( ) ; 
+public void print ( ) { 
+String str = "" ; 
+if ( kind . equals ( "1" ) ) 
+str += "測驗" ; 
+else if ( kind . equals ( "2" ) ) 
+str += "作業" ; 
+else if ( kind . equals ( "3" ) ) 
+str += "心得報告" ; 
+System . out . println ( "種類 : " + str ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="10" name="Exam.java">public class Exam extends Evaluation { 
+public Exam ( String ask1 , String ask2 ) { 
+super ( ask1 , ask2 ) ; 
+} 
+public void ask ( ) { 
+System . out . println ( "考試日期:" + ask1 ) ; 
+System . out . println ( "考試範圍:" + ask2 ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="10" name="HomeWork.java">public class HomeWork extends Evaluation { 
+public HomeWork ( String ask1 , String ask2 ) { 
+super ( ask1 , ask2 ) ; 
+} 
+public void ask ( ) { 
+System . out . println ( "截止日期:" + ask1 ) ; 
+System . out . println ( "作業描述:" + ask2 ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="10" name="Report.java">public class Report extends Evaluation { 
+public Report ( String ask1 , String ask2 ) { 
+super ( ask1 , ask2 ) ; 
+} 
+public void ask ( ) { 
+System . out . println ( "報告內容:" + ask1 ) ; 
+System . out . println ( "參考文獻:" + ask2 ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="16" name="Student.java">public class Student { 
+private String id , name , score , prop ; 
+public Student ( String i , String n , String s , String p ) { 
+id = i ; 
+name = n ; 
+score = s ; 
+prop = p ; 
+} 
+public void print ( ) { 
+System . out . println ( "學生學號: " + id ) ; 
+System . out . println ( "學生姓名: " + name ) ; 
+System . out . println ( "成績: " + score ) ; 
+System . out . println ( "成績比重: " + prop ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="56" name="Test.java">import java . util . Scanner ; 
+public class Test { 
+public static void main ( String [ ] args ) { 
+Scanner scan = new Scanner ( System . in ) ; 
+boolean con = true ; 
+while ( con ) { 
+System . out . println ( "請輸入種類 1(測驗),2(作業),3(心得報告):" ) ; 
+String kind = scan . nextLine ( ) ; 
+if ( kind . equals ( "0" ) ) { 
+con = false ; 
+break ; 
+} 
+System . out . println ( "請輸入學生學號:" ) ; 
+String id = scan . nextLine ( ) ; 
+System . out . println ( "請輸入學生姓名:" ) ; 
+String name = scan . nextLine ( ) ; 
+System . out . println ( "請輸入成績:" ) ; 
+String score = scan . nextLine ( ) ; 
+System . out . println ( "請輸入成績比重:" ) ; 
+String prop = scan . nextLine ( ) ; 
+Student stu = new Student ( id , name , score , prop ) ; 
+Evaluation kk = new Evaluation ( kind ) ; 
+Evaluation eva = null ; 
+String ask1 , ask2 ; 
+if ( kind . equals ( "1" ) ) { 
+System . out . println ( "請輸入考試日期:" ) ; 
+ask1 = scan . nextLine ( ) ; 
+System . out . println ( "請輸入考試範圍:" ) ; 
+ask2 = scan . nextLine ( ) ; 
+eva = new Exam ( ask1 , ask2 ) ; 
+} 
+else if ( kind . equals ( "2" ) ) { 
+System . out . println ( "請輸入截止日期:" ) ; 
+ask1 = scan . nextLine ( ) ; 
+System . out . println ( "請輸入作業描述:" ) ; 
+ask2 = scan . nextLine ( ) ; 
+eva = new HomeWork ( ask1 , ask2 ) ; 
+} 
+else if ( kind . equals ( "3" ) ) { 
+System . out . println ( "請輸入報告內容:" ) ; 
+ask1 = scan . nextLine ( ) ; 
+System . out . println ( "請輸入參考文獻:" ) ; 
+ask2 = scan . nextLine ( ) ; 
+eva = new Report ( ask1 , ask2 ) ; 
+} 
+System . out . println ( "您輸入的是: " ) ; 
+if ( eva != null ) { 
+kk . print ( ) ; 
+stu . print ( ) ; 
+eva . ask ( ) ; 
+} 
+System . out . print ( "--------------------" ) ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如:
+range, date為Exam子類別的物件資料。
+
+共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如:
+deadline, description為HomeWork子類別的物件資料。
+
+共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如:
+content, literature為Report子類別的物件資料。</Message><Linelist><line Begin="6" End="8" src="Exam" /><line Begin="6" End="8" src="HomeWork" /><line Begin="2" End="4" src="Report" /></Linelist></Error><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+本程式的print()動作應隨不同的的子類別有不同的變化，因此須宣告為抽象動作，例如:
+public abstract void print ( ) ;</Message><Linelist><line Begin="5" End="14" src="Evaluation" /></Linelist></Error><Error tpye="抽象:抽象類別不能直接產生物件"><Message>注意，抽象類別因可能含有抽象動作，因此JAVA不允許直接從抽象類別產生物件。
+抽象類別無法直接產生物件，例如: 下面指令是錯誤的:
+Evaluation kk =new Evaluation();
+但是，抽象類別變數可以承接不同的子類別物件，展現不同的行為。
+例如: 
+Evaluation kk;
+kk = new Exam(...);</Message><Linelist><line Begin="22" End="22" src="Test" /></Linelist></Error></Errors></ErrorList>

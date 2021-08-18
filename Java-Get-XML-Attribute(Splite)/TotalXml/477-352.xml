@@ -1,0 +1,42 @@
+<ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\477\477.xml">
+	
+<SourceCode_List><SourceCode lines="39" name="PET.java">import java . util . Scanner ; 
+class PET { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+static void speak ( String s1 ) { 
+String strData5 ; 
+if ( s1 == "狗" ) 
+System . out . println ( "你的寵物叫聲為:汪汪" ) ; 
+else if ( s1 == "貓" ) 
+System . out . println ( "你的寵物叫聲為:喵喵" ) ; 
+} 
+static void display ( String strData , String strData1 , String strData2 , String strData3 , String strData4 ) { 
+System . out . println ( "你輸入的寵物種類為:" + strData ) ; 
+System . out . println ( "你輸入的寵物編號為:" + strData1 ) ; 
+System . out . println ( "你輸入的寵物名稱為:" + strData2 ) ; 
+System . out . println ( "你輸入的飼主身分證字號為:" + strData3 ) ; 
+System . out . println ( "你輸入的電話為:" + strData4 ) ; 
+} 
+public static void main ( String [ ] args ) { 
+String strData , strData1 , strData2 , strData3 , strData4 ; 
+int num ; 
+Scanner scanner = new Scanner ( System . in ) ; 
+strData = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入寵物種類：" ) ; 
+speak ( strData ) ; 
+System . out . println ( "請輸入寵物編號：" ) ; 
+strData1 = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱：" ) ; 
+strData2 = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入飼主身分證字號：" ) ; 
+strData3 = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入飼主電話：" ) ; 
+strData4 = scanner . nextLine ( ) ; 
+display ( strData , strData1 , strData2 , strData3 , strData4 ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+例如，本程式的pet類別，需改成type.equals("貓")，type.equals("狗")。</Message><Linelist><line Begin="9" End="9" src="PET" /><line Begin="11" End="11" src="PET" /></Linelist></Error></Errors></ErrorList>

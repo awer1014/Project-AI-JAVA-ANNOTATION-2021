@@ -1,0 +1,23 @@
+<ErrorList id="D:\program_python\新增題目\894.xml">
+	
+<SourceCode_List><SourceCode lines="21" name="KKbox.java">public class KKbox { 
+int length ; 
+int width ; 
+int height ; 
+int volume , surfaceArea ; 
+KKbox ( int l , int w , int h ) { 
+length = l ; 
+width = w ; 
+height = h ; 
+volume = length * width * height ; 
+surfaceArea = 2 * length * width + width * height + height * length ; 
+} 
+void selfIntroduce ( ) { 
+System . out . println ( "體積: " + volume ) ; 
+System . out . println ( "表面積: " + surfaceArea ) ; 
+} 
+public static void main ( String [ ] args ) { 
+System . out . println ( selfIntroduce ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數庫使用錯誤"><Message>引用函數錯誤，應為selflntroduce();。</Message><Linelist><line Begin="7" End="7" src="KKbox" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,97 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\13\13.xml">
+	
+<SourceCode_List><SourceCode lines="29" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+String title , receiver , content , sender , date ; 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + title + ",您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+public String getSender ( ) { 
+return this . sender ; 
+} 
+public String geTtitle ( ) { 
+return this . title ; 
+} 
+public String getReceiver ( ) { 
+return this . receiver ; 
+} 
+public String getDate ( ) { 
+return this . date ; 
+} 
+} 
+</SourceCode><SourceCode lines="30" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+String title , receiver , content , sender , date ; 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + title + " " + receiver ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+public String getSender ( ) { 
+return this . sender ; 
+} 
+public String geTtitle ( ) { 
+return this . title ; 
+} 
+public String getReceiver ( ) { 
+return this . receiver ; 
+} 
+public String getDate ( ) { 
+return this . date ; 
+} 
+} 
+</SourceCode><SourceCode lines="21" name="Envelop.java">public class Envelop { 
+String senderAddr , receiverAddr ; 
+Letter letter ; 
+Envelop ( String senderAddr , String receiverAddr , Letter letter ) { 
+this . senderAddr = senderAddr ; 
+this . receiverAddr = receiverAddr ; 
+this . letter = letter ; 
+} 
+void display ( ) { 
+System . out . println ( "From: " + senderAddr + "," + letter . getSender ( ) ) ; 
+System . out . println ( "To: " + receiverAddr + "," + letter . getReceiver ( ) + " " + letter . geTtitle ( ) ) ; 
+System . out . println ( "信件內容:" ) ; 
+letter . display ( ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+Envelop env = new Envelop ( "Taipei" , "Kaohsiung" , lt ) ; 
+env . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="8" name="Letter.java">abstract public class Letter { 
+abstract protected void display ( ) ; 
+abstract protected String getSender ( ) ; 
+abstract protected String getReceiver ( ) ; 
+abstract protected String getDate ( ) ; 
+abstract protected String geTtitle ( ) ; 
+} 
+</SourceCode><SourceCode lines="9" name="test.java">public class test { 
+public static void main ( String [ ] args ) { 
+Letter lt = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+Letter lt2 = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt2 . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。</Message><Linelist><line Begin="2" End="9" src="ChineseLetter" /><line Begin="16" End="27" src="ChineseLetter" /><line Begin="15" End="15" src="EnglishLetter" /><line Begin="22" End="28" src="EnglishLetter" /><line Begin="2" End="7" src="EnglishLetter" /><line Begin="16" End="21" src="EnglishLetter" /><line Begin="3" End="6" src="Letter" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。</Message><Linelist><line Begin="10" End="15" src="ChineseLetter" /><line Begin="8" End="14" src="EnglishLetter" /></Linelist></Error></Errors></ErrorList>

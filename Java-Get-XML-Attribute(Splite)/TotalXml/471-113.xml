@@ -1,0 +1,58 @@
+<ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\471\471.xml">
+	
+<SourceCode_List><SourceCode lines="11" name="Keeper.java">class Keeper { 
+String id ; 
+String tel ; 
+Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+void display ( ) { 
+} 
+} 
+</SourceCode><SourceCode lines="43" name="Pet.java">import java . util . Scanner ; 
+class Pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+static String pet ; 
+Pet ( String type , String pid , String name ) { 
+count ++ ; 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+void speak ( ) { 
+if ( type == "狗" ) 
+System . out . println ( "您的寵物叫聲 : 汪汪" ) ; 
+else 
+System . out . println ( "您的寵物叫聲 : 喵喵" ) ; 
+} 
+void display ( ) { 
+} 
+public static void main ( String [ ] args ) { 
+String a , b , c , d , e ; 
+Scanner scanner = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入寵物種類 : " ) ; 
+a = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入寵物編號 : " ) ; 
+b = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱 : " ) ; 
+c = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入飼主身分證字號 : " ) ; 
+d = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入飼主電話 : " ) ; 
+e = scanner . nextLine ( ) ; 
+Pet p = new Pet ( a , b , c ) ; 
+System . out . println ( "寵物總類 : " + p . type ) ; 
+System . out . println ( "寵物編號 : " + p . type ) ; 
+System . out . println ( "寵物名稱 : " + p . type ) ; 
+System . out . println ( "飼主身份證字號 : " + p . type ) ; 
+System . out . println ( "飼主電話 : " + p . type ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+例如，本程式的pet類別，需改成type.equals("狗")。</Message><Linelist><line Begin="25" End="25" src="Pet" /></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+例如，可以在本程式的Keeper類別中加入private Keeper keeper，
+並在本程式的Pet類別中加入Keeper keeper。</Message><Linelist><line Begin="4" End="4" src="Keeper" /></Linelist></Error></Errors></ErrorList>

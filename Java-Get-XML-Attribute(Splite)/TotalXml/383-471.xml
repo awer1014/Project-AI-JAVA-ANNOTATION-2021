@@ -1,0 +1,21 @@
+<ErrorList id="D:\專研\student_codes\正規化及擴增\NewVerPythonDebugger (8)\NewVerPythonDebugger\NormalizedCODES\383\383.xml">
+	
+<SourceCode_List><SourceCode lines="19" name="Exam2.java">public class Exam2 { 
+String exit ( int number ) { 
+switch ( number - 1 / 13 ) { 
+case 0 : 
+return "春" ; 
+case 1 : 
+return "夏" ; 
+case 2 : 
+return "秋" ; 
+default : 
+return "冬" ; 
+} 
+} 
+public static void main ( String [ ] args ) { 
+Exam2 ex = new Exam2 ( ) ; 
+System . out . printf ( ex . exit ( 0 ) ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確。</Message><Linelist><line Begin="-1" End="-1" src="Exam2" /></Linelist></Error></Errors></ErrorList>

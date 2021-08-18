@@ -1,0 +1,86 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\30\30.xml">
+	
+<SourceCode_List><SourceCode lines="30" name="ChineseLetter.java">public class ChineseLetter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String date ; 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+void display ( ) { 
+System . out . println ( receiver + ' ' + title + ",您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="31" name="EnglishLetter.java">public class EnglishLetter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String date ; 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+void display ( ) { 
+System . out . println ( "Dear " + title + " " + receiver + ',' ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="4" name="Letter.java">public class Letter implements Comparable { 
+Letter [ ] list = { new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) , new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2018/11/01" ) , new EnglishLetter ( "Professor" , "Liu" , "I am sorry!" , "K. Ming" , "2018/07/05" ) } ; 
+} 
+</SourceCode><SourceCode lines="8" name="Test.java">public class Test implements Comparable { 
+public static void main ( String [ ] args ) { 
+Letter l1 = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+Letter l2 = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2018/11/01" ) ; 
+Letter l3 = new EnglishLetter ( "Professor" , "Liu" , "I am sorry!" , "K. Ming" , "2018/07/05" ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="介面:Comparable介面"><Message>Comparable介面是JAVA內建的Interface，允許類別實作int compareTo(Object)動作，進而協助該類別的物件進行大小或順序的比較。注意，
+int compareTo(Object)動作傳回值  1， 0， -1分別代表物件本身相較於Object參數物件來得大，相等或小。</Message><Linelist><line Begin="1" End="1" src="Test" /></Linelist></Error><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。
+各自不同的物件資料/動作則由各子類別宣告即可。</Message><Linelist><line Begin="9" End="10" src="ChineseLetter" /><line Begin="14" End="14" src="ChineseLetter" /><line Begin="27" End="28" src="ChineseLetter" /><line Begin="2" End="8" src="ChineseLetter" /><line Begin="11" End="13" src="ChineseLetter" /><line Begin="15" End="20" src="ChineseLetter" /><line Begin="2" End="2" src="EnglishLetter" /><line Begin="16" End="17" src="EnglishLetter" /><line Begin="25" End="26" src="EnglishLetter" /><line Begin="18" End="24" src="EnglishLetter" /><line Begin="3" End="5" src="EnglishLetter" /><line Begin="13" End="15" src="EnglishLetter" /><line Begin="27" End="29" src="EnglishLetter" /></Linelist></Error><Error tpye="抽象:繼承資料或動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+例如，
+在Letter抽象類別宣告抽象動作,讓子類別去做覆寫
+public abstract class Letter
+{
+public abstract void display();
+}
+public class ChineseLetter extends Letter
+{....}
+
+public class EnglishLetter extends Letter
+{....}
+</Message><Linelist><line Begin="21" End="26" src="ChineseLetter" /><line Begin="6" End="12" src="EnglishLetter" /></Linelist></Error></Errors></ErrorList>

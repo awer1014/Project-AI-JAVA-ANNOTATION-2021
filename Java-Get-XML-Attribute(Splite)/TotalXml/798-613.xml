@@ -1,0 +1,8 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\798\798.xml">
+	
+<SourceCode_List><SourceCode lines="6" name="A.java">class A { 
+void X ( ) { 
+x = x + 2 ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="變數:變數未定義無法使用"><Message>x變數需先宣告後才能使用。</Message><Linelist><line Begin="3" End="3" src="A" /></Linelist></Error></Errors></ErrorList>

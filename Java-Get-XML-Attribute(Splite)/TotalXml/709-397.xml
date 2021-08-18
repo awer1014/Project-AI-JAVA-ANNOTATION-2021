@@ -1,0 +1,51 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\709\709.xml">
+	
+<SourceCode_List><SourceCode lines="21" name="Keeper.java">public class Keeper { 
+String id ; 
+String tel ; 
+public Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+public void display ( ) { 
+System . out . println ( "飼主身分證字號：" + id ) ; 
+System . out . println ( "飼主電話：" + tel ) ; 
+} 
+public static void main ( String [ ] args ) { 
+String t , p , n , i , te ; 
+Keeper keeper = new Keeper ( ) ; 
+Pet p1 = new Pet ( "狗" , "d001" , "Timmy" , keeper ) ; 
+Pet p2 = new Pet ( "貓" , "c001" , "Catty" , keeper ) ; 
+p1 . display ( ) ; 
+p2 . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="28" name="Pet.java">import java . util . Scanner ; 
+public class Pet { 
+public static int count = 0 ; 
+String pid ; 
+String name ; 
+String type ; 
+Keeper keeper ; 
+public Pet ( String pid , String name , String type , Keeper keeper ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+this . keeper = keeper ; 
+count ++ ; 
+} 
+public void speak ( String name ) { 
+if ( name . equals ( "貓" ) ) 
+System . out . println ( "您的寵物叫聲是：喵喵" ) ; 
+else if ( name . equals ( "狗" ) ) 
+System . out . println ( "您的寵物叫聲是：汪汪" ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "寵物種類:" + type ) ; 
+System . out . println ( "寵物編號:" + pid ) ; 
+System . out . println ( "寵物名稱:" + name ) ; 
+System . out . println ( "飼主:" + keeper . display ( ) ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是，類別名稱 物件變數 = new 類別名稱(參數);</Message><Linelist><line Begin="13" End="13" src="Keeper" /></Linelist></Error><Error tpye="運算:運算錯誤:型態不符無法運算"><Message>型態相同者才能進行運算，例如:字串與字串、數字與數字。
+"飼主:"型態為 String，keeper . display ( ) 型態為void，兩者無法相加。</Message><Linelist><line Begin="8" End="8" src="Pet" /></Linelist></Error></Errors></ErrorList>

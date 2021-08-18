@@ -1,0 +1,104 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\43\43.xml">
+	
+<SourceCode_List><SourceCode lines="33" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+private static String title , receiver , content , sender , date ; 
+public static String getSender ( ) { 
+return sender ; 
+} 
+public static String getReceiver ( ) { 
+return receiver ; 
+} 
+public static String getDate ( ) { 
+return date ; 
+} 
+public static String getTitle ( ) { 
+return title ; 
+} 
+ChineseLetter ( String t , String r , String c , String s , String d ) { 
+title = t ; 
+receiver = r ; 
+content = c ; 
+sender = s ; 
+date = d ; 
+} 
+public void display ( ) { 
+System . out . println ( getReceiver ( ) + " " + getTitle ( ) + ", 您好" ) ; 
+System . out . println ( this . content ) ; 
+System . out . println ( getSender ( ) + " 敬上" ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="34" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+private static String title , receiver , content , sender , date ; 
+public static String getSender ( ) { 
+return sender ; 
+} 
+public static String getReceiver ( ) { 
+return receiver ; 
+} 
+public static String getDate ( ) { 
+return date ; 
+} 
+public static String getTitle ( ) { 
+return title ; 
+} 
+EnglishLetter ( String t , String r , String c , String s , String d ) { 
+title = t ; 
+receiver = r ; 
+content = c ; 
+sender = s ; 
+date = d ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + getTitle ( ) + " " + getReceiver ( ) + "," ) ; 
+System . out . println ( this . content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( getSender ( ) ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="24" name="Envelop.java">public class Envelop { 
+private static String senderAddr , receiverAddr ; 
+private static Letter letter ; 
+public static Letter getLetter ( ) { 
+return letter ; 
+} 
+Envelop ( String s , String r , Letter l ) { 
+senderAddr = s ; 
+receiverAddr = r ; 
+letter = l ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+Envelop env = new Envelop ( "Taipei" , "Kaohsiung" , lt ) ; 
+env . display ( ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "From:" + this . senderAddr + ", " + ChineseLetter . getSender ( ) ) ; 
+System . out . println ( "To: " + this . receiverAddr + ", " + ChineseLetter . getReceiver ( ) + " " + ChineseLetter . getTitle ( ) ) ; 
+System . out . println ( "信件內容 :" ) ; 
+getLetter ( ) . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="4" name="Letter.java">abstract public class Letter { 
+abstract public void display ( ) ; 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。</Message><Linelist><line Begin="2" End="5" src="ChineseLetter" /><line Begin="12" End="14" src="ChineseLetter" /><line Begin="19" End="31" src="ChineseLetter" /><line Begin="9" End="14" src="EnglishLetter" /><line Begin="19" End="32" src="EnglishLetter" /></Linelist></Error><Error tpye="物件:不會使用物件之間的關係"><Message>當A物件擁有B物件時，A物件可以直接呼叫B物件的物件動作去取得該動作回傳值。
+
+例如:
+private Letter letter ; </Message><Linelist><line Begin="2" End="4" src="Envelop" /><line Begin="9" End="9" src="Envelop" /></Linelist></Error><Error tpye="物件:不會使用物件資料"><Message>物件資料需要新增物件後，才會有物件資料。請先宣告物件並給予物件資料。
+例如:
+Letter lt = new ChineseLetter (...);
+</Message><Linelist><line Begin="16" End="17" src="ChineseLetter" /><line Begin="16" End="17" src="EnglishLetter" /></Linelist></Error><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>物件資料/動作與類別資料/動作的差別在於有無static宣告。
+有static宣告的是類別資料/動作，物件資料/動作則無static宣告。
+類別資料/動作只有一份，且為類別與所有該類別的物件共享，
+物件資料則是每個物件各有獨立的一份，彼此不相關。
+</Message><Linelist><line Begin="16" End="16" src="Envelop" /><line Begin="22" End="22" src="Envelop" /><line Begin="2" End="4" src="Envelop" /></Linelist></Error></Errors></ErrorList>

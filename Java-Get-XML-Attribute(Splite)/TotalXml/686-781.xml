@@ -1,0 +1,98 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\686\686.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="Keeper.java">public class Keeper { 
+private String id ; 
+private String tel ; 
+public Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+public void display ( ) { 
+System . out . println ( "飼主身分證字號：" + this . id ) ; 
+System . out . println ( "飼主電話：" + this . tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="27" name="Pet.java">public class Pet { 
+private String pid ; 
+private String name ; 
+private String type ; 
+private String keeper ; 
+public Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+public void keep ( String keeper ) { 
+this . keeper = keeper ; 
+} 
+public void display ( ) { 
+System . out . println ( "寵物種類:" + this . type ) ; 
+System . out . println ( "寵物編號：" + this . pid ) ; 
+System . out . println ( "寵物名稱：" + this . name ) ; 
+} 
+public void speak ( ) { 
+if ( type == "狗" ) { 
+System . out . println ( "您的寵物叫聲是：汪汪" ) ; 
+} 
+else 
+System . out . println ( "您的寵物叫聲是：喵喵" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="37" name="test2.java">import java . util . Scanner ; 
+public class test2 { 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+public static String type , pid , name , id , tel ; 
+public static void input ( ) { 
+System . out . println ( "請輸入寵物種類" ) ; 
+type = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入寵物編號" ) ; 
+pid = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱" ) ; 
+name = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入飼主身分證字號" ) ; 
+id = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入飼主電話" ) ; 
+tel = keyboard . nextLine ( ) ; 
+} 
+public static void main ( String [ ] args ) { 
+input ( ) ; 
+Pet P1 = new Pet ( type , pid , name ) ; 
+P1 . keep ( id ) ; 
+Keeper K1 = new Keeper ( id , tel ) ; 
+System . out . println ( "-------------------------------------" ) ; 
+input ( ) ; 
+Pet P2 = new Pet ( type , pid , name ) ; 
+P2 . keep ( id ) ; 
+Keeper K2 = new Keeper ( id , tel ) ; 
+System . out . println ( "-------------------------------------" ) ; 
+P1 . display ( ) ; 
+K1 . display ( ) ; 
+P1 . speak ( ) ; 
+System . out . println ( "-------------------------------------" ) ; 
+P2 . display ( ) ; 
+K2 . display ( ) ; 
+P2 . speak ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message>請注意Pet中參數的對應順序，例如:
+Pet P1 = new Pet(pid, name, type);</Message><Linelist><line Begin="17" End="17" src="test2" /><line Begin="22" End="22" src="test2" /></Linelist></Error><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+例如，
+if ( type.equals( "狗" ) )</Message><Linelist><line Begin="4" End="4" src="Pet" /></Linelist></Error><Error tpye="物件:不會使用物件之間的關係"><Message>當A物件擁有B物件時，A物件可以直接呼叫B物件的物件動作去取得該動作回傳值。
+可在Pet程式中呼叫speak()發出叫聲，以及呼叫keeper.display()讓飼主顯示自己的資料。
+例如:
+public void display() {
+        ...
+        keeper.display();
+        speak();
+}</Message><Linelist><line Begin="16" End="20" src="Pet" /><line Begin="27" End="28" src="test2" /><line Begin="31" End="32" src="test2" /></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。
+例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+可利用建構子建立keeper物件變數的值，例如，
+public Pet(String pid, String name, String type, Keeper keeper) {    
+    ...
+    this.keeper = keeper;
+}
+Pet建構子內已有keeper參數可以取得Keeper的資料，因此，下列程式可產生擁有Keeper物件的Pet物件，
+Pet P1 = new Pet(pid, name, type, K1);</Message><Linelist><line Begin="2" End="2" src="Pet" /><line Begin="21" End="25" src="Pet" /><line Begin="11" End="13" src="Pet" /><line Begin="17" End="17" src="test2" /><line Begin="22" End="22" src="test2" /><line Begin="18" End="18" src="test2" /><line Begin="23" End="23" src="test2" /></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message>keeper變數需先宣告後才能使用。
+Keeper應擺在Pet前面才能讓Pet有Keeper的資料，例如，
+Keeper keeper = new Keeper(...);
+Pet pet = new Pet(..., keeper);</Message><Linelist><line Begin="17" End="19" src="test2" /><line Begin="22" End="24" src="test2" /></Linelist></Error></Errors></ErrorList>

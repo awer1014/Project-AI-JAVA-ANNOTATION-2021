@@ -1,0 +1,15 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\377\377.xml">
+	
+<SourceCode_List><SourceCode lines="11" name="Season.java">public class Season { 
+string a = "春" ; 
+string b = "夏" ; 
+string c = "秋" ; 
+string d = "冬" ; 
+public static void main ( String [ ] args ) { 
+Random ran = new Random ( ) ; 
+System . out . println ( ran . nextInt ( 3 ) ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="其他:關鍵字錯誤"><Message>檢查關鍵字(如 public，class， int，String，,...)，標點符號，以及函數名稱是否有誤。
+在java裡字串的資料型態要大寫。</Message><Linelist><line Begin="6" End="9" src="Season" /></Linelist></Error><Error tpye="函數:函數庫使用錯誤"><Message>引用函數錯誤，請確認所呼叫的函數或函數庫是否存在。
+</Message><Linelist><line Begin="3" End="3" src="Season" /></Linelist></Error></Errors></ErrorList>

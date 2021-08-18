@@ -1,0 +1,75 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\760\760.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="Keeper.java">public class Keeper { 
+String id ; 
+String tel ; 
+public Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+void display ( ) { 
+System . out . println ( "飼主身分證字號：" + id ) ; 
+System . out . println ( "飼主電話：" + tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="25" name="Main.java">import java . util . Scanner ; 
+import java . util . Random ; 
+public class Main { 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+Pet pt ; 
+static String Pid ; 
+int count ; 
+static String Name ; 
+static String Type ; 
+static String Tell ; 
+static String Kid ; 
+public static void main ( ) { 
+System . out . println ( "請輸入寵物種類:" ) ; 
+Type = keyboard . toString ( ) ; 
+System . out . println ( "請輸入寵物編號：" ) ; 
+Pid = keyboard . toString ( ) ; 
+System . out . println ( "請輸入寵物名稱：" ) ; 
+Name = keyboard . toString ( ) ; 
+System . out . println ( "請輸入飼主身分證字號：" ) ; 
+Kid = keyboard . toString ( ) ; 
+System . out . println ( "請輸入飼主電話：" ) ; 
+Tell = keyboard . toString ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="28" name="Pet.java">public class Pet { 
+String pid ; 
+int count ; 
+String name ; 
+String type ; 
+Keeper kp ; 
+public Pet ( String pid , String name , String type , Keeper kp ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+this . kp = kp ; 
+count ++ ; 
+} 
+void speak ( ) { 
+if ( type . equals ( "貓" ) ) 
+System . out . println ( "喵喵" ) ; 
+else 
+System . out . println ( "汪汪" ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "寵物品種：" + type ) ; 
+System . out . println ( "寵物編號：" + pid ) ; 
+System . out . println ( "寵物名稱：" + name ) ; 
+kp . display ( ) ; 
+this . speak ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="io:不會使用輸入scanner類別"><Message>若需要從鍵盤輸入資料,需先引進Scanner 函數庫，如:
+import java.util.Scanner;
+接下來，宣告Scanner 物件，並呼叫適當的函數讀取不同型態的資料。
+如:
+Scanner scan = new Scanner();
+int p = scan.nextInt(); //讀取數值
+scan.nextLine(); //清除Enter空值</Message><Linelist><line Begin="10" End="10" src="Main" /><line Begin="12" End="12" src="Main" /><line Begin="14" End="14" src="Main" /><line Begin="16" End="16" src="Main" /><line Begin="18" End="18" src="Main" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是，類別名稱 物件變數 = new 類別名稱(參數);
+例如，
+Keeper kp = new Keeper(Kid, Tell);
+Pet pt = new Pet(Pid, Name, Type, kp);</Message><Linelist><line Begin="5" End="5" src="Main" /></Linelist></Error></Errors></ErrorList>

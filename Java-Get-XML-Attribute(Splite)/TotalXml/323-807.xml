@@ -1,0 +1,118 @@
+<ErrorList id="C:\Users\user\Desktop\323\323.xml">
+	
+<SourceCode_List><SourceCode lines="22" name="Customer.java">public class Customer { 
+private String cp ; 
+private String adress ; 
+private String br ; 
+private String tel ; 
+private String s ; 
+Customer ( String cp , String adress , String br , String tel , String s ) { 
+this . cp = cp ; 
+this . adress = adress ; 
+this . br = br ; 
+this . tel = tel ; 
+this . s = s ; 
+} 
+void display ( ) { 
+System . out . println ( "1.公司行號：" + cp ) ; 
+System . out . println ( "2.地址:" + adress ) ; 
+System . out . println ( "3.聯絡人:" + br ) ; 
+System . out . println ( "4.電話:" + tel ) ; 
+System . out . println ( "5.傳真:" + s ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="27" name="Item.java">public class Item { 
+private String num ; 
+String name ; 
+double money ; 
+int nums ; 
+double discount ; 
+Item ( String num , String name , double money , int nums , double discount , double ans ) { 
+this . num = num ; 
+this . name = name ; 
+this . money = money ; 
+this . nums = nums ; 
+this . discount = discount ; 
+} 
+double getans ( double money , int num , double discount ) { 
+double ans ; 
+ans = money * num * discount ; 
+return ans ; 
+} 
+void display ( ) { 
+System . out . println ( "1.貨品編號：" + num ) ; 
+System . out . println ( "2.貨品名稱:" + name ) ; 
+System . out . println ( "3.單價:" + money ) ; 
+System . out . println ( "4.數量:" + nums ) ; 
+System . out . println ( "5.折扣:" + discount ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="25" name="Order.java">public class Order { 
+public String number ; 
+public String date ; 
+public static String dollar ; 
+Order ( String number , String date , String dollar ) { 
+number = number ; 
+date = date ; 
+dollar = dollar ; 
+} 
+void setnumber ( String number ) { 
+this . number = number ; 
+} 
+void setdate ( String date ) { 
+this . date = date ; 
+} 
+void setdollar ( String dollar ) { 
+this . dollar = dollar ; 
+} 
+void display ( ) { 
+System . out . println ( "請輸入訂單編號：" + number ) ; 
+System . out . println ( "請輸入日期：" + date ) ; 
+System . out . println ( "請輸入貨幣單位：" + dollar ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="41" name="Test.java">import java . util . Scanner ; 
+public class Test { 
+public static void main ( String [ ] args ) { 
+Item [ ] list = new Item [ 10 ] ; 
+Scanner keyboard = new Scanner ( System . in ) ; 
+int total = 0 ; 
+while ( true ) { 
+System . out . println ( "請輸入訂購貨品名稱:" ) ; 
+String num = keyboard . nextLine ( ) ; 
+if ( name . equals ( "0" ) ) break ; 
+System . out . println ( "請輸入訂單編號：" ) ; 
+String number = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入日期：" ) ; 
+String date = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入貨幣單位：" ) ; 
+String dollar = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入客戶公司行號：" ) ; 
+String cp = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入客戶地址：" ) ; 
+String adress = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入客戶聯絡人：" ) ; 
+String br = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入客戶電話：" ) ; 
+String tel = keyboard . nextLine ( ) ; 
+String s = keyboard . nextLine ( ) ; 
+System . out . println ( "訂購貨品名稱：" ) ; 
+String name = keyboard . nextLine ( ) ; 
+System . out . println ( "訂購貨品單價：" ) ; 
+double money = keyboard . nextDouble ( ) ; 
+System . out . println ( "訂購貨品折扣：" ) ; 
+int nums = keyboard . nextInt ( ) ; 
+double discount = keyboard . nextDouble ( ) ; 
+double ans = keyboard . nextDouble ( ) ; 
+Order o = new Order ( name , date , dollar ) ; 
+Item i = new Item ( num , name , money , nums , discount , ans ) ; 
+Customer c = new Customer ( cp , adress , br , tel , s ) ; 
+System . out . println ( "此筆訂單總共:" + Order . dollar + ans ) ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:不會使用物件資料"><Message>物件資料需要新增物件後，才會有物件資料。請先宣告物件並給予物件資料。</Message><Linelist><line Begin="17" End="17" src="Customer" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數)]]&gt;&lt;/Message&gt;&lt;Linelist&gt;&lt;line Begin="33" End="33" src="newCustomer0"/&gt;&lt;line Begin="34" End="34" src="newCustomer0"/&gt;&lt;/Linelist&gt;&lt;/Error&gt;&lt;Error tpye="物件:物件動作概念(建構子)"&gt;&lt;Message&gt;&lt;![CDATA[建構子本身不是物件動作函數，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。此外，建構子可將獲得的參數資料，透過this指令賦予給物件或類別資料,如:
+建構子(參數){
+...
+this.物件資料 = 參數; 
+}</Message><Linelist><line Begin="3" End="3" src="Order" /><line Begin="4" End="4" src="Order" /><line Begin="5" End="5" src="Order" /></Linelist></Error></Errors></ErrorList>

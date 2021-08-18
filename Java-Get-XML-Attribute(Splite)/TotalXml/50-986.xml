@@ -1,0 +1,67 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\50\50.xml">
+	
+<SourceCode_List><SourceCode lines="27" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+private String title ; 
+private String receiver ; 
+private String content ; 
+private String sender ; 
+private String date ; 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + " " + title + ", 您好\n" + content + "\n" + sender + " 敬上\n" + date ) ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+} 
+</SourceCode><SourceCode lines="27" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+private String title ; 
+private String receiver ; 
+private String content ; 
+private String sender ; 
+private String date ; 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + title + " " + receiver + ",\n" + content + "\nSincerely\n" + sender + "\n" + date ) ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+} 
+</SourceCode><SourceCode lines="4" name="Letter.java">abstract public class Letter { 
+abstract void display ( ) ; 
+} 
+</SourceCode><SourceCode lines="9" name="Test.java">public class Test { 
+public static void main ( String [ ] args ) { 
+Letter le = new ChineseLetter ( "同學" , "黃" , "很高興跟您連絡" , "彭" , "2019/01/05" ) ; 
+Letter lt = new EnglishLetter ( "Student" , "Huang" , "I am glad to write to you!" , "Pon" , "2019/01/05" ) ; 
+le . display ( ) ; 
+lt . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+</Message><Linelist><line Begin="5" End="12" src="ChineseLetter" /><line Begin="19" End="22" src="ChineseLetter" /><line Begin="2" End="4" src="ChineseLetter" /><line Begin="16" End="18" src="ChineseLetter" /><line Begin="23" End="25" src="ChineseLetter" /><line Begin="8" End="17" src="EnglishLetter" /><line Begin="21" End="22" src="EnglishLetter" /><line Begin="2" End="7" src="EnglishLetter" /><line Begin="23" End="25" src="EnglishLetter" /></Linelist></Error><Error tpye="物件:不會使用物件之間的關係"><Message>當A物件擁有B物件時，A物件可以直接呼叫B物件的物件動作去取得該動作回傳值。</Message><Linelist><line Begin="13" End="15" src="ChineseLetter" /><line Begin="18" End="20" src="EnglishLetter" /></Linelist></Error></Errors></ErrorList>

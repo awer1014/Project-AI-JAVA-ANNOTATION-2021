@@ -1,0 +1,58 @@
+<ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文研究\Data\黃崇睿xml\error\537.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+public void display ( ) { 
+System . out . println ( this . getReceiver ( ) + this . getTitle ( ) + ",您好" ) ; 
+System . out . println ( this . getContent ( ) ) ; 
+System . out . println ( this . getSender ( ) + " 敬上" ) ; 
+System . out . println ( this . getDate ( ) ) ; 
+} 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="13" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+public void display ( ) { 
+System . out . println ( "Dear " + receiver + " " + title ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+public EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="28" name="Letter.java">abstract public class Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+protected String sender ; 
+protected String date ; 
+abstract public void display ( ) ; 
+public Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public String getContent ( ) { 
+return content ; 
+} 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="其他:撰寫main函式"><Message>所謂類別主動作main()是指類別程式中的類別主程式，本身屬於靜態動作，需要寫在類別裡面，最多只需撰寫一個，且不需要回傳數值。
+例如，本程式的Letter類別需要加入main函式，
+main函式的宣告方法:
+public static void main (String [] args ){
+...
+}</Message><Linelist><line Begin="23" End="23" src="Letter" /><line Begin="25" End="25" src="Letter" /></Linelist></Error></Errors></ErrorList>

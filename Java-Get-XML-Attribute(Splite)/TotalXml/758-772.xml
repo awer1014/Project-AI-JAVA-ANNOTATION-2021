@@ -1,0 +1,45 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\758\758.xml">
+	
+<SourceCode_List><SourceCode lines="18" name="Keeper.java">import java . util . Scanner ; 
+public class Keeper { 
+String id , tel ; 
+public static void main ( ) { 
+} 
+Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+System . out . println ( "身分證字號" + id ) ; 
+System . out . println ( "電話" + tel ) ; 
+} 
+void display ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+System . out . println ( id + "" + tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="20" name="Pet.java">public class Pet { 
+private int count , flag ; 
+String name , type ; 
+String pid ; 
+public Pet ( String t , String p , String n ) { 
+this . pid = p ; 
+this . name = n ; 
+this . type = t ; 
+} 
+void speak ( ) { 
+if ( flag == 1 ) 
+System . out . println ( "旺旺" ) ; 
+else 
+System . out . println ( "喵喵" ) ; 
+} 
+void display ( ) { 
+System . out . println ( "請輸入寵物種類:" + "狗" ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。
+例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+可利用建構子建立keeper物件變數的值，例如:
+public Pet ( String t , String p , String n , String k ) { 
+    ...
+    this.keeper = k;
+}</Message><Linelist><line Begin="2" End="2" src="Pet" /><line Begin="5" End="5" src="Pet" /><line Begin="5" End="9" src="Pet" /></Linelist></Error></Errors></ErrorList>

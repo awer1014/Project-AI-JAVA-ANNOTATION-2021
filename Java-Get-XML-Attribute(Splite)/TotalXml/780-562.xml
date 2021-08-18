@@ -1,0 +1,105 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\780\780.xml">
+	
+<SourceCode_List><SourceCode lines="21" name="Evaluation.java">import java . util . Scanner ; 
+abstract public class Evaluation { 
+protected String sNumber ; 
+protected String sName ; 
+protected double sGrade ; 
+protected double sProportion ; 
+Evaluation ( String sNumber , String sName , double sGrade , double sProportion ) { 
+this . sNumber = sNumber ; 
+this . sName = sName ; 
+this . sGrade = sGrade ; 
+this . sProportion = sProportion ; 
+} 
+void print ( ) { 
+System . out . println ( "您輸入的是:" ) ; 
+System . out . println ( "學生學號:" + sNumber ) ; 
+System . out . println ( "學生姓名:" + sName ) ; 
+System . out . println ( "成績:" + sGrade ) ; 
+System . out . println ( "比重:" + sProportion ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="10" name="Exam.java">public class Exam extends Evaluation { 
+protected String date ; 
+protected String range ; 
+public Exam ( String sNumber , String sName , double sGrade , double sProportion , String date , String range ) { 
+super ( sNumber , sName , sGrade , sProportion ) ; 
+this . date = date ; 
+this . range = range ; 
+} 
+} 
+</SourceCode><SourceCode lines="10" name="Homework.java">public class Homework extends Evaluation { 
+protected String deadline ; 
+protected String description ; 
+public Homework ( String sNumber , String sName , double sGrade , double sProportion , String deadline , String description ) { 
+super ( sNumber , sName , sGrade , sProportion ) ; 
+this . deadline = deadline ; 
+this . description = description ; 
+} 
+} 
+</SourceCode><SourceCode lines="10" name="Report.java">public class Report extends Evaluation { 
+protected String content ; 
+protected String references ; 
+public Report ( String sNumber , String sName , double sGrade , double sProportion , String content , String references ) { 
+super ( sNumber , sName , sGrade , sProportion ) ; 
+this . content = content ; 
+this . references = references ; 
+} 
+} 
+</SourceCode><SourceCode lines="47" name="Test.java">import java . util . Scanner ; 
+public class Test { 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+private static Evaluation choose ( ) { 
+System . out . println ( "請輸入種類:" ) ; 
+System . out . println ( "1.測驗" ) ; 
+System . out . println ( "2.作業" ) ; 
+System . out . println ( "3.心得報告" ) ; 
+int c = 0 ; 
+do 
+{ 
+c = keyboard . nextInt ( ) ; 
+} 
+while ( c &gt; 3 || c &lt; 1 ) ; 
+return choice ( c ) ; 
+} 
+static Evaluation choice ( int c ) { 
+switch ( c ) { 
+case 1 : 
+System . out . println ( "請輸入學生學號:" ) ; 
+System . out . println ( "請輸入學生姓名:" ) ; 
+System . out . println ( "請輸入成績:" ) ; 
+System . out . println ( "請輸入成績比重:" ) ; 
+System . out . println ( "請輸入考試日期" ) ; 
+System . out . println ( "請輸入考試範圍" ) ; 
+break ; 
+case 2 : 
+System . out . println ( "請輸入學生學號:" ) ; 
+System . out . println ( "請輸入學生姓名:" ) ; 
+System . out . println ( "請輸入成績:" ) ; 
+System . out . println ( "請輸入成績比重:" ) ; 
+System . out . println ( "請輸入截止日期:" ) ; 
+System . out . println ( "請輸入作業描述:" ) ; 
+break ; 
+case 3 : 
+System . out . println ( "請輸入學生學號:" ) ; 
+System . out . println ( "請輸入學生姓名:" ) ; 
+System . out . println ( "請輸入成績:" ) ; 
+System . out . println ( "請輸入成績比重:" ) ; 
+System . out . println ( "請輸入報告內容:" ) ; 
+System . out . println ( "請輸入參考文獻:" ) ; 
+break ; 
+} 
+return ev ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="其他:撰寫main函式"><Message>所謂類別主動作main()是指類別程式中的類別主程式，本身屬於靜態動作，需要寫在類別裡面，最多只需撰寫一個，且不需要回傳數值。
+main函式的宣告方法:
+public static void main (String [] args ){
+...
+}</Message><Linelist><line Begin="45" End="45" src="Test" /></Linelist></Error><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。
+實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+本程式的print()動作應隨不同的的子類別有不同的變化，因此須宣告為抽象動作，例如:
+public abstract void print ( ) ;</Message><Linelist><line Begin="13" End="19" src="Evaluation" /></Linelist></Error><Error tpye="抽象:覆寫抽象動作"><Message>抽象動作實際的函式內容是由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+注意:子類別函式的存取權限層級不能小於父類別函式的存取權限層級。
+例如:本程式中各子類別應該實作其print()函式內容，以覆寫父類別的print()抽象動作。</Message><Linelist><line Begin="7" End="7" src="Exam" /><line Begin="8" End="8" src="Homework" /><line Begin="8" End="8" src="Report" /></Linelist></Error></Errors></ErrorList>

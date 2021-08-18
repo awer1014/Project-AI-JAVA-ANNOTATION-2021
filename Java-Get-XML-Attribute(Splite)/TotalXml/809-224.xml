@@ -1,0 +1,13 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\809\809.xml">
+	
+<SourceCode_List><SourceCode lines="11" name="B.java">class B { 
+void A ( int y ) { 
+y = 9 ; 
+} 
+public static void main ( String [ ] args ) { 
+int y = 0 ; 
+y = y + 100 ; 
+int x = A ( y ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確。</Message><Linelist><line Begin="-1" End="-1" src="B" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,122 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\789\789.xml">
+	
+<SourceCode_List><SourceCode lines="66" name="Evaluation.java">import java . util . Scanner ; 
+abstract public class Evaluation { 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+String number ; 
+String name ; 
+double grade ; 
+double percent ; 
+String Eva [ ] = { "" , "測驗" , "作業" , "心得報告" } ; 
+Evaluation ( String number , String name , double grade , double percent ) { 
+this . number = number ; 
+this . name = name ; 
+this . grade = grade ; 
+this . percent = percent ; 
+} 
+abstract void print ( int i ) ; 
+public static void main ( String [ ] args ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+while ( true ) { 
+int Eva ; 
+String num , name , day , range , nei , wen , meow ; 
+double grade , per ; 
+Evaluation eval = null ; 
+System . out . print ( "請輸入成績種類(1.測驗 2.作業 3.心得報告)：" ) ; 
+Eva = sc . nextInt ( ) ; 
+sc . nextLine ( ) ; 
+if ( Eva == 0 ) { 
+System . out . println ( "-----------------------------------" ) ; 
+break ; 
+} 
+System . out . print ( "請輸入學生學號：" ) ; 
+num = sc . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名：" ) ; 
+name = sc . nextLine ( ) ; 
+System . out . print ( "請輸入成績：" ) ; 
+grade = sc . nextDouble ( ) ; 
+System . out . print ( "請輸入成績比重：" ) ; 
+per = sc . nextDouble ( ) ; 
+sc . nextLine ( ) ; 
+if ( Eva == 1 ) { 
+System . out . print ( "請輸入考試日期：" ) ; 
+day = sc . nextLine ( ) ; 
+System . out . print ( "請輸入考試範圍：" ) ; 
+range = sc . nextLine ( ) ; 
+eval = new Exam ( num , name , grade , per , day , range ) ; 
+} 
+else if ( Eva == 2 ) { 
+System . out . print ( "請輸入截止日期：" ) ; 
+day = sc . nextLine ( ) ; 
+System . out . print ( "請輸入作業描述：" ) ; 
+meow = sc . nextLine ( ) ; 
+eval = new Homework ( num , name , grade , per , day , meow ) ; 
+} 
+else { 
+System . out . print ( "請輸入報告內容：" ) ; 
+nei = sc . nextLine ( ) ; 
+System . out . print ( "請輸入參考文獻：" ) ; 
+wen = sc . nextLine ( ) ; 
+eval = new Report ( num , name , grade , per , nei , wen ) ; 
+} 
+System . out . println ( "-----------------------------------" ) ; 
+eval . print ( Eva ) ; 
+System . out . println ( "-----------------------------------" ) ; 
+} 
+} 
+} 
+</SourceCode><SourceCode lines="19" name="Exam.java">public class Exam extends Evaluation { 
+String day ; 
+String range ; 
+Exam ( String number , String name , double grade , double percent , String day , String range ) { 
+super ( number , name , grade , percent ) ; 
+this . day = day ; 
+this . range = range ; 
+} 
+public void print ( int i ) { 
+System . out . println ( "種類：" + Eva [ i ] ) ; 
+System . out . println ( "學生學號：" + number ) ; 
+System . out . println ( "學生姓名：" + name ) ; 
+System . out . println ( "成績：" + grade ) ; 
+System . out . println ( "成績比重：" + percent ) ; 
+System . out . println ( "考試日期：" + day ) ; 
+System . out . println ( "考試範圍：" + range ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="19" name="Homework.java">public class Homework extends Evaluation { 
+String day ; 
+String meow ; 
+Homework ( String number , String name , double grade , double percent , String day , String meow ) { 
+super ( number , name , grade , percent ) ; 
+this . day = day ; 
+this . meow = meow ; 
+} 
+public void print ( int i ) { 
+System . out . println ( "種類：" + Eva [ i ] ) ; 
+System . out . println ( "學生學號：" + number ) ; 
+System . out . println ( "學生姓名：" + name ) ; 
+System . out . println ( "成績：" + grade ) ; 
+System . out . println ( "成績比重：" + percent ) ; 
+System . out . println ( "截止日期：" + day ) ; 
+System . out . println ( "作業描述：" + meow ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="19" name="Report.java">public class Report extends Evaluation { 
+String nei ; 
+String wen ; 
+Report ( String number , String name , double grade , double percent , String nei , String wen ) { 
+super ( number , name , grade , percent ) ; 
+this . nei = nei ; 
+this . wen = wen ; 
+} 
+public void print ( int i ) { 
+System . out . println ( "種類：" + Eva [ i ] ) ; 
+System . out . println ( "學生學號：" + number ) ; 
+System . out . println ( "學生姓名：" + name ) ; 
+System . out . println ( "成績：" + grade ) ; 
+System . out . println ( "成績比重：" + percent ) ; 
+System . out . println ( "報告內容：" + nei ) ; 
+System . out . println ( "參考文獻：" + wen ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確。</Message><Linelist><line Begin="-1" End="-1" src="Evaluation" /></Linelist></Error></Errors></ErrorList>

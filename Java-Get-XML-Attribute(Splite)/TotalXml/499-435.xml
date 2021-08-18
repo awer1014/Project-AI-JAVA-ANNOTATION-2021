@@ -1,0 +1,66 @@
+<ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\499\499.xml">
+	
+<SourceCode_List><SourceCode lines="57" name="classtest.java">import java . util . Scanner ; 
+class Pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+void speak ( ) { 
+} 
+void display ( ) { 
+System . out . println ( "寵物種類:" + type ) ; 
+System . out . println ( "寵物編號: " + pid ) ; 
+System . out . println ( "請輸入寵物名稱: " + name ) ; 
+} 
+Pet ( String p , String n , String t ) { 
+p = pid ; 
+n = name ; 
+t = type ; 
+} 
+} 
+class Keeper { 
+String ID ; 
+String tel ; 
+void display ( ) { 
+System . out . println ( "飼主身分證字號: " + ID ) ; 
+System . out . println ( "飼主身分證字號: " + tel ) ; 
+} 
+Keeper ( String I , String t ) { 
+I = ID ; 
+t = tel ; 
+} 
+} 
+public class classtest { 
+public static void main ( String [ ] args ) { 
+Scanner a = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入寵物種類:" ) ; 
+String input1 = a . nextLine ( ) ; 
+System . out . println ( "請輸入寵物編號：" ) ; 
+String input2 = a . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱：" ) ; 
+String input3 = a . nextLine ( ) ; 
+System . out . println ( "請輸入飼主身分證字號：" ) ; 
+String input4 = a . nextLine ( ) ; 
+System . out . println ( "請輸入飼主電話：" ) ; 
+String input5 = a . nextLine ( ) ; 
+Keeper keeper = new Keeper ( input4 , input5 ) ; 
+Pet pet = new Pet ( input1 , input1 , input1 ) ; 
+pet . display ( ) ; 
+keeper . display ( ) ; 
+if ( input1 == "狗" ) { 
+System . out . println ( "您的寵物叫聲是：汪汪" ) ; 
+} 
+else { 
+System . out . println ( "您的寵物叫聲是：喵喵" ) ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+例如，本程式的classtest類別，需改成type.equals("狗")。</Message><Linelist><line Begin="49" End="49" src="classtest" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>建構子本身不是物件動作函數，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。此外，建構子可將獲得的參數資料，透過this指令賦予給物件或類別資料,如:
+建構子(參數){
+...
+this.物件資料 = 參數; 
+}
+例如，本程式classtest類別，要改成ID=I;
+tel=t;</Message><Linelist><line Begin="6" End="8" src="classtest" /><line Begin="24" End="25" src="classtest" /></Linelist></Error></Errors></ErrorList>

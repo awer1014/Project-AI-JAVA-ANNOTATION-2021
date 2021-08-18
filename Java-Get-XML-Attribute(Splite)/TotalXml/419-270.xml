@@ -1,0 +1,83 @@
+<ErrorList id="C:\Users\user\Downloads\正規化(淯雯)\有問題的\419_你的原檔裡面有個錯誤類型物件_物件資料_物件動作概念_裡面標了29~29 但29是沒有東西的\419.xml">
+	
+<SourceCode_List><SourceCode lines="14" name="Keeper.java">import java . util . Scanner ; 
+public class Keeper { 
+static String id ; 
+static String tel ; 
+public Keeper ( String idd , String phone ) { 
+id = idd ; 
+phone = tel ; 
+} 
+void display ( ) { 
+System . out . println ( "飼主身份證：" + id ) ; 
+System . out . println ( "飼主電話：" + tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="28" name="Pet.java">import java . util . Scanner ; 
+public class Pet { 
+String strData2 ; 
+String strData3 ; 
+static int count ; 
+static String pid ; 
+static String name ; 
+static String type ; 
+static int amount ; 
+Pet ( String pi , String n , String t ) { 
+pid = pi ; 
+name = n ; 
+type = t ; 
+amount ++ ; 
+} 
+static void speak ( ) { 
+if ( type == "cat" ) 
+System . out . println ( "喵喵" ) ; 
+if ( type == "dog" ) 
+System . out . println ( "汪汪" ) ; 
+} 
+void display ( ) { 
+System . out . println ( "寵物種類: " + type ) ; 
+System . out . println ( "寵物編號：" + pid ) ; 
+System . out . println ( "寵物名稱：" + name ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="32" name="Test.java">import java . util . Scanner ; 
+public class Test { 
+public static void main ( String [ ] args ) { 
+System . out . println ( "請輸入寵物種類: " ) ; 
+Scanner scanner = new Scanner ( System . in ) ; 
+Pet . type = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入寵物編號 " ) ; 
+Scanner scanner1 = new Scanner ( System . in ) ; 
+Pet . pid = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱：" ) ; 
+Scanner scanner2 = new Scanner ( System . in ) ; 
+Pet . name = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入飼主身分證字號: " ) ; 
+Scanner scanner3 = new Scanner ( System . in ) ; 
+Keeper . id = scanner . nextLine ( ) ; 
+System . out . println ( "請輸入飼主電話: " ) ; 
+Scanner scanner4 = new Scanner ( System . in ) ; 
+Keeper . tel = scanner . nextLine ( ) ; 
+System . out . println ( "寵物種類：" + Pet . type ) ; 
+System . out . println ( "寵物編號：" + Pet . pid ) ; 
+System . out . println ( "寵物名稱：" + Pet . name ) ; 
+System . out . println ( "飼主身份證：" + Keeper . id ) ; 
+System . out . println ( "飼主電話：" + Keeper . tel ) ; 
+System . out . println ( "您的寵物叫聲:" ) ; 
+if ( Pet . type == "cat" ) 
+System . out . println ( "喵喵" ) ; 
+if ( Pet . type == "dog" ) 
+System . out . println ( "汪汪" ) ; 
+System . out . println ( "總共" + Pet . amount + "隻寵物!" ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="io:重複宣告scanner物件"><Message>因為鍵盤只有一個，Scanner物件可以宣告一次即可，不需要針對每一次讀取鍵盤，宣告不同的scanner物件。</Message><Linelist><line Begin="5" End="17" src="Test" /></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。</Message><Linelist><line Begin="2" End="2" src="Pet" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);</Message><Linelist><line Begin="5" End="5" src="Test" /><line Begin="8" End="8" src="Test" /><line Begin="11" End="11" src="Test" /><line Begin="14" End="14" src="Test" /><line Begin="17" End="17" src="Test" /></Linelist></Error><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>物件資料/動作與類別資料/動作的差別在於有無static宣告。
+有static宣告的是類別資料/動作，物件資料/動作則無static宣告。
+類別資料/動作只有一份，且為類別與所有該類別的物件共享，
+物件資料則是每個物件各有獨立的一份，彼此不相關。</Message><Linelist><line Begin="13" End="13" src="Pet" /><line Begin="3" End="4" src="Pet" /><line Begin="12" End="12" src="Pet" /><line Begin="26" End="26" src="Pet" /><line Begin="7" End="8" src="Keeper" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>建構子本身不是物件動作函數，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。此外，建構子可將獲得的參數資料，透過this指令賦予給物件或類別資料,如:建構子(參數){
+...
+this.物件資料 = 參數; 
+}</Message><Linelist><line Begin="5" End="10" src="Pet" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。
+新增物件動作-kp.display();</Message><Linelist><line Begin="20" End="22" src="Pet" /></Linelist></Error></Errors></ErrorList>

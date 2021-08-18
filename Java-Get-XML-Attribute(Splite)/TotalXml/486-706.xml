@@ -1,0 +1,68 @@
+<ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\486\486.xml">
+	
+<SourceCode_List><SourceCode lines="46" name="Pet.java">public class Pet { 
+int count = 2 ; 
+int n ; 
+String pid ; 
+String name ; 
+String type ; 
+void speak ( String name ) { 
+if ( cat ) { 
+return 喵喵 ; 
+} 
+else if ( dog ) { 
+return 汪汪 ; 
+} 
+} 
+void display ( String pid , String name , String type ) { 
+pid = p ; 
+name = n ; 
+type = t ; 
+} 
+Pet ( String pid , String name , String type ) { 
+pid = p ; 
+name = n ; 
+type = t ; 
+} 
+} 
+public class Keeper { 
+String id ; 
+String tel ; 
+void display ( String id , String tel ) { 
+String id = id ; 
+String tel = tel ; 
+} 
+Keeper ( String id , String tel ) { 
+String id ; 
+string tel ; 
+} 
+public static void main ( String [ ] args ) { 
+System . out . println ( "type:" + type ) ; 
+System . out . println ( "pid:" + pid ) ; 
+System . out . println ( "name:" + name ) ; 
+System . out . println ( "id:" + id ) ; 
+System . out . println ( "tel:" + tel ) ; 
+System . out . println ( "speak:" + speak ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="9" name="Scanner.java">public class Scanner { 
+public static void main ( String [ ] args ) { 
+String a ; 
+int b ; 
+b = a . length ( ) ; 
+System . out . print ( b ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+例如，可以在本程式的Keeper 需要寫在另一個Class。
+並在Keeper類別中加入private Keeper keeper，
+並在本程式的Pet類別中加入Keeper keeper。</Message><Linelist><line Begin="26" End="31" src="Pet" /><line Begin="44" End="44" src="Pet" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>建構子本身不是物件動作函數，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。此外，建構子可將獲得的參數資料，透過this指令賦予給物件或類別資料,如:
+建構子(參數){
+...
+this.物件資料 = 參數; 
+}
+例如，本程式中的Pet類別，需改成Pet ( String pid , String name , String type ) { 
+this.pid=pid;
+this.name=name;
+this.type=type;
+}</Message><Linelist><line Begin="20" End="24" src="Pet" /></Linelist></Error></Errors></ErrorList>

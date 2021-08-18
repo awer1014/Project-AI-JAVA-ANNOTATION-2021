@@ -1,0 +1,78 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\439\439.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="Keeper.java">public class Keeper { 
+String id , tel ; 
+void display ( ) { 
+System . out . println ( "飼主身份證字號：" + id ) ; 
+System . out . println ( "飼主電話：" + tel ) ; 
+} 
+public Keeper ( String i , String tl ) { 
+id = i ; 
+tel = tl ; 
+} 
+} 
+</SourceCode><SourceCode lines="24" name="Pet.java">import java . util . Scanner ; 
+import java . io . * ; 
+import java . util . * ; 
+import java . math . * ; 
+public class Pet { 
+String pid , name , type ; 
+void speak ( String name ) { 
+if ( name == "狗" ) 
+System . out . println ( "汪汪~" ) ; 
+else 
+System . out . println ( "喵喵~" ) ; 
+} 
+void display ( ) { 
+System . out . println ( "寵物類別：" + type ) ; 
+System . out . println ( "寵物編號：" + pid ) ; 
+System . out . println ( "寵物名稱：" + name ) ; 
+} 
+public Pet ( String p , String n , String t ) { 
+name = n ; 
+pid = p ; 
+type = t ; 
+} 
+} 
+</SourceCode><SourceCode lines="38" name="kp.java">import java . io . * ; 
+import java . util . * ; 
+import java . math . * ; 
+public class Test { 
+static Scanner cin = new Scanner ( System . in ) ; 
+public static void main ( String [ ] args ) { 
+String p [ ] = new String [ 100 ] ; 
+String n [ ] = new String [ 100 ] ; 
+String t [ ] = new String [ 100 ] ; 
+String i [ ] = new String [ 100 ] ; 
+String tl [ ] = new String [ 100 ] ; 
+int f = 0 ; 
+do 
+{ 
+System . out . println ( "請輸入寵物種類：" ) ; 
+t [ f ] = cin . nextLine ( ) ; 
+System . out . println ( "請輸入寵物編號：" ) ; 
+p [ f ] = cin . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱：" ) ; 
+n [ f ] = cin . nextLine ( ) ; 
+System . out . println ( "請輸入飼主身份證字號：" ) ; 
+i [ f ] = cin . nextLine ( ) ; 
+System . out . println ( "請輸入飼主電話：" ) ; 
+tl [ f ] = cin . nextLine ( ) ; 
+f ++ ; 
+System . out . println ( "----------------------------------------" ) ; 
+} 
+while ( t != "0" ) ; 
+for ( int j = 0 ; j &lt; f ; j ++ ) { 
+Pet pet = new Pet ( p [ j ] , n [ j ] , t [ j ] ) ; 
+Keeper keeper = new Keeper ( i [ j ] , tl [ i ] ) ; 
+pet . display ( ) ; 
+keeper . display ( ) ; 
+pet . speak ( n [ j ] ) ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+例如，
+name.equals("狗");
+</Message><Linelist><line Begin="8" End="8" src="Pet" /></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+建立物件之間的關係，要加一行keeper keeper:</Message><Linelist><line Begin="13" End="17" src="Pet" /><line Begin="-1" End="-1" src="Pet" /></Linelist></Error></Errors></ErrorList>

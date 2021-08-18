@@ -1,0 +1,14 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\808\808.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="B.java">class B { 
+void A ( int y ) { 
+y = 9 ; 
+} 
+public static void main ( String [ ] args ) { 
+int y = 0 ; 
+y = y + 100 ; 
+int y = 45 ; 
+int x = A ( y ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="變數:重複宣告變數"><Message>變數名稱y重複宣告。</Message><Linelist><line Begin="5" End="5" src="B" /></Linelist></Error></Errors></ErrorList>

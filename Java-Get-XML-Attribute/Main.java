@@ -39,7 +39,8 @@ public class Main {
             mn.files = mn.xfs.getXmlFileList(mn.Filepath);
             //lx.getNode(files,Filepath);
             rxf.load_Xml_file(mn.files, mn.Filepath, mn.list);
-            mn.ew.write("test.xls", mn.list, rxf.file_id_list);
+            mn.ew.write("test.xlsx", mn.list, rxf.file_id_list);
+            System.out.println("File created...");
         } catch (Exception e) {
             e.printStackTrace();
         }

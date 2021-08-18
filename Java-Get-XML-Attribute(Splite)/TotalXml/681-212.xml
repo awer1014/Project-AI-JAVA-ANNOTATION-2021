@@ -1,0 +1,19 @@
+<ErrorList id="C:\Users\User\Desktop\錯誤正規化\681\681.xml">
+	
+<SourceCode_List><SourceCode lines="6" name="Season.java">class Season { 
+void x ( ) { 
+String c [ ] = { "春" , "夏" , "秋" , "冬" } ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="陣列:不會宣告陣列變數"><Message>"宣告陣列的方式:
+資料型態 []變數名稱 ;
+資料型態 []變數名稱={...,...,...} ;
+例如，
+int [] x ;
+String [] y = {""a"", ""b""};"
+正常的main函式撰寫應為
+public static void main()
+陣列宣告應為
+String[] c={"春","夏","秋","冬"};
+
+</Message><Linelist><line Begin="3" End="3" src="Season" /></Linelist></Error></Errors></ErrorList>

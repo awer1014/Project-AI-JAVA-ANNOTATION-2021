@@ -1,0 +1,84 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\741\741.xml">
+	
+<SourceCode_List><SourceCode lines="20" name="Keeper.java">import java . util . Scanner ; 
+public class Keeper { 
+static String id ; 
+static String tel ; 
+public Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+public String getId ( ) { 
+return id ; 
+} 
+public String getTel ( ) { 
+return tel ; 
+} 
+public void display ( String id , String tel ) { 
+System . out . println ( "身分證:" + id ) ; 
+System . out . println ( "電話:" + tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="33" name="Pet.java">public class Pet { 
+private String name ; 
+private String pid ; 
+private String type ; 
+public Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+public void speek ( String type ) { 
+if ( type == "貓" ) { 
+System . out . println ( "您寵物的叫聲是:喵喵" ) ; 
+} 
+if ( type == "狗" ) { 
+System . out . println ( "您寵物的叫聲是:汪汪" ) ; 
+} 
+} 
+public void display ( ) { 
+System . out . println ( "編號:" + pid ) ; 
+System . out . println ( "名稱:" + name ) ; 
+System . out . println ( "種類:" + type ) ; 
+} 
+public String getPid ( ) { 
+return pid ; 
+} 
+public String getName ( ) { 
+return name ; 
+} 
+public String getType ( ) { 
+return type ; 
+} 
+} 
+</SourceCode><SourceCode lines="23" name="input.java">import java . util . Scanner ; 
+import java . util . Random ; 
+public class input { 
+static int count = 0 ; 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+public static void main ( String [ ] args ) { 
+System . out . print ( "請輸入寵物種類:" ) ; 
+String type = keyboard . nextLine ( ) ; 
+while ( type != "0" ) { 
+System . out . print ( "請輸入寵物編號:" ) ; 
+String pid = keyboard . nextLine ( ) ; 
+System . out . print ( "請輸入寵物名稱:" ) ; 
+String name = keyboard . nextLine ( ) ; 
+System . out . print ( "請輸入飼主身份證字號:" ) ; 
+String id = keyboard . nextLine ( ) ; 
+System . out . print ( "請輸入飼主電話:" ) ; 
+String tel = keyboard . nextLine ( ) ; 
+} 
+if ( type == "0" ) { 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+例如，
+if ( type.equals ( "貓" ) )</Message><Linelist><line Begin="24" End="24" src="Pet" /><line Begin="27" End="27" src="Pet" /><line Begin="8" End="8" src="input" /><line Begin="18" End="18" src="input" /></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。
+例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+可利用建構子建立keeper物件變數的值，例如，
+public Pet ( String pid , String name , String type ,  Keeper keeper) { 
+    ...
+    this.keeper = keeper;
+}</Message><Linelist><line Begin="3" End="3" src="Pet" /><line Begin="14" End="14" src="Pet" /><line Begin="3" End="7" src="Pet" /></Linelist></Error></Errors></ErrorList>

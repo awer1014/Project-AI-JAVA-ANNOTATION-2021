@@ -1,0 +1,22 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\398\398.xml">
+	
+<SourceCode_List><SourceCode lines="20" name="KKBOx.java">import java . util . * ; 
+class KKBOx { 
+static double volume ( double length , double width , double height ) { 
+double sum = 0 ; 
+sum = length * width * height ; 
+return sum ; 
+} 
+static double surfaceArea ( double length , double width , double height ) { 
+double sum = 0 ; 
+sum = 2 * length * width + length * height + width * height ; 
+return sum ; 
+} 
+public static void main ( String [ ] x ) { 
+double ans = volume ( 1 , 2 , 3 ) ; 
+double ans1 = surfaceArea ( 1 , 2 , 3 ) ; 
+System . out . println ( ans ) ; 
+System . out . println ( ans1 ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確。</Message><Linelist><line Begin="-1" End="-1" src="KKBOx" /></Linelist></Error></Errors></ErrorList>

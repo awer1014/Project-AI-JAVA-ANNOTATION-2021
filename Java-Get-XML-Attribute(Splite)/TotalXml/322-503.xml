@@ -1,0 +1,54 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\322\322.xml">
+	
+<SourceCode_List><SourceCode lines="32" name="player.java">public class player { 
+String name ; 
+int ticket ; 
+double total = 0 ; 
+player ( String name , int ticket , double total ) { 
+this . name = name ; 
+this . ticket = ticket ; 
+this . total = total ; 
+} 
+void name ( ) { 
+this . name = name ; 
+} 
+double total ( int ticket ) { 
+for ( int n = 1 ; n &gt;= ticket ; n ++ ) { 
+total += ticket ; 
+return total ; 
+} 
+} 
+double ticket ( int ticket , double total ) { 
+double ans ; 
+ans = ticket / total ; 
+return ans ; 
+} 
+public static void main ( String [ ] args ) { 
+player p = new player ( name , ticket ) ; 
+double ans = p . gettotal ( ) ; 
+System . out . println ( "姓名:" + name ) ; 
+System . out . println ( "得票數:" + ticket ) ; 
+System . out . println ( "得票比率:" + ans + "%" ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數概念不清楚"><Message>函數可分為回傳與不回傳,
+不回傳可使用void,
+回傳需依照需求回傳相對應的資料型態,
+回傳在最後一步才回傳.
+example:
+public void 函數名稱(參數) {
+ 內容...
+}
+public 回傳型態 函數名稱(參數) {
+  內容...
+  return 回傳變數;
+}
+
+函數回傳值必須在運算結束後再進行回傳</Message><Linelist><line Begin="18" End="23" src="player" /></Linelist></Error><Error tpye="函數:函數結構不清楚"><Message>函數的宣告架構如下:
+回傳值型態 函數名稱(參數型態 參數，...) { ... }
+
+函數未宣告，若需要使用該函數，請在類別中宣告。 
+例如: 
+int 函數名稱(參數) { ... }</Message><Linelist><line Begin="12" End="12" src="player" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數)</Message><Linelist><line Begin="11" End="11" src="player" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。</Message><Linelist><line Begin="29" End="29" src="player" /><line Begin="17" End="17" src="player" /><line Begin="30" End="30" src="player" /></Linelist></Error><Error tpye="運算:運算錯誤:型態不符無法運算"><Message>型態相同者才能進行運算，例如:字串與字串、數字與數字。</Message><Linelist><line Begin="17" End="17" src="player" /></Linelist></Error></Errors></ErrorList>

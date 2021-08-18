@@ -1,0 +1,60 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\new\98.xml">
+	
+<SourceCode_List><SourceCode lines="54" name="ChineseLetter.java">import java . util . * ; 
+public class ChineseLetter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String date ; 
+private ChineseLetter ( ) { 
+} 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+static String getSender ( ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String s = sc . nextLine ( ) ; 
+return s ; 
+} 
+static String getReceiver ( ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String s = sc . nextLine ( ) ; 
+return s ; 
+} 
+static String getDate ( ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String s = sc . nextLine ( ) ; 
+return s ; 
+} 
+static String getTitle ( ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String s = sc . nextLine ( ) ; 
+return s ; 
+} 
+static String getContent ( ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String s = sc . nextLine ( ) ; 
+return s ; 
+} 
+public void display ( ) { 
+System . out . println ( title + receiver + " " + "您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + "敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+public static void main ( String [ ] args ) { 
+System . out . println ( "分別輸入:別稱，姓名，內容，寄件者，日期" ) ; 
+ChineseLetter letter = new ChineseLetter ( ) ; 
+letter . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:不會使用物件資料"><Message>物件資料需要新增物件後，才會有物件資料。請先宣告物件並給予物件資料。</Message><Linelist><line Begin="4" End="13" src="ChineseLetter" /><line Begin="24" End="28" src="ChineseLetter" /><line Begin="43" End="52" src="ChineseLetter" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+
+呼叫ChineseLetter建構子時，中應傳遞適當的資料給相關的物件變數。
+例如:
+ChineseLetter letter = new ChineseLetter (.... ) ;</Message><Linelist><line Begin="31" End="31" src="ChineseLetter" /></Linelist></Error></Errors></ErrorList>

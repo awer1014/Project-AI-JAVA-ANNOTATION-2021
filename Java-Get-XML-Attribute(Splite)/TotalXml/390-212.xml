@@ -1,0 +1,28 @@
+<ErrorList id="D:\專研\student_codes\正規化及擴增\NewVerPythonDebugger (8)\NewVerPythonDebugger\NormalizedCODES\390\390.xml">
+	
+<SourceCode_List><SourceCode lines="26" name="KKBOX.java">public class KKBOX { 
+static double length = 1 , width = 2 , height = 3 , a1 , a2 ; 
+public double volume = length * width * height ; 
+public double surfaceArea = 2 * length * width + width * height + height * length ; 
+public double getvolume ( ) { 
+return volume ; 
+} 
+public double getsurfaceArea ( ) { 
+return surfaceArea ; 
+} 
+public void setvolume ( double volume ) { 
+this . volume = volume ; 
+} 
+public void setsurfaceArea ( double surfaceArea ) { 
+this . surfaceArea = surfaceArea ; 
+} 
+public static void main ( String [ ] args ) { 
+double length = Double . parseDouble ( args [ 0 ] ) ; 
+double width = Double . parseDouble ( args [ 1 ] ) ; 
+double height = Double . parseDouble ( args [ 2 ] ) ; 
+KKBOX TKKBOX = new KKBOX ( ) ; 
+System . out . println ( "Åé¿n = " + TKKBOX . getvolume ( ) ) ; 
+System . out . println ( "ªí­±¿n = " + TKKBOX . getsurfaceArea ( ) ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數庫使用錯誤"><Message>引用函數錯誤，請確認所呼叫的函數或函數庫是否存在。</Message><Linelist><line Begin="13" End="15" src="KKBOX" /></Linelist></Error></Errors></ErrorList>

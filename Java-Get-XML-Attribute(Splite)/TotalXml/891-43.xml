@@ -1,0 +1,20 @@
+<ErrorList id="D:\program_python\新增題目\891.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="KKBox.java">public class KKBOx { 
+double l ; 
+double w ; 
+double h ; 
+static double volume ( ) { 
+double ans = l * w * h ; 
+return ans ; 
+} 
+public static void main ( Double [ ] n ) { 
+l = 2 ; 
+w = 3 ; 
+h = 4 ; 
+System . out . println ( ans ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數結構不清楚"><Message>函數的宣告架構如下:
+回傳值型態 函數名稱(參數型態 參數，...) { ... }
+如volume(double l , double w , double h)</Message><Linelist><line Begin="9" End="12" src="KKBox" /></Linelist></Error></Errors></ErrorList>

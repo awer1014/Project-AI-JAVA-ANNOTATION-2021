@@ -1,0 +1,18 @@
+<ErrorList id="D:\program_python\新增題目\895.xml">
+	
+<SourceCode_List><SourceCode lines="15" name="Keeper.java">public class Keeper { 
+static String i ; 
+Keeper ( String id ) { 
+id = i ; 
+} 
+public String getId ( ) { 
+return i ; 
+} 
+public static void main ( String [ ] args ) { 
+System . out . print ( "1" + i ) ; 
+System . out . print ( "2" + p ) ; 
+System . out . print ( "3" + n ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>有static宣告的是類別資料/動作，物件資料/動作則無static宣告。變數i是物件資料，應刪除static。
+建構子接受參數設定給物件資料，要注意順序。如id=i;應改成i=id;</Message><Linelist><line Begin="2" End="2" src="Keeper" /><line Begin="7" End="7" src="Keeper" /></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message>變數需先宣告後才能使用，如變數p和n。</Message><Linelist><line Begin="11" End="12" src="Keeper" /></Linelist></Error></Errors></ErrorList>

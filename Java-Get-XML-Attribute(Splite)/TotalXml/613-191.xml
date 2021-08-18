@@ -1,0 +1,42 @@
+<ErrorList id="C:\Users\User\Desktop\錯誤正規化\613\613.xml">
+	
+<SourceCode_List><SourceCode lines="32" name="KKbox.java">import java . util . Scanner ; 
+public class KKbox { 
+double length , width , height ; 
+KKbox ( double l , double w , double h ) { 
+length = l ; 
+width = w ; 
+height = h ; 
+} 
+double volume ( double L , double W , double H ) { 
+return L * W * H ; 
+} 
+double surfaceArea ( double L , double W , double H ) { 
+return L * W + L * H + W * H * 2 ; 
+} 
+void println ( ) { 
+System . out . println ( "體積:" + volume ( length , width , height ) ) ; 
+System . out . println ( "表面積:" + surfaceArea ( length , width , height ) ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Scanner length = new Scanner ( System . in ) ; 
+Scanner width = new Scanner ( System . in ) ; 
+Scanner height = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入長:" ) ; 
+double l = length . nextDouble ( ) ; 
+System . out . println ( "請輸入寬:" ) ; 
+double w = width . nextDouble ( ) ; 
+System . out . println ( "請輸入高:" ) ; 
+double h = height . nextDouble ( ) ; 
+println ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="io:不會使用輸入scanner類別"><Message>因為鍵盤只有一個，Scanner物件可以宣告一次即可，不需要針對每一次讀取鍵盤，宣告不同的scanner物件。
+例如 應將程式碼改為
+Scanner scanner = new Scanner(System.in);  l = scanner.nextInt();  w = scanner.nextInt();  h = scanner.nextInt();</Message><Linelist><line Begin="15" End="17" src="KKbox" /></Linelist></Error><Error tpye="函數:函數概念不清楚"><Message>需分辨函數與變數的不同。
+例如,在本程式中應刪除此段函數 在main裡加入以下程式碼 KKBox box = new KKBox();  System.out.println("Volume: " + box.Volume());  System.out.println("SurfaceArea: " + box.SurfaceArea()); </Message><Linelist><line Begin="6" End="9" src="KKbox" /><line Begin="24" End="24" src="KKbox" /></Linelist></Error><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>"物件資料/動作與類別資料/動作的差別在於有無static宣告。
+有static宣告的是類別資料/動作，物件資料/動作則無static宣告。
+類別資料/動作只有一份，且為類別與所有該類別的物件共享，
+物件資料則是每個物件各有獨立的一份，彼此不相關。"
+例如 本段應更改為 public double length;  public double width;  public double height;  </Message><Linelist><line Begin="26" End="30" src="KKbox" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+例如 本段應更改為 public double length;  public double width;  public double height;  </Message><Linelist><line Begin="13" End="13" src="KKbox" /><line Begin="26" End="29" src="KKbox" /></Linelist></Error></Errors></ErrorList>

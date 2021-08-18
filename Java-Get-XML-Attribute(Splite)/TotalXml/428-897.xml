@@ -1,0 +1,38 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\428\428.xml">
+	
+<SourceCode_List><SourceCode lines="17" name="countnum.java">public class countnum { 
+String str ; 
+String n ; 
+int count = 0 ; 
+public int countnum ( String str , String n ) { 
+for ( int i = 0 ; i &lt; str . length ( ) ; i ++ ) { 
+count ++ ; 
+int c = str . charAt ( i ) ; 
+return count ; 
+} 
+} 
+public static void main ( String [ ] args ) { 
+String str = args [ 0 ] ; 
+System . out . println ( "length:" + countnum ( ) ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數概念不清楚"><Message>需分辨函數與變數的不同。
+函數未宣告，若需要使用該函數，請在類別中宣告。 
+例如: 
+int 函數名稱(參數) { ... }</Message><Linelist><line Begin="4" End="4" src="countnum" /></Linelist></Error><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>物件資料/動作與類別資料/動作的差別在於有無static宣告。
+有static宣告的是類別資料/動作，物件資料/動作則無static宣告。
+類別資料/動作只有一份，且為類別與所有該類別的物件共享，
+物件資料則是每個物件各有獨立的一份，彼此不相關。</Message><Linelist><line Begin="14" End="14" src="countnum" /></Linelist></Error><Error tpye="迴圈:迴圈概念錯誤"><Message>迴圈概念:
+for(開始位置;結束位置;增減數量){
+內容...
+}
+while(狀態){
+內容...
+}
+
+請注意若增減的變數或狀態與起始位置變數不同，
+會導致開始位置變數沒更新，可能導致無窮迴圈。
+
+函數必須有回傳值，否則要在函數宣告錢加上void
+回傳值應該在做完函數後再回傳，而非每經過迴圈都回傳</Message><Linelist><line Begin="8" End="8" src="countnum" /></Linelist></Error><Error tpye="運算:運算錯誤:型態不符無法運算"><Message>型態相同者才能進行運算，例如:字串與字串、數字與數字。
+運算不能用陣列，因為陣列無法計算長度 String str="999999999";</Message><Linelist><line Begin="13" End="13" src="countnum" /></Linelist></Error></Errors></ErrorList>

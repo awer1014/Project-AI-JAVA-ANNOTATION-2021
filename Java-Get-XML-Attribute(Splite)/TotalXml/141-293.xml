@@ -1,0 +1,10 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\Extra10 Q\141\141.xml">
+	
+<SourceCode_List><SourceCode lines="8" name="mymath.java">public class mymath { 
+public static void main ( String [ ] arge ) { 
+int x = Integer . parseInt ( arge [ 0 ] ) ; 
+int y = Integer . parseInt ( arge [ 1 ] ) ; 
+System . out . println ( x * y ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確。</Message><Linelist><line Begin="-1" End="-1" src="mymath" /></Linelist></Error></Errors></ErrorList>

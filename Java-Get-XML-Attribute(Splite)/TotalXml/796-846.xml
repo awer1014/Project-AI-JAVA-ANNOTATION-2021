@@ -1,0 +1,86 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\796\796.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="Evaluation.java">abstract public class Evaluation { 
+private static int count ; 
+protected String pid , name , type ; 
+protected Keeper keeper ; 
+public Evaluation ( String p , String n , String t , Keeper k ) { 
+pid = p ; 
+name = n ; 
+type = t ; 
+count ++ ; 
+keeper = k ; 
+} 
+public static int getcount ( ) { 
+return count ; 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="Exam.java">public class Exam extends Evaluation { 
+public Exam ( String p , String n , String t , Keeper k ) { 
+super ( p , n , t , k ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="HomeWork.java">public class HomeWork extends Evaluation { 
+public HomeWork ( String p , String n , String t , Keeper k ) { 
+super ( p , n , t , k ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="14" name="Keeper.java">public class Keeper { 
+private String id , tel , name ; 
+public Keeper ( String n , String i , String t ) { 
+id = i ; 
+tel = t ; 
+name = n ; 
+} 
+public void display ( ) { 
+System . out . println ( "飼主名稱 : " + name ) ; 
+System . out . println ( "飼主身分證字號 : " + id ) ; 
+System . out . println ( "飼主電話 : " + tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="Report.java">public class Report extends Evaluation { 
+public Report ( String p , String n , String t , Keeper k ) { 
+super ( p , n , t , k ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="38" name="Test.java">import java . util . Scanner ; 
+public class Test { 
+public static void main ( String [ ] args ) { 
+Scanner scan = new Scanner ( System . in ) ; 
+boolean b = true ; 
+while ( b ) { 
+System . out . print ( "請輸入種類 : " ) ; 
+String pt = scan . nextLine ( ) ; 
+if ( pt . equals ( "0" ) ) { 
+b = false ; 
+break ; 
+} 
+System . out . print ( "請輸入學生學號: " ) ; 
+String pp = scan . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名 : " ) ; 
+String pn = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績 : " ) ; 
+String kn = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重 : " ) ; 
+String ki = scan . nextLine ( ) ; 
+System . out . print ( "請輸入考試日期 : " ) ; 
+String kt = scan . nextLine ( ) ; 
+System . out . print ( "請輸入考試範圍 : " ) ; 
+String kd = scan . nextLine ( ) ; 
+System . out . print ( "--------------------" ) ; 
+Keeper k = new Keeper ( kn , ki , kt ) ; 
+Evaluation p ; 
+if ( pt . equals ( "1" ) ) 
+p = new Exam ( pp , pn , pt , k ) ; 
+else if ( pt . equals ( "2" ) ) 
+p = new HomeWork ( pp , pn , pt , k ) ; 
+else 
+p = new Report ( pp , pn , pt , k ) ; 
+System . out . println ( "您輸入的是 : " ) ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。
+實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+本程式的getcount()動作應隨不同的的子類別有不同的變化，因此須宣告為抽象動作，例如:
+abstract public int getcount ( ) ;</Message><Linelist><line Begin="5" End="7" src="Evaluation" /></Linelist></Error></Errors></ErrorList>

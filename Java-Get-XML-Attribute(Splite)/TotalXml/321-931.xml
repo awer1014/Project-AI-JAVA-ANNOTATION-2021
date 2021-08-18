@@ -1,0 +1,32 @@
+<ErrorList id="C:\Users\user\Desktop\待修正\321\321.xml">
+	
+<SourceCode_List><SourceCode lines="25" name="toss.java">public class toss { 
+int number ; 
+int CircleIn ; 
+double Inans ; 
+int CircleOut ; 
+double Outans ; 
+public toss ( int number , int CircleIn , double Inans , int CircleOut , double Outans ) { 
+this . number = number ; 
+this . CircleIn = CircleIn ; 
+this . Inans = Inans ; 
+this . CircleOut = CircleOut ; 
+this . Outans = Outans ; 
+} 
+public static void main ( String [ ] args ) { 
+double Inans = Double . parseDouble ( args [ 0 ] ) ; 
+double Outans = Double . parseDouble ( args [ 1 ] ) ; 
+toss t = new toss ( number , CircleIn , Inana , CircleOut , Outans ) ; 
+System . out . println ( "請輸入模擬次數:" + number ) ; 
+System . out . println ( "圓內次數:" + CircleIn ) ; 
+System . out . println ( "出現比率:" + Inans ) ; 
+System . out . println ( "圓外次數:" + CircleOut ) ; 
+System . out . println ( "出現比率:" + Outans ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+</Message><Linelist><line Begin="6" End="6" src="toss" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>建構子本身不是物件動作函數，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。此外，建構子可將獲得的參數資料，透過this指令賦予給物件或類別資料,如:
+建構子(參數){
+...
+this.物件資料 = 參數; 
+}</Message><Linelist><line Begin="15" End="21" src="toss" /></Linelist></Error></Errors></ErrorList>

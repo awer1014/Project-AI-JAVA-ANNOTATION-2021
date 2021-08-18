@@ -1,0 +1,62 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\447\447.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="Keeper.java">public class Keeper { 
+private String id ; 
+private String tel ; 
+public Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+public void display ( ) { 
+System . out . println ( "身分證字號:" + id ) ; 
+System . out . println ( "電話:" + tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="23" name="Pet.java">public class Pet { 
+static int count ; 
+private String pid ; 
+private String name ; 
+private String type ; 
+public Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+public void speak ( ) { 
+if ( type . equals ( "狗" ) ) 
+System . out . println ( "汪汪" ) ; 
+if ( type . equals ( "貓" ) ) 
+System . out . println ( "喵喵" ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "編號:" + pid ) ; 
+System . out . println ( "名稱:" + name ) ; 
+System . out . println ( "種類:" + type ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="22" name="test.java">import java . util . Scanner ; 
+public class test { 
+public static void main ( String [ ] args ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+while ( true ) { 
+System . out . println ( "請輸入寵物種類:" ) ; 
+String s = sc . nextLine ( ) ; 
+if ( s . equals ( "0" ) ) break ; 
+System . out . println ( "請輸入寵物編號:" ) ; 
+String sp = sc . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱:" ) ; 
+String sn = sc . nextLine ( ) ; 
+System . out . println ( "請輸入飼主身分證字號:" ) ; 
+String se = sc . nextLine ( ) ; 
+System . out . println ( "請輸入飼主電話:" ) ; 
+String st = sc . nextLine ( ) ; 
+System . out . println ( "-------------------------------------" ) ; 
+} 
+System . out . println ( "您輸入的是:" ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+建立物件之間的關係，要加一個物件資料private Keeper keeper:
+</Message><Linelist><line Begin="8" End="8" src="Pet" /><line Begin="14" End="14" src="Pet" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+例如，Pet p = new Pet(sp,...);
+Keeper k = new Keeper(se,...);</Message><Linelist><line Begin="4" End="5" src="test" /></Linelist></Error></Errors></ErrorList>

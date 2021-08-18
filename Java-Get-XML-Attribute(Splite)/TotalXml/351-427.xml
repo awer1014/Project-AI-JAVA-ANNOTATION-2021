@@ -1,0 +1,34 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\351\351.xml">
+	
+<SourceCode_List><SourceCode lines="17" name="KKBox.java">public class KKBox { 
+int L ; 
+int W ; 
+int H ; 
+static int Test ( int volume ) { 
+ans = 1 ; 
+ans = L * W * H ; 
+return ans ; 
+} 
+public static void main ( String [ ] args ) { 
+L = 1 ; 
+W = 2 ; 
+H = 3 ; 
+System . out . println ( "volume:" + volume ( ans ) ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數結構不清楚"><Message>函數的宣告架構如下:
+回傳值型態 函數名稱(參數型態 參數，...) { ... }
+
+含數未宣告,
+請先宣告該函數.
+例如:
+int 函數名稱(參數){
+}</Message><Linelist><line Begin="14" End="14" src="KKBox" /></Linelist></Error><Error tpye="函數:未傳遞參數或傳回值"><Message>函數必須要宣告回傳值的型態，否則要在函數宣告前加上void。此外，函式邏輯必須完備，避免造成某些狀況無傳回值。再者，呼叫函數時則需要注意傳遞正確型態的參數。
+
+如果呼叫函數需傳遞參數，請先宣告該參數正確的型態並取得正確的值之後，再呼叫函數。例如:
+int a = 1;
+函數(a);</Message><Linelist><line Begin="14" End="14" src="KKBox" /></Linelist></Error><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>物件資料/動作與類別資料/動作的差別在於有無static宣告。
+有static宣告的是類別資料/動作，物件資料/動作則無static宣告。
+類別資料/動作只有一份，且為類別與所有該類別的物件共享，
+物件資料則是每個物件各有獨立的一份，彼此不相關。</Message><Linelist><line Begin="4" End="4" src="KKBox" /><line Begin="3" End="3" src="KKBox" /><line Begin="2" End="2" src="KKBox" /></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message>ans變數需先宣告後才能使用
+</Message><Linelist><line Begin="6" End="6" src="KKBox" /></Linelist></Error></Errors></ErrorList>

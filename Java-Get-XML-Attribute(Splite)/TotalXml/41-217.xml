@@ -1,0 +1,65 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\41\41.xml">
+	
+<SourceCode_List><SourceCode lines="30" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+private String title , receiver , content , sender , date ; 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+ChineseLetter ( String t , String r , String c , String s , String d ) { 
+title = t ; 
+receiver = r ; 
+content = c ; 
+sender = s ; 
+date = d ; 
+} 
+public void display ( ) { 
+System . out . println ( getReceiver ( ) + " " + this . title + ", 您好" ) ; 
+System . out . println ( this . content ) ; 
+System . out . println ( getSender ( ) + " 敬上" ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="31" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+private String title , receiver , content , sender , date ; 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+EnglishLetter ( String t , String r , String c , String s , String d ) { 
+title = t ; 
+receiver = r ; 
+content = c ; 
+sender = s ; 
+date = d ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + this . title + " " + getReceiver ( ) + "," ) ; 
+System . out . println ( this . content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( getSender ( ) ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="4" name="Letter.java">abstract public class Letter { 
+abstract public void display ( ) ; 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。</Message><Linelist><line Begin="2" End="9" src="ChineseLetter" /><line Begin="14" End="19" src="ChineseLetter" /><line Begin="26" End="28" src="ChineseLetter" /><line Begin="2" End="15" src="EnglishLetter" /><line Begin="23" End="25" src="EnglishLetter" /></Linelist></Error></Errors></ErrorList>

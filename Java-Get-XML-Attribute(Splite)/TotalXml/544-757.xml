@@ -1,0 +1,81 @@
+<ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文研究\Data\黃崇睿xml\error\544.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+public void display ( ) { 
+System . out . println ( getReceiver ( ) + " " + getTitle ( ) + ", 您好" ) ; 
+System . out . println ( getContent ( ) ) ; 
+System . out . println ( getSender ( ) + " 敬上" ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="13" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+public EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + getTitle ( ) + " " + getReceiver ( ) + "," ) ; 
+System . out . println ( getContent ( ) ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( getSender ( ) ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="16" name="Envelop.java">public class Envelop extends ChineseLetter { 
+private String senderAddr , receiverAddr ; 
+Letter letter ; 
+private String title , receiver , content , sender , date ; 
+public Envelop ( String senderAddr , String receiverAddr , Letter letter ) { 
+this . senderAddr = senderAddr ; 
+this . receiverAddr = receiverAddr ; 
+super ( title , receiver , content , sender , date ) = letter ; 
+} 
+public void display ( ) { 
+System . out . println ( "From:" + senderAddr + ", " + letter . getSender ( ) ) ; 
+System . out . println ( "To:" + receiverAddr + ", " + letter . getReceiver ( ) + letter . getTitle ( ) ) ; 
+System . out . println ( "信件內容：" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="27" name="Letter.java">abstract public class Letter { 
+protected String title , receiver , content , sender , date ; 
+public Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+abstract public void display ( ) ; 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+public String getTitle ( ) { 
+return title ; 
+} 
+public String getContent ( ) { 
+return content ; 
+} 
+} 
+</SourceCode><SourceCode lines="8" name="Test.java">public class Test { 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+Envelop env = new Envelop ( "Taipei" , "Kaohsiung" , lt ) ; 
+env . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="繼承:使用super產生繼承物件"><Message>在JAVA，super代表父類別，例如，子類別的建構子可以使用super()函式呼叫父類別的建構子，來建立父類別物件，接著建立本身的物件。例如:
+class B extends A {
+   B() {
+     super();
+	 ...
+}
+例如，本程式的Envelop類別，這裡不需要使用super
+應該改成this.letter = letter</Message><Linelist><line Begin="5" End="5" src="Envelop" /></Linelist></Error></Errors></ErrorList>

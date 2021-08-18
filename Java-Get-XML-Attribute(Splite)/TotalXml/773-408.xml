@@ -1,0 +1,124 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\773\773.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="EvalutionE.java">abstract public class EvalutionE { 
+protected String sid , name , date , range , deadline , discribe , content , literature , grade , proportion ; 
+public EvalutionE ( String s , String n , String g , String p , String d , String r ) { 
+sid = s ; 
+name = n ; 
+grade = g ; 
+proportion = p ; 
+date = d ; 
+range = r ; 
+} 
+} 
+</SourceCode><SourceCode lines="12" name="EvalutionH.java">abstract public class EvalutionH { 
+protected String sid , name , date , range , deadline , discribe , content , literature , grade , proportion ; 
+public EvalutionH ( String s , String n , String g , String p , String dl , String dis ) { 
+sid = s ; 
+name = n ; 
+grade = g ; 
+proportion = p ; 
+deadline = dl ; 
+discribe = dis ; 
+} 
+} 
+</SourceCode><SourceCode lines="12" name="EvalutionR.java">abstract public class EvalutionR { 
+protected String sid , name , date , range , deadline , discribe , content , literature , grade , proportion ; 
+public EvalutionR ( String s , String n , String g , String p , String c , String l ) { 
+sid = s ; 
+name = n ; 
+grade = g ; 
+proportion = p ; 
+content = c ; 
+literature = l ; 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="Exam.java">public class Exam extends EvalutionE { 
+public Exam ( String s , String n , String g , String p , String d , String r ) { 
+super ( s , n , g , p , d , r ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="Homework.java">public class Homework extends EvalutionH { 
+public Homework ( String s , String n , String g , String p , String dl , String dis ) { 
+super ( s , n , g , p , dl , dis ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="Report.java">public class Report extends EvalutionR { 
+public Report ( String s , String n , String g , String p , String c , String l ) { 
+super ( s , n , g , p , c , l ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="63" name="Test.java">import java . util . Scanner ; 
+public class Test { 
+public static void main ( String [ ] args ) { 
+Scanner scan = new Scanner ( System . in ) ; 
+boolean b = true ; 
+while ( b ) { 
+System . out . print ( "請輸入種類 1(Exam),2(Homework),3(Report) : " ) ; 
+String t = scan . nextLine ( ) ; 
+if ( t . equals ( "0" ) ) { 
+b = false ; 
+break ; 
+} 
+System . out . print ( "請輸入學生學號 : " ) ; 
+String s = scan . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名 : " ) ; 
+String n = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績 : " ) ; 
+String g = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重 : " ) ; 
+String p = scan . nextLine ( ) ; 
+System . out . print ( "請輸入考試日期 : " ) ; 
+String d = scan . nextLine ( ) ; 
+System . out . print ( "請輸入考試範圍 : " ) ; 
+String r = scan . nextLine ( ) ; 
+EvalutionE e ; 
+System . out . print ( "請輸入學生學號 : " ) ; 
+String ss = scan . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名 : " ) ; 
+String nn = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績 : " ) ; 
+String gg = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重 : " ) ; 
+String pp = scan . nextLine ( ) ; 
+System . out . print ( "請輸入截止日期: " ) ; 
+String dl = scan . nextLine ( ) ; 
+System . out . print ( "請輸入作業描述 : " ) ; 
+String dis = scan . nextLine ( ) ; 
+EvalutionH h ; 
+System . out . print ( "請輸入學生學號 : " ) ; 
+String sss = scan . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名 : " ) ; 
+String nnn = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績 : " ) ; 
+String ggg = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重 : " ) ; 
+String ppp = scan . nextLine ( ) ; 
+System . out . print ( "請輸入報告內容 : " ) ; 
+String c = scan . nextLine ( ) ; 
+System . out . print ( "請輸入參考文獻 : " ) ; 
+String l = scan . nextLine ( ) ; 
+EvalutionR x ; 
+if ( t . equals ( "1" ) ) 
+e = new Exam ( s , n , d , r , g , p ) ; 
+else if ( t . equals ( "2" ) ) 
+h = new Homework ( s , n , g , p , dl , dis ) ; 
+else if ( t . equals ( "3" ) ) 
+x = new Report ( s , n , g , p , c , l ) ; 
+System . out . println ( "您輸入的是 : " ) ; 
+e . display ( ) ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:繼承資料或動作"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如，本程式的Evalution是抽象類別，其建構子如下:
+public Evalution(String s,String n,String g,String p) {
+   ...   
+}
+因此，子類別呼叫super(...)須注意參數順序與父類別一致，例如，
+super ( s , n , g , p ) ;</Message><Linelist><line Begin="1" End="11" src="EvalutionE" /><line Begin="1" End="11" src="EvalutionH" /><line Begin="1" End="11" src="EvalutionR" /><line Begin="3" End="3" src="Exam" /><line Begin="3" End="3" src="Homework" /><line Begin="3" End="3" src="Report" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>建構子本身不是物件動作函數，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。
+此外，建構子可將獲得的參數資料，透過this指令賦予給物件或類別資料,如:
+建構子(參數){
+...
+this.物件資料 = 參數; 
+}</Message><Linelist><line Begin="2" End="4" src="Exam" /><line Begin="2" End="4" src="Homework" /><line Begin="2" End="4" src="Report" /></Linelist></Error></Errors></ErrorList>

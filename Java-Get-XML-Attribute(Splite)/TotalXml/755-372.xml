@@ -1,0 +1,93 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\755\755.xml">
+	
+<SourceCode_List><SourceCode lines="52" name="Keeper.java">import java . util . Scanner ; 
+import java . util . Random ; 
+public class Keeper { 
+public String id ; 
+public String tel ; 
+public Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+void display ( ) { 
+System . out . println ( "身分證字號" + id ) ; 
+System . out . println ( "飼主電話" + tel ) ; 
+} 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+public static int choosePet ( ) { 
+System . out . println ( "Choose a pet:" ) ; 
+System . out . println ( "1. 狗狗" ) ; 
+System . out . println ( "2. 貓貓" ) ; 
+int c = 0 ; 
+do 
+{ 
+c = keyboard . nextInt ( ) ; 
+} 
+while ( c &gt; 2 || c &lt; 1 ) ; 
+return c ; 
+} 
+public static int randomChoosePet ( ) { 
+int c = 0 ; 
+Random w = new Random ( ) ; 
+c = w . nextInt ( 2 ) + 1 ; 
+return c ; 
+} 
+public static void main ( String [ ] args ) { 
+String p , n , t , i , tel ; 
+int count ; 
+Scanner scanner = new Scanner ( System . in ) ; 
+Pet name1 = new Pet ( "狗狗" , "d001" , "Timmy" ) ; 
+Pet name2 = new Pet ( "貓貓" , "c001" , "Cathy" ) ; 
+p = scanner . nextLine ( ) ; 
+n = scanner . nextLine ( ) ; 
+t = scanner . nextLine ( ) ; 
+i = scanner . nextLine ( ) ; 
+tel = scanner . nextLine ( ) ; 
+System . out . println ( "寵物編號" + p ) ; 
+System . out . println ( "寵物名稱" + n ) ; 
+System . out . println ( "寵物類別" + t ) ; 
+System . out . println ( "身分證字號" + i ) ; 
+System . out . println ( "飼主電話" + tel ) ; 
+System . out . println ( "總和" + count ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="31" name="Pet.java">import java . util . Scanner ; 
+public class Pet { 
+public static int count ; 
+public String pid ; 
+public String name ; 
+public String type ; 
+public Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+count ++ ; 
+} 
+public void setName ( int a ) { 
+if ( a == 1 ) 
+this . name = "狗狗" ; 
+if ( a == 2 ) 
+this . name = "貓貓" ; 
+} 
+public void speak ( int n ) { 
+if ( n == 1 ) 
+this . name = "喵喵" ; 
+if ( n == 2 ) 
+this . name = "旺旺" ; 
+} 
+void display ( ) { 
+System . out . println ( "寵物編號" + pid ) ; 
+System . out . println ( "寵物名稱" + name ) ; 
+System . out . println ( "寵物類別" + type ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。
+例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+可利用建構子建立keeper物件變數的值，例如:
+public Pet ( String pid , String name , String type ,  Keeper keeper) { 
+    ...
+    this.keeper = keeper;
+}</Message><Linelist><line Begin="3" End="3" src="Pet" /><line Begin="24" End="24" src="Pet" /><line Begin="24" End="29" src="Pet" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是，類別名稱 物件變數 = new 類別名稱(參數);
+例如，下列指令:
+Keeper k1 = new Keeper(i,tel);
+透過Keeper建構子，將i與tel的資料傳遞給物件k1。</Message><Linelist><line Begin="9" End="10" src="Keeper" /><line Begin="15" End="16" src="Keeper" /></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message>count變數沒有給予值無法使用。</Message><Linelist><line Begin="7" End="7" src="Keeper" /><line Begin="21" End="21" src="Keeper" /></Linelist></Error></Errors></ErrorList>

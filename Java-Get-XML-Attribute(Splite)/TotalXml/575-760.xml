@@ -1,0 +1,81 @@
+<ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文研究\Data\黃崇睿xml\correct\575.xml">
+	
+<SourceCode_List><SourceCode lines="20" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getSender ( ) { 
+return sender ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + " " + title + ", 您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="21" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getSender ( ) { 
+return sender ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + receiver + " " + title ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="29" name="Letter.java">abstract public class Letter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String date ; 
+Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getSender ( ) { 
+return sender ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + " " + title + ", 您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + "敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="8" name="Test.java">public class Test { 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+Letter ct = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+ct . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確</Message><Linelist><line Begin="-1" End="-1" src="ChineseLetter" /></Linelist></Error></Errors></ErrorList>

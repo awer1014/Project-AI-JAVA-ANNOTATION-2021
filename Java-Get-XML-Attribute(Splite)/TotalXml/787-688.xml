@@ -1,0 +1,122 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\787\787.xml">
+	
+<SourceCode_List><SourceCode lines="6" name="Homework.java">public class Homework extends require { 
+public Homework ( student s , String i , String d , String t ) { 
+super ( s , i , d , t ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="Quiz.java">public class Quiz extends require { 
+public Quiz ( student s , String i , String d , String t ) { 
+super ( s , i , d , t ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="Report.java">public class Report extends require { 
+public Report ( student s , String i , String d , String t ) { 
+super ( s , i , d , t ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="57" name="Test.java">import java . util . Scanner ; 
+public class Test { 
+public static void main ( String [ ] args ) { 
+Scanner scan = new Scanner ( System . in ) ; 
+boolean a = true ; 
+while ( a ) { 
+System . out . print ( "請輸入種類 (測驗),(作業),(心得報告)(0結束): " ) ; 
+String as = scan . nextLine ( ) ; 
+if ( as . equals ( "0" ) ) { 
+a = false ; 
+break ; 
+} 
+System . out . print ( "請輸入學生學號: " ) ; 
+String id = scan . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名: " ) ; 
+String name = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績: " ) ; 
+double grade = scan . nextDouble ( ) ; 
+scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重: " ) ; 
+double gradepp = scan . nextDouble ( ) ; 
+scan . nextLine ( ) ; 
+String d , t ; 
+student s = new student ( id , name , grade , gradepp ) ; 
+require r = null ; 
+if ( as . equals ( "測驗" ) ) { 
+System . out . println ( "輸入考試日期: " ) ; 
+d = scan . nextLine ( ) ; 
+System . out . println ( "輸入考試範圍: " ) ; 
+t = scan . nextLine ( ) ; 
+r = new Quiz ( s , as , d , t ) ; 
+} 
+else if ( as . equals ( "作業" ) ) { 
+System . out . println ( "輸入截止日期: " ) ; 
+d = scan . nextLine ( ) ; 
+System . out . println ( "輸入作業描述: " ) ; 
+t = scan . nextLine ( ) ; 
+r = new Homework ( s , as , d , t ) ; 
+} 
+else if ( as . equals ( "心得報告" ) ) { 
+System . out . println ( "輸入報告內容: " ) ; 
+d = scan . nextLine ( ) ; 
+System . out . println ( "輸入參考文獻: " ) ; 
+t = scan . nextLine ( ) ; 
+r = new Report ( s , as , d , t ) ; 
+} 
+System . out . print ( "--------------------" ) ; 
+System . out . println ( "您輸入的是 : " ) ; 
+if ( r != null ) { 
+s . display ( ) ; 
+r . display ( ) ; 
+} 
+System . out . print ( "--------------------" ) ; 
+} 
+} 
+} 
+</SourceCode><SourceCode lines="28" name="require.java">abstract public class require { 
+private String id , date , type ; 
+private student student ; 
+public require ( student s , String i , String d , String t ) { 
+student = s ; 
+id = i ; 
+date = d ; 
+type = t ; 
+} 
+public void display ( ) { 
+if ( id . equals ( "測驗" ) ) { 
+System . out . println ( "測驗: " + id ) ; 
+System . out . println ( "考試日期: " + date ) ; 
+System . out . println ( "考試範圍: " + type ) ; 
+} 
+else if ( id . equals ( "作業" ) ) { 
+System . out . println ( "測驗: " + id ) ; 
+System . out . println ( "截止日期: " + date ) ; 
+System . out . println ( "作業描述: " + type ) ; 
+} 
+else if ( id . equals ( "心得報告" ) ) { 
+System . out . println ( "測驗: " + id ) ; 
+System . out . println ( "報告內容: " + date ) ; 
+System . out . println ( "參考文獻: " + type ) ; 
+} 
+} 
+} 
+</SourceCode><SourceCode lines="17" name="student.java">public class student { 
+private String id , name ; 
+private double grade , gradepp ; 
+student ( String i , String n , double g , double p ) { 
+id = i ; 
+name = n ; 
+grade = g ; 
+gradepp = p ; 
+} 
+public void display ( ) { 
+System . out . println ( "學生學號：" + id ) ; 
+System . out . println ( "學生姓名：" + name ) ; 
+System . out . println ( "學生成績：" + grade ) ; 
+System . out . println ( "成績比重：" + gradepp ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。
+實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+本程式的display( )動作應隨不同的的子類別有不同的變化，因此須宣告為抽象動作，例如:
+public abstract void display ( ) ;</Message><Linelist><line Begin="2" End="18" src="require" /></Linelist></Error><Error tpye="抽象:覆寫抽象動作"><Message>抽象動作實際的函式內容是由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+注意:子類別函式的存取權限層級不能小於父類別函式的存取權限層級。
+應覆寫父類別的抽象動作 display ( ) 。</Message><Linelist><line Begin="4" End="4" src="Homework" /><line Begin="4" End="4" src="Quiz" /><line Begin="4" End="4" src="Report" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,30 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\412\412.xml">
+	
+<SourceCode_List><SourceCode lines="23" name="kkbox.java">public class kkbox { 
+static int n ; 
+static int b ; 
+static int length ; 
+static int width ; 
+static int height ; 
+static double volume ( int n ) { 
+n = length * width * height ; 
+return n ; 
+} 
+static double surfaceArea ( int b ) { 
+b = 2 * length * width + width * height + height * length ; 
+return b ; 
+} 
+public static void main ( String [ ] x ) { 
+System . out . println ( "請輸入長:" + length ) ; 
+System . out . println ( "請輸入寬:" + width ) ; 
+System . out . println ( "請輸入高:" + height ) ; 
+System . out . println ( "體積:" + n ) ; 
+System . out . println ( "表面積:" + b ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+例如，
+KKBOx b = new KKBOx(l,w,h);
+呼叫時可用b.volume();  </Message><Linelist><line Begin="7" End="8" src="kkbox" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。</Message><Linelist><line Begin="17" End="17" src="kkbox" /><line Begin="13" End="13" src="kkbox" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,16 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\813\813.xml">
+	
+<SourceCode_List><SourceCode lines="14" name="B.java">import java . util . Scanner ; 
+class B { 
+int X ( int x ) { 
+x = 3 ; 
+return x ; 
+} 
+public static void main ( String [ ] args ) { 
+Scanner k = new Scanner ( System . in ) ; 
+int y = 0 ; 
+y = k . nextInt ( ) ; 
+double z = X ( y ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確。</Message><Linelist><line Begin="-1" End="-1" src="B" /></Linelist></Error></Errors></ErrorList>

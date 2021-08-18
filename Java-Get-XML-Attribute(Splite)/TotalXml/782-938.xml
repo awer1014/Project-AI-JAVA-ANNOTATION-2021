@@ -1,0 +1,158 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\782\782.xml">
+	
+<SourceCode_List><SourceCode lines="75" name="Evaluation.java">import java . util . Scanner ; 
+public class Evaluation { 
+public static void main ( ) { 
+Scanner scan = new Scanner ( System . in ) ; 
+System . out . print ( "請輸入種類(1=測驗,2=作業,3=心得報告)" ) ; 
+String k = scan . nextLine ( ) ; 
+if ( k . equals ( "1" ) ) { 
+System . out . print ( "請輸入學生學號" ) ; 
+String num = scan . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名" ) ; 
+String name = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績" ) ; 
+String sc = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重" ) ; 
+String s = scan . nextLine ( ) ; 
+System . out . print ( "請輸入考試日期" ) ; 
+String d = scan . nextLine ( ) ; 
+System . out . print ( "請輸入考試範圍" ) ; 
+String r = scan . nextLine ( ) ; 
+System . out . println ( "您輸入的是:" ) ; 
+System . out . println ( "種類:" + k ) ; 
+System . out . println ( "學生學號:" + num ) ; 
+System . out . println ( "學生姓名:" + name ) ; 
+System . out . println ( "成績:" + sc ) ; 
+System . out . println ( "成績比重:" + s ) ; 
+System . out . println ( "考試日期:" + d ) ; 
+System . out . println ( "考試範圍:" + r ) ; 
+} 
+else if ( k . equals ( "2" ) ) { 
+System . out . print ( "請輸入學生學號" ) ; 
+String num = scan . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名" ) ; 
+String name = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績" ) ; 
+String sc = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重" ) ; 
+String s = scan . nextLine ( ) ; 
+System . out . print ( "請輸入截止日期" ) ; 
+String d = scan . nextLine ( ) ; 
+System . out . print ( "請輸入作業描述" ) ; 
+String i = scan . nextLine ( ) ; 
+System . out . println ( "您輸入的是:" ) ; 
+System . out . println ( "種類:" + k ) ; 
+System . out . println ( "學生學號:" + num ) ; 
+System . out . println ( "學生姓名:" + name ) ; 
+System . out . println ( "成績:" + sc ) ; 
+System . out . println ( "成績比重:" + s ) ; 
+System . out . println ( "截止日期:" + d ) ; 
+System . out . println ( "作業描述:" + i ) ; 
+} 
+else { 
+System . out . print ( "請輸入學生學號" ) ; 
+String num = scan . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名" ) ; 
+String name = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績" ) ; 
+String sc = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重" ) ; 
+String s = scan . nextLine ( ) ; 
+System . out . print ( "請輸入報告內容" ) ; 
+String i = scan . nextLine ( ) ; 
+System . out . print ( "請輸入參考文獻" ) ; 
+String r = scan . nextLine ( ) ; 
+System . out . println ( "您輸入的是:" ) ; 
+System . out . println ( "種類:" + k ) ; 
+System . out . println ( "學生學號:" + num ) ; 
+System . out . println ( "學生姓名:" + name ) ; 
+System . out . println ( "成績:" + sc ) ; 
+System . out . println ( "成績比重:" + s ) ; 
+System . out . println ( "報告內容:" + i ) ; 
+System . out . println ( "參考文獻:" + r ) ; 
+} 
+} 
+} 
+</SourceCode><SourceCode lines="26" name="Exam.java">import java . util . Scanner ; 
+public class Exam extends output { 
+public void kind ( ) { 
+Scanner scan = new Scanner ( System . in ) ; 
+System . out . print ( "請輸入學生學號" ) ; 
+String num = scan . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名" ) ; 
+String name = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績" ) ; 
+String sc = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重" ) ; 
+String s = scan . nextLine ( ) ; 
+System . out . print ( "請輸入考試日期" ) ; 
+String d = scan . nextLine ( ) ; 
+System . out . print ( "請輸入考試範圍" ) ; 
+String r = scan . nextLine ( ) ; 
+System . out . println ( "您輸入的是:" ) ; 
+System . out . println ( "學生學號:" + num ) ; 
+System . out . println ( "學生姓名:" + name ) ; 
+System . out . println ( "成績:" + sc ) ; 
+System . out . println ( "成績比重:" + s ) ; 
+System . out . println ( "考試日期:" + d ) ; 
+System . out . println ( "考試範圍:" + r ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="26" name="HW.java">import java . util . Scanner ; 
+public class HW extends output { 
+public void kind ( ) { 
+Scanner scan = new Scanner ( System . in ) ; 
+System . out . print ( "請輸入學生學號" ) ; 
+String num = scan . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名" ) ; 
+String name = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績" ) ; 
+String sc = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重" ) ; 
+String s = scan . nextLine ( ) ; 
+System . out . print ( "請輸入截止日期" ) ; 
+String d = scan . nextLine ( ) ; 
+System . out . print ( "請輸入作業描述" ) ; 
+String i = scan . nextLine ( ) ; 
+System . out . println ( "您輸入的是:" ) ; 
+System . out . println ( "學生學號:" + num ) ; 
+System . out . println ( "學生姓名:" + name ) ; 
+System . out . println ( "成績:" + sc ) ; 
+System . out . println ( "成績比重:" + s ) ; 
+System . out . println ( "截止日期:" + d ) ; 
+System . out . println ( "作業描述:" + i ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="26" name="Report.java">import java . util . Scanner ; 
+public class Report extends output { 
+public void Report ( ) { 
+Scanner scan = new Scanner ( System . in ) ; 
+System . out . print ( "請輸入學生學號" ) ; 
+String num = scan . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名" ) ; 
+String name = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績" ) ; 
+String sc = scan . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重" ) ; 
+String s = scan . nextLine ( ) ; 
+System . out . print ( "請輸入報告內容" ) ; 
+String i = scan . nextLine ( ) ; 
+System . out . print ( "請輸入參考文獻" ) ; 
+String r = scan . nextLine ( ) ; 
+System . out . println ( "您輸入的是:" ) ; 
+System . out . println ( "學生學號:" + num ) ; 
+System . out . println ( "學生姓名:" + name ) ; 
+System . out . println ( "成績:" + sc ) ; 
+System . out . println ( "成績比重:" + s ) ; 
+System . out . println ( "報告內容:" + i ) ; 
+System . out . println ( "參考文獻:" + r ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="5" name="output.java">import java . util . Scanner ; 
+abstract public class output { 
+abstract public void Kind ( ) ; 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:覆寫抽象動作"><Message>抽象動作實際的函式內容是由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+注意:子類別函式的存取權限層級不能小於父類別函式的存取權限層級。
+此題沒有覆寫父類別的抽象動作 Kind ( )。</Message><Linelist><line Begin="3" End="3" src="Exam" /><line Begin="3" End="3" src="HW" /><line Begin="3" End="3" src="Report" /></Linelist></Error></Errors></ErrorList>

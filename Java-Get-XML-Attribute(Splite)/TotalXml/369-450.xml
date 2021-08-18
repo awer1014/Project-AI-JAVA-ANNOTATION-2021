@@ -1,0 +1,13 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\369\369.xml">
+	
+<SourceCode_List><SourceCode lines="10" name="season.java">public class season { 
+String OK ( ) { 
+String [ ] season = { "春夏秋冬" } ; 
+} 
+public static void main ( String [ ] argv ) { 
+Math . random ( ) ; 
+System . out . print ( "今天的心情是 = " + OK ( ) ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數庫使用錯誤"><Message>引用函數錯誤，請確認所呼叫的函數或函數庫是否存在。
+Math.random()是用於隨機產生隨機亂數，應該有變數接收</Message><Linelist><line Begin="3" End="3" src="season" /></Linelist></Error></Errors></ErrorList>

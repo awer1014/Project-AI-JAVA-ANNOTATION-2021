@@ -1,0 +1,50 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\35\35.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+void display ( ) { 
+System . out . println ( receiver + " " + title + ", 您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="13" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+void display ( ) { 
+System . out . println ( "Dear " + receiver + " " + title ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="25" name="Letter.java">abstract public class Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+protected String sender ; 
+protected String date ; 
+public Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+abstract public void display ( ) ; 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確。</Message><Linelist><line Begin="-1" End="-1" src="ChineseLetter" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,60 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\2\2.xml">
+	
+<SourceCode_List><SourceCode lines="33" name="ChineseLetter.java">public class ChineseLetter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String date ; 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+void display ( ) { 
+System . out . println ( receiver + " " + title + ", " + "您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + "敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+public String getSender ( ) { 
+return this . sender ; 
+} 
+public String getTitle ( ) { 
+return this . title ; 
+} 
+public String getReceiver ( ) { 
+return this . receiver ; 
+} 
+public String getDate ( ) { 
+return this . date ; 
+} 
+} 
+</SourceCode><SourceCode lines="22" name="EnglishLetter.java">public class EnglishLetter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String date ; 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+void display ( ) { 
+System . out . print ( "Dear " + title + receiver + "," ) ; 
+System . out . print ( content ) ; 
+System . out . print ( "Sincerely" ) ; 
+System . out . print ( sender ) ; 
+System . out . print ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="5" name="Letter.java">abstract public class Letter { 
+Letter ( ) { 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。</Message><Linelist><line Begin="8" End="8" src="ChineseLetter" /><line Begin="12" End="13" src="ChineseLetter" /><line Begin="20" End="28" src="ChineseLetter" /><line Begin="2" End="7" src="ChineseLetter" /><line Begin="9" End="11" src="ChineseLetter" /><line Begin="29" End="31" src="ChineseLetter" /><line Begin="2" End="11" src="EnglishLetter" /><line Begin="19" End="20" src="EnglishLetter" /></Linelist></Error><Error tpye="繼承:使用繼承"><Message>為了避免程式和資料的冗餘問題，應該善用繼承的機制。相同的資料或動作可藉由proetced 宣告，給子類別繼承使用。</Message><Linelist><line Begin="1" End="1" src="ChineseLetter" /><line Begin="1" End="1" src="EnglishLetter" /></Linelist></Error></Errors></ErrorList>

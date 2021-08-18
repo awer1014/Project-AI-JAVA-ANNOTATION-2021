@@ -1,0 +1,56 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\56\56.xml">
+	
+<SourceCode_List><SourceCode lines="25" name="ChineseLetter.java">public class ChineseLetter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String data ; 
+ChineseLetter ( String title , String receiver , String content , String sender , String data ) { 
+title = t ; 
+receiver = r ; 
+content = c ; 
+sender = s ; 
+data = d ; 
+} 
+void lt ( ) { 
+System . out . println ( receiver + title + content + sender + data ) ; 
+} 
+public static void main ( String [ ] args ) { 
+ChineseLetter lt = new ChineseLetteer ( ) ; 
+System . out . println ( display . getClass ( ) ) ; 
+System . out . println ( getSender . getClass ( ) ) ; 
+System . out . println ( getReceiver . getClass ( ) ) ; 
+System . out . println ( getData . getClass ( ) ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="9" name="Letter.java">public class Letter extends ChineseLetter { 
+public Letter ( String t , String r , String c , String s , String d ) { 
+super ( t , r , c , s , d ) ; 
+} 
+public static void main ( ) { 
+System . out . println ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+</Message><Linelist><line Begin="4" End="4" src="ChineseLetter" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。
+
+要顯示物件內的資訊,
+依照題意要定義ChineseLetter的display()物件動作
+public void display(){
+System.out.print(getReceiver() + " " + getTitle());
+...
+}
+在主程式中,
+利用ChineseLetter物件呼叫display()即可。
+例如:
+public static void main (String[] args)
+{
+lt.display();
+}</Message><Linelist><line Begin="6" End="9" src="ChineseLetter" /></Linelist></Error><Error tpye="繼承:使用繼承"><Message>為了避免程式和資料的冗餘問題，應該善用繼承的機制。相同的資料或動作可藉由proetced 宣告，給子類別繼承使用。
+
+搞混父類別跟子類別的關係,
+因為ChineseLetter屬於子類別,需繼承Letter
+所以原來ChineseLetter所宣告的資料與動作要放到Letter類別</Message><Linelist><line Begin="1" End="2" src="ChineseLetter" /><line Begin="10" End="17" src="ChineseLetter" /><line Begin="21" End="23" src="ChineseLetter" /><line Begin="1" End="1" src="Letter" /><line Begin="5" End="7" src="Letter" /></Linelist></Error></Errors></ErrorList>

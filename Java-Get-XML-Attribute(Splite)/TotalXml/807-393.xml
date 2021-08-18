@@ -1,0 +1,15 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\807\807.xml">
+	
+<SourceCode_List><SourceCode lines="10" name="B.java">class B { 
+void A ( ) { 
+} 
+public static void main ( String [ ] args ) { 
+int y = 0 ; 
+int x = 0 ; 
+y = A ( x ) + 100 ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message>函數必須要宣告回傳值的型態，否則要在函數宣告前加上void。
+此外，函式邏輯必須完備，避免造成某些狀況無傳回值。
+再者，呼叫函數時則需要注意傳遞正確型態的參數。
+A 函數本身無須傳遞任何參數，因此在呼叫A函數時，不可將任何值放入參數列中。</Message><Linelist><line Begin="7" End="7" src="B" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,28 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\763(未完成)\763.xml">
+	
+<SourceCode_List><SourceCode lines="23" name="Pet.java">class Pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+Pet ( ) { 
+count ++ ; 
+} 
+Pet ( String name , String type , String pid ) { 
+count ++ ; 
+this . name = name ; 
+this . type = type ; 
+this . pid = pid ; 
+} 
+void speak ( Pet x ) { 
+} 
+void display ( ) { 
+System . out . println ( "Name:" + name ) ; 
+System . out . println ( "pid:" + pid ) ; 
+System . out . println ( "type:" + type ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。 實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。 以本程式為例，speak函式式抽象動作，應改成abstict void speak ( )。</Message><Linelist><line Begin="18" End="19" src="Pet" /></Linelist></Error><Error tpye="抽象:繼承資料或動作"><Message>抽象類別須加上abstract關鍵字宣告類別。就像一般的父類別，其資料與動作可以由子類別繼承。
+抽象類別也扮演物件導向多型的重要角色，抽象類別變數可以承接不同的子類別物件，展現不同的行為。
+以本程式為例，pid, name是可被繼承的物件資料，前面應該加上protective，例如，
+protective String pid;</Message><Linelist><line Begin="6" End="6" src="Pet" /><line Begin="21" End="21" src="Pet" /></Linelist></Error></Errors></ErrorList>

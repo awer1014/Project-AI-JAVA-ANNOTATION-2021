@@ -1,0 +1,55 @@
+<ErrorList id="C:\Users\User\Desktop\錯誤正規化\596\596.xml">
+	
+<SourceCode_List><SourceCode lines="8" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+public ChineseLetter ( ) { 
+} 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="8" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+public EnglishLetter ( ) { 
+} 
+public EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="30" name="Letter.java">abstract public class Letter { 
+private String title ; 
+private String receiver ; 
+private String content ; 
+private String sender ; 
+private String date ; 
+public Letter ( ) { 
+} 
+public Letter ( String a , String b , String c , String d , String e ) { 
+title = a ; 
+receiver = b ; 
+content = c ; 
+sender = d ; 
+date = e ; 
+} 
+void display ( ) { 
+System . out . println ( receiver + " " + title + "您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " " + "敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+void Display ( ) { 
+System . out . println ( "Dear " + receiver + " " + title ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="9" name="text.java">public class text { 
+public static void main ( ) { 
+Letter it = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+it . display ( ) ; 
+Letter It = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+It . Display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。 
+將程式碼更改為 void display(){         System.out.println(receiver+" "+title+", 您好");         System.out.println(content);         System.out.println(sender+" 敬上");         System.out.println(date);        }</Message><Linelist><line Begin="3" End="8" src="Letter" /><line Begin="11" End="13" src="Letter" /><line Begin="24" End="27" src="Letter" /></Linelist></Error><Error tpye="抽象:覆寫抽象動作"><Message>因覆寫抽象動作 故刪除</Message><Linelist><line Begin="3" End="8" src="Letter" /><line Begin="11" End="13" src="Letter" /><line Begin="24" End="27" src="Letter" /></Linelist></Error></Errors></ErrorList>

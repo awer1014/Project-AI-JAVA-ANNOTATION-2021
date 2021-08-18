@@ -1,0 +1,59 @@
+<ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文研究\Data\黃崇睿xml\error\543.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+public void display ( ) { 
+System . out . println ( getReceiver ( ) + " " + getTitle ( ) + ", 您好" ) ; 
+System . out . println ( getContent ( ) ) ; 
+System . out . println ( getSender ( ) + " 敬上" ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="13" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+public EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + getTitle ( ) + " " + getReceiver ( ) + "," ) ; 
+System . out . println ( getContent ( ) ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( getSender ( ) ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="31" name="Letter.java">abstract public class Letter { 
+protected String title , receiver , content , sender , date ; 
+public Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+abstract public void display ( ) ; 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+public String getTitle ( ) { 
+return title ; 
+} 
+public String getContent ( ) { 
+return content ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:繼承資料或動作"><Message>抽象類別須加上abstract關鍵字宣告類別。就像一般的父類別，其資料與動作可以由子類別繼承。抽象類別也扮演物件導向多型的重要角色，抽象類別變數可以承接不同的子類別物件，展現不同的行為。
+例如，本程式的Letter類別需要加上
+Letter el = new EnglishLetter (...) ; 
+el . display ( ) ; </Message><Linelist><line Begin="13" End="14" src="Letter" /></Linelist></Error></Errors></ErrorList>

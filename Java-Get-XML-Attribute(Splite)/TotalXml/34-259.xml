@@ -1,0 +1,87 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\34\34.xml">
+	
+<SourceCode_List><SourceCode lines="17" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+String ChineseLetter ; 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+void display ( ) { 
+System . out . println ( "王 教授, 您好" ) ; 
+System . out . println ( "很高興跟您連絡" ) ; 
+System . out . println ( "銘哥 敬上" ) ; 
+System . out . println ( "2019/01/05" ) ; 
+} 
+public ChineseLetter ( String ChineseLetter ) { 
+this . ChineseLetter = ChineseLetter ; 
+} 
+public String LT ( ) { 
+return ; 
+} 
+} 
+</SourceCode><SourceCode lines="18" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+String EnglishLetter ; 
+Letter lt = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+void display ( ) { 
+System . out . println ( "Dear Professor Wang, " ) ; 
+System . out . println ( "I am glad to write to you!" ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( "J. J. Lin" ) ; 
+System . out . println ( "2019/01/05" ) ; 
+} 
+public EnglishLetter ( String EnglishLetter ) { 
+this . EnglishLetter = EnglishLetter ; 
+} 
+public String LT ( ) { 
+return ; 
+} 
+} 
+</SourceCode><SourceCode lines="32" name="Letter.java">abstract public class Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+protected String sender ; 
+protected String date ; 
+public Letter ( ) { 
+} 
+public Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+abstract void display ( ) ; 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+public static void main ( String [ ] args ) { 
+String receiver = args [ 0 ] ; 
+lt . display ( ) ; 
+} 
+abstract protected String LT ( ) ; 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+在Letter宣告抽象動作,讓子類別去做覆寫</Message><Linelist><line Begin="10" End="15" src="ChineseLetter" /><line Begin="10" End="16" src="EnglishLetter" /></Linelist></Error><Error tpye="物件:不會使用物件資料"><Message>物件資料需要新增物件後，才會有物件資料。請先宣告物件並給予物件資料。
+B類別屬於父類別,才能在B類別宣告一個有著A類別建構子的物件
+並寫在main函式當中
+例如，
+public abstract class Letter 
+{
+public static void main (String[] args)
+{
+Letter lt;
+Letter lt = new ChineseLetter ("...");
+lt.display(); 
+Letter lt = new EnglishLetter("...");
+lt.display();
+}	
+}</Message><Linelist><line Begin="3" End="3" src="ChineseLetter" /><line Begin="6" End="6" src="EnglishLetter" /></Linelist></Error><Error tpye="繼承:使用super產生繼承物件"><Message>在JAVA，super代表父類別，例如，子類別的建構子可以使用super()函式呼叫父類別的建構子，來建立父類別物件，接著建立本身的物件。例如:
+class B extends A {
+   B() {
+     super();
+	 ...
+}</Message><Linelist><line Begin="3" End="5" src="EnglishLetter" /><line Begin="7" End="9" src="ChineseLetter" /></Linelist></Error></Errors></ErrorList>

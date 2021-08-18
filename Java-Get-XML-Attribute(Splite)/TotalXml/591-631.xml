@@ -1,0 +1,42 @@
+<ErrorList id="C:\Users\User\Desktop\錯誤正規化\591\591.xml">
+	
+<SourceCode_List><SourceCode lines="14" name="Letter.java">public class Letter implements Comparable { 
+static String month [ ] = { "01" , "02" , "03" , "04" , "05" , "06" , "07" , "08" , "09" , "10" , "11" , "12" } ; 
+static String day [ ] = { "01" , "02" , "03" , "04" , "05" , "06" , "07" , "08" , "09" , "10" , "11" , "12" , "13" , "14" , "15" , "16" , "17" , "18" , "19" , "20" , "21" , "22" , "23" , "24" , "25" , "26" , "27" , "28" , "29" , "30" , "31" } ; 
+private String month ; 
+private String day ; 
+public static String monthAsString ( short m ) { 
+return month [ m ] ; 
+} 
+Letter ( String month , String day ) { 
+this . month = month ; 
+this . day = day ; 
+} 
+} 
+</SourceCode><SourceCode lines="23" name="Test.java">import java . util . Scanner ; 
+public class Test { 
+public static void main ( String [ ] args ) { 
+Scanner input = new Scanner ( System . in ) ; 
+while ( true ) { 
+String month = input . nextLine ( ) ; 
+String day = intput . nextLine ( ) ; 
+if ( month == 12 || day == 0 ) break ; 
+Letter l1 = new Letter ( month , day ) ; 
+month = input . nextLine ( ) ; 
+day = input . nextLine ( ) ; 
+Letter l2 = new Letter ( month , day ) ; 
+if ( l1 . compareTo ( l2 ) == 1 ) 
+System . out . println ( l1 . display ( ) + "&gt;" + l2 . display ( ) ) ; 
+else if ( l1 . compareTo ( l2 ) == - 1 ) 
+System . out . println ( l1 . display ( ) + "&lt;" + l2 . display ( ) ) ; 
+else 
+System . out . println ( l1 . display ( ) + "=" + l2 . display ( ) ) ; 
+System . out . println ( "如果輸入0就結束" ) ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="介面:Comparable介面"><Message>"Comparable介面是JAVA內建的Interface，允許類別實作int compareTo(Object)動作，進而協助該類別的物件進行大小或順序的比較。注意，
+int compareTo(Object)動作傳回值  1， 0， -1分別代表物件本身相較於Object參數物件來得大，相等或小。"
+
+public static void main(String [] args)     { Letter[] list =  {new ChineseLetter ("教授", "王", "很高興跟您連絡", "銘哥", "2019/01/05"),                               new EnglishLetter("Professor", "Wang", "I am glad to write to you!", "J. J. Lin", "2018/11/01") ,                               new EnglishLetter("Professor", "Liu", "I am sorry!", "K. Ming", "2018/07/05")};       Arrays.sort(list);        //Letter lt = new EnglishLetter("Professor", "Wang", "I am glad to write to you!", "J. J. Lin", "2019/01/05");       //lt.display();           for (Letter it: list)          {it.display();         System.out.println("========================");     }</Message><Linelist><line Begin="6" End="9" src="Test" /><line Begin="11" End="20" src="Test" /></Linelist></Error><Error tpye="變數:重複宣告變數"><Message>變數名稱重複宣告
+本程式需刪除重複宣告的部分</Message><Linelist><line Begin="3" End="3" src="Letter" /><line Begin="5" End="5" src="Letter" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,108 @@
+<ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文研究\Data\黃崇睿xml\error\531.xml">
+	
+<SourceCode_List><SourceCode lines="21" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+private String content ; 
+public ChineseLetter ( ) { 
+} 
+public ChineseLetter ( String a , String b , String c , String d , String e ) { 
+super ( a , b , c , e ) ; 
+content = d ; 
+} 
+public void read ( ) { 
+System . out . print ( "請輸入內容:" ) ; 
+content = sc . next ( ) ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver ) ; 
+System . out . println ( title + " ,您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="17" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+private String content ; 
+public EnglishLetter ( ) { 
+} 
+public EnglishLetter ( String a , String b , String c , String d , String e ) { 
+super ( a , b , c , e ) ; 
+content = d ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + receiver ) ; 
+System . out . print ( title + ",\n" ) ; 
+System . out . println ( content + "\n" + "Scincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="21" name="Envelop.java">public class Envelop extends Letter { 
+protected String senderAddr , receiverAddr ; 
+Letter letter ; 
+protected Envelop ( String a , String b , String c , String e , String senderAddr , String receiverAddr , Letter letter ) { 
+super ( a , b , c , e ) ; 
+senderAddr = senderAddr ; 
+receiverAddr = receiverAddr ; 
+letter = letter ; 
+} 
+void read ( ) { 
+System . out . print ( "請輸入寄件人地址:" ) ; 
+senderAddr = sc . next ( ) ; 
+System . out . print ( "請輸入收信人地址:" ) ; 
+receiverAddr = sc . next ( ) ; 
+} 
+void display ( ) { 
+System . out . print ( senderAddr + "," + sender ) ; 
+System . out . print ( receiverAddr + "," + receiver + " " + title ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="24" name="Letter.java">import java . util . Scanner ; 
+abstract public class Letter { 
+protected String receiver , sender , title , date ; 
+protected Scanner sc = new Scanner ( System . in ) ; 
+public Letter ( ) { 
+} 
+public Letter ( String a , String b , String c , String d ) { 
+receiver = a ; 
+sender = b ; 
+date = c ; 
+title = d ; 
+} 
+public void readFull ( ) { 
+System . out . print ( "請輸入稱呼:" ) ; 
+title = sc . next ( ) ; 
+System . out . print ( "請輸入姓氏:" ) ; 
+receiver = sc . next ( ) ; 
+System . out . print ( "請輸入寄件人:" ) ; 
+sender = sc . next ( ) ; 
+System . out . print ( "請輸入日期:" ) ; 
+date = sc . next ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="22" name="test.java">import java . util . Scanner ; 
+public class test { 
+public static void main ( String [ ] args ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+System . out . print ( "請輸入信件格式  1(中文), 2(英文): " ) ; 
+int i = sc . nextInt ( ) ; 
+Letter letter ; 
+switch ( i ) { 
+case 1 : ChineseLetter Cl = new ChineseLetter ( ) ; 
+letter = new ChineseLetter ( ) ; 
+letter . readFull ( ) ; 
+Cl . display ( ) ; 
+break ; 
+default : EnglishLetter El = new EnglishLetter ( ) ; 
+letter = new EnglishLetter ( ) ; 
+letter . readFull ( ) ; 
+El . display ( ) ; 
+break ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如，本程式的ChineseLetter類別與EnglishLetter類別都宣告相同的Content資料，應該移到Letter類別。</Message><Linelist><line Begin="6" End="6" src="ChineseLetter" /><line Begin="2" End="2" src="EnglishLetter" /><line Begin="21" End="22" src="Letter" /></Linelist></Error><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+例如，本程式的Letter類別需要加入display的抽象動作
+public abstract void display();
+在test類別就可以直接用
+letter.display()顯示內容，此外Cl.display()就可刪除。</Message><Linelist><line Begin="18" End="18" src="Letter" /><line Begin="23" End="23" src="Letter" /><line Begin="9" End="9" src="test" /><line Begin="12" End="12" src="test" /><line Begin="14" End="14" src="test" /><line Begin="17" End="17" src="test" /></Linelist></Error></Errors></ErrorList>

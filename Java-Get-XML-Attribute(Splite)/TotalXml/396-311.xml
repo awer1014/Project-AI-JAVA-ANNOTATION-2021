@@ -1,0 +1,32 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\396\396.xml">
+	
+<SourceCode_List><SourceCode lines="25" name="KKBox.java">class KKBox { 
+static double length , width , height ; 
+static double volume , surfaceArea ; 
+a1 ( double y ) { 
+volume = y ; 
+y = length * width * height ; 
+System . out . println ( "體積:" + y ) ; 
+} 
+a2 ( double x ) { 
+surfaceArea = x ; 
+x = 2 * length * width + width * height + height * length ; 
+System . out . println ( "表面積:" + x ) ; 
+} 
+public static void main ( String [ ] args ) { 
+System . out . println ( "請輸入長: " ) ; 
+length = Integer . parseInt ( args [ 0 ] ) ; 
+System . out . println ( "請輸入寬: " ) ; 
+width = Integer . parseInt ( args [ 1 ] ) ; 
+System . out . println ( "請輸入高: " ) ; 
+height = Integer . parseInt ( args [ 2 ] ) ; 
+a1 ; 
+a2 ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數結構不清楚"><Message>函數的宣告架構如下:
+
+回傳值型態 函數名稱(參數型態 參數，...) { ... }</Message><Linelist><line Begin="13" End="17" src="KKBox" /><line Begin="19" End="23" src="KKBox" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+例如，
+KKBOx b = new KKBOx(l,w,h);
+呼叫時可用b.volume();  </Message><Linelist><line Begin="13" End="17" src="KKBox" /><line Begin="19" End="19" src="KKBox" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,34 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\367\367.xml">
+	
+<SourceCode_List><SourceCode lines="27" name="KKBox.java">public class KKBox { 
+private double length , width , height ; 
+public KKBox ( double length , double width , double height ) { 
+super ( ) ; 
+this . length = length ; 
+this . width = width ; 
+this . height = height ; 
+} 
+public double surfaceArea ( ) { 
+return surfaceArea ( length , width , height ) ; 
+} 
+public double Volume ( ) { 
+return Volume ( length , width , height ) ; 
+} 
+public static double surfaceArea ( double length , double width , double height ) { 
+return 2 * length * width + width * height + length * height ; 
+} 
+public static double Volume ( double length , double width , double height ) { 
+return length * width * height ; 
+} 
+public static void main ( String [ ] args ) { 
+KKBox cuboid = new KKBox ( 1 , 2 , 3 ) ; 
+System . out . println ( cuboid . surfaceArea ( ) ) ; 
+System . out . println ( cuboid . Volume ( ) ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="繼承:使用super產生繼承物件"><Message>在JAVA，super代表父類別，例如，子類別的建構子可以使用super()函式呼叫父類別的建構子，來建立父類別物件，接著建立本身的物件。例如:
+class B extends A {
+   B() {
+     super();
+	 ...
+}</Message><Linelist><line Begin="12" End="12" src="KKBox" /></Linelist></Error></Errors></ErrorList>

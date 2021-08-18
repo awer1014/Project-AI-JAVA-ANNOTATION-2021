@@ -1,0 +1,112 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\new\96\96.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="ChineseLetter.java">import java . util . * ; 
+public class ChineseLetter extends Letter { 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + " " + title + ",您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+public static void main ( String [ ] args ) { 
+ChineseLetter it = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="17" name="EnglishLetter.java">import java . util . * ; 
+public class EnglishLetter extends Letter { 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + title + " " + receiver ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( date ) ; 
+} 
+public static void main ( String [ ] args ) { 
+EnglishLetter id = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="31" name="Envelop.java">public class Envelop { 
+String senderAddr ; 
+String receiverAddr ; 
+Letter letter ; 
+Envelop ( String senderAddr , String receiverAddr , Letter letter ) { 
+this . senderAddr = senderAddr ; 
+this . receiverAddr = receiverAddr ; 
+this . letter = letter ; 
+} 
+void display ( ) { 
+System . out . println ( "From:" + senderAddr + ",銘哥" ) ; 
+System . out . println ( "To: " + receiverAddr + ",王教授" ) ; 
+System . out . println ( "信息內容:" ) ; 
+} 
+String getSenderAddr ( ) { 
+return senderAddr ; 
+} 
+String getReceiverAddr ( ) { 
+return receiverAddr ; 
+} 
+Letter getLetter ( ) { 
+return letter ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter it = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+Envelop env = new Envelop ( "Taipei" , "Kaohsiung" , it ) ; 
+env . display ( ) ; 
+it . display ( ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="37" name="Letter.java">import java . util . * ; 
+public abstract class Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+protected String sender ; 
+protected String date ; 
+protected String senderAddr ; 
+protected String receiverAddr ; 
+protected Letter letter ; 
+public Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public void display ( ) { 
+} 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter it = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+Letter id = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+it . display ( ) ; 
+System . out . println ( "-------------------------------" ) ; 
+id . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+
+本程式Letter類別的display()動作應隨不同的的子類別(ChineseLetter和EnglishLetter)有不同的變化，因此，在Letter類別須宣告為抽象動作，
+例如:
+public abstract void display ( ) ;
+而ChineseLetter類別和EnglishLetter類別則分別寫各自的display()函式。</Message><Linelist><line Begin="10" End="16" src="Letter" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。
+
+Letter物件可以直接呼叫getSender()與getReceiver()去取得該動作回傳值。
+例如，
+x.getSender();
+x.getReceiver();</Message><Linelist><line Begin="22" End="23" src="Envelop" /></Linelist></Error></Errors></ErrorList>

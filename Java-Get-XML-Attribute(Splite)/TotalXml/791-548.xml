@@ -1,0 +1,66 @@
+<ErrorList id="F:\個人資料夾\專研\debug\死去\NormalizedCODES\791\791.xml">
+	
+<SourceCode_List><SourceCode lines="20" name="Evaluation.java">abstract public class Evaluation { 
+private String sid , name , type ; 
+protected double grade , gradepc ; 
+public Evaluation ( String n , String nm , String t , double grade , double gradepc ) { 
+sid = n ; 
+name = nm ; 
+type = t ; 
+this . grade = grade ; 
+this . gradepc = gradepc ; 
+} 
+abstract public void printa ( ) ; 
+public void print ( ) { 
+System . out . println ( "種類 : " + type ) ; 
+System . out . println ( "學生學號 : " + sid ) ; 
+System . out . println ( "學生姓名 : " + name ) ; 
+System . out . println ( "成績 : " + grade ) ; 
+System . out . println ( "成績比重 : " + gradepc ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="12" name="Exam.java">public class Exam extends Evaluation { 
+String date ; 
+String range ; 
+public Exam ( String n , String nm , String t , double grade , double gradepc ) { 
+super ( n , nm , t , grade , gradepc ) ; 
+} 
+public void printa ( ) { 
+System . out . println ( "考試日期: " + date ) ; 
+System . out . println ( "考試範圍: " + range ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="23" name="Test.java">import java . util . Scanner ; 
+public class Test { 
+public static void main ( String [ ] args ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入種類 1(測驗), 2(作業), 3(心得報告) : " ) ; 
+int c = 0 ; 
+do 
+{ 
+c = sc . nextInt ( ) ; 
+} 
+while ( c &gt; 3 || c &lt; 1 ) ; 
+return mapEvaluation ( c ) ; 
+} 
+static Evaluation mapEvaluation ( int c ) { 
+Evaluation eval = null ; 
+switch ( c ) { 
+case 1 : 
+eval = new Exam ( "Exam" ) ; 
+break ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="其他:撰寫main函式"><Message>所謂類別主動作main()是指類別程式中的類別主程式，本身屬於靜態動作，需要寫在類別裡面，最多只需撰寫一個，且不需要回傳數值。
+main函式的宣告方法:
+public static void main (String [] args ){
+...
+}</Message><Linelist><line Begin="20" End="20" src="Test" /></Linelist></Error><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。
+實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+本程式的print()動作應隨不同的的子類別有不同的變化，因此須宣告為抽象動作，例如:
+abstract public void print ( ) ;</Message><Linelist><line Begin="12" End="18" src="Evaluation" /></Linelist></Error><Error tpye="抽象:繼承資料或動作"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如:
+range, date為Exam子類別的物件資料。</Message><Linelist><line Begin="7" End="9" src="Exam" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是，類別名稱 物件變數 = new 類別名稱(參數);
+建構子使用時須符合建構子本身的參數設計，因此，以此程式來說，應更改成下面形式:
+eval = new Exam ( n , nm , t , grade , gradepc , date , range ) ;</Message><Linelist><line Begin="8" End="8" src="Test" /></Linelist></Error></Errors></ErrorList>

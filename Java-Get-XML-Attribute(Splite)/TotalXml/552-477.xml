@@ -1,0 +1,60 @@
+<ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文研究\Data\黃崇睿xml\error\552.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+public ChineseLetter ( String t , String r , String c , String s , String d ) { 
+title = t ; 
+receiver = r ; 
+content = c ; 
+sender = s ; 
+date = d ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + " " + title + ", 你好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + "敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="17" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+public EnglishLetter ( String t , String r , String c , String s , String d ) { 
+title = t ; 
+receiver = r ; 
+content = c ; 
+sender = s ; 
+date = d ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear" + receiver + " " + title + "," ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="18" name="Letter.java">abstract public class Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+protected String sender ; 
+protected String date ; 
+Letter lt = new ChinseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+public static void main ( String [ ] args ) { 
+lt . display ( ) ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + " " + title + ", 你好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + "敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:正確的產生物件"><Message>Letter:6~7
+需加上
+public Letter(String title,String receiver,String content,String sender,String date)
+{
+this.title = title;
+this.receiver = receiver;
+this.content = content;
+this.sender = sender;
+this.date = date;
+}</Message><Linelist><line Begin="5" End="5" src="Letter" /><line Begin="8" End="8" src="Letter" /></Linelist></Error></Errors></ErrorList>

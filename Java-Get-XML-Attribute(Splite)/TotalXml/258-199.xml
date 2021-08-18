@@ -1,0 +1,50 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\258\258.xml">
+	
+<SourceCode_List><SourceCode lines="33" name="Test2.java">import java . util . StringTokenizer ; 
+public class Test2 { 
+public static void main ( String [ ] args ) { 
+String str = "abcd++ef" ; 
+System . out . println ( str . toLowerCase ( ) ) ; 
+} 
+public class Test2StringTokenizer { 
+public static void main ( String [ ] args ) { 
+StringTokenizer str = new StringTokenizer ( ) ; 
+String tk ; 
+while ( str . hasMoreTokens ( ) ) { 
+tk = str . nextToken ( ) ; 
+System . out . println ( tk ) ; 
+} 
+} 
+} 
+int Test2 ( String str , String word ) { 
+int count = 0 ; 
+for ( int i = 0 ; i &lt; str . length ( ) - word . length ( ) + 1 ; i ++ ) { 
+String tmp = str . substring ( i , i + word . length ( ) ) ; 
+if ( tmp . equals ( word ) ) 
+count ++ ; 
+} 
+return count ; 
+} 
+public static void main ( String [ ] args ) { 
+String str = new str ( args [ 0 ] ) ; 
+String str = new str ( args [ 1 ] ) ; 
+System . out . println ( str ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="其他:不熟悉JAVA程式結構"><Message>請注意JAVA程式的語法結構。</Message><Linelist><line Begin="21" End="30" src="Test2" /></Linelist></Error><Error tpye="其他:撰寫main函式"><Message>所謂類別主動作main()是指類別程式中的類別主程式，本身屬於靜態動作，需要寫在類別裡面，最多只需撰寫一個，且不需要回傳數值。
+
+main函式的宣告方法:
+public static void main (String [] args ){
+...
+}
+
+main函數已被宣告過,
+函數名稱不可相同。</Message><Linelist><line Begin="16" End="20" src="Test2" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+
+本程式沒有該類別,請先撰寫該類別,才能產生物件。</Message><Linelist><line Begin="17" End="17" src="Test2" /><line Begin="18" End="18" src="Test2" /></Linelist></Error><Error tpye="變數:重複宣告變數"><Message>該變數已被宣告,
+若需更新該變數,
+只需重新賦予該變數新的資料即可.
+例如:
+String name = "Alex";
+name = "Chris";
+</Message><Linelist><line Begin="18" End="18" src="Test2" /></Linelist></Error></Errors></ErrorList>

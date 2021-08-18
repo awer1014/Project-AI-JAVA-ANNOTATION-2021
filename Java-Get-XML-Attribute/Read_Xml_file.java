@@ -40,9 +40,9 @@ public class Read_Xml_file {
                 /*System.out.println("=========================");
                 //System.out.println("file name : "+files[i].getName());
                 System.out.println("=========================");*/
-
+                    
                 String [] tokens=files[i].getName().split(".xml",2);
-                
+                System.out.println("Now in: "+tokens[0]+". Count: "+i+" files");
                 //System.out.println("tokens[0]: "+tokens[0]);
                 doc = builder.parse(files[i]);
                 //doc.getDocumentElement().normalize();

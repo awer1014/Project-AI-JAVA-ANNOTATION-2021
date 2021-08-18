@@ -1,0 +1,26 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\375\375.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="KKBOx.java">public class KKBOx { 
+static double l ; 
+static double w ; 
+static double h ; 
+static double volume ( double l , double w , double h ) { 
+double ans = l * w * h ; 
+return ans ; 
+} 
+public static void main ( Double [ ] n ) { 
+l = 2 ; 
+w = 3 ; 
+h = 4 ; 
+System . out . println ( ans ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+例如，
+KKBOx b = new KKBOx(l,w,h);
+呼叫時可用b.volume();</Message><Linelist><line Begin="9" End="9" src="KKBOx" /></Linelist></Error><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>物件資料/動作與類別資料/動作的差別在於有無static宣告。
+有static宣告的是類別資料/動作，物件資料/動作則無static宣告。
+類別資料/動作只有一份，且為類別與所有該類別的物件共享，
+物件資料則是每個物件各有獨立的一份，彼此不相關。</Message><Linelist><line Begin="2" End="4" src="KKBOx" /><line Begin="11" End="11" src="KKBOx" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。</Message><Linelist><line Begin="11" End="14" src="KKBOx" /></Linelist></Error></Errors></ErrorList>

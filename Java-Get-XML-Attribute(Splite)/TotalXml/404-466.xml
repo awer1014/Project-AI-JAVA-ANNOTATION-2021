@@ -1,0 +1,29 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\404\404.xml">
+	
+<SourceCode_List><SourceCode lines="23" name="length.java">public class length { 
+double a , b , c ; 
+length ( double x , double y , double z ) { 
+this . a = x ; 
+this . b = y ; 
+this . c = z ; 
+} 
+volume ( ) { 
+return a * b ; 
+} 
+double surfaceArea ( ) { 
+return 2 * a + 2 * b + 2 * c ; 
+} 
+public static void main ( String [ ] args ) { 
+length len1 = new length ( a , b , c ) ; 
+System . out . println ( a ) ; 
+System . out . println ( b ) ; 
+System . out . println ( c ) ; 
+System . out . println ( len1 . volume ) ; 
+System . out . println ( len1 . surfaceArea ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數結構不清楚"><Message>函數的宣告架構如下:
+
+回傳值型態 函數名稱(參數型態 參數，...) { ... }</Message><Linelist><line Begin="2" End="4" src="length" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。</Message><Linelist><line Begin="15" End="16" src="length" /></Linelist></Error></Errors></ErrorList>

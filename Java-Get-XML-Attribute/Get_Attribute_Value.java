@@ -110,6 +110,10 @@ public class Get_Attribute_Value {
         for (int i = 0; i < Error_List.getLength(); i++) {
             Element Error = (Element)Error_List.item(i);
             NodeList Line_List = (NodeList) xpath.evaluate("Linelist/line", Error, XPathConstants.NODESET);
+            //抓出擴增沒轉換好的檔案
+            NodeList new_Line_List = (NodeList) xpath.evaluate("new_Linelist/new_line", Error, XPathConstants.NODESET);
+            Element new_Line = (Element)new_Line_List.item(0);
+            if(new_Line!=null)System.out.println("這份檔案的擴增沒轉換好");
             String type = Error.getAttribute("tpye");
             //=====================Test======================
             //System.out.println(type);

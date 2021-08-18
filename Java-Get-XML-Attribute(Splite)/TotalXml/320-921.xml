@@ -1,0 +1,27 @@
+<ErrorList id="C:\Users\user\Desktop\待修正\320\320.xml">
+	
+<SourceCode_List><SourceCode lines="22" name="Word.java">import java . util . Scanner ; 
+public class Word { 
+public static void main ( String [ ] args ) { 
+String s = "This is a test. The test is not easy." ; 
+String [ ] tokens = s . split ( " " || "." ) ; 
+int a = tokens . lenght ( ) ; 
+int b = 0 ; 
+for ( int k = 0 ; k &lt; a ; k ++ ) { 
+for ( int i = k + 1 ; i &lt; a ; i ++ ) { 
+for ( int j = 0 ; j &lt; k ; j ++ ) { 
+if ( tokens [ k ] . equals ( tokens [ j ] ) ) continue ; 
+else if ( tokens [ k ] . equals ( tokens [ i ] ) ) 
+b ++ ; 
+} 
+} 
+} 
+System . out . println ( "會輸出：" ) ; 
+System . out . println ( "Word   Frequency:" ) ; 
+System . out . println ( "-----------------------" ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="其他:關鍵字錯誤"><Message>檢查關鍵字(如 public，class， int，String，,...)，標點符號，以及函數名稱是否有誤。</Message><Linelist><line Begin="5" End="5" src="Word" /></Linelist></Error><Error tpye="函數:函數庫使用錯誤"><Message>引用函數錯誤，請確認所呼叫的函數或函數庫是否存在。
+
+StringTokenizer物件使用錯誤，請先了解StringTokenizer的各種運算函數，
+再進行呼叫。</Message><Linelist><line Begin="6" End="6" src="Word" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,43 @@
+<ErrorList id="C:\Users\User\Desktop\錯誤正規化\631\631.xml">
+	
+<SourceCode_List><SourceCode lines="27" name="KKBox.java">public class KKBox { 
+static void volume ( double x , double y , double z ) { 
+double sum ; 
+sum = x * y ; 
+sum *= z ; 
+System . out . println ( "體積:" , volume ) ; 
+} 
+static void surfaceArea ( double x , double y , double z ) { 
+double num ; 
+num = 2 * x * y + y * z + z * x ; 
+System . out . println ( "表面積:" , surfaceArea ) ; 
+} 
+public static void main ( String [ ] args ) { 
+String data1 = args [ 0 ] ; 
+String data2 = args [ 1 ] ; 
+String data3 = args [ 2 ] ; 
+double length = Double . parseDouble ( data1 ) ; 
+double width = Double . parseDouble ( data2 ) ; 
+double height = Double . parseDouble ( data3 ) ; 
+System . out . println ( "請輸入長:" + length ) ; 
+System . out . println ( "請輸入寬:" + width ) ; 
+System . out . println ( "請輸入高:" + height ) ; 
+System . out . println ( "體積:" , volume ) ; 
+System . out . println ( "表面積:" , surfaceArea ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message>函數必須要宣告回傳值的型態，否則要在函數宣告前加上void。此外，函式邏輯必須完備，避免造成某些狀況無傳回值。再者，呼叫函數時則需要注意傳遞正確型態的參數。
+例如,本程式參數 double x,double y,double z 應宣告在函數外</Message><Linelist><line Begin="15" End="15" src="KKBox" /><line Begin="21" End="21" src="KKBox" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>產生物件的語法是 類別名稱 物件變數 = new 類別名稱(參數);
+本程式的物件 double x,double y,double z 沒被產生</Message><Linelist><line Begin="-1" End="-1" src="KKBox" /></Linelist></Error><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>"物件資料/動作與類別資料/動作的差別在於有無static宣告。
+有static宣告的是類別資料/動作，物件資料/動作則無static宣告。
+類別資料/動作只有一份，且為類別與所有該類別的物件共享，
+物件資料則是每個物件各有獨立的一份，彼此不相關。"
+例如,本段程式應該在main裡呼叫</Message><Linelist><line Begin="19" End="19" src="KKBox" /><line Begin="24" End="24" src="KKBox" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>"建構子本身不是物件動作函數，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。此外，建構子可將獲得的參數資料，透過this指令賦予給物件或類別資料,如:
+建構子(參數){
+...
+this.物件資料 = 參數; 
+}"
+本程式應在main內 加入 KKBox bb = KKBox(); bb.x=length; bb.y = width; bb.z=height; </Message><Linelist><line Begin="-1" End="-1" src="KKBox" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>"物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。"
+本程式應在main內 加入 KKBox bb = KKBox(); bb.x=length; bb.y = width; bb.z=height; </Message><Linelist><line Begin="-1" End="-1" src="KKBox" /></Linelist></Error></Errors></ErrorList>

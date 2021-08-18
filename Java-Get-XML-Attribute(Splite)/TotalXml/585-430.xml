@@ -1,0 +1,79 @@
+<ErrorList id="C:\Users\a2631\OneDrive\桌面\碩士\論文研究\Data\黃崇睿xml\error\585.xml">
+	
+<SourceCode_List><SourceCode lines="30" name="ChineseLetter.java">public class ChineseLetter extends Letter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String date ; 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+void display ( ) { 
+System . out . println ( getReceiver ( ) + " " + title + ",您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( getSender ( ) + "敬上" ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+} 
+</SourceCode><SourceCode lines="31" name="EnglishLetter.java">public class EnglishLetter extends Letter { 
+String title ; 
+String receiver ; 
+String content ; 
+String sender ; 
+String date ; 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+void display ( ) { 
+System . out . println ( "Dear " + title + " " + getReceiver ( ) + "," ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( getSender ( ) ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+} 
+</SourceCode><SourceCode lines="5" name="Letter.java">abstract public class Letter { 
+void display ( ) { 
+} 
+} 
+</SourceCode><SourceCode lines="9" name="Test.java">public class Test { 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+Letter it = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+it . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如，本程式的Letter需要加上
+String title;...，此外，ChineseLetter與EnglishLetter就可以刪除
+String title;...</Message><Linelist><line Begin="2" End="3" src="ChineseLetter" /><line Begin="10" End="10" src="ChineseLetter" /><line Begin="17" End="17" src="ChineseLetter" /><line Begin="28" End="28" src="ChineseLetter" /><line Begin="5" End="9" src="EnglishLetter" /><line Begin="1" End="2" src="Letter" /></Linelist></Error><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+例如，這裡的Letter類別需要改成
+public abstract void display();</Message><Linelist><line Begin="2" End="2" src="Letter" /></Linelist></Error></Errors></ErrorList>

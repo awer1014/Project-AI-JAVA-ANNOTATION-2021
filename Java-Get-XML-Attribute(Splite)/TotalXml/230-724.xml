@@ -1,0 +1,51 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\230\230.xml">
+	
+<SourceCode_List><SourceCode lines="24" name="Target.java">import java . util . Random ; 
+import java . util . Scanner ; 
+class Target { 
+double x ; 
+double y ; 
+int in ; 
+int out ; 
+public double rate1 ; 
+public int n ; 
+int InOrOut ( double x , double y ) { 
+if ( x * x + y * y &lt;= 1 ) return in ++ ; 
+if ( x * x + y * y &gt; 1 ) return out ++ ; 
+return 0 ; 
+} 
+public void toss ( int n ) { 
+for ( int i = 0 ; i &lt; n ; i ++ ) { 
+x = Math . random ( ) * 1.414 ; 
+y = Math . random ( ) * 1.414 ; 
+InOrOut ( x , y ) ; 
+rate1 = in / in + out ; 
+} 
+} 
+} 
+</SourceCode><SourceCode lines="12" name="Test.java">public class Test { 
+static int n ; 
+public static void main ( String [ ] args ) { 
+Scanner scan = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入模擬次數:" ) ; 
+n = scan . nextInt ( ) ; 
+Target . toss ( n ) ; 
+System . out . println ( "圓內次數" + Target . in + "出現比率:" + Target . rate1 ) ; 
+System . out . println ( "圓外次數" + Target . out + "出現比率:" + 1 - Target . rate1 ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="io:不會使用輸入scanner類別"><Message>若需要從鍵盤輸入資料,需先引進Scanner 函數庫，如:
+import java.util.Scanner;
+接下來，宣告Scanner 物件，並呼叫適當的函數讀取不同型態的資料。
+如:
+Scanner scan = new Scanner();
+int p = scan.nextInt(); //讀取數值
+scan.nextLine(); //清除Enter空值
+</Message><Linelist><line Begin="6" End="6" src="Test" /></Linelist></Error><Error tpye="函數:函數概念不清楚"><Message>需分辨函數與變數的不同。
+
+因rate1的結果有小數點,
+故rate1的變數型態是double, 
+但因為in跟out 的兩個變數都是int, 
+結果只會是整數,
+所以需要在運算式前加上(double),
+才會得到小數點的答案。</Message><Linelist><line Begin="12" End="12" src="Target" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,95 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\743\743.xml">
+	
+<SourceCode_List><SourceCode lines="15" name="Keeper.java">public class Keeper { 
+private static String id ; 
+private static String tel ; 
+Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+Keeper d = new Keeper ( "A123456" , "02-2586777" ) ; 
+Keeper c = new Keeper ( "F123456" , "07-2856977" ) ; 
+} 
+public static void display2 ( ) { 
+System . out . println ( "飼主身分證字號:" + id ) ; 
+System . out . println ( "飼主電話：" + tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="59" name="Pet.java">import java . util . Scanner ; 
+public class Pet { 
+private static int count ; 
+private static String pid ; 
+private static String name ; 
+private static String type ; 
+Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+public static void speak ( ) { 
+if ( type == "狗" ) { 
+System . out . println ( "汪汪" ) ; 
+} 
+else { 
+System . out . println ( "喵喵" ) ; 
+} 
+} 
+public static String getName ( ) { 
+return name ; 
+} 
+public static String getPid ( ) { 
+return pid ; 
+} 
+public static String getType ( ) { 
+return type ; 
+} 
+public static void sc ( String c ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+c = sc . nextLine ( ) ; 
+} 
+public static void display ( ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+int x = 0 ; 
+do 
+{ 
+x = sc . nextInt ( ) ; 
+} 
+while ( x = 0 ) ; 
+Scanner t = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入寵物類別:" + t . nextLine ( ) ) ; 
+Scanner p = new Scanner ( System . in ) ; 
+System . out . println ( "寵物編號:" + p . nextLine ( ) ) ; 
+Scanner n = new Scanner ( System . in ) ; 
+System . out . println ( "寵物名稱:" + n . nextLine ( ) ) ; 
+Scanner i = new Scanner ( System . in ) ; 
+System . out . println ( "飼主身分證字號:" + i . nextLine ( ) ) ; 
+Scanner te = new Scanner ( System . in ) ; 
+System . out . println ( "飼主電話：" + te . nextLine ( ) ) ; 
+System . out . println ( "-------------------------------------" ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Pet d = new Pet ( "d001" , "Timmy" , "狗" ) ; 
+Pet c = new Pet ( "c001" , "Catty" , "貓" ) ; 
+display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="io:重複宣告scanner物件"><Message>因為鍵盤只有一個，Scanner物件可以宣告一次即可，不需要針對每一次讀取鍵盤，宣告不同的scanner物件。</Message><Linelist><line Begin="42" End="42" src="Pet" /><line Begin="44" End="44" src="Pet" /><line Begin="46" End="46" src="Pet" /><line Begin="48" End="48" src="Pet" /><line Begin="50" End="50" src="Pet" /></Linelist></Error><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+例如，
+if ( type.equals ( "狗" ) )</Message><Linelist><line Begin="27" End="27" src="Pet" /></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。
+例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+可利用建構子建立keeper物件變數的值，例如:
+public Pet ( String pid , String name , String type ,  Keeper keeper) { 
+    ...
+    this.keeper = keeper;
+}</Message><Linelist><line Begin="12" End="12" src="Pet" /><line Begin="56" End="56" src="Pet" /><line Begin="12" End="16" src="Pet" /></Linelist></Error><Error tpye="物件:正確的產生物件"><Message>不應該在建構子裡面，呼叫自己來產生物件，而是在其他地方(例如，主程式或其他函式)。</Message><Linelist><line Begin="10" End="11" src="Keeper" /></Linelist></Error><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>物件資料/動作與類別資料/動作的差別在於有無static宣告。
+有static宣告的是類別資料/動作，物件資料/動作則無static宣告。
+類別資料/動作只有一份，且為類別與所有該類別的物件共享，物件資料則是每個物件各有獨立的一份，彼此不相關。
+本程式的display()應該是物件動作，因為每個Pet物件要顯示自己的物件資料。
+可以將static宣告去除，例如:
+ d.display();</Message><Linelist><line Begin="34" End="34" src="Pet" /><line Begin="7" End="7" src="Pet" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。
+語法上，沒有加上static宣告的，就是物件資料與物件動作。
+你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。
+此題中pid 等物件資料，以及speak() 等物件動作，不需要加static宣告。
+
+</Message><Linelist><line Begin="2" End="2" src="Keeper" /><line Begin="13" End="13" src="Keeper" /><line Begin="3" End="3" src="Keeper" /><line Begin="18" End="18" src="Pet" /><line Begin="22" End="22" src="Pet" /><line Begin="56" End="56" src="Pet" /><line Begin="26" End="26" src="Pet" /><line Begin="19" End="19" src="Pet" /><line Begin="53" End="53" src="Pet" /><line Begin="23" End="23" src="Pet" /><line Begin="8" End="8" src="Pet" /><line Begin="34" End="34" src="Pet" /></Linelist></Error></Errors></ErrorList>

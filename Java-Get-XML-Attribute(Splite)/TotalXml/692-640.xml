@@ -1,0 +1,63 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\692\692.xml">
+	
+<SourceCode_List><SourceCode lines="32" name="Keeper.java">import java . util . Scanner ; 
+public class Keeper { 
+String id ; 
+String tel ; 
+void display ( ) { 
+System . out . println ( "Keeper's id: " + id ) ; 
+System . out . println ( "Keeper's tel: " + tel ) ; 
+} 
+Keeper ( String i , String t ) { 
+id = i ; 
+tel = t ; 
+} 
+public static void main ( ) { 
+Scanner scanner = new Scanner ( System . in ) ; 
+System . out . println ( "Please enter the pet's type: " ) ; 
+String Pt = scanner . nextLine ( ) ; 
+while ( Pt != 0 ) { 
+System . out . println ( "Please enter the pet's pid: " ) ; 
+String p = scanner . nextLine ( ) ; 
+System . out . println ( "Please enter the pet's name: " ) ; 
+String n = scanner . nextLine ( ) ; 
+System . out . println ( "Please enter the keeper's id: " ) ; 
+String i = scanner . nextLine ( ) ; 
+System . out . println ( "Please enter the keeper's tel: " ) ; 
+String t = scanner . nextLine ( ) ; 
+Keeper k = new Keeper ( i , t ) ; 
+Pet p = new Pet ( p , n , Pt , k ) ; 
+p . display ( ) ; 
+} 
+} 
+} 
+</SourceCode><SourceCode lines="28" name="Pet.java">import java . util . Scanner ; 
+public class Pet { 
+public static int count = 0 ; 
+public String pid ; 
+public String name ; 
+public String type ; 
+Keeper keeper ; 
+void speak ( ) { 
+if ( type . equals ( "0" ) ) 
+System . out . println ( "Pet's speak: " + "喵喵" ) ; 
+else 
+System . out . println ( "Pet's speak: " + "汪汪" ) ; 
+} 
+void display ( ) { 
+System . out . println ( "Pet's pid: " + pid ) ; 
+System . out . println ( "Pet's name: " + name ) ; 
+System . out . println ( "Pet's type: " + type ) ; 
+keeper . display ( ) ; 
+} 
+Pet ( String p , String n , String t , Keeper keeper ) { 
+pid = p ; 
+name = n ; 
+type = t ; 
+this . keeper = keeper ; 
+count ++ ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+例如，
+while ( Pt.equals ( "0" ) == false ) </Message><Linelist><line Begin="7" End="7" src="Keeper" /></Linelist></Error><Error tpye="變數:重複宣告變數"><Message>變數名稱p重複宣告。</Message><Linelist><line Begin="9" End="9" src="Keeper" /><line Begin="17" End="17" src="Keeper" /></Linelist></Error></Errors></ErrorList>

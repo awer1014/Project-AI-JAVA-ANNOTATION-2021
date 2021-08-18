@@ -1,0 +1,101 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\new\77.xml">
+	
+<SourceCode_List><SourceCode lines="21" name="ChineseLetter.java">import java . util . * ; 
+public class ChineseLetter { 
+private String id , date , coin ; 
+private Item [ ] it = new Item [ 10 ] ; 
+private int num_i ; 
+ChineseLetter ( String title , String receiver , String content , Item [ ] iit , int num_item ) { 
+id = title ; 
+date = receiver ; 
+num_i = num_item ; 
+for ( int i = 0 ; 
+i &lt; num_item ; 
+i ++ ) 
+it [ i ] = iit [ i ] ; 
+} 
+void print ( ) { 
+System . out . println ( id + " 教授, 您好" ) ; 
+System . out . println ( "很高興跟您連絡" ) ; 
+System . out . println ( date + "敬上" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="21" name="EnglishLetter.java">import java . util . * ; 
+public class EnglishLetter { 
+private String id , date , coin ; 
+private Item [ ] it = new Item [ 10 ] ; 
+private int num_i ; 
+EnglishLetter ( String title , String receiver , String content , Item [ ] iit , int num_item ) { 
+id = title ; 
+date = receiver ; 
+num_i = num_item ; 
+for ( int i = 0 ; 
+i &lt; num_item ; 
+i ++ ) 
+it [ i ] = iit [ i ] ; 
+} 
+void print ( ) { 
+System . out . println ( id + " 教授, 您好" ) ; 
+System . out . println ( "很高興跟您連絡" ) ; 
+System . out . println ( date + "敬上" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="23" name="Item.java">public class Item { 
+private static double total_money = 0 ; 
+private String id , name ; 
+private double money , discnt ; 
+private int cnt ; 
+Item ( ) { 
+} 
+Item ( String iid , String nname , double mmoney , int ccnt , double ddiscnt ) { 
+id = iid ; 
+name = nname ; 
+money = mmoney ; 
+cnt = ccnt ; 
+discnt = ddiscnt ; 
+total_money += money * discnt * cnt ; 
+} 
+void print ( ) { 
+System . out . println ( "教授" + name ) ; 
+System . out . println ( "王" + money ) ; 
+System . out . println ( "很高興跟您連絡" + cnt ) ; 
+System . out . println ( "銘哥" + discnt ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="27" name="test3.java">import java . util . * ; 
+public class test3 { 
+public static Item [ ] item = new Item [ 10 ] ; 
+public static void main ( String [ ] args ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String oid , odate , ocoin ; 
+System . out . print ( "請輸入寄件人稱,姓ex;教授,王" ) ; 
+oid = sc . nextLine ( ) ; 
+System . out . print ( "請輸入要說的文字後按Enter      " ) ; 
+odate = sc . nextLine ( ) ; 
+ocoin = sc . nextLine ( ) ; 
+while ( true ) { 
+String iid , iname , imoney , icnt , idiscnt ; 
+System . out . print ( "請輸入傳送端稱位" ) ; 
+iid = sc . nextLine ( ) ; 
+if ( iid . equals ( "0" ) ) { 
+} 
+System . out . print ( "請輸入傳送端稱位" ) ; 
+iname = sc . nextLine ( ) ; 
+System . out . print ( "請輸入日期" ) ; 
+imoney = sc . nextLine ( ) ; 
+System . out . println ( "-----------------------------------" ) ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:繼承資料或動作"><Message>抽象類別須加上abstract關鍵字宣告類別。就像一般的父類別，其資料與動作可以由子類別繼承。抽象類別也扮演物件導向多型的重要角色，抽象類別變數可以承接不同的子類別物件，展現不同的行為。</Message><Linelist><line Begin="3" End="14" src="ChineseLetter" /><line Begin="3" End="11" src="EnglishLetter" /><line Begin="15" End="17" src="EnglishLetter" /></Linelist></Error><Error tpye="物件:不會使用物件資料"><Message>物件資料需要新增物件後，才會有物件資料。請先宣告物件並給予物件資料。</Message><Linelist><line Begin="3" End="14" src="ChineseLetter" /><line Begin="3" End="14" src="ChineseLetter" /></Linelist></Error><Error tpye="迴圈:迴圈概念錯誤"><Message>迴圈概念:
+for(開始位置;結束位置;增減數量){
+內容...
+}
+while(狀態){
+內容...
+}
+
+請注意若增減的變數或狀態與起始位置變數不同，
+會導致開始位置變數沒更新，可能導致無窮迴圈。
+
+此為無限迴圈，應設定終止條件</Message><Linelist><line Begin="11" End="22" src="test3" /></Linelist></Error></Errors></ErrorList>

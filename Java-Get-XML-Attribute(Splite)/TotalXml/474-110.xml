@@ -1,0 +1,94 @@
+<ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\474\474.xml">
+	
+<SourceCode_List><SourceCode lines="31" name="Keeper.java">import java . util . Scanner ; 
+public class Keeper { 
+String id , tel ; 
+static Scanner copyid = new Scanner ( System . in ) ; 
+static Scanner copytel = new Scanner ( System . in ) ; 
+Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+Keeper ( ) { 
+} 
+static String enterid ( ) { 
+System . out . println ( "請輸入飼主身分證字號：" ) ; 
+return copyid . nextLine ( ) ; 
+} 
+static String entertel ( ) { 
+System . out . println ( "請輸入飼主電話：" ) ; 
+return copytel . nextLine ( ) ; 
+} 
+void setid ( String id ) { 
+this . id = id ; 
+} 
+void settel ( String tel ) { 
+this . tel = tel ; 
+} 
+void display ( ) { 
+System . out . println ( "飼主身分證字號= " + this . id ) ; 
+System . out . println ( "飼主電話= " + this . tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="58" name="Pet.java">import java . util . Scanner ; 
+public class Pet { 
+static int count = 0 ; 
+String pid , name , type ; 
+Keeper z ; 
+static Scanner copypid = new Scanner ( System . in ) ; 
+static Scanner copyname = new Scanner ( System . in ) ; 
+static Scanner copytype = new Scanner ( System . in ) ; 
+static String entertype ( ) { 
+System . out . println ( "請輸入寵物種類:" ) ; 
+return copytype . nextLine ( ) ; 
+} 
+static String enterpid ( ) { 
+System . out . println ( "請輸入寵物編號:" ) ; 
+return copypid . nextLine ( ) ; 
+} 
+static String entername ( ) { 
+System . out . println ( "請輸入寵物名稱:" ) ; 
+return copyname . nextLine ( ) ; 
+} 
+Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+Pet ( ) { 
+} 
+void speak ( ) { 
+if ( this . type == "貓" ) 
+System . out . println ( "喵喵" ) ; 
+else 
+System . out . println ( "汪汪" ) ; 
+} 
+void display ( ) { 
+System . out . println ( "稱號= " + this . pid ) ; 
+System . out . println ( "名稱= " + this . name ) ; 
+System . out . println ( "種類= " + this . type ) ; 
+} 
+void settype ( String s ) { 
+this . type = s ; 
+} 
+void setpid ( String s ) { 
+this . pid = s ; 
+} 
+void setname ( String s ) { 
+this . name = s ; 
+} 
+public static void mian ( String [ ] args ) { 
+Pet a = new Pet ( ) ; 
+Pet b = new Pet ( ) ; 
+a . settype ( entertype ( ) ) ; 
+a . setpid ( enterpid ( ) ) ; 
+a . setname ( entername ( ) ) ; 
+a . Keeper . setid ( enterid ( ) ) ; 
+a . display ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="io:重複宣告scanner物件"><Message>因為鍵盤只有一個，Scanner物件可以宣告一次即可，不需要針對每一次讀取鍵盤，宣告不同的scanner物件。
+例如，本程式中的Keeper類別，只要打一段static Scanner copypid= new Scanner(System.in);，</Message><Linelist><line Begin="28" End="29" src="Keeper" /></Linelist></Error><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+例如，本程式的pet類別，需改成type.equals("貓")，type.equals("狗")。</Message><Linelist><line Begin="29" End="29" src="Pet" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+例如，可以在本程式的Keeper類別中加入private Keeper keeper，
+並在本程式的Pet類別中加入Keeper keeper。</Message><Linelist><line Begin="21" End="21" src="Keeper" /></Linelist></Error></Errors></ErrorList>

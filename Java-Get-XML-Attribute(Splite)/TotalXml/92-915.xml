@@ -1,0 +1,118 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\new\92\92.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="Chineseletter.java">public class Chineseletter extends letter { 
+public Chineseletter ( String title , String receiver , String content , String sender , String data ) { 
+super ( title , receiver , content , sender , data ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "title" + title ) ; 
+System . out . println ( "receiver" + receiver ) ; 
+System . out . println ( "content" + content ) ; 
+System . out . println ( "sender" + sender ) ; 
+System . out . println ( "data" + data ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="Data.java">import java . util . Arrays ; 
+public interface Data { 
+String getData ( ) ; 
+void print ( ) ; 
+} 
+</SourceCode><SourceCode lines="13" name="Englishletter.java">public class Englishletter extends letter { 
+public Englishletter ( String title , String receiver , String content , String sender , String data ) { 
+super ( title , receiver , content , sender , data ) ; 
+} 
+public void display ( ) { 
+System . out . println ( "title" + title ) ; 
+System . out . println ( "receiver" + receiver ) ; 
+System . out . println ( "content" + content ) ; 
+System . out . println ( "sender" + sender ) ; 
+System . out . println ( "data" + data ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="23" name="Envelop.java">public class Envelop extends letter { 
+private String senderAddr ; 
+private String receiverAddr ; 
+public Envelop ( String title , String receiver , String content , String sender , String data ) { 
+super ( title , receiver , content , sender , data ) ; 
+} 
+String getsenderAddr ( ) { 
+return senderAddr ; 
+} 
+void setsenderAddr ( ) { 
+senderAddr = senderAddr ; 
+} 
+String getreceiverAddr ( ) { 
+return receiverAddr ; 
+} 
+void setreceiverAddr ( ) { 
+receiverAddr = receiverAddr ; 
+} 
+public void display ( ) { 
+System . out . println ( "Envelop" + senderAddr + receiverAddr ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="48" name="letter.java">public abstract class letter { 
+String title , receiver , content , sender , data ; 
+public letter ( String title , String receiver , String content , String sender , String data ) { 
+title = title ; 
+receiver = receiver ; 
+content = content ; 
+sender = sender ; 
+data = data ; 
+} 
+String getitle ( ) { 
+return title ; 
+} 
+void setTitle ( String title ) { 
+title = title ; 
+} 
+String getreceiver ( ) { 
+return receiver ; 
+} 
+void setReceiver ( String receiver ) { 
+receiver = receiver ; 
+} 
+String getcontent ( ) { 
+return content ; 
+} 
+void setcontent ( ) { 
+content = content ; 
+} 
+String getsender ( ) { 
+return sender ; 
+} 
+void setsender ( ) { 
+sender = sender ; 
+} 
+String getdata ( ) { 
+return data ; 
+} 
+void setdata ( ) { 
+data = data ; 
+} 
+public void display ( ) { 
+System . out . println ( "title" + title ) ; 
+System . out . println ( "receiver" + receiver ) ; 
+System . out . println ( "content" + content ) ; 
+System . out . println ( "sender" + sender ) ; 
+System . out . println ( "data" + data ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="介面:Comparable介面"><Message>Comparable介面是JAVA內建的Interface，允許類別實作int compareTo(Object)動作，進而協助該類別的物件進行大小或順序的比較。注意，
+int compareTo(Object)動作傳回值  1， 0， -1分別代表物件本身相較於Object參數物件來得大，相等或小。
+
+只需在letter類別使用Comparable即可</Message><Linelist><line Begin="1" End="5" src="Data" /></Linelist></Error><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+
+本程式Letter類別的display()動作應隨不同的的子類別(ChineseLetter和EnglishLetter)有不同的變化，因此，在Letter類別須宣告為抽象動作，
+例如:
+public abstract void display ( ) ;
+而ChineseLetter類別和EnglishLetter類別則分別寫各自的display()函式。</Message><Linelist><line Begin="20" End="26" src="letter" /></Linelist></Error><Error tpye="物件:物件動作概念(建構子)"><Message>建構子本身不是物件動作函數，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。此外，建構子可將獲得的參數資料，透過this指令賦予給物件或類別資料,如:
+建構子(參數){
+...
+this.物件資料 = 參數; 
+}
+
+應該使用this關鍵字來區分局部變數和物件變數
+例:
+this.XXX=XXX
+</Message><Linelist><line Begin="34" End="38" src="letter" /></Linelist></Error></Errors></ErrorList>

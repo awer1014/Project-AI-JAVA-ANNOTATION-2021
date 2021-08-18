@@ -1,0 +1,20 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\812\812.xml">
+	
+<SourceCode_List><SourceCode lines="14" name="B.java">import java . util . Scanner ; 
+class B { 
+int X ( int x ) { 
+x = 3 ; 
+return x ; 
+} 
+public static void main ( String [ ] args ) { 
+Scanner k = new Scanner ( System . in ) ; 
+int y = 0 ; 
+y = k . nextInt ( ) ; 
+double z = X ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message>函數必須要宣告回傳值的型態，否則要在函數宣告前加上void。
+此外，函式邏輯必須完備，避免造成某些狀況無傳回值。
+再者，呼叫函數時則需要注意傳遞正確型態的參數。
+呼叫X 函數須傳遞一個 int 型別 的參數。例如，
+double z=X(y);</Message><Linelist><line Begin="11" End="11" src="B" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,77 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\700\700.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="Keeper.java">public class Keeper { 
+String id ; 
+String tel ; 
+Keeper ( String i , String t ) { 
+this . id = i ; 
+this . tel = t ; 
+} 
+void display ( ) { 
+System . out . println ( "飼主身分證字號：" + id ) ; 
+System . out . println ( "飼主電話：" + tel ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="52" name="Pet.java">public class Pet { 
+int count ; 
+String pid ; 
+String name ; 
+String type ; 
+Pet ( String p , String n , String t ) { 
+this . pid = p ; 
+this . name = n ; 
+this . type = t ; 
+} 
+void speak ( ) { 
+} 
+void display ( ) { 
+System . out . println ( "寵物種類:" + type ) ; 
+System . out . println ( "寵物編號:" + pid ) ; 
+System . out . println ( "寵物名稱:" + name ) ; 
+} 
+public static void main ( String [ ] args ) { 
+String p = args [ 0 ] ; 
+String n = args [ 1 ] ; 
+String t = args [ 2 ] ; 
+String P = args [ 3 ] ; 
+String N = args [ 4 ] ; 
+String T = args [ 5 ] ; 
+Pet x = new Pet ( p , n , t ) ; 
+Keeper a = new Keeper ( "A123456" , "02-2586777" ) ; 
+System . out . println ( "請輸入寵物種類:" + t ) ; 
+System . out . println ( "請輸入寵物編號:" + p ) ; 
+System . out . println ( "請輸入寵物名稱:" + n ) ; 
+System . out . println ( "請輸入飼主身分證字號：A123456" ) ; 
+System . out . println ( "請輸入飼主電話：02-2586777" ) ; 
+System . out . println ( "------------------------------------" ) ; 
+System . out . println ( "請輸入寵物種類:" + T ) ; 
+System . out . println ( "請輸入寵物編號:" + P ) ; 
+System . out . println ( "請輸入寵物名稱:" + N ) ; 
+System . out . println ( "請輸入飼主身分證字號：F123456" ) ; 
+System . out . println ( "請輸入飼主電話：07-2856977" ) ; 
+System . out . println ( "------------------------------------" ) ; 
+System . out . println ( "您輸入的是：" ) ; 
+x . display ( ) ; 
+a . display ( ) ; 
+System . out . println ( "您的寵物叫聲是：" ) ; 
+System . out . println ( "------------------------------------" ) ; 
+Pet y = new Pet ( P , N , T ) ; 
+Keeper b = new Keeper ( "F123456" , "07-2856977" ) ; 
+y . display ( ) ; 
+b . display ( ) ; 
+System . out . println ( "您的寵物叫聲是：" ) ; 
+System . out . println ( "------------------------------------" ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message>a, b變數需先宣告後才能使用。
+Keeper應擺在Pet前面才能讓Pet有Keeper的資料，例如，
+Keeper a = new Keeper(...);
+Pet x = new Pet(..., a);</Message><Linelist><line Begin="20" End="21" src="Pet" /><line Begin="39" End="40" src="Pet" /></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。
+例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+可利用建構子建立keeper物件變數的值，例如，
+public Pet(String p, String n, String t, Keeper k) {    
+    ...
+    this.keeper = k;
+}
+Pet建構子內已有keeper參數可以取得Keeper的資料，因此，下列程式可產生擁有Keeper物件的Pet物件，
+Pet x = new Pet(p,n,t,a);</Message><Linelist><line Begin="4" End="4" src="Pet" /><line Begin="8" End="8" src="Pet" /><line Begin="8" End="12" src="Pet" /><line Begin="20" End="20" src="Pet" /><line Begin="39" End="39" src="Pet" /></Linelist></Error></Errors></ErrorList>

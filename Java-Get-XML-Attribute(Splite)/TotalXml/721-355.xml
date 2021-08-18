@@ -1,0 +1,76 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\721\721.xml">
+	
+<SourceCode_List><SourceCode lines="19" name="Keeper.java">public class Keeper { 
+private String id ; 
+private String tel ; 
+Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+public void display1 ( ) { 
+System . out . println ( "飼主身分證字號：" + id ) ; 
+System . out . println ( "飼主電話：" + tel ) ; 
+} 
+public String getid ( ) { 
+return id ; 
+} 
+public String gettel ( ) { 
+return tel ; 
+} 
+} 
+</SourceCode><SourceCode lines="44" name="Pet.java">import java . util . Scanner ; 
+public class Pet { 
+static int count ; 
+private String pid ; 
+private String name ; 
+private String type ; 
+private int i ; 
+private String sound [ ] = { "旺旺" , "喵喵" } ; 
+Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+public void display ( ) { 
+System . out . println ( "寵物種類； " + pid ) ; 
+System . out . println ( "寵物編號： " + type ) ; 
+System . out . println ( "寵物名稱： " + name ) ; 
+if ( pid == "貓" ) 
+i = 1 ; 
+else 
+i = 0 ; 
+System . out . println ( "您的寵物叫聲是：" + sound [ i ] ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Scanner keyboard = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入寵物種類 :" ) ; 
+String m = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入寵物編號 ： " ) ; 
+String n = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱 ： " ) ; 
+String name = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入飼主身分證字號 ： " ) ; 
+String id = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入飼主電話 ： " ) ; 
+String tel = keyboard . nextLine ( ) ; 
+Pet x = new Pet ( m , name , n ) ; 
+Keeper y = new Keeper ( id , tel ) ; 
+x . display ( ) ; 
+y . getid ( ) ; 
+y . gettel ( ) ; 
+y . display1 ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>字串間的比較應使用equals函數較為恰當。
+例如，
+if ( pid.equals ( "貓" ) )</Message><Linelist><line Begin="10" End="10" src="Pet" /></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message>兩物件之間的關係經常可利用一物件擁有另一物件來實踐。
+例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+Pet ( String pid , String name , String type ,  Keeper keeper) { 
+    ...
+    this.keeper = keeper;
+}
+Pet建構子內已有keeper參數可以取得Keeper的資料，因此，下列程式可產生擁有Keeper物件的Pet物件，
+Pet x = new Pet(m ,name , n, y);</Message><Linelist><line Begin="5" End="5" src="Pet" /><line Begin="38" End="38" src="Pet" /><line Begin="38" End="42" src="Pet" /><line Begin="28" End="28" src="Pet" /></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message>y變數需先宣告後才能使用。
+Keeper應擺在Pet前面才能讓Pet有Keeper的資料，例如，
+Keeper y = new Keeper(...);
+Pet x = new Pet(..., y);</Message><Linelist><line Begin="28" End="29" src="Pet" /></Linelist></Error></Errors></ErrorList>

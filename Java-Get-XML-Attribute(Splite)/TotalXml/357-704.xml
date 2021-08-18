@@ -1,0 +1,24 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\357\357.xml">
+	
+<SourceCode_List><SourceCode lines="18" name="KKBox.java">public class KKBox { 
+static int length ; 
+static int width ; 
+static int height ; 
+static void num ( ) { 
+System . out . println ( "請輸入長" + length ) ; 
+System . out . println ( "請輸入寬" + width ) ; 
+System . out . println ( "請輸入高" + height ) ; 
+int volume = length * width * height ; 
+int surfaceArea = 2 * length * width + width * height + height * length ; 
+System . out . println ( "體積" + volume ) ; 
+System . out . println ( "表面積" + surfaceArea ) ; 
+} 
+public static void main ( String [ ] ar ) { 
+num ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數庫使用錯誤"><Message>引用函數錯誤，請確認所呼叫的函數或函數庫是否存在。
+
+未import Scanner函數庫,
+println後只能輸出結果,
+不能接收數值</Message><Linelist><line Begin="4" End="4" src="KKBox" /><line Begin="5" End="5" src="KKBox" /><line Begin="6" End="6" src="KKBox" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,110 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\785\785.xml">
+	
+<SourceCode_List><SourceCode lines="6" name="Exam.java">public class Exam extends Test { 
+public Exam ( String name ) { 
+super ( name ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="51" name="Game.java">import java . util . Scanner ; 
+import java . util . Random ; 
+public class Game { 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+static Test mapTest ( int c ) { 
+Test te = null ; 
+switch ( c ) { 
+case 1 : 
+te = new Exam ( "Exam" ) ; 
+break ; 
+case 2 : 
+te = new Homework ( "Homework" ) ; 
+break ; 
+case 3 : 
+te = new Report ( "Report" ) ; 
+break ; 
+} 
+return te ; 
+} 
+private static Test chooseTest ( ) { 
+System . out . println ( "請輸入種類 1(測驗),2(作業),3(心得報告):" ) ; 
+int c = 0 ; 
+do 
+{ 
+c = keyboard . nextInt ( ) ; 
+keyboard . nextLine ( ) ; 
+} 
+while ( c &gt; 3 || c &lt; 1 ) ; 
+return mapTest ( c ) ; 
+} 
+public static void main ( String [ ] args ) { 
+String a , b ; 
+double c , d ; 
+System . out . println ( "請輸入學生學號: " ) ; 
+a = keyboard . next ( ) ; 
+System . out . println ( "請輸入學生姓名: " ) ; 
+b = keyboard . next ( ) ; 
+System . out . println ( "請輸入成績: " ) ; 
+c = keyboard . nextDouble ( ) ; 
+keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入成績比重: " ) ; 
+d = keyboard . nextDouble ( ) ; 
+keyboard . nextLine ( ) ; 
+Student user = new Student ( a , b , c , d ) ; 
+user . setid ( a ) ; 
+user . setname ( b ) ; 
+user . setscore ( c ) ; 
+user . setsw ( d ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="Homework.java">public class Homework extends Test { 
+public Homework ( String name ) { 
+super ( name ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="6" name="Report.java">public class Report extends Test { 
+public Report ( String name ) { 
+super ( name ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="37" name="Student.java">public class Student { 
+String id ; 
+String name ; 
+double score ; 
+double sw ; 
+Student ( String ii , String n , double s , double ss ) { 
+this . id = ii ; 
+this . name = n ; 
+this . score = s ; 
+this . sw = ss ; 
+} 
+void setid ( String a ) { 
+id = a ; 
+} 
+void setname ( String a ) { 
+name = a ; 
+} 
+void setscore ( double a ) { 
+score = a ; 
+} 
+void setsw ( double a ) { 
+sw = a ; 
+} 
+String getid ( ) { 
+return id ; 
+} 
+String getName ( ) { 
+return name ; 
+} 
+double getscore ( ) { 
+return score ; 
+} 
+double getsw ( ) { 
+return sw ; 
+} 
+} 
+</SourceCode><SourceCode lines="7" name="Test.java">abstract public class Test { 
+protected String name ; 
+public Test ( String name ) { 
+this . name = name ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確。</Message><Linelist><line Begin="-1" End="-1" src="Exam" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,87 @@
+<ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\521\521.xml">
+	
+<SourceCode_List><SourceCode lines="50" name="Evaluation.java">import java . util . Scanner ; 
+public class Evaluation { 
+public static void main ( String [ ] args ) { 
+String type ; 
+Scanner scan = new Scanner ( System . in ) ; 
+boolean b = true ; 
+while ( b ) { 
+System . out . print ( "請輸入種類 1(測驗),2(作業),3(心得報告) : " ) ; 
+String n = scan . next ( ) ; 
+int n1 = Integer . parseInt ( n ) ; 
+if ( n . equals ( "0" ) ) { 
+b = false ; 
+break ; 
+} 
+System . out . println ( "請輸入學生學號 : " ) ; 
+String number = scan . nextLine ( ) ; 
+System . out . println ( "請輸入學生姓名 : " ) ; 
+String name = scan . nextLine ( ) ; 
+System . out . println ( "請輸入成績 : " ) ; 
+String grade = scan . nextLine ( ) ; 
+System . out . println ( "請輸入成績比重 : " ) ; 
+String grade1 = scan . nextLine ( ) ; 
+System . out . println ( "請輸入考試日期 : " ) ; 
+String date = scan . nextLine ( ) ; 
+System . out . println ( "請輸入考試範圍 : " ) ; 
+String range = scan . nextLine ( ) ; 
+if ( n1 == 1 ) { 
+type = "測驗" ; 
+} 
+else if ( n1 == 2 ) { 
+type = "作業" ; 
+} 
+else if ( n1 == 3 ) { 
+type = "心得報告" ; 
+} 
+else 
+type = "錯誤" ; 
+Student std = new Student ( number , name ) ; 
+Grades gra = new Grades ( grade , grade1 ) ; 
+Test t = new Test ( date , range ) ; 
+System . out . println ( "您輸入的是 : " ) ; 
+System . out . println ( "種類 : " + type ) ; 
+std . display ( ) ; 
+gra . display ( ) ; 
+t . display ( ) ; 
+System . out . println ( "======================" ) ; 
+} 
+} 
+} 
+</SourceCode><SourceCode lines="12" name="Grades.java">public class Grades { 
+private String grade , grade1 ; 
+public Grades ( String num , String nam ) { 
+grade = num ; 
+grade1 = nam ; 
+} 
+public void display ( ) { 
+System . out . println ( "成績 : " + grade ) ; 
+System . out . println ( "成績比重 : " + grade1 ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="12" name="Student.java">public class Student { 
+private String number , name ; 
+public Student ( String num , String nam ) { 
+number = num ; 
+name = nam ; 
+} 
+public void display ( ) { 
+System . out . println ( "學生學號 : " + number ) ; 
+System . out . println ( "學生姓名 : " + name ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="12" name="Test.java">public class Test { 
+private String date , range ; 
+public Test ( String num , String nam ) { 
+date = num ; 
+range = nam ; 
+} 
+public void display ( ) { 
+System . out . println ( "考試日期 : " + date ) ; 
+System . out . println ( "考試範圍 : " + range ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+例如，本程式Grades類別，public class Grades 後面要加上 extends Evaluation。</Message><Linelist><line Begin="1" End="1" src="Grades" /></Linelist></Error><Error tpye="抽象:繼承資料或動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+例如，本程式Evaluation類別，需改成public abstract class Evaluation。</Message><Linelist><line Begin="2" End="2" src="Evaluation" /></Linelist></Error></Errors></ErrorList>

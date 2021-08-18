@@ -1,0 +1,14 @@
+<ErrorList id="D:\program_python\新增題目\854.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="Pet.java">public class Pet { 
+private String pid ; 
+private String name ; 
+private String type ; 
+private String keeper ; 
+public void speak ( ) { 
+if ( type == "狗" ) { 
+System . out . println ( "您的寵物叫聲是：汪汪" ) ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message>兩個字串間的比較用equals函數較為恰當，如type.equals("狗")。</Message><Linelist><line Begin="7" End="7" src="Pet" /></Linelist></Error></Errors></ErrorList>

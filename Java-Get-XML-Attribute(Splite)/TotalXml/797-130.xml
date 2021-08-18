@@ -1,0 +1,148 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\797\797.xml">
+	
+<SourceCode_List><SourceCode lines="79" name="Evaluation.java">import java . util . * ; 
+class Evaluation { 
+public static void main ( String [ ] args ) { 
+Scanner kb = new Scanner ( System . in ) ; 
+int kind ; 
+System . out . println ( "請輸入種類 1(測驗), 2(作業), 3(心得報告)" ) ; 
+kind = kb . nextInt ( ) ; 
+kb . nextLine ( ) ; 
+if ( kind == 1 ) { 
+String studentid ; 
+String name ; 
+double score ; 
+double proportion ; 
+int date ; 
+String range ; 
+System . out . print ( "請輸入學號：" ) ; 
+studentid = kb . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名：" ) ; 
+name = kb . nextLine ( ) ; 
+System . out . print ( "請輸入成績：" ) ; 
+score = kb . nextDouble ( ) ; 
+kb . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重：" ) ; 
+proportion = kb . nextDouble ( ) ; 
+kb . nextLine ( ) ; 
+System . out . print ( "請輸入考試日期：" ) ; 
+date = kb . nextInt ( ) ; 
+kb . nextLine ( ) ; 
+System . out . print ( "請輸入考試範圍：" ) ; 
+range = kb . nextLine ( ) ; 
+System . out . print ( "============================" ) ; 
+Exam Ex = new Exam ( studentid , name , score , proportion , date , range ) ; 
+Ex . print ( ) ; 
+} 
+else if ( kind == 2 ) { 
+String studentid ; 
+String name ; 
+double score ; 
+int date ; 
+System . out . print ( "請輸入學號：" ) ; 
+studentid = kb . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名：" ) ; 
+name = kb . nextLine ( ) ; 
+System . out . print ( "請輸入成績：" ) ; 
+score = kb . nextDouble ( ) ; 
+kb . nextLine ( ) ; 
+System . out . print ( "請輸入繳交日期：" ) ; 
+date = kb . nextInt ( ) ; 
+kb . nextLine ( ) ; 
+System . out . print ( "============================" ) ; 
+HomeWork HW = new HomeWork ( studentid , name , score , date ) ; 
+HW . print ( ) ; 
+} 
+else { 
+String studentid ; 
+String name ; 
+String literature ; 
+double score ; 
+int date ; 
+String range ; 
+System . out . print ( "請輸入學號：" ) ; 
+studentid = kb . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名：" ) ; 
+name = kb . nextLine ( ) ; 
+System . out . print ( "請輸入文獻：" ) ; 
+literature = kb . nextLine ( ) ; 
+System . out . print ( "請輸入成績：" ) ; 
+score = kb . nextDouble ( ) ; 
+kb . nextLine ( ) ; 
+System . out . print ( "請輸入繳交日期：" ) ; 
+date = kb . nextInt ( ) ; 
+kb . nextLine ( ) ; 
+System . out . print ( "============================" ) ; 
+Report Re = new Report ( studentid , name , literature , score , date ) ; 
+Re . print ( ) ; 
+} 
+} 
+} 
+</SourceCode><SourceCode lines="26" name="Exam.java">public class Exam { 
+private String studentid ; 
+private String name ; 
+private double score ; 
+private double proportion ; 
+private int date ; 
+private String range ; 
+Exam ( String studentid , String name , double score , double proportion , int date , String range ) { 
+this . studentid = studentid ; 
+this . name = name ; 
+this . score = score ; 
+this . proportion = proportion ; 
+this . date = date ; 
+this . range = range ; 
+} 
+void print ( ) { 
+System . out . println ( "種類: 考試" ) ; 
+System . out . println ( "學號： " + studentid ) ; 
+System . out . println ( "學生姓名: " + name ) ; 
+System . out . println ( "學生考試成績： " + score ) ; 
+System . out . println ( "成績比重： " + proportion ) ; 
+System . out . println ( "繳交日期： " + date ) ; 
+System . out . println ( "考試範圍： " + range ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="21" name="HomeWork.java">public class HomeWork { 
+private String studentid ; 
+private String name ; 
+private double score ; 
+private int date ; 
+HomeWork ( String studentid , String name , double score , int date ) { 
+this . studentid = studentid ; 
+this . name = name ; 
+this . score = score ; 
+this . date = date ; 
+} 
+void print ( ) { 
+System . out . println ( "\n" ) ; 
+System . out . println ( "種類: 作業" ) ; 
+System . out . println ( "學號： " + studentid ) ; 
+System . out . println ( "學生姓名： " + name ) ; 
+System . out . println ( "學生作業成績： " + score ) ; 
+System . out . println ( "繳交日期： " + date ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="23" name="Report.java">public class Report { 
+private String studentid ; 
+private String name ; 
+private String literature ; 
+private double score ; 
+private int date ; 
+Report ( String studentid , String name , String literature , double score , int date ) { 
+this . studentid = studentid ; 
+this . name = name ; 
+this . literature = literature ; 
+this . score = score ; 
+this . date = date ; 
+} 
+void print ( ) { 
+System . out . println ( "種類: 報告" ) ; 
+System . out . println ( "學號： " + studentid ) ; 
+System . out . println ( "學生姓名： " + name ) ; 
+System . out . println ( "參考文獻： " + literature ) ; 
+System . out . println ( "學生報告成績： " + score ) ; 
+System . out . println ( "繳交日期： " + date ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message>正確。</Message><Linelist><line Begin="-1" End="-1" src="Evaluation" /></Linelist></Error></Errors></ErrorList>
