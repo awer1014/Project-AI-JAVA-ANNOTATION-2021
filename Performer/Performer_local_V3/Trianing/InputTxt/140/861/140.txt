@@ -1,0 +1,1 @@
+ <BOC> publicclassCel{ <CR> publicstaticvoidmain(String[]X4){ <CR> doubleU1=Double.parseDouble(X4[0]); <CR> System.out.println(U1+" 摨列 = "+Cel.ans(U1)); <CR> } <CR> staticdoubleans(doubleU1){ <CR> returnU1*9.0/5.0+32.0; <CR> } <CR> staticdoubledegree; <CR> } <CR>  <EOC> 

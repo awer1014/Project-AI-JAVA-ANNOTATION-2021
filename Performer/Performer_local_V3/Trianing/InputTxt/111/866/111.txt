@@ -1,0 +1,1 @@
+ <BOC> publicclassPerson{ <CR> staticvoidselfIntroduce(){ <CR> System.out.println("Hi!I am "+name+"  weights  "+weight); <CR> } <CR> staticStringname; <CR> staticintweight; <CR> publicstaticvoidmain(String[]G7){ <CR> name=G7[0]; <CR> weight=Integer.parseInt(G7[1]); <CR> Persono1=newPerson(name,weight); <CR> selfIntroduce(); <CR> } <CR> } <CR>  <EOC> 

@@ -1,0 +1,1 @@
+ <BOC> publicclassmymath{ <CR> publicstaticvoidmain(String[]p5){ <CR> intH1=Integer.parseInt(p5[0]); <CR> intV1=Integer.parseInt(p5[1]); <CR> System.out.println(H1*V1); <CR> } <CR> } <CR>  <EOC> 
