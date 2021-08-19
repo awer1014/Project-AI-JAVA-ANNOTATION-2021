@@ -1,0 +1,1 @@
+ <BOC> importjava.util.Random; <CR> publicclassKKBox{ <CR> KKBox(){ <CR> } <CR> doublelength,width,height; <CR> voidsurfaceArea(){ <CR> System.out.println(2*length*width+width*height+height*length); <CR> } <CR> publicstaticvoidmain(String[]S2){ <CR> intb0=1; <CR> intU=2; <CR> intd5=3; <CR> KKBoxE3=newKKBox(); <CR> E3.surfaceArea(); <CR> } <CR> } <CR>  <EOC> 

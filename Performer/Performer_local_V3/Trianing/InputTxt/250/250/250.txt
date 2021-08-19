@@ -1,0 +1,1 @@
+ <BOC> importjava.util.StringTokenizer; <CR> importjava.util.Scanner; <CR> classString{ <CR> publicstaticvoidmain(String[]w2){ <CR> Stringx5; <CR> Scannerk8=newScanner(System.in); <CR> Stringx5=k8.nextLine(); <CR> StringTokenizeru2=newStringTokenizer(w2[0]," "); <CR> } <CR> } <CR>  <EOC> 
