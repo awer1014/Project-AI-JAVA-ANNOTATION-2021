@@ -1,0 +1,1 @@
+ <BOC> publicclassPet{ <CR> staticStringtype; <CR> Pet(){ <CR> count++; <CR> } <CR> staticStringname="Timmy"; <CR> staticvoidspeak(StringN6){ <CR> if(N6=="貓"){ <CR> System.out.println("喵喵"); <CR> } <CR> elseif(N6=="狗"){ <CR> System.out.print("汪汪"); <CR> } <CR> } <CR> intcount; <CR> staticStringpid="d001"; <CR> } <CR>  <EOC> 

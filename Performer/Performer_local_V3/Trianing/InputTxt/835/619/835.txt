@@ -1,0 +1,1 @@
+ <BOC> classTEST{ <CR> publicstaticvoidmain(){ <CR> intM6; <CR> StringM4; <CR> if(M4.equals("A")) <CR> M6=0; <CR> elseif(M4.equals("B")) <CR> M6=1; <CR> elseif(M4.equals("C")) <CR> M6=2; <CR> else <CR> M6=3; <CR> } <CR> } <CR>  <EOC> 

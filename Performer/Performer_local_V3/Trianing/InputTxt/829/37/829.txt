@@ -1,0 +1,1 @@
+ <BOC> classTEST{ <CR> publicstaticvoidmain(){ <CR> TESTc7=newTEST(); <CR> c7.test(); <CR> } <CR> voidtest(){ <CR> if(type.equals("A")) <CR> x=0; <CR> else <CR> x=1; <CR> } <CR> Stringtype; <CR> intx; <CR> } <CR>  <EOC> 

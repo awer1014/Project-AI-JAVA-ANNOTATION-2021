@@ -1,0 +1,1 @@
+ <BOC> publicclassPet{ <CR> publicvoidspeak(){ <CR> System.out.print("您的寵物叫聲是 : "); <CR> if(name=="狗") <CR> System.out.println("汪汪"); <CR> else <CR> System.out.println("喵喵"); <CR> } <CR> privatestaticintcount; <CR> privateStringpid,name,type; <CR> privateKeeperkeeper; <CR> } <CR>  <EOC> 
