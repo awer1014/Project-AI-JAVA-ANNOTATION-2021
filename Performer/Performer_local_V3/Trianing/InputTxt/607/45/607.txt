@@ -1,0 +1,1 @@
+ <BOC> importjava.util.*; <CR> publicclassseason{ <CR> staticList<String>strList=Arrays.asList(sea); <CR> staticString[]sea=newString[]{"春","夏","秋","冬"}; <CR> publicstaticvoidmain(String[]S0){ <CR> Collections.shuffle(strList); <CR> System.out.println(strList); <CR> } <CR> } <CR>  <EOC> 
