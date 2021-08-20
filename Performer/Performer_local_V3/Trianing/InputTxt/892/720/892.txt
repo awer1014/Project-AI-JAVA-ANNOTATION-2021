@@ -1,0 +1,1 @@
+ <BOC> publicclasskkbox{ <CR> doublevolume(){ <CR> doublec3=1; <CR> c3=l*w*h; <CR> returnc3; <CR> } <CR> publicstaticvoidmain(String[]A7){ <CR> intD=Inter.paraeInt(A7[0]); <CR> intJ6=Inter.paraeInt(A7[1]); <CR> intW7=Inter.paraeInt(A7[2]); <CR> System.put.println(" ø"+D); <CR> System.put.println("¼e"+J6); <CR> System.put.println("° "+W7); <CR> } <CR> intl,w,h; <CR> } <CR>  <EOC> 
