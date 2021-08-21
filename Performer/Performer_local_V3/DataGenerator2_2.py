@@ -10,7 +10,17 @@ import DataBuffer as db
 
 class DataGenerator2_2(keras.utils.Sequence):
     'Generates data for Keras'
-    def __init__(self, input_databuffer_params,output_databuffer_params, list_IDs,  batch_size=2048, total_error_types=36, max_text_len=2769, max_lines=160, max_lbs=84, shuffle=True):
+    def __init__(self, 
+                 input_databuffer_params,
+                 output_databuffer_params, 
+                 list_IDs,  
+                 batch_size=2048, 
+                 total_error_types=36, 
+                 max_text_len=2769, 
+                 max_lines=160, 
+                 max_lbs=84, 
+                 shuffle=True
+                ):
         'Initialization'
         self.total_error_types = total_error_types
         self.max_text_len = max_text_len

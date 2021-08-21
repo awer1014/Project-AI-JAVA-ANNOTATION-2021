@@ -2,7 +2,7 @@ import math
 import numpy as np
 
 class DataBuffer:
-    def __init__(self, data_dir,  data_number, dtype=int, block_size = 1000, buffer_number=2,file_name="blk_" ):
+    def __init__(self, data_dir, data_number, dtype=int, block_size = 1000, buffer_number=2, file_name="blk_" ):
         self.block_size = block_size
         self_block_number = math.ceil(data_number / block_size)
         self.block_status = [False]*self_block_number # true if blk i in buffer
@@ -50,7 +50,7 @@ class DataBuffer:
         
     def get_data(self, dataID):
         blk_id = self.__get_block_id( dataID )
-        data_block=None
+        data_block = None
         if self.__check_exist(dataID): #exist in buffer
             data_block = self.data_buffer_map[blk_id]
         else: # not in the buffer, read block in the disk

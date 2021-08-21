@@ -9,13 +9,13 @@ from random import randrange
 def saveTestTrainData(filename, data): # e.g., 'test.npy'
     with open(filename, 'wb') as f:
         np.save(f, data)
-		
+
 def loadTestTrainData(filename): # e.g., 'test.npy'
     with open(filename, 'rb') as f:
         a = np.load(f)
-    return a		
+    return a
 
-def generateInputBLKData(offset = 0, datafilename, destDir1,filename1="blk_", block_size=1000, fext=".npy"):
+def generateInputBLKData(datafilename, destDir1,filename1="blk_", block_size=1000, fext=".npy", offset = 0):
     if not os.path.exists(destDir1):
         os.mkdir(destDir1)  #create patchbackfiledir case dir
         
@@ -24,20 +24,20 @@ def generateInputBLKData(offset = 0, datafilename, destDir1,filename1="blk_", bl
     print("train[0].shape:", data[0].shape) #encoder inputs
     lines = data[0].shape[0] # 279 lines
     
-    block_numer = math.ceil( lines / block_size )
+    block_numer = math.ceil(lines / block_size)
     
     for blk_id in range(block_numer):
         print("blk_idx: ", blk_id)
         blk_offset = blk_id*block_size
         blk_end = min((blk_id+1)*block_size, lines)
-        saveTestTrainData(destDir1 + filename1 +str(offset+blk_id) + ".npy", data[0][blk_offset:blk_end])
+        saveTestTrainData(destDir1 + filename1 + str(offset+blk_id) + ".npy", data[0][blk_offset:blk_end])
 
 
 def generateOutputBLKData(datafilename, destDir1, filename="blk_", block_size=1000, fext=".npy"):
     if not os.path.exists(destDir1):
         os.mkdir(destDir1)  #create patchbackfiledir case dir
     
-    data = list( loadTestTrainData(datafilename) )
+    data = list(loadTestTrainData(datafilename))
     print("len(data):", len(data))
     print("type(data):", type(data))
     print("data.shape:", data[0].shape) #encoder inputs
@@ -67,21 +67,20 @@ if __name__ == "__main__":
     """
 ######################################################
     #for output
-    
-   input_buffer_params = { 
-        "data_path": "Data\\DecoderOutput1\\", 
-        "data_number":270670,
-        "data_type": int,
-        "block_size": 48048
-        }
-    
-    
+
+    input_buffer_params = {"data_path": ["Performer_local_V3\Trianing\InputTxt"],
+                           "data_number": 302400,
+                           "data_type": [int],
+                           "block_size": 5400
+                           }
+        
     # for input
     output_buffer_params = {
-        "data_path": ["Data\\Encoder\\", "Data\\Decoder\\"],
-        "data_number":[270670, 270670],
-        "data_type": [int, int],
-        "block_size": [48048, 48048]
+        "data_path": ["Performer_local_V3\\Model-for-training",
+                      "Performer_local_V3\\Model-for-training"],
+        "data_number": [302400, 3024000], #[270670, 270670] 
+        "data_type": [int, int], #[int, int]
+        "block_size": [5400, 5400] #[48048, 48048]
         }
     
     input_data_path = input_buffer_params["data_path"]
@@ -94,15 +93,15 @@ if __name__ == "__main__":
     output_data_type = output_buffer_params["data_type"]
     output_block_size = output_buffer_params["block_size"]
     
-    input_db1 = db.DataBuffer(input_data_path, input_data_number, input_data_type, input_block_size,file_name="x_train[0]_" )
-   
-    
-    output_db1 = db.DataBuffer(output_data_path[0], output_data_number[0],output_data_type[0], output_block_size[0], file_name="y_train[0]_" )
-	
-    output_db2 = db.DataBuffer(output_data_path[1], output_data_number[1],output_data_type[1], output_block_size[1], file_name="y_train[1]_")
+    input_db1 = db.DataBuffer(input_data_path, input_data_number, input_data_type, input_block_size, file_name="x_train[0]_" )
 
+    output_db1 = db.DataBuffer(output_data_path[0], output_data_number[0], output_data_type[0], output_block_size[0], file_name="y_train[0]_" )
+    	
+    output_db2 = db.DataBuffer(output_data_path[1], output_data_number[1], output_data_type[1], output_block_size[1], file_name="y_train[1]_")
+    
     for i in range(10):
-        data_id  = randrange(338338)
+        print("i: ", i)
+        data_id  = randrange(302400)
         data1 = input_db1.get_data(data_id)
         data3 = output_db1.get_data(data_id)
         data4 = output_db2.get_data(data_id)
