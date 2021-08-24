@@ -40,9 +40,9 @@ public class Main {
             //lx.getNode(files,Filepath);
             
             
-            for(int loop=0; loop<34;loop++){
+            for(int loop=0; loop<7;loop++){
                 mn.ew.createSheet();
-                File[] x=Arrays.copyOfRange(mn.files, loop*10000, (loop+1)*10000);
+                File[] x=Arrays.copyOfRange(mn.files, loop*50000, (loop+1)*50000);
                 mn.list=new ArrayList<ArrayList<Line_Block>>();
                 System.out.println("Before mn.list size: " + mn.list.size());
                 rxf.load_Xml_file(x, mn.Filepath, mn.list);
@@ -50,7 +50,7 @@ public class Main {
                 mn.ew.write("test"+Integer.toString(loop)+".xlsx", mn.list, rxf.file_id_list);
             }
             
-            System.out.println("檔案產生完畢");
+            System.out.println("File create success...");
         } catch (Exception e) {
             e.printStackTrace();
         }

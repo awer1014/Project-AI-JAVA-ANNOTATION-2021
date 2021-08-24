@@ -43,7 +43,7 @@ public class Read_Xml_file {
                 System.out.println("=========================");*/
                     
                 String [] tokens=files[i].getName().split(".xml",2);
-                System.out.println("正在列印: "+tokens[0]+"第"+i+"份檔案");
+                System.out.println("Now in: "+tokens[0]+"file No."+i+"...");
                 //System.out.println("tokens[0]: "+tokens[0]);
                 doc = builder.parse(files[i]);
                 //doc.getDocumentElement().normalize();
