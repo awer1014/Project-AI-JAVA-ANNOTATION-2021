@@ -56,8 +56,9 @@ class DataGenerator2_2(keras.utils.Sequence):
     def __getitem__(self, index):
         'Generate one batch of data'
         # Generate indexes of the batch
-        print("index type: ", type(index))
+        #print("index type: ", type(index))
         indexes = self.indexes[index*self.batch_size:(index+1)*self.batch_size]
+        '''
         print("indexes type: ", type(self.indexes))
         print("indexes length: ", len(self.indexes))
         print("indexes[0] type: ", type(self.indexes[0]))
@@ -67,9 +68,12 @@ class DataGenerator2_2(keras.utils.Sequence):
         print("list_IDs[0] length: ", len(self.list_IDs[0]))
         print("list_IDs[1] type: ", type(self.list_IDs[1]))
         print("list_IDs[1] length: ", len(self.list_IDs[1]))
+        '''
         # Find list of IDs
-        list_IDs_temp = [self.list_IDs[k] for k in indexes]
-        
+        #list_IDs_temp = [self.list_IDs[k] for k in indexes]
+        list_IDs_temp = []
+        for k in range(len(self.list_IDs[0])):
+            list_IDs_temp.append(k)
         # Generate data
         X, y = self.__data_generation(list_IDs_temp)
         #print("X type and shape", type(X), " ", X.shape)
@@ -93,23 +97,32 @@ class DataGenerator2_2(keras.utils.Sequence):
         X1 = np.empty((self.batch_size, self.max_text_len), dtype=int)#encoder input
         y1 = np.empty((self.batch_size, self.total_error_types), dtype=int)
         y2 = [np.empty((self.batch_size, self.max_lines), dtype=int)] * self.max_lbs  # dim(84, batch_size, max_max_lines)
+        '''
         print("list_IDs_temp type: ", type(list_IDs_temp))        
-        print("list_ID_temp lenght: ", len(list_IDs_temp))
+        print("list_IDs_temp lenght: ", len(list_IDs_temp))
         print("list_IDs_temp[0] type: ", type(list_IDs_temp[0]))
-        
-        print("list_ID_temp[0] lenght: ", len(list_IDs_temp[0]))
+        print("list_IDs_temp[0] lenght: ", len(list_IDs_temp[0]))
+        print("list_IDs_temp[0]: ", list_IDs_temp[0])
         print("list_IDs_temp[1] type: ", type(list_IDs_temp[1]))
-        print("list_ID_temp[1] lenght: ", len(list_IDs_temp[1]))
+        print("list_IDs_temp[1] lenght: ", len(list_IDs_temp[1]))
+        print("list_IDs_temp[1]: ", list_IDs_temp[1])
+        for i in range(len(list_IDs_temp[0])):
+            print("list_ID_temp[0] vs list_ID_temp[1]: ", list_IDs_temp[0][i], " vs ", list_IDs_temp[1][i])
+        '''
+        count = 0
         for i, ID in enumerate(list_IDs_temp):
-            print("ID[1]: ", ID[1])
+            #print("ID[1]: ", ID[1])
             # Store sample
-            print("i: ", i)
-            print("ID: ", ID[i])
-            X1[i] = self.dbx1.get_data(ID[i]) # a list of token ids
+            #print("i: ", i)
+            #print("ID: ", ID[i])
+            X1[i] = self.dbx1.get_data(ID) # a list of token ids
             #X1[i,] = self.dbx1.get_data(ID) # a list of token ids
             # out1: a binary vector of total_error_types (36) elements, 
             y1[i] = self.dby1.get_data(ID) #a 36-length vector
             # out2 : a ector of one-hot-encoded vectors
             y2[i] = list(self.dby2.get_data(ID)) #a vector 84 160-length vector
-
+            count += 1
+            print(count)
+            #print(len(y2))
+            #print(type(y2[i]))
         return [X1], [y1] + y2

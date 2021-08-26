@@ -4,7 +4,7 @@ import numpy as np
 class DataBuffer:
     def __init__(self, data_dir,  data_number, dtype=int, block_size = 1000, buffer_number=2, file_name="blk_" ):
         self.block_size = block_size
-        self.block_number = math.ceil(data_number / block_size)
+        self.block_number = math.ceil(data_number/block_size)
         self.block_status = [False]*self.block_number # true if blk i in buffer
         self.block_access_counts = [0]*self.block_number # access count of blk i
         self.buffer_number = buffer_number
