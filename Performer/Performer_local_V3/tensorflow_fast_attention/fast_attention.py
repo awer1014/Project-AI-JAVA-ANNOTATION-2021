@@ -205,8 +205,8 @@ def noncausal_denominator(qs, ks):
   Returns:
     FAVOR normalizer in noncausal attention.
   """
-  print("QS OOOOOOOOOOOOO", type(qs), qs.shape)
-  print("KS OOOOOOOOOOOOO", type(ks), ks.shape)
+  #print("QS OOOOOOOOOOOOO", type(qs), qs.shape)
+  #print("KS OOOOOOOOOOOOO", type(ks), ks.shape)
   all_ones = tf.ones([ks.shape[0]])
   ks_sum = tf.einsum("lbhm,l->bhm", ks, all_ones)
   return tf.einsum("lbhm,bhm->lbh", qs, ks_sum)
@@ -457,22 +457,22 @@ class Attention(tf.keras.layers.Layer):
     # Linearly project the query, key and value using different learned
     # projections. Splitting heads is automatically done during the linear
     # projections --> [batch_size, length, num_heads, dim_per_head].
-    print("query_input: XXXXXXX ", query_input.shape);
-    print("source_input: XXXXXXX ", source_input.shape);
+    #print("query_input: XXXXXXX ", query_input.shape);
+    #print("source_input: XXXXXXX ", source_input.shape);
 	
     query = self.query_dense_layer(query_input)
     key = self.key_dense_layer(source_input)
     value = self.value_dense_layer(source_input)
-    print("Query: XXXXXXX ", query.shape);
-    print("Key: XXXXXXX ", key.shape);
-    print("Value: XXXXXXX ", value.shape);
+    #print("Query: XXXXXXX ", query.shape);
+    #print("Key: XXXXXXX ", key.shape);
+    #print("Value: XXXXXXX ", value.shape);
 	
     if self.projection_matrix_type is None:
       projection_matrix = None
     else:
       dim = query.shape[-1]
-      print("dim: ", dim)
-      print("query: ", (query))
+      #print("dim: ", dim)
+      #print("query: ", (query))
       #print("query val: ", query.numpy()) 
       #print("tf.math.reduce_sum: ", tf.math.reduce_sum(query).numpy())
       #seed = tf.math.ceil(tf.math.abs(tf.math.reduce_sum(query) * BIG_CONSTANT)) #Not used

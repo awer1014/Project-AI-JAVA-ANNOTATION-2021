@@ -62,9 +62,9 @@ class DataBuffer:
             self.__replace_data_buffer(blk_id, data_block)
 
         self.block_access_counts[blk_id] += 1
-        print("data_block len:", len(data_block))
-        print("data_block: ", data_block[self.__get_data_idx(dataID)])
-        print("data_block[self.__get_data_idx(dataID)] type: ", type(data_block[self.__get_data_idx(dataID)]))
+        #print("data_block len:", len(data_block))
+        #print("data_block: ", data_block[self.__get_data_idx(dataID)])
+        #print("data_block[self.__get_data_idx(dataID)] type: ", type(data_block[self.__get_data_idx(dataID)]))
         return data_block[self.__get_data_idx(dataID)]
 
     def get_output_data(self, dataID):
@@ -82,20 +82,20 @@ class DataBuffer:
         first_dim_length = len(data_block)
         second_dim_length = len(data_block[1])
         third_dim_length = len(data_block[1][self.__get_data_idx(dataID)])
-        print("data_block type: ", type(data_block))
-        print("data_block[0] type: ", type(data_block[0]))
-        print("data_block[0][0] type: ", type(data_block[0][0]))
-        print("data_block first dim len: ", len(data_block))
-        print("data_block second dim len: ", len(data_block[1]))
-        print("data_block third dim len: ", len(data_block[1][self.__get_data_idx(dataID)]))
-        print("data_block: ", data_block[1][self.__get_data_idx(dataID)])
+        #print("data_block type: ", type(data_block))
+        #print("data_block[0] type: ", type(data_block[0]))
+        #print("data_block[0][0] type: ", type(data_block[0][0]))
+        #print("data_block first dim len: ", len(data_block))
+        #print("data_block second dim len: ", len(data_block[1]))
+        #print("data_block third dim len: ", len(data_block[1][self.__get_data_idx(dataID)]))
+        #print("data_block: ", data_block[1][self.__get_data_idx(dataID)])
         #to nd.array
         data_block = np.array(data_block)
         #get array
         re_data_block = data_block[:, sample_id, :]
         #transfrom to list
         re_data_block = list(re_data_block)
-        print("re_data_block type: ", type(re_data_block))
+        #print("re_data_block type: ", type(re_data_block))
         #print("re_data_block shape: ", re_data_block.shape)
         #print("re_data_block: ", re_data_block)
         return re_data_block
