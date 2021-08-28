@@ -1,0 +1,130 @@
+<ErrorList id="F:\個人資料夾\專研\debug\死去\NormalizedCODES\783\783.xml">
+	
+<SourceCode_List><SourceCode lines="10" name="Evaluation.java">public class Evaluation { 
+protected String day , cover ; 
+public Evaluation ( String sday , String scover ) { 
+day = sday ; 
+cover = scover ; 
+} 
+public void print ( ) { 
+} 
+} 
+</SourceCode><SourceCode lines="10" name="Exam.java">public class Exam extends Evaluation { 
+public Exam ( String day , String cover ) { 
+super ( day , cover ) ; 
+} 
+void print ( ) { 
+System . out . println ( "考試日期：" + day ) ; 
+System . out . println ( "考試範圍：" + cover ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="10" name="Homework.java">public class Homework extends Evaluation { 
+public Homework ( String day , String cover ) { 
+super ( day , cover ) ; 
+} 
+void print ( ) { 
+System . out . println ( "截止日期：" + day ) ; 
+System . out . println ( "作業描述：" + cover ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="10" name="Report.java">public class Report extends Evaluation { 
+public Report ( String day , String cover ) { 
+super ( day , cover ) ; 
+} 
+void print ( ) { 
+System . out . println ( "報告內容：" + day ) ; 
+System . out . println ( "參考文獻：" + cover ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="18" name="Student.java">public class Student { 
+private String evaluation , stid , stname , stnumber , stnumberc ; 
+Student ( String sevaluation , String sstid , String sstname , String sstnumber , String sstnumberc ) { 
+evaluation = sevaluation ; 
+stid = sstid ; 
+stname = sstname ; 
+stnumber = sstnumber ; 
+stnumberc = sstnumberc ; 
+} 
+void print ( ) { 
+System . out . println ( "種類：" + evaluation ) ; 
+System . out . println ( "學生學號：" + stid ) ; 
+System . out . println ( "學生姓名：" + stname ) ; 
+System . out . println ( "成績：" + stnumber ) ; 
+System . out . println ( "成績比重：" + stnumberc ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="55" name="test.java">import java . util . Scanner ; 
+public class test { 
+static String evaluation , stid , stname , stnumber , stnumberc , day , cover ; 
+static Student st ; 
+static Evaluation setEvaluation ( String evaluation ) { 
+Evaluation ev = null ; 
+switch ( evaluation ) { 
+case "1" : 
+ev = new Exam ( day , cover ) ; 
+case "2" : 
+ev = new Homework ( day , cover ) ; 
+case "3" : 
+ev = new Report ( day , cover ) ; 
+} 
+return ev ; 
+} 
+public static void main ( String [ ] args ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+System . out . print ( "請輸入種類1(測驗),2(作業),3(心得報告)" ) ; 
+evaluation = sc . nextLine ( ) ; 
+System . out . print ( "請輸入學生學號：" ) ; 
+stid = sc . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名：" ) ; 
+stname = sc . nextLine ( ) ; 
+System . out . print ( "請輸入成績：" ) ; 
+stnumber = sc . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重" ) ; 
+stnumberc = sc . nextLine ( ) ; 
+st = new Student ( evaluation , stid , stname , stnumber , stnumberc ) ; 
+while ( true ) { 
+String day , cover ; 
+if ( evaluation . equals ( "1" ) ) { 
+System . out . print ( "請輸入考試日期" ) ; 
+day = sc . nextLine ( ) ; 
+System . out . print ( "請輸入考試範圍" ) ; 
+cover = sc . nextLine ( ) ; 
+} 
+if ( evaluation . equals ( "2" ) ) { 
+System . out . print ( "請輸入截止日期" ) ; 
+day = sc . nextLine ( ) ; 
+System . out . print ( "請輸入作業描述" ) ; 
+cover = sc . nextLine ( ) ; 
+} 
+if ( evaluation . equals ( "3" ) ) { 
+System . out . print ( "請輸入報告內容" ) ; 
+day = sc . nextLine ( ) ; 
+System . out . print ( "請輸入參考文獻" ) ; 
+cover = sc . nextLine ( ) ; 
+} 
+} 
+Evaluation eva = setEvaluation ( evaluation ) ; 
+eva . print ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如:
+id, name, score, prop為Evaluation父類別的物件資料。
+
+共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如:
+range, date為Exam子類別的物件資料。
+
+共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如:
+deadline, description為HomeWork子類別的物件資料。
+
+共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如:
+content, literature為Report子類別的物件資料。</Message><Linelist><line Begin="2" End="2" src="Evaluation" /><line Begin="5" End="8" src="Evaluation" /><line Begin="6" End="8" src="Exam" /><line Begin="2" End="4" src="Homework" /><line Begin="6" End="8" src="Report" /></Linelist></Error><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。
+實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+本程式的print()動作應隨不同的的子類別有不同的變化，因此須宣告為抽象動作，例如:
+public abstract void print ( ) ;</Message><Linelist><line Begin="3" End="4" src="Evaluation" /></Linelist></Error><Error tpye="抽象:覆寫抽象動作"><Message>抽象動作實際的函式內容是由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+注意:子類別函式的存取權限層級不能小於父類別函式的存取權限層級。
+例如，本程式父類別的print ( )函式的存取權限層級是public，而子類別print ( )函式的存取權限層級是 default，造成編譯錯誤。應改成:
+ public void print ( ) ;</Message><Linelist><line Begin="2" End="2" src="Exam" /><line Begin="5" End="5" src="Homework" /><line Begin="2" End="2" src="Report" /></Linelist></Error></Errors></ErrorList>

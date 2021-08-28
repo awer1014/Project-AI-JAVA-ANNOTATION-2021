@@ -1,0 +1,42 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\243\243.xml">
+	
+<SourceCode_List><SourceCode lines="30" name="Target.java">import java . util . * ; 
+public class Target { 
+static int in ; 
+static int out ; 
+static int randomhit ( ) { 
+int c = ( int ) ( Math . random ( ) + 1 ) ; 
+if ( c &lt; 0.5 ) { 
+in ++ ; 
+return 0 ; 
+} 
+else { 
+out ++ ; 
+return 1 ; 
+} 
+} 
+void toss ( int n ) { 
+System . out . println ( "圓內次數 =" + in + "出現比率:" ) ; 
+System . out . println ( "圓外次數 =" + out + "出現比率:" ) ; 
+} 
+public static void main ( String [ ] args ) { 
+randomhit ( ) ; 
+int in ; 
+int out ; 
+for ( int i = 0 ; i &lt; 100000 ; i ++ ) { 
+randomhit ( ) ; 
+toss ( n ) ; 
+} 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>物件資料/動作與類別資料/動作的差別在於有無static宣告。
+有static宣告的是類別資料/動作，物件資料/動作則無static宣告。
+類別資料/動作只有一份，且為類別與所有該類別的物件共享，
+物件資料則是每個物件各有獨立的一份，彼此不相關。
+
+本程式因為是類別動作，所以要在類別動作函數前加上static宣告。例如:
+static void 函數名稱(參數){...}</Message><Linelist><line Begin="3" End="6" src="Target" /></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message>類別動作需要的變數未宣告
+請宣告一個函數給類別使用
+例如
+int n = 1;
+類別動作(n);</Message><Linelist><line Begin="24" End="24" src="Target" /></Linelist></Error></Errors></ErrorList>

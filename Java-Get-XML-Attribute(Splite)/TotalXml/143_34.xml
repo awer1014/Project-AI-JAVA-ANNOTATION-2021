@@ -1,0 +1,20 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\Extra10 Q\143\143n.xml">
+	
+<SourceCode_List><SourceCode lines="15" name="test.java">public class test { 
+static String name ; 
+static int age ; 
+static String country ; 
+static void selfIntroduce ( ) { 
+System . out . println ( "Hello!I am " + name + " aged " + age + ".I come from " + country + "." ) ; 
+} 
+public static void main ( String [ ] args ) { 
+name = args [ 0 ] ; 
+age = Integer . parseInt ( args [ 1 ] ) ; 
+country = args [ 2 ] ; 
+selfIntroduce ( ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="物件:物件資料/物件動作概念"><Message>物件動作必須在產生物件後才能呼叫。
+例如:
+類別 物件變數 = new 類別();
+物件變數.物件動作(參數...);</Message><Linelist><line Begin="3" End="5" src="test" /><line Begin="12" End="12" src="test" /></Linelist></Error></Errors></ErrorList>

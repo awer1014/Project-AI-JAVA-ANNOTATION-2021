@@ -1,0 +1,68 @@
+<ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\432\432.xml">
+	
+<SourceCode_List><SourceCode lines="15" name="Keeper.java">public class Keeper { 
+String id ; 
+String tel ; 
+void display ( ) { 
+System . out . println ( "飼主身分證字號：" + id ) ; 
+System . out . println ( "飼主電話：" + tel ) ; 
+} 
+Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+public static void main ( String [ ] args ) { 
+} 
+} 
+</SourceCode><SourceCode lines="42" name="Pet.java">public class Pet { 
+int count ; 
+static String pid = "d001" ; 
+static String name = "Timmy" ; 
+static String type ; 
+Pet ( ) { 
+count ++ ; 
+} 
+static void speak ( String type ) { 
+if ( type == "貓" ) { 
+System . out . println ( "喵喵" ) ; 
+} 
+else if ( type == "狗" ) { 
+System . out . print ( "汪汪" ) ; 
+} 
+} 
+static void display ( String type ) { 
+System . out . println ( "寵物種類：" + type ) ; 
+System . out . println ( "寵物編號：" + pid ) ; 
+System . out . println ( "寵物名稱:" + name ) ; 
+} 
+Pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+String getName ( ) { 
+return name ; 
+} 
+String getpid ( ) { 
+return pid ; 
+} 
+String gettype ( ) { 
+return type ; 
+} 
+public static void main ( String [ ] args ) { 
+String a = args [ 0 ] ; 
+display ( a ) ; 
+speak ( a ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="其他:撰寫main函式"><Message>所謂類別主動作main()是指類別程式中的類別主程式，本身屬於靜態動作，需要寫在類別裡面，最多只需撰寫一個，且不需要回傳數值。
+
+main函式的宣告方法:
+public static void main (String [] args ){
+...
+}</Message><Linelist><line Begin="8" End="9" src="Keeper" /></Linelist></Error><Error tpye="物件:無法分辨物件&amp;類別的資料/動作"><Message>物件資料/動作與類別資料/動作的差別在於有無static宣告。
+有static宣告的是類別資料/動作，物件資料/動作則無static宣告。
+類別資料/動作只有一份，且為類別與所有該類別的物件共享，
+物件資料則是每個物件各有獨立的一份，彼此不相關。</Message><Linelist><line Begin="2" End="3" src="Pet" /><line Begin="21" End="21" src="Pet" /><line Begin="27" End="27" src="Pet" /><line Begin="33" End="33" src="Pet" /><line Begin="22" End="22" src="Pet" /></Linelist></Error><Error tpye="物件:物件資料/物件動作概念"><Message>物件資料/動作是物件所擁有的資料/動作，每個物件有自己的資料/動作，與其他的物件無關。語法上，沒有加上static宣告的，就是物件資料與物件動作。你也可以宣告物件資料與物件動作的存取權限，例如，
+private int 物件變數;
+表示 物件變數資料 只能給該物件本身使用。</Message><Linelist><line Begin="29" End="31" src="Pet" /></Linelist></Error></Errors></ErrorList>

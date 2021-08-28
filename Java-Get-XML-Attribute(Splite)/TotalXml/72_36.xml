@@ -1,0 +1,104 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\new\72.xml">
+	
+<SourceCode_List><SourceCode lines="51" name="ChineseLetter.java">public class ChineseLetter { 
+private String title , receiver , content , sender , date ; 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+String getSender ( String sender ) { 
+return sender ; 
+} 
+String getReceiver ( String receiver ) { 
+return receiver ; 
+} 
+String getDate ( String date ) { 
+return date ; 
+} 
+void display ( ) { 
+System . out . println ( receiver + " " + title + ",您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date + "\r\n" ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Envelop env = new Envelop ( "Taipei" , "Kaohsiung" ) ; 
+ChineseLetter It = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+EnglishLetter lt = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+EnglishLetter2 lt2 = new EnglishLetter2 ( "Professor" , "Liu" , "I am sorry!" , "K. Ming" , "2018/07/05" ) ; 
+System . out . println ( "第一題:" + "\r\n" ) ; 
+It . display ( ) ; 
+System . out . println ( "==========以上=========" ) ; 
+System . out . println ( "第二題:" + "\r\n" ) ; 
+lt . display ( ) ; 
+System . out . println ( "==========以上=========" ) ; 
+System . out . println ( "第三題:" + "\r\n" ) ; 
+env . display ( ) ; 
+System . out . println ( "信件內容:" + "\r\n" ) ; 
+It . display ( ) ; 
+lt . display ( ) ; 
+System . out . println ( "==========以上=========" ) ; 
+System . out . println ( "第四題:" + "\r\n" ) ; 
+lt2 . display ( ) ; 
+System . out . println ( "============" ) ; 
+lt . display ( ) ; 
+System . out . println ( "============" ) ; 
+It . display ( ) ; 
+System . out . println ( "==========以上=========" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="18" name="EnglishLetter.java">public class EnglishLetter { 
+private String title , receiver , content , sender , date ; 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+void display ( ) { 
+System . out . println ( "Dear " + title + " " + receiver + "," ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date + "\r\n" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="18" name="EnglishLetter2.java">public class EnglishLetter2 { 
+private String title , receiver , content , sender , date ; 
+EnglishLetter2 ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+void display ( ) { 
+System . out . println ( "Dear " + title + " " + receiver + "," ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date + "\r\n" ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="12" name="Envelop.java">public class Envelop { 
+private String senderAddr , receiverAddr ; 
+Envelop ( String senderAddr , String receiverAddr ) { 
+this . senderAddr = senderAddr ; 
+this . receiverAddr = receiverAddr ; 
+} 
+void display ( ) { 
+System . out . println ( "From: " + senderAddr + ",銘哥 " ) ; 
+System . out . println ( "To: " + receiverAddr + ", 王 教授" + "\r\n" ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="繼承:使用繼承"><Message>為了避免程式和資料的冗餘問題，應該善用繼承的機制。相同的資料或動作可藉由proetced 宣告，給子類別繼承使用。
+
+應再新增一個類別用來封裝重複的資料，如
+class A {....}
+
+子類別B可用extends來繼承父類別A，例如:
+class B extends A {...}</Message><Linelist><line Begin="15" End="15" src="ChineseLetter" /><line Begin="2" End="8" src="ChineseLetter" /><line Begin="16" End="21" src="ChineseLetter" /><line Begin="47" End="49" src="ChineseLetter" /><line Begin="2" End="2" src="EnglishLetter" /><line Begin="10" End="16" src="EnglishLetter" /><line Begin="2" End="2" src="EnglishLetter2" /><line Begin="10" End="16" src="EnglishLetter2" /></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,27 @@
+<ErrorList id="D:\program_python\新增題目\893.xml">
+	
+<SourceCode_List><SourceCode lines="23" name="kkbox.java">public class kkbox { 
+int n ; 
+int b ; 
+int length ; 
+int width ; 
+int height ; 
+double volume ( ) { 
+n = length * width * height ; 
+return n ; 
+} 
+double surfaceArea ( ) { 
+b = 2 * length * width + width * height + height * length ; 
+return b ; 
+} 
+public static void main ( String [ ] x ) { 
+System . out . println ( "請輸入長:" + length ) ; 
+System . out . println ( "請輸入寬:" + width ) ; 
+System . out . println ( "請輸入高:" + height ) ; 
+System . out . println ( "體積:" + n ) ; 
+System . out . println ( "表面積:" + b ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="函數:函數結構不清楚"><Message>函數的宣告架構如下:
+回傳值型態 函數名稱(參數型態 參數，...) { ... }
+如volume(int length , int width , int height)。</Message><Linelist><line Begin="12" End="15" src="kkbox" /></Linelist></Error></Errors></ErrorList>

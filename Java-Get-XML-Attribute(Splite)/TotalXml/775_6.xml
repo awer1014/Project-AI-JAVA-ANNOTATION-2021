@@ -1,0 +1,99 @@
+<ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\775\775.xml">
+	
+<SourceCode_List><SourceCode lines="37" name="Exam.java">import java . util . Scanner ; 
+public class Exam { 
+public static void main ( String [ ] args ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String test , id , name , gread , gp , date , range ; 
+System . out . print ( "請輸入種類1(測驗)，2(作業)，3(心得報告)：" ) ; 
+test = sc . nextLine ( ) ; 
+System . out . print ( "請輸入學生學號：" ) ; 
+id = sc . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名：" ) ; 
+name = sc . nextLine ( ) ; 
+System . out . print ( "請輸入成績：" ) ; 
+gread = sc . nextLine ( ) ; 
+System . out . print ( "請輸入成績比重：" ) ; 
+gp = sc . nextLine ( ) ; 
+System . out . print ( "請輸入考試日期：" ) ; 
+date = sc . nextLine ( ) ; 
+System . out . print ( "請輸入考試範圍：" ) ; 
+range = sc . nextLine ( ) ; 
+if ( test . equals ( "1" ) ) { 
+Kindsoftest kindsoftest = new Test ( name , id , gread , date , gp , range ) ; 
+Test . print ( ) ; 
+System . out . println ( "-----------------------------------" ) ; 
+} 
+else if ( test . equals ( "2" ) ) { 
+Kindsoftest kindsoftest = new Hwork ( name , id , gread , date , gp , range ) ; 
+Hwork . print ( ) ; 
+System . out . println ( "-----------------------------------" ) ; 
+} 
+else { 
+Kindsoftest kindsoftest = new Mind ( name , id , gread , date , gp , range ) ; 
+Mind . print ( ) ; 
+System . out . println ( "-----------------------------------" ) ; 
+} 
+} 
+} 
+</SourceCode><SourceCode lines="15" name="Hwork.java">public class Hwork extends Kindsoftest { 
+public Hwork ( String name , int id , int gread , int date , double gp , String range ) { 
+super ( name , id , gread , date , gp , range ) ; 
+} 
+void print ( ) { 
+System . out . println ( "種類：作業" ) ; 
+System . out . println ( "學生學號：" + name ) ; 
+System . out . println ( "學生姓名：" + id ) ; 
+System . out . println ( "成績：" + gread ) ; 
+System . out . println ( "成績比重：" + gp ) ; 
+System . out . println ( "考試日期：" + date ) ; 
+System . out . println ( "考試範圍：" + range ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="14" name="Kindsoftest.java">abstract public class Kindsoftest { 
+protected String name , range ; 
+protected int id , gread , date ; 
+protected double gp ; 
+public Kindsoftest ( String name , int id , int gread , int date , double gp , String range ) { 
+this . id = id ; 
+this . name = name ; 
+this . gread = gread ; 
+this . gp = gp ; 
+this . date = date ; 
+this . range = range ; 
+} 
+} 
+</SourceCode><SourceCode lines="15" name="Mind.java">public class Mind extends Kindsoftest { 
+public Mind ( String name , int id , int gread , int date , double gp , String range ) { 
+super ( name , id , gread , date , gp , range ) ; 
+} 
+void print ( ) { 
+System . out . println ( "種類：心得報告" ) ; 
+System . out . println ( "學生學號：" + name ) ; 
+System . out . println ( "學生姓名：" + id ) ; 
+System . out . println ( "成績：" + gread ) ; 
+System . out . println ( "成績比重：" + gp ) ; 
+System . out . println ( "考試日期：" + date ) ; 
+System . out . println ( "考試範圍：" + range ) ; 
+} 
+} 
+</SourceCode><SourceCode lines="14" name="Test.java">public class Test extends Kindsoftest { 
+public Test ( String name , int id , int gread , int date , double gp , String range ) { 
+super ( name , id , gread , date , gp , range ) ; 
+} 
+void print ( ) { 
+System . out . println ( "種類：測驗" ) ; 
+System . out . println ( "學生學號：" + name ) ; 
+System . out . println ( "學生姓名：" + id ) ; 
+System . out . println ( "成績：" + gread ) ; 
+System . out . println ( "成績比重：" + gp ) ; 
+System . out . println ( "考試日期：" + date ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message>共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如:
+range, date為Exam子類別的物件資料，不應出現在父類別。</Message><Linelist><line Begin="3" End="3" src="Kindsoftest" /><line Begin="2" End="2" src="Kindsoftest" /><line Begin="4" End="11" src="Kindsoftest" /><line Begin="2" End="4" src="Hwork" /><line Begin="2" End="4" src="Mind" /><line Begin="2" End="4" src="Test" /></Linelist></Error><Error tpye="抽象:抽象動作"><Message>抽象動作是抽象類別裡面的物件動作，只宣告函式名稱以及參數列型態，沒有實質的函式內容。
+實際的函式內容則由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。
+例如，本程式缺少抽象動作的宣告:
+public abstract void print ( ) ;</Message><Linelist><line Begin="11" End="11" src="Kindsoftest" /></Linelist></Error><Error tpye="運算:運算錯誤:型態不符無法運算"><Message>型態相同者才能進行運算，例如:字串與字串、數字與數字。
+例如，id 變數型態為 Int ，gread 變數型態為 Int ，gp 變數型態為 Double ，但輸入資料皆為 String ，因此需要轉型。</Message><Linelist><line Begin="21" End="21" src="Exam" /><line Begin="26" End="26" src="Exam" /><line Begin="31" End="31" src="Exam" /></Linelist></Error></Errors></ErrorList>

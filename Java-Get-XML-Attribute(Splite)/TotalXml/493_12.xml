@@ -1,0 +1,32 @@
+<ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\493\493.xml">
+	
+<SourceCode_List><SourceCode lines="23" name="PET.java">class PET { 
+int count ; 
+String pid ; 
+String name ; 
+String type ; 
+PET ( String Qpid , String Qname , String Qtype ) { 
+pid = Qpid ; 
+name = Qname ; 
+type = Qtype ; 
+} 
+public static void main ( String [ ] args ) { 
+String pid = args [ 1 ] ; 
+String name = args [ 0 ] ; 
+String type = args [ 2 ] ; 
+String id = args [ 3 ] ; 
+String tel = args [ 4 ] ; 
+PET PNT = new PET ( pid , name , type ) ; 
+System . out . println ( "請輸入寵物種類: " + PNT . pid ) ; 
+System . out . println ( "請輸入寵物編號: " + PNT . name ) ; 
+System . out . println ( "請輸入寵物名稱: " + PNT . type ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="io:不會使用輸入scanner類別"><Message>若需要從鍵盤輸入資料,需先引進Scanner 函數庫，如:
+import java.util.Scanner;
+接下來，宣告Scanner 物件，並呼叫適當的函數讀取不同型態的資料。
+如:
+Scanner scan = new Scanner();
+int p = scan.nextInt(); //讀取數值
+scan.nextLine(); //清除Enter空值
+例如，本程式PET類別，需加入一行Scanner scanner = new Scanner(System.in);</Message><Linelist><line Begin="1" End="1" src="PET" /><line Begin="13" End="14" src="PET" /></Linelist></Error></Errors></ErrorList>
