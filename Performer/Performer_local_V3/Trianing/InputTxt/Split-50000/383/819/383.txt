@@ -1,0 +1,1 @@
+ <BOC> publicclassExam2{ <CR> Stringexit(intK1){ <CR> switch(K1-1/13){ <CR> case0: <CR> return"春"; <CR> case1: <CR> return"夏"; <CR> case2: <CR> return"秋"; <CR> default: <CR> return"冬"; <CR> } <CR> } <CR> publicstaticvoidmain(String[]u3){ <CR> Exam2G8=newExam2(); <CR> System.out.printf(G8.exit(0)); <CR> } <CR> } <CR>  <EOC> 

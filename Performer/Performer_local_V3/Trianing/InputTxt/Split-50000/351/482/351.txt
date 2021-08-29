@@ -1,0 +1,1 @@
+ <BOC> publicclassKKBox{ <CR> publicstaticvoidmain(String[]O5){ <CR> L=1; <CR> W=2; <CR> H=3; <CR> System.out.println("volume:"+volume(ans)); <CR> } <CR> intH; <CR> intL; <CR> intW; <CR> staticintTest(intW4){ <CR> ans=1; <CR> ans=L*W*H; <CR> returnans; <CR> } <CR> } <CR>  <EOC> 

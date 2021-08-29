@@ -1,0 +1,1 @@
+ <BOC> publicclassseason{ <CR> StringOK(){ <CR> String[]I0={"春夏秋冬"}; <CR> returnnull; <CR> } <CR> publicstaticvoidmain(String[]m0){ <CR> seasonl8=newseason(); <CR> Math.random(); <CR> System.out.print("今天的心情是 = "+l8.OK()); <CR> } <CR> } <CR>  <EOC> 
