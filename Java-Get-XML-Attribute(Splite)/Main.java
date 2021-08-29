@@ -38,30 +38,29 @@ public class Main {
             mn.Filepath = mn.in.readLine();
             mn.files = mn.xfs.getXmlFileList(mn.Filepath);
             //lx.getNode(files,Filepath);
-            
-            
-            for(int loop=0; loop<7;loop++){
+
+            for(int loop=0; loop<1;loop++){
                 mn.ew.createSheet();
-                File[] x=Arrays.copyOfRange(mn.files, loop*50000, (loop+1)*50000);
+                File[] x=Arrays.copyOfRange(mn.files, loop*16644, (loop+1)*16644);
                 mn.list=new ArrayList<ArrayList<Line_Block>>();
                 System.out.println("Before mn.list size: " + mn.list.size());
                 rxf.load_Xml_file(x, mn.Filepath, mn.list);
                 System.out.println("After mn.list size: " + mn.list.size());
                 mn.ew.write("test"+Integer.toString(loop)+".xlsx", mn.list, rxf.file_id_list);
             }
-            
+
             System.out.println("File create success...");
         } catch (Exception e) {
             e.printStackTrace();
         }
         /* <----- dust switch
         for(int i = 0; i < gav.get_list_size(); i++) {
-        for (int j =0; j<gav.get_list_element_size(i); j++) {
-        System.out.println(gav.get_list_Error_type(i, j));
-        System.out.println(gav.get_list_file_name(i, j));
-        System.out.println(gav.get_list_Error_begin(i, j));
-        System.out.println(gav.get_list_Error_end(i, j));
-        }
+            for (int j =0; j<gav.get_list_element_size(i); j++) {
+                System.out.println(gav.get_list_Error_type(i, j));
+                System.out.println(gav.get_list_file_name(i, j));
+                System.out.println(gav.get_list_Error_begin(i, j));
+                System.out.println(gav.get_list_Error_end(i, j));
+            }
         }
         //*/// <----- dust switch
         //=====================Test======================

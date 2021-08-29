@@ -79,9 +79,9 @@ class DataBuffer:
 
         self.block_access_counts[blk_id] += 1
         sample_id = self.__get_data_idx(dataID) #get sample index
-        first_dim_length = len(data_block)
-        second_dim_length = len(data_block[1])
-        third_dim_length = len(data_block[1][self.__get_data_idx(dataID)])
+        #first_dim_length = len(data_block)
+        #second_dim_length = len(data_block[1])
+        #third_dim_length = len(data_block[1][self.__get_data_idx(dataID)])
         #print("data_block type: ", type(data_block))
         #print("data_block[0] type: ", type(data_block[0]))
         #print("data_block[0][0] type: ", type(data_block[0][0]))

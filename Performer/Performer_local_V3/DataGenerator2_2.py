@@ -14,9 +14,9 @@ class DataGenerator2_2(keras.utils.Sequence):
                  input_databuffer_params,
                  output_databuffer_params, 
                  list_IDs,  
-                 batch_size=2048, 
+                 batch_size=2048, #defult 2048
                  total_error_types=36, 
-                 max_text_len=2889, #hentai uncle's class:2769
+                 max_text_len=2914, #default 2769
                  max_lines=160, 
                  max_lbs=360, 
                  shuffle=True
@@ -56,7 +56,7 @@ class DataGenerator2_2(keras.utils.Sequence):
     def __getitem__(self, index):
         'Generate one batch of data'
         # Generate indexes of the batch
-        #print("index type: ", type(index))
+        print("index type: ", type(index))
         indexes = self.indexes[index*self.batch_size:(index+1)*self.batch_size]
         '''
         print("indexes type: ", type(self.indexes))
@@ -71,7 +71,7 @@ class DataGenerator2_2(keras.utils.Sequence):
         '''
         # Find list of IDs
         #list_IDs_temp = [self.list_IDs[k] for k in indexes]
-        list_IDs_temp = []
+        list_IDs_temp = [] #list_IDs have two of same dim use one to give list_IDs_temp
         for k in range(len(self.list_IDs[0])):
             list_IDs_temp.append(k)
         # Generate data
@@ -101,28 +101,35 @@ class DataGenerator2_2(keras.utils.Sequence):
         print("list_IDs_temp type: ", type(list_IDs_temp))        
         print("list_IDs_temp lenght: ", len(list_IDs_temp))
         print("list_IDs_temp[0] type: ", type(list_IDs_temp[0]))
-        print("list_IDs_temp[0] lenght: ", len(list_IDs_temp[0]))
+        #print("list_IDs_temp[0] lenght: ", len(list_IDs_temp[0]))
         print("list_IDs_temp[0]: ", list_IDs_temp[0])
         print("list_IDs_temp[1] type: ", type(list_IDs_temp[1]))
-        print("list_IDs_temp[1] lenght: ", len(list_IDs_temp[1]))
+        #print("list_IDs_temp[1] lenght: ", len(list_IDs_temp[1]))
         print("list_IDs_temp[1]: ", list_IDs_temp[1])
-        for i in range(len(list_IDs_temp[0])):
-            print("list_ID_temp[0] vs list_ID_temp[1]: ", list_IDs_temp[0][i], " vs ", list_IDs_temp[1][i])
-        '''
+        #for i in range(len(list_IDs_temp[0])):
+        #    print("list_ID_temp[0] vs list_ID_temp[1]: ", list_IDs_temp[0][i], " vs ", list_IDs_temp[1][i])
+        #'''
         count = 0
         for i, ID in enumerate(list_IDs_temp):
-            #print("ID[1]: ", ID[1])
-            # Store sample
-            #print("i: ", i)
-            #print("ID: ", ID[i])
+            count += 1
+            print("loop: ", count)
+            #print("ID type: ", type(ID))
             X1[i] = self.dbx1.get_data(ID) # a list of token ids
+            #print("X1[i]: ", X1[i])
+            #print("X1[i] lenght: ", len(X1[i]))
             #X1[i,] = self.dbx1.get_data(ID) # a list of token ids
             # out1: a binary vector of total_error_types (36) elements, 
             y1[i] = self.dby1.get_data(ID) #a 36-length vector
+            #print("y1[i]: ", y1[i])
+            #print("y1[i] length: ", len(y1[i]))
             # out2 : a ector of one-hot-encoded vectors
-            y2[i] = list(self.dby2.get_data(ID)) #a vector 84 160-length vector
-            count += 1
-            print(count)
+            #y2[i] = list(self.dby2.get_data(ID)) #a vector 84 160-length vector
+            #y2[i] = self.dby2.get_output_data(ID)
+            y2[i] = list(self.dby2.get_output_data(ID))
+            #print("y2[i]: ", y2[i])
+            #print("y2 length: ", len(y2)) #show line block size 
+            print("y2[i] length: ", len(y2[i])) #show sample
+            print("y2[i][1] length: ", len(y2[i][1])) #show single block size
             #print(len(y2))
             #print(type(y2[i]))
         return [X1], [y1] + y2
