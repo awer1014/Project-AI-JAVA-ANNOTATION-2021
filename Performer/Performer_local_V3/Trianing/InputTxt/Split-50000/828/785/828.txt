@@ -1,0 +1,1 @@
+ <BOC> classTEST{ <CR> publicstaticvoidmain(){ <CR> TESTk8=newTEST(); <CR> k8.test(); <CR> } <CR> Stringtype; <CR> intx; <CR> voidtest(){ <CR> if(type=="A") <CR> x=0; <CR> else <CR> x=1; <CR> } <CR> } <CR>  <EOC> 

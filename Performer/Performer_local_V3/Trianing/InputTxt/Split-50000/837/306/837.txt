@@ -1,0 +1,1 @@
+ <BOC> classA{ <CR> voidX(){ <CR> intS7; <CR> StringZ2; <CR> if(Z2.equals("CCCC")) <CR> S7=0; <CR> elseif(Z2.equals("SS")) <CR> S7=0; <CR> else <CR> S7=1; <CR> } <CR> } <CR>  <EOC> 

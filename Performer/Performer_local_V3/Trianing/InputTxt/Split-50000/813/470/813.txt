@@ -1,0 +1,1 @@
+ <BOC> importjava.util.Scanner; <CR> classB{ <CR> intX(intK1){ <CR> K1=3; <CR> returnK1; <CR> } <CR> publicstaticvoidmain(String[]i9){ <CR> Scanneri8=newScanner(System.in); <CR> intm9=0; <CR> m9=i8.nextInt(); <CR> doublel8=X(m9); <CR> } <CR> } <CR>  <EOC> 
