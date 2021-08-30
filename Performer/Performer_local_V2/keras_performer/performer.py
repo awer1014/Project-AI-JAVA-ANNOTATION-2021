@@ -46,7 +46,7 @@ def _wrap_layer(name,
     :param trainable: Whether the layers are trainable.
     :return: Output layer.
     """
-    print("Start Warpping................................")
+    #print("Start Warpping...")
 
     if isinstance(input_layer, list):
         build_output = build_func(input_layer[0], input_layer[1])
@@ -154,11 +154,11 @@ def self_attention_builder(name,
                nb_random_features=0):
     """
     def _attention_builder(x): #SelfAttention(hidden_size, num_heads, dropout)
-        print("OOOO:", x)
-        print("embed_dim:", embed_dim)
-        print("head_num:", head_num)
-        print("dropout_rate:", dropout_rate)
-        print("masked:", masked)
+        #print("OOOO:", x)
+        #print("embed_dim:", embed_dim)
+        #print("head_num:", head_num)
+        #print("dropout_rate:", dropout_rate)
+        #print("masked:", masked)
         return SelfAttention(
 			hidden_size=embed_dim,
 			num_heads=head_num,
@@ -456,12 +456,12 @@ def get_model(max_input_len,
     )
 
     encoder_input = tf.keras.Input(shape=(encoder_max_input_len,), name='Encoder-Input') #None-> 32, 11
-    print("In get_model: encoder_input: ", encoder_input.shape)
+    #print("In get_model: encoder_input: ", encoder_input.shape)
     encoder_embed = TrigPosEmbedding(
         mode=TrigPosEmbedding.MODE_ADD,
         name='Encoder-Embedding',
     )(encoder_embed_layer(encoder_input)[0])
-    print("In get_model: encoder_embed: ", encoder_embed.shape)
+    #print("In get_model: encoder_embed: ", encoder_embed.shape)
     encoded_layer = get_encoders(
         encoder_num=encoder_num,
         input_layer=encoder_embed,
@@ -474,15 +474,15 @@ def get_model(max_input_len,
         trainable=trainable
     )
 
-    print("encoded_layer:", encoded_layer)
-    print("encoded_layer shape:", encoded_layer.shape)
-    print("max_input_len, embed_dim:", max_input_len, embed_dim)
+    #print("encoded_layer:", encoded_layer)
+    #print("encoded_layer shape:", encoded_layer.shape)
+    #print("max_input_len, embed_dim:", max_input_len, embed_dim)
     flatten_state = keras.layers.Reshape((max_input_len*embed_dim,))(encoded_layer)
-    print("flatten_state:", flatten_state.shape)
+    #print("flatten_state:", flatten_state.shape)
     error_feed_forward_layer1 = keras.layers.Dense(hidden_dim, activation="relu" )(flatten_state)
     error_feed_forward_output1 = keras.layers.Dense(errNum,activation="softmax",name="error_feed_forward_output1")(error_feed_forward_layer1)
-    print("flatten_state:", flatten_state.shape)
-    print("error_feed_forward_output1:", error_feed_forward_output1.shape)
+    #print("flatten_state:", flatten_state.shape)
+    #print("error_feed_forward_output1:", error_feed_forward_output1.shape)
     concatted = keras.layers.Concatenate()([error_feed_forward_output1, flatten_state])
 
     #分類器2
@@ -492,7 +492,7 @@ def get_model(max_input_len,
     error_feed_forward_layer2 = keras.layers.Dense(hidden_dim, activation="relu" )(concatted)
     error_feed_forward_output2 = keras.layers.Dense(lbNum,activation="relu" ,name="error_feed_forward_output2")(error_feed_forward_layer2)
 
-    print("error_feed_forward_output2:", error_feed_forward_output2.shape)
+    #print("error_feed_forward_output2:", error_feed_forward_output2.shape)
     
     #子網路層
 
@@ -500,15 +500,12 @@ def get_model(max_input_len,
         output2_name= "LNout"+str(i)
         
         LNoutputs.append( keras.layers.Dense(max_javaline_length,activation="softmax",name=output2_name)(error_feed_forward_output2) )
-        
-        
-        
-        
-    print("LNoutputs:", LNoutputs)
+           
+    #print("LNoutputs:", LNoutputs)
 
 
     model = keras.models.Model(inputs=[encoder_input], outputs=[error_feed_forward_output1] + LNoutputs)
-    model.summary()
+    #model.summary()
     
     return model
 
@@ -554,12 +551,12 @@ def decode(model,
     is_single = not isinstance(tokens[0], list)
     if is_single:
         tokens = [tokens]
-    print("tokens length: ", len(tokens))
+    #print("tokens length: ", len(tokens))
     batch_size = len(tokens)#number of inputs to translate
     #model = keras.models.Model(inputs=[encoder_input], outputs=[error_feed_forward_output1, #error_feed_forward_output2])
     out1, *out2 = model.predict(tokens)
-    print("out1.shape: ", out1.shape)
-    print("out2 length: ", len(out2))
-    print("out2[0] shape: ", out2[0].shape)
+    #print("out1.shape: ", out1.shape)
+    #print("out2 length: ", len(out2))
+    #print("out2[0] shape: ", out2[0].shape)
 
     return out1, out2

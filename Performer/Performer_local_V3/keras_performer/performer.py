@@ -46,7 +46,7 @@ def _wrap_layer(name,
     :param trainable: Whether the layers are trainable.
     :return: Output layer.
     """
-    print("Start Warpping................................")
+    print("Start Warpping...")
 
     if isinstance(input_layer, list):
         build_output = build_func(input_layer[0], input_layer[1])
