@@ -1,0 +1,1 @@
+ <BOC> public class Cel {  <CR> public static void main ( String [ ] w9 ) {  <CR> double b6 = Double . parseDouble ( w9 [ 0 ] ) ;  <CR> System . out . println ( b6 + " 摨列 = " + Cel . ans ( b6 ) ) ;  <CR> }  <CR> static double degree ;  <CR> static double ans ( double b6 ) {  <CR> return b6 * 9.0 / 5.0 + 32.0 ;  <CR> }  <CR> }  <CR>  <EOC> 

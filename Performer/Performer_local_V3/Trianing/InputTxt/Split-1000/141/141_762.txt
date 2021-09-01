@@ -1,0 +1,1 @@
+ <BOC> public class mymath {  <CR> public static void main ( String [ ] s ) {  <CR> int M6 = Integer . parseInt ( s [ 0 ] ) ;  <CR> int D6 = Integer . parseInt ( s [ 1 ] ) ;  <CR> System . out . println ( M6 * D6 ) ;  <CR> }  <CR> }  <CR>  <EOC> 
