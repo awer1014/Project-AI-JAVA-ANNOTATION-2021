@@ -1,1 +1,0 @@
- <BOC> publicclasscountnum{ <CR> Stringn; <CR> publicintcountnum(StringT2,Stringn7){ <CR> for(intc9=0;c9<T2.length();c9++){ <CR> count++; <CR> intv8=T2.charAt(c9); <CR> returncount; <CR> } <CR> } <CR> intcount=0; <CR> publicstaticvoidmain(String[]q8){ <CR> StringT2=q8[0]; <CR> System.out.println("length:"+countnum()); <CR> } <CR> Stringstr; <CR> } <CR>  <EOC> 

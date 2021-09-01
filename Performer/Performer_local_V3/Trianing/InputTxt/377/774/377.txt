@@ -1,1 +1,0 @@
- <BOC> publicclassSeason{ <CR> stringb="夏"; <CR> stringd="冬"; <CR> stringa="春"; <CR> stringc="秋"; <CR> publicstaticvoidmain(String[]e6){ <CR> Randomv6=newRandom(); <CR> System.out.println(v6.nextInt(3)); <CR> } <CR> } <CR>  <EOC> 

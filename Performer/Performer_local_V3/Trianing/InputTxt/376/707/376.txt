@@ -1,1 +1,0 @@
- <BOC> publicclassKKBOx{ <CR> doubleh; <CR> doublew; <CR> doublel; <CR> publicstaticvoidmain(Double[]q8){ <CR> KKBOxU6=newKKBOx(); <CR> U6.l=2; <CR> U6.w=3; <CR> U6.h=4; <CR> System.out.println(U6.volume()); <CR> } <CR> doublevolume(){ <CR> doublev8=l*w*h; <CR> returnv8; <CR> } <CR> } <CR>  <EOC> 
