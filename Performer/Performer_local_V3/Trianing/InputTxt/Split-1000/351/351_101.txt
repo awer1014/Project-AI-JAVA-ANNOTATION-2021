@@ -1,0 +1,1 @@
+ <BOC> public class KKBox {  <CR> int H ;  <CR> int L ;  <CR> public static void main ( String [ ] d5 ) {  <CR> L = 1 ;  <CR> W = 2 ;  <CR> H = 3 ;  <CR> System . out . println ( "volume:" + volume ( ans ) ) ;  <CR> }  <CR> static int Test ( int b2 ) {  <CR> ans = 1 ;  <CR> ans = L * W * H ;  <CR> return ans ;  <CR> }  <CR> int W ;  <CR> }  <CR>  <EOC> 
