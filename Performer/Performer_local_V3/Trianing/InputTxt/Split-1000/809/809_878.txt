@@ -1,0 +1,1 @@
+ <BOC> class B {  <CR> void A ( int C ) {  <CR> C = 9 ;  <CR> }  <CR> public static void main ( String [ ] a0 ) {  <CR> int C = 0 ;  <CR> C = C + 100 ;  <CR> int j4 = A ( C ) ;  <CR> }  <CR> }  <CR>  <EOC> 

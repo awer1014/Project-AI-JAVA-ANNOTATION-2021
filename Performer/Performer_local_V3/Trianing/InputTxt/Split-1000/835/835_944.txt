@@ -1,0 +1,1 @@
+ <BOC> class TEST {  <CR> public static void main ( ) {  <CR> int E0 ;  <CR> String V8 ;  <CR> if ( V8 . equals ( "A" ) )  <CR> E0 = 0 ;  <CR> else if ( V8 . equals ( "B" ) )  <CR> E0 = 1 ;  <CR> else if ( V8 . equals ( "C" ) )  <CR> E0 = 2 ;  <CR> else  <CR> E0 = 3 ;  <CR> }  <CR> }  <CR>  <EOC> 

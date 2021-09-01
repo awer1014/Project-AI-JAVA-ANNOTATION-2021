@@ -1,0 +1,1 @@
+ <BOC> import java . util . Scanner ;  <CR> class PET {  <CR> static void speak ( String x1 ) {  <CR> String r0 ;  <CR> if ( x1 == "狗" )  <CR> System . out . println ( "你的寵物叫聲為:汪汪" ) ;  <CR> }  <CR> String pid ;  <CR> static int count ;  <CR> String name ;  <CR> String type ;  <CR> }  <CR>  <EOC> 

@@ -1,0 +1,1 @@
+ <BOC> class A {  <CR> void X ( ) {  <CR> int S7 ;  <CR> String H7 ;  <CR> if ( H7 . equals ( "CCCC" ) )  <CR> S7 = 0 ;  <CR> else if ( H7 . equals ( "SS" ) )  <CR> S7 = 0 ;  <CR> else  <CR> S7 = 1 ;  <CR> }  <CR> }  <CR>  <EOC> 
