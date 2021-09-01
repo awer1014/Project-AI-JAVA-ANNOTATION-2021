@@ -1,1 +1,0 @@
- <BOC> importjava.util.Random; <CR> publicclassSeason{ <CR> staticStringprint(String[]q1){ <CR> Randomt3=newRandom(); <CR> Stringv5=" "; <CR> for(intB4=4;B4>0;B4--){ <CR> intM2=t3.nextInt(B4); <CR> v5+=q1[M2]; <CR> } <CR> } <CR> publicstaticvoidmain(){ <CR> String[]q1={"春","夏","秋","冬"}; <CR> System.out.println(print(q1)); <CR> } <CR> } <CR>  <EOC> 
