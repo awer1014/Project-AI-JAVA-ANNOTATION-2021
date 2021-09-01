@@ -1,1 +1,0 @@
- <BOC> publicclassMyMath{ <CR> publicstaticvoidmain(String[]w6){ <CR> inti3=Integer.parseInt(w6[0]); <CR> System.out.println("N!:"+a(i3)); <CR> } <CR> staticinta(inti3){ <CR> intq8=1; <CR> for(intl9=1;l9<=i3;l9++){ <CR> q8=q8*l9; <CR> } <CR> q8*=2; <CR> returnq8; <CR> } <CR> } <CR>  <EOC> 

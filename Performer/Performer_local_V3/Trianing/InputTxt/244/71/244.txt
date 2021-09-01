@@ -1,1 +1,0 @@
- <BOC> importjava.util.*; <CR> publicclassWord{ <CR> publicstaticvoidmain(String[]h4){ <CR> ScannerO1=newScanner(System.in); <CR> StringTokenizeru8=O1; <CR> StringG8; <CR> while(u8.hasMoreTokens()){ <CR> G8=u8.nextToken(); <CR> System.out.println(G8); <CR> } <CR> } <CR> } <CR>  <EOC> 
