@@ -37,6 +37,16 @@ class DataBuffer:
 
         return data_block
 
+    def __read_block2(self, block_id):
+        data_block =  None # [ np.empty((*self.dim), , dtype=self.dtype) ] * self.block_size
+        if self.data_dir.endswith("\\"):
+            data_block= (np.load(self.data_dir + self.file_name + str(block_id) + '.npy'))
+        else:
+            data_block= (np.load(self.data_dir + "\\"+ self.file_name + str(block_id) + '.npy'))
+
+        return data_block
+
+    
     def __replace_data_buffer(self, block_id, data_block):
         if len(self.data_buffer_map)>0:
             #print("self.data_buffer_map.keys():", list(self.data_buffer_map.keys()))
@@ -74,7 +84,7 @@ class DataBuffer:
         if self.__check_exist(dataID): #exist in buffer
             data_block = self.data_buffer_map[blk_id]
         else: # not in the buffer, read block in the disk
-            data_block = self.__read_block(blk_id)
+            data_block = self.__read_block2(blk_id) #read out put data
             self.__replace_data_buffer(blk_id, data_block)
 
         self.block_access_counts[blk_id] += 1
@@ -82,15 +92,17 @@ class DataBuffer:
         #first_dim_length = len(data_block)
         #second_dim_length = len(data_block[1])
         #third_dim_length = len(data_block[1][self.__get_data_idx(dataID)])
-        #print("data_block type: ", type(data_block))
-        #print("data_block[0] type: ", type(data_block[0]))
-        #print("data_block[0][0] type: ", type(data_block[0][0]))
-        #print("data_block first dim len: ", len(data_block))
-        #print("data_block second dim len: ", len(data_block[1]))
-        #print("data_block third dim len: ", len(data_block[1][self.__get_data_idx(dataID)]))
-        #print("data_block: ", data_block[1][self.__get_data_idx(dataID)])
+        '''
+        print("data_block type: ", type(data_block))
+        print("data_block[0] type: ", type(data_block[0]))
+        print("data_block[0][0] type: ", type(data_block[0][0]))
+        print("data_block first dim len: ", len(data_block))
+        print("data_block second dim len: ", len(data_block[1]))
+        print("data_block third dim len: ", len(data_block[1][self.__get_data_idx(dataID)]))
+        print("data_block: ", data_block[1][self.__get_data_idx(dataID)])
+        '''
         #to nd.array
-        data_block = np.array(data_block)
+        #data_block = np.asarray(data_block)
         #get array
         re_data_block = data_block[:, sample_id, :]
         #transfrom to list
