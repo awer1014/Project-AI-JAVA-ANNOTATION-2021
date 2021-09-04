@@ -34,7 +34,6 @@ class DataBuffer:
             data_block= list(np.load(self.data_dir + self.file_name + str(block_id) + '.npy'))
         else:
             data_block= list(np.load(self.data_dir + "\\"+ self.file_name + str(block_id) + '.npy'))
-
         return data_block
 
     def __read_block2(self, block_id):
@@ -46,7 +45,7 @@ class DataBuffer:
 
         return data_block
 
-    
+
     def __replace_data_buffer(self, block_id, data_block):
         if len(self.data_buffer_map)>0:
             #print("self.data_buffer_map.keys():", list(self.data_buffer_map.keys()))

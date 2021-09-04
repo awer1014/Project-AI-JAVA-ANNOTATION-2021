@@ -548,8 +548,8 @@ def decode(model,
     if is_single:
         tokens = [tokens]
     batch_size = len(tokens)#number of inputs to translate
-	#model = keras.models.Model(inputs=[encoder_input], outputs=[error_feed_forward_output1, #error_feed_forward_output2])
-    out1, out2 = model.predict(tokens)
+    #model = keras.models.Model(inputs=[encoder_input], outputs=[error_feed_forward_output1, #error_feed_forward_output2])
+    out1, out2 = model.predict(tokens)#, batch_size = 512) #set batch size
     print("out1.shape", out1.shape)
     print("out2.shape", out2.shape)	
 
