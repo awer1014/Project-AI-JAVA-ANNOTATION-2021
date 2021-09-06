@@ -1,10 +1,10 @@
 def load(model_name):
         import sys
-        sys.path.append("Perfomer_local_V2\keras_layer_normalization")
-        sys.path.append("Perfomer_local_V2\keras_position_wise_feed_forward")
-        sys.path.append("Perfomer_local_V2\tensorflow_fast_attention")
-        sys.path.append("Perfomer_local_V2\keras_performer")
-        sys.path.append("Perfomer_local_V2\keras_pos_embed")
+        sys.path.append("Perfomer_local_V2/keras_layer_normalization")
+        sys.path.append("Perfomer_local_V2/keras_position_wise_feed_forward")
+        sys.path.append("Perfomer_local_V2/tensorflow_fast_attention")
+        sys.path.append("Perfomer_local_V2/keras_performer")
+        sys.path.append("Perfomer_local_V2/keras_pos_embed")
 
         from keras_performer import performer
         from tensorflow import keras
