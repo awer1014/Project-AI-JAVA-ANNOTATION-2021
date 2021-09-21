@@ -21,8 +21,26 @@ def load(model_name):
        # t_inv = loadDictionary(target_token_dict_inv, 'target_token_dict_inv.pickle')
         return model
 
+def max_lenght_adjustment(loaded_model, training_source_max_len):
+    adjusted_model = []
+    for i in range(len(loaded_model)):
+        #print("i: ", i)
+        d_two = []
+        for k in range(training_source_max_len): #set length
+            #print("k: ", k)
+            d_two.append(loaded_model[i][k])
+        #switch to np array
+        d_two = np.array(d_two)
+        #give np array
+        adjusted_model.append(d_two)
+    #switch to np array
+    adjusted_model = np.array(adjusted_model)
+
+    return adjusted_model
+
+
 #load model
-def loadmodel(model_name, x_test_model, y_test_mdodel1, y_test_mdodel2):
+def loadmodel(model_name, x_test_model, y_test_mdodel1, y_test_mdodel2, source_max_lan):
     import numpy as np
     #load model and dic ps. dic is not use
     #model, source_token_dict = load(model_name)
@@ -32,13 +50,14 @@ def loadmodel(model_name, x_test_model, y_test_mdodel1, y_test_mdodel2):
 
     '''
     Para:
-        x_test_loaded  : answer model        (include type and lineblock)
-        y_test_loaded_0: predict model       (type)
-        y_test_loaded_1: predict model       (lineblock)
-        out1           : answer model output (type)
-        out2           : answer model output (lineblock)
+        x_test_loaded  : answer model           (include type and lineblock)
+        y_test_loaded_0: model's predict        (type)
+        y_test_loaded_1: model's predict        (lineblock)
+        out1           : answer of model output (type)
+        out2           : answer of model output (lineblock)
     '''
 
+    #load x & y test model
     x_test_loaded = loadTestTrainData(x_test_model)
     y_test_loaded_0 = loadTestTrainData(y_test_mdodel1)
     y_test_loaded_1 = loadTestTrainData(y_test_mdodel2)
@@ -46,20 +65,9 @@ def loadmodel(model_name, x_test_model, y_test_mdodel1, y_test_mdodel2):
     #transform to training_source_max_len
     training_source_max_len = 1200 #def training_source_max_len
 
-    new_x_train = []
-    for i in range(len(x_test_loaded)):
-        #print("i: ", i)
-        d_two = []
-        for k in range(training_source_max_len): #set length
-            #print("k: ", k)
-            d_two.append(x_test_loaded[i][k])
-        #switch to np array
-        d_two = np.array(d_two)
-        #give np array
-        new_x_train.append(d_two)
-    #switch to np array
-    new_x_train = np.array(new_x_train)
-    x_test_loaded = new_x_train
+    #adjusted model's max source maximum length
+    x_test_loaded = max_lenght_adjustment(x_test_loaded, training_source_max_len)
+
 
     #''' <-------dust switch
     print("x_test_loaded shape: ", x_test_loaded.shape)
@@ -69,7 +77,8 @@ def loadmodel(model_name, x_test_model, y_test_mdodel1, y_test_mdodel2):
     print("y_test_loaded_1 shape: ", y_test_loaded_1.shape)
     #'''
 
-    out1, out2 = tfr.decode(model, x_test_loaded, max_len = x.getsource_max_lan())
+    #get model perdict result
+    out1, out2 = tfr.decode(model, x_test_loaded, max_len = source_max_lan)
 
     #==============show org result================
     #''' <-------dust switch
@@ -84,10 +93,15 @@ def loadmodel(model_name, x_test_model, y_test_mdodel1, y_test_mdodel2):
     #'''
 
     #=============================================
-    test_ep = np.around(out1)
-    test_lb = np.around(out2)
+    #error type adjustment
+    #solution: find the value upper than 0.5 ------> use np.around()
     ans_ep = np.around(y_test_loaded_0)
+    test_ep = np.around(out1)
+
+    #error line adjustment
+    #solution: find the maximum vlaue
     ans_lb = np.around(y_test_loaded_1)
+    test_lb = np.around(out2)
     #==============show toint result==============
 
     #''' <-------dust switch
