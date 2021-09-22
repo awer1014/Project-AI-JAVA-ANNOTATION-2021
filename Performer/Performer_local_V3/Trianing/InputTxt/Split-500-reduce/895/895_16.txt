@@ -1,0 +1,1 @@
+<BOC> public class Keeper { <CR> public String getId ( ) { <CR> return i ; <CR> } <CR> static String i ; <CR> public static void main ( String [ ] B 5 ) { <CR> System . out . print ( <STRING> + i ) ; <CR> System . out . print ( <STRING> + p ) ; <CR> System . out . print ( <STRING> + n ) ; <CR> } <CR> Keeper ( String p 8 ) { <CR> p 8 = i ; <CR> } <CR> } <CR> <EOC>
