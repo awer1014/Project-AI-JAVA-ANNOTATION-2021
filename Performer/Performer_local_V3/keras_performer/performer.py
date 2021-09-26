@@ -482,7 +482,7 @@ def get_model(max_input_len,
     flatten_state = keras.layers.Reshape((max_input_len*embed_dim,))(encoded_layer)
     #print("flatten_state:", flatten_state.shape)
     error_feed_forward_layer1 = keras.layers.Dense(hidden_dim, activation="relu" )(flatten_state)
-    error_feed_forward_output1 = keras.layers.Dense(errNum,activation="softmax",name="error_feed_forward_output1")(error_feed_forward_layer1)
+    error_feed_forward_output1 = keras.layers.Dense(errNum,activation="sigmoid",name="error_feed_forward_output1")(error_feed_forward_layer1)
     #print("flatten_state:", flatten_state.shape)
     #print("error_feed_forward_output1:", error_feed_forward_output1.shape)
     concatted = keras.layers.Concatenate()([error_feed_forward_output1, flatten_state])

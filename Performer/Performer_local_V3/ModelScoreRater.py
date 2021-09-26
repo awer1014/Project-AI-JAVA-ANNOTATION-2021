@@ -1,10 +1,23 @@
-def load(model_name):
+from keras_performer import performer as tfr
+import numpy as np
+def loadDictionary(file):
+    import pickle
+    a_file = open(file, "rb")
+    dt = pickle.load(a_file)
+    return dt
+
+def loadTestTrainData(filename): # e.g., 'test.npy'
+    with open(filename, 'rb') as f:
+        a = np.load(f)
+        return a
+
+def load(model_path, model_name):
     import sys
-    sys.path.append("Perfomer_local_V2/keras_layer_normalization")
-    sys.path.append("Perfomer_local_V2/keras_position_wise_feed_forward")
-    sys.path.append("Perfomer_local_V2/tensorflow_fast_attention")
-    sys.path.append("Perfomer_local_V2/keras_performer")
-    sys.path.append("Perfomer_local_V2/keras_pos_embed")
+    sys.path.append("Perfomer_local_V3/keras_layer_normalization")
+    sys.path.append("Perfomer_local_V3/keras_position_wise_feed_forward")
+    sys.path.append("Perfomer_local_V3/tensorflow_fast_attention")
+    sys.path.append("Perfomer_local_V3/keras_performer")
+    sys.path.append("Perfomer_local_V3/keras_pos_embed")
 
     from keras_performer import performer
     from tensorflow import keras
@@ -15,11 +28,10 @@ def load(model_name):
 
     co = performer.get_custom_objects()
 
-    model = keras.models.load_model(model_name, custom_objects = co)
-
-   # t = loadDictionary(target_token_dict, 'target_token_dict.pickle')
-   # t_inv = loadDictionary(target_token_dict_inv, 'target_token_dict_inv.pickle')
-   return model
+    model = keras.models.load_model(model_path + "/" + model_name, custom_objects = co)
+    # t = loadDictionary(target_token_dict, 'target_token_dict.pickle')
+    # t_inv = loadDictionary(target_token_dict_inv, 'target_token_dict_inv.pickle')
+    return model
 
 def max_lenght_adjustment(loaded_model, training_source_max_len):
     adjusted_model = []
@@ -40,11 +52,11 @@ def max_lenght_adjustment(loaded_model, training_source_max_len):
 
 
 #load model
-def loadmodel(model_name, x_test_model, y_test_mdodel1, y_test_mdodel2, source_max_lan):
+def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_mdodel1, y_test_mdodel2, source_max_lan):
     import numpy as np
     #load model and dic ps. dic is not use
     #model, source_token_dict = load(model_name)
-    model = load(model_name)
+    model = load(model_path, model_name)
     #print(model.summary())
     #load
 
@@ -57,17 +69,15 @@ def loadmodel(model_name, x_test_model, y_test_mdodel1, y_test_mdodel2, source_m
         out2           : answer of model output (lineblock)
     '''
 
+    ''' <-------dust switch
+    print("y_test_loaded_1 shape: ", y_test_loaded_1.shape)
+    print("x_test_loaded length: ", len(x_test_loaded))
+    #'''
+
     #load x & y test model
-    x_test_loaded = loadTestTrainData(x_test_model)
-    y_test_loaded_0 = loadTestTrainData(y_test_mdodel1)
-    y_test_loaded_1 = loadTestTrainData(y_test_mdodel2)
-
-    #transform to training_source_max_len
-    training_source_max_len = 1200 #def training_source_max_len
-
-    #adjusted model's max source maximum length
-    x_test_loaded = max_lenght_adjustment(x_test_loaded, training_source_max_len)
-
+    x_test_loaded = loadTestTrainData(x_y_path + "/" + x_test_model)
+    y_test_loaded_0 = loadTestTrainData(x_y_path + "/" + y_test_mdodel1)
+    y_test_loaded_1 = loadTestTrainData(x_y_path + "/" + y_test_mdodel2)
 
     #''' <-------dust switch
     print("x_test_loaded shape: ", x_test_loaded.shape)
@@ -78,17 +88,16 @@ def loadmodel(model_name, x_test_model, y_test_mdodel1, y_test_mdodel2, source_m
     #'''
 
     #get model perdict result
+
     out1, out2 = tfr.decode(model, x_test_loaded, max_len = source_max_lan)
 
     #==============show org result================
     #''' <-------dust switch
-    print("y_test_loaded_0 shape: ", y_test_loaded_0.shape)
-    print("y_test_loaded_1 shape: ", y_test_loaded_1.shape)
-    print("y_test_loaded_0[0] result:", (y_test_loaded_0[0])) #Error_type #vs out1
-    print("y_test_loaded_1[0][1] result:", (y_test_loaded_1[0][1])) #Line_Block #vs out2
+    print("out1 type: ", type(out1))
+    print("out2 type: ", type(out2))
     print("out1 shape: ", (out1).shape)#prob upper then 0.5
+    print("out2 lenght: ", len(out2))
     print("out2[0] shape: ", (out2[0]).shape)#prob upper then 0.5
-    print("out2 length: ", len(out2))
     print("out2[0] length: ", len(out2[0]))#prob lb
     #'''
 
@@ -104,11 +113,15 @@ def loadmodel(model_name, x_test_model, y_test_mdodel1, y_test_mdodel2, source_m
     test_lb = np.around(out2)
     #==============show toint result==============
 
-    #''' <-------dust switch
+    ''' <-------dust switch
+    print("=========test_ep[1]=========")
     print(test_ep[1])
+    print("=========test_lb[1]=========")
     print(test_lb[1])
+    print("=========ans_ep[1]==========")
     print(ans_ep[1])
-    print([ans_lb[1]])
+    print("=========ans_lb[1]==========")
+    print(ans_lb[1])
     #'''
     #=============================================
     return test_ep, ans_ep, test_lb, ans_lb
