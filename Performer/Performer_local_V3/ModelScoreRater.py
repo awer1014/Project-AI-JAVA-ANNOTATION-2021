@@ -50,6 +50,19 @@ def max_lenght_adjustment(loaded_model, training_source_max_len):
 
     return adjusted_model
 
+def out_line_adjustment(out_line):
+    sample_size = len(out_line[0])
+    blocks = len(out_line)
+    lines = len(out_line[0][0])
+    for sample in len(sample_size):
+        for block in blocks:
+            for line in lines:
+                if (out_line[block][sample][line] == max(out_line[block][sample])):
+                    out_line[block][sample][line] = 1
+                else:
+                    out_line[block][sample][line] = 0
+    return out_line
+
 
 #load model
 def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_mdodel1, y_test_mdodel2, source_max_lan):
@@ -109,8 +122,8 @@ def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_mdodel1, y_
 
     #error line adjustment
     #solution: find the maximum vlaue
-    ans_lb = np.around(y_test_loaded_1)
-    test_lb = np.around(out2)
+    ans_lb = out_line_adjustment(y_test_loaded_1)
+    test_lb = out_line_adjustment(out2)
     #==============show toint result==============
 
     ''' <-------dust switch
@@ -226,6 +239,7 @@ def get_start_end_line(pre_begin_index, pre_end_index, ans_begin_index, ans_end_
             #end: index[0]
 
     #get [value] first and get [value] again to get value
+    """
     pre_begin_line = pre_begin_index[0]
     pre_begin_line = pre_begin_line[0]
     pre_end_line = pre_end_index[0]
@@ -234,6 +248,15 @@ def get_start_end_line(pre_begin_index, pre_end_index, ans_begin_index, ans_end_
     ans_begin_line = ans_begin_line[0]
     ans_end_line = ans_end_index[0]
     ans_end_line = ans_end_line[0]
+    """
+    pre_begin_line = pre_begin_index
+    pre_begin_line = pre_begin_line
+    pre_end_line = pre_end_index
+    pre_end_line = pre_end_line
+    ans_begin_line = ans_begin_index
+    ans_begin_line = ans_begin_line
+    ans_end_line = ans_end_index
+    ans_end_line = ans_end_line
 
     return pre_begin_line, pre_end_line, ans_begin_line, ans_end_line
 
