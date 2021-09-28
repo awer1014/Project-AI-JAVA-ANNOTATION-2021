@@ -241,7 +241,7 @@ def get_start_end_line(pre_begin_index, pre_end_index, ans_begin_index, ans_end_
             #end: index[0]
 
     #get [value] first and get [value] again to get value
-    """
+    #"""
     pre_begin_line = pre_begin_index[0]
     pre_begin_line = pre_begin_line[0]
     pre_end_line = pre_end_index[0]
@@ -250,6 +250,8 @@ def get_start_end_line(pre_begin_index, pre_end_index, ans_begin_index, ans_end_
     ans_begin_line = ans_begin_line[0]
     ans_end_line = ans_end_index[0]
     ans_end_line = ans_end_line[0]
+    #"""
+
     """
     pre_begin_line = pre_begin_index
     pre_begin_line = pre_begin_line
@@ -259,6 +261,7 @@ def get_start_end_line(pre_begin_index, pre_end_index, ans_begin_index, ans_end_
     ans_begin_line = ans_begin_line
     ans_end_line = ans_end_index
     ans_end_line = ans_end_line
+    """
 
     return pre_begin_line, pre_end_line, ans_begin_line, ans_end_line
 
