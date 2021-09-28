@@ -55,8 +55,8 @@ def out_line_adjustment(out_line):
     blocks = len(out_line)
     lines = len(out_line[0][0])
     for sample in range(sample_size):
-        for block in range(len(blocks)):
-            for line in range(len(lines)):
+        for block in range((blocks)):
+            for line in range((lines)):
                 if (out_line[block][sample][line] == max(out_line[block][sample])):
                     out_line[block][sample][line] = 1
                 else:
@@ -122,7 +122,9 @@ def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_mdodel1, y_
 
     #error line adjustment
     #solution: find the maximum vlaue
+    print("=========adjust 1=========")
     ans_lb = out_line_adjustment(y_test_loaded_1)
+    print("=========adjust 2=========")
     test_lb = out_line_adjustment(out2)
     #==============show toint result==============
 
@@ -261,6 +263,8 @@ def get_start_end_line(pre_begin_index, pre_end_index, ans_begin_index, ans_end_
     return pre_begin_line, pre_end_line, ans_begin_line, ans_end_line
 
 def line_adjustment(line):
+    print("line: ", line)
+    print("line type: ", type(line))
     if(line > 1):
         line = line-1
         return line
