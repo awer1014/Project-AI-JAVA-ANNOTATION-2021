@@ -223,9 +223,11 @@ def errortype_totalscore(pre_errortype,ans_errortype):
         pre_total = pre_total + pre
         rec_total = rec_total + rec
         acc_total = acc_total + acc
+    """
     print("pre_total: ", pre_total)
     print("rec_total: ", rec_total)
     print("acc_total: ", acc_total)
+    """
     pre_avg_score = pre_total/len(pre_errortype)
     rec_avg_socre = rec_total/len(ans_errortype)
     acc_avg_score = acc_total/len(ans_errortype)
@@ -266,7 +268,7 @@ def get_start_end_line(pre_begin_index, pre_end_index, ans_begin_index, ans_end_
     return pre_begin_line, pre_end_line, ans_begin_line, ans_end_line
 
 def line_adjustment(line):
-    #"""
+    """
     print("line: ", line)
     print("line type: ", type(line))
     #"""
@@ -319,6 +321,7 @@ def errorline_totalscore(pre_errorline, ans_errorline):
     #get block size
     lineblock_size = len(pre_errorline)
     print("sample_size: ", sample_size)
+    print("lineblock_size type : ", type(lineblock_size))
     print("lineblock_size: ", lineblock_size)
     total_pre = 0.0
     total_rec = 0.0
@@ -430,10 +433,14 @@ def errorline_totalscore(pre_errorline, ans_errorline):
             #print("Sample total_pre: ", sample_pre)
             #print("Sample total_rec: ", sample_rec)
         #cal total sample score
-        total_sample_pre += sample_totalline_pre/len(lineblock_size/2)
-        total_sample_rec += sample_totalline_rec/len(lineblock_size/2)
+        #print("lineblock_size/2 type: ", type(lineblock_size/2))
+        #print("lineblock_size/2 : ", (lineblock_size/2))
+        total_sample_pre += sample_totalline_pre/(lineblock_size/2)
+        total_sample_rec += sample_totalline_rec/(lineblock_size/2)
     avg_pre = total_sample_pre/sample_size
     avg_rec = total_sample_rec/sample_size
+    print("avg_pre: ", avg_pre)
+    print("avg_rec: ", avg_rec)
     return avg_pre, avg_rec
 
 def error_type_F_score(pre_score, rec_score):
