@@ -54,7 +54,7 @@ def out_line_adjustment(out_line):
     sample_size = len(out_line[0])
     blocks = len(out_line)
     lines = len(out_line[0][0])
-    for sample in range(len(sample_size)):
+    for sample in range(sample_size):
         for block in range(len(blocks)):
             for line in range(len(lines)):
                 if (out_line[block][sample][line] == max(out_line[block][sample])):
