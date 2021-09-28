@@ -261,13 +261,15 @@ def get_start_end_line(pre_begin_index, pre_end_index, ans_begin_index, ans_end_
     ans_begin_line = ans_begin_line
     ans_end_line = ans_end_index
     ans_end_line = ans_end_line
-    """
+    #"""
 
     return pre_begin_line, pre_end_line, ans_begin_line, ans_end_line
 
 def line_adjustment(line):
+    #"""
     print("line: ", line)
     print("line type: ", type(line))
+    #"""
     if(line > 1):
         line = line-1
         return line
@@ -316,6 +318,8 @@ def errorline_totalscore(pre_errorline, ans_errorline):
     sample_size = len(pre_errorline[1])
     #get block size
     lineblock_size = len(pre_errorline)
+    print("sample_size: ", sample_size)
+    print("lineblock_size: ", lineblock_size)
     total_pre = 0.0
     total_rec = 0.0
     total_sample_pre = 0.0
