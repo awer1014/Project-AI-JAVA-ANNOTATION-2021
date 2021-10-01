@@ -33,7 +33,7 @@ def load(model_path, model_name):
     # t_inv = loadDictionary(target_token_dict_inv, 'target_token_dict_inv.pickle')
     return model
 
-def max_lenght_adjustment(loaded_model, training_source_max_len):
+def max_length_adjustment(loaded_model, training_source_max_len):
     adjusted_model = []
     for i in range(len(loaded_model)):
         #print("i: ", i)
@@ -51,16 +51,20 @@ def max_lenght_adjustment(loaded_model, training_source_max_len):
     return adjusted_model
 
 def out_line_adjustment(out_line):
+    #get each dim length
     sample_size = len(out_line[0])
     blocks = len(out_line)
-    lines = len(out_line[0][0])
+    lines_length = len(out_line[0][0])
     for sample in range(sample_size):
+        #inintial max_index
+        max_index = None
         for block in range((blocks)):
-            for line in range((lines)):
-                if (out_line[block][sample][line] == max(out_line[block][sample])):
-                    out_line[block][sample][line] = 1
-                else:
-                    out_line[block][sample][line] = 0
+            #find biggest index
+            max_index = out_line[block][sample].argmax()#index(max(out_line[block][sample]))
+            #build the new array for out_line
+            out_line[block][sample] = [0 for vlaue in range(lines_length)]
+            #set max value to lines
+            out_line[block][sample][max_index] = 1
     return out_line
 
 
@@ -109,7 +113,7 @@ def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_mdodel1, y_
     print("out1 type: ", type(out1))
     print("out2 type: ", type(out2))
     print("out1 shape: ", (out1).shape)#prob upper then 0.5
-    print("out2 lenght: ", len(out2))
+    print("out2 length: ", len(out2))
     print("out2[0] shape: ", (out2[0]).shape)#prob upper then 0.5
     print("out2[0] length: ", len(out2[0]))#prob lb
     #'''
@@ -122,10 +126,14 @@ def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_mdodel1, y_
 
     #error line adjustment
     #solution: find the maximum vlaue
+
     print("=========adjust 1=========")
-    ans_lb = out_line_adjustment(y_test_loaded_1)
-    print("=========adjust 2=========")
     test_lb = out_line_adjustment(out2)
+
+    print("=========adjust 2=========")
+    ans_lb = y_test_loaded_1 #out_line_adjustment(y_test_loaded_1)
+
+
     #==============show toint result==============
 
     ''' <-------dust switch
@@ -176,10 +184,10 @@ def pre_typefilter(pre_errortype):
 def errortype_score(pre_errortype, ans_errortype):
     #find pre length
     new_pre_errortype = pre_typefilter(pre_errortype) #make new array for score
-    pre_length = len(new_pre_errortype) #get lenght from ans_type
+    pre_length = len(new_pre_errortype) #get length from ans_type
     #find ans length
     new_ans_errortype = ans_typefilter(ans_errortype) #make new array for score
-    ans_length = len(new_ans_errortype) #get lenght from ans_type
+    ans_length = len(new_ans_errortype) #get length from ans_type
     #print("ans length: ", ans_length)
     inter, inter_two = intersect(pre_errortype, ans_errortype) #get intersection
     inter_length = len(inter)
