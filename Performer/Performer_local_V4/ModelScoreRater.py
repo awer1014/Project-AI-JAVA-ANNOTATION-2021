@@ -13,21 +13,21 @@ def loadTestTrainData(filename): # e.g., 'test.npy'
 
 def load(model_path, model_name):
     import sys
-    sys.path.append("Perfomer_local_V3/keras_layer_normalization")
-    sys.path.append("Perfomer_local_V3/keras_position_wise_feed_forward")
-    sys.path.append("Perfomer_local_V3/tensorflow_fast_attention")
-    sys.path.append("Perfomer_local_V3/keras_performer")
-    sys.path.append("Perfomer_local_V3/keras_pos_embed")
+    sys.path.append("Perfomer_local_V4/keras_layer_normalization")
+    sys.path.append("Perfomer_local_V4/keras_position_wise_feed_forward")
+    sys.path.append("Perfomer_local_V4/tensorflow_fast_attention")
+    sys.path.append("Perfomer_local_V4/keras_performer")
+    sys.path.append("Perfomer_local_V4/keras_pos_embed")
 
     from keras_performer import performer
     from tensorflow import keras
     from keras_embed_sim import EmbeddingRet, EmbeddingSim
     from keras_pos_embd import TrigPosEmbedding
-    from tensorflow_fast_attention.fast_attention import  Attention, SelfAttention
+    from tensorflow_fast_attention.fast_attention import softmax_kernel_transformation, Attention, SelfAttention
     from keras_position_wise_feed_forward.feed_forward import FeedForward
 
     co = performer.get_custom_objects()
-
+    co["softmax_kernel_transformation"] = softmax_kernel_transformation
     model = keras.models.load_model(model_path + "/" + model_name, custom_objects = co)
     # t = loadDictionary(target_token_dict, 'target_token_dict.pickle')
     # t_inv = loadDictionary(target_token_dict_inv, 'target_token_dict_inv.pickle')
