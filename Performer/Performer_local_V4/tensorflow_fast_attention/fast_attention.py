@@ -23,6 +23,18 @@ from tensorflow_fast_attention import util
 import random
 from datetime import datetime
 
+
+__all__ = [
+    'create_projection_matrix', 
+    'create_products_of_givens_rotations', 
+    'relu_kernel_transformation',
+    'softmax_kernel_transformation',
+    'noncausal_numerator',
+    'noncausal_denominator',
+    'causal_numerator',
+    'favor_attention', 
+]
+
 BIG_CONSTANT = 1e8
 
 
@@ -322,6 +334,7 @@ def favor_attention(query,
   Returns:
     FAVOR normalized attention.
   """
+  
   query_prime = kernel_transformation(query, True,
                                       projection_matrix)  # [B,L,H,M]
   key_prime = kernel_transformation(key, False, projection_matrix)  # [B,L,H,M]
@@ -385,6 +398,7 @@ class Attention(tf.keras.layers.Layer):
     self.projection_matrix_type = projection_matrix_type
     self.nb_random_features = nb_random_features
     super(Attention, self).__init__(**kwargs)
+
   def build(self, input_shape):
     """Builds the layer."""
     # Layers for linearly projecting the queries, keys, and values.
@@ -422,11 +436,22 @@ class Attention(tf.keras.layers.Layer):
     super(Attention, self).build(input_shape)
 
   def get_config(self):
-    return {
+    config = {
         "hidden_size": self.hidden_size,
         "num_heads": self.num_heads,
         "attention_dropout": self.attention_dropout,
+        "kernel_transformation": self.kernel_transformation,
+        "numerical_stabilizer": self.numerical_stabilizer,
+        "causal": self.causal,
+        "projection_matrix_type": self.projection_matrix_type,
+        "nb_random_features": self.nb_random_features, 
     }
+    base_config = super().get_config()
+    return dict(list(base_config.items()) + list(config.items()))
+
+  @classmethod
+  def from_config(cls, config):
+        return cls(**config)
 
   def call(self,
            query_input,
