@@ -1,1 +1,0 @@
- <BOC> import java.util.Random; <CR> public class Season <CR> { <CR>     public static void main(String[] args){ <CR>          <CR>         Random r = new Random(); <CR>         int i=[spring,summer,autumn,winter]; <CR>                  <CR>         for (int i=0;i<4;i++) <CR>          <CR>         System.out.println("i"); <CR>      } <CR> } <CR>  <EOC> 
