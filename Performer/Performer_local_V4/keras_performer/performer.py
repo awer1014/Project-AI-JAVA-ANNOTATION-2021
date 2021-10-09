@@ -481,8 +481,11 @@ def get_model(max_input_len,
     #print("max_input_len, embed_dim:", max_input_len, embed_dim)
     flatten_state = keras.layers.Reshape((max_input_len*embed_dim,))(encoded_layer)
     #print("flatten_state:", flatten_state.shape)
-    error_feed_forward_layer1 = keras.layers.Dense(hidden_dim, activation="relu" )(flatten_state)
-    error_feed_forward_output1 = keras.layers.Dense(errNum,activation="sigmoid",name="error_feed_forward_output1")(error_feed_forward_layer1)
+    error_feed_forward_layer1 = keras.layers.Dense(hidden_dim, 
+                                                   activation="relu")(flatten_state)
+    error_feed_forward_output1 = keras.layers.Dense(errNum,
+                                                    activation="sigmoid", 
+                                                    name="error_feed_forward_output1")(error_feed_forward_layer1)
     #print("flatten_state:", flatten_state.shape)
     #print("error_feed_forward_output1:", error_feed_forward_output1.shape)
     concatted = keras.layers.Concatenate()([error_feed_forward_output1, flatten_state])
@@ -491,8 +494,11 @@ def get_model(max_input_len,
 
     LNoutputs=[]
 
-    error_feed_forward_layer2 = keras.layers.Dense(hidden_dim, activation="relu" )(concatted)
-    error_feed_forward_output2 = keras.layers.Dense(lbNum,activation="relu" ,name="error_feed_forward_output2")(error_feed_forward_layer2)
+    error_feed_forward_layer2 = keras.layers.Dense(hidden_dim, 
+                                                   activation="relu")(concatted)
+    error_feed_forward_output2 = keras.layers.Dense(lbNum, 
+                                                    activation="relu", 
+                                                    name="error_feed_forward_output2")(error_feed_forward_layer2)
 
     #print("error_feed_forward_output2:", error_feed_forward_output2.shape)
     
