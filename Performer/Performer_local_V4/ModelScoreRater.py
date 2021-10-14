@@ -216,7 +216,7 @@ def errortype_score(pre_errortype, ans_errortype):
     #calculate Accuarcy score
     acc_score = inter_two_length/len(pre_errortype)
 
-    return pre_score, rec_score , acc_score#return float
+    return pre_score, rec_score , acc_score #return float
 
 #show total perdict score and recall score
 def errortype_totalscore(pre_errortype,ans_errortype):
