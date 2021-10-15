@@ -2,27 +2,34 @@ import numpy as np
 from matplotlib import pyplot as plt
 #draw model total losses
 
+def loadDictionary(file):
+    import pickle
+    a_file = open(file, "rb")
+    dt = pickle.load(a_file)
+    return dt
 
 def plotTrainingLoss(history):
-    plt.plot(history['loss'])
-    plt.plot(history['val_loss'])
+    plt.plot(history['loss'], label='loss')
+    plt.plot(history['val_loss'], label='val_loss')
     plt.title('model loss')
     plt.ylabel('loss')
     plt.xlabel('epoch')
+    plt.legend()
     plt.show()
 
 #draw output1 binary acc
 def plotTrainingErrorTypeAcc(history):
-    plt.plot(history['error_feed_forward_output1_binary_accuracy'])
-    plt.plot(history['val_error_feed_forward_output1_binary_accuracy'])
+    plt.plot(history['error_feed_forward_output1_binary_accuracy'], 'r-',label='error_acc')
+    plt.plot(history['val_error_feed_forward_output1_binary_accuracy'], '-b',label='val_error_acc')
     plt.title('model error_feed_forward_output1_binary_accuracy')
     plt.ylabel('error_feed_forward_output1_binary_accuracy')
     plt.xlabel('epoch')
+    plt.legend()
     plt.show()
 
 #draw output1 binary loss
 def plotTrainingErrorTypeLoss(history):
-    plt.plot(history['error_feed_forward_output1_loss']) 
+    plt.plot(history['error_feed_forward_output1_loss'])
     plt.plot(history['val_error_feed_forward_output1_loss'])
     plt.title('model error_feed_forward_output1_loss')
     plt.ylabel('error_feed_forward_output1_loss')
@@ -112,3 +119,12 @@ def plotTrainingErrorLineLoss(history):
     plt.ylabel('output2_loss')
     plt.xlabel('epoch')
     plt.show()
+
+def showAllGraphic(file, file_path):
+    history = loadDictionary(file_path + "/" + file)
+    plotTrainingLoss(history)
+    plotTrainingErrorTypeLoss(history)
+    plotTrainingErrorTypeAcc(history)
+    plotTrainingErrorLineLoss(history)
+    plotTrainingErrorLineAcc(history)
+    pass

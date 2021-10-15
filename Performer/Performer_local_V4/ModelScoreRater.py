@@ -133,7 +133,7 @@ def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_mdodel1, y_
     print("=========adjust 2=========")
     ans_lb = y_test_loaded_1 #out_line_adjustment(y_test_loaded_1)
 
-
+    print("=====adjust completed=====")
     #==============show toint result==============
 
     ''' <-------dust switch
