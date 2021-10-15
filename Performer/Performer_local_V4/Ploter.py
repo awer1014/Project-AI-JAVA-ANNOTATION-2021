@@ -9,31 +9,31 @@ def loadDictionary(file):
     return dt
 
 def plotTrainingLoss(history):
-    plt.plot(history['loss'], label='loss')
-    plt.plot(history['val_loss'], label='val_loss')
-    plt.title('model loss')
-    plt.ylabel('loss')
-    plt.xlabel('epoch')
+    plt.plot(history["loss"], label = "loss")
+    plt.plot(history["val_loss"], label = "val_loss")
+    plt.title("model loss")
+    plt.ylabel("loss")
+    plt.xlabel("epoch")
     plt.legend()
     plt.show()
 
 #draw output1 binary acc
 def plotTrainingErrorTypeAcc(history):
-    plt.plot(history['error_feed_forward_output1_binary_accuracy'], 'r-',label='error_acc')
-    plt.plot(history['val_error_feed_forward_output1_binary_accuracy'], '-b',label='val_error_acc')
-    plt.title('model error_feed_forward_output1_binary_accuracy')
-    plt.ylabel('error_feed_forward_output1_binary_accuracy')
-    plt.xlabel('epoch')
+    plt.plot(history["error_feed_forward_output1_binary_accuracy"], label = "error_type_acc")
+    plt.plot(history["val_error_feed_forward_output1_binary_accuracy"], label = "val_error_type_acc")
+    plt.title("model error_feed_forward_output1_binary_accuracy")
+    plt.ylabel("error_feed_forward_output1_binary_accuracy")
+    plt.xlabel("epoch")
     plt.legend()
     plt.show()
 
 #draw output1 binary loss
 def plotTrainingErrorTypeLoss(history):
-    plt.plot(history['error_feed_forward_output1_loss'])
-    plt.plot(history['val_error_feed_forward_output1_loss'])
-    plt.title('model error_feed_forward_output1_loss')
-    plt.ylabel('error_feed_forward_output1_loss')
-    plt.xlabel('epoch')
+    plt.plot(history["error_feed_forward_output1_loss"], label = "error_type_loss")
+    plt.plot(history["val_error_feed_forward_output1_loss"], label = "val_error_type_loss")
+    plt.title("model error_feed_forward_output1_loss")
+    plt.ylabel("error_feed_forward_output1_loss")
+    plt.xlabel("epoch")
     plt.show()
 
 #draw output2 acc
