@@ -7,7 +7,7 @@ def loadDictionary(file):
     return dt
 
 def loadTestTrainData(filename): # e.g., 'test.npy'
-    with open(filename, 'rb') as f:
+    with open(filename, "rb") as f:
         a = np.load(f)
         return a
 
@@ -69,7 +69,7 @@ def out_line_adjustment(out_line):
 
 
 #load model
-def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_mdodel1, y_test_mdodel2, source_max_lan):
+def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_model1, y_test_model2, source_max_lan):
     import numpy as np
     #load model and dic ps. dic is not use
     #model, source_token_dict = load(model_name)
@@ -80,10 +80,10 @@ def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_mdodel1, y_
     '''
     Para:
         x_test_loaded  : answer model           (include type and lineblock)
-        y_test_loaded_0: model's predict        (type)
-        y_test_loaded_1: model's predict        (lineblock)
-        out1           : answer of model output (type)
-        out2           : answer of model output (lineblock)
+        out1           : model's predict        (type)
+        out2           : model's predict        (lineblock)
+        y_test_loaded_0: answer of model output (type)
+        y_test_loaded_1: answer of model output (lineblock)
     '''
 
     ''' <-------dust switch
@@ -92,9 +92,11 @@ def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_mdodel1, y_
     #'''
 
     #load x & y test model
+    #load model for predict
     x_test_loaded = loadTestTrainData(x_y_path + "/" + x_test_model)
-    y_test_loaded_0 = loadTestTrainData(x_y_path + "/" + y_test_mdodel1)
-    y_test_loaded_1 = loadTestTrainData(x_y_path + "/" + y_test_mdodel2)
+    #loda ans model
+    y_test_loaded_0 = loadTestTrainData(x_y_path + "/" + y_test_model1)
+    y_test_loaded_1 = loadTestTrainData(x_y_path + "/" + y_test_model2)
 
     #''' <-------dust switch
     print("x_test_loaded shape: ", x_test_loaded.shape)
@@ -109,7 +111,7 @@ def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_mdodel1, y_
     out1, out2 = tfr.decode(model, x_test_loaded, max_len = source_max_lan)
 
     #==============show org result================
-    #''' <-------dust switch
+    ''' <-------dust switch
     print("out1 type: ", type(out1))
     print("out2 type: ", type(out2))
     print("out1 shape: ", (out1).shape)#prob upper then 0.5
@@ -121,19 +123,25 @@ def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_mdodel1, y_
     #=============================================
     #error type adjustment
     #solution: find the value upper than 0.5 ------> use np.around()
-    ans_ep = np.around(y_test_loaded_0)
-    test_ep = np.around(out1)
+    print("=========type adjust 1=========")
+    print("org out type: ", type(out1))
+    test_ep = np.rint(out1)
+    print("arounded out type: ", type(out1))
 
+    print("=========type adjust 2=========")
+    print("org y_test_loaded_0: ", type(y_test_loaded_0))
+    ans_ep = (y_test_loaded_0) #np.around(y_test_loaded_0)
+    print("arounded y_test_loaded_0: ", type(y_test_loaded_0))
     #error line adjustment
     #solution: find the maximum vlaue
 
-    print("=========adjust 1=========")
+    print("=========line adjust 1=========")
     test_lb = out_line_adjustment(out2)
 
-    print("=========adjust 2=========")
-    ans_lb = y_test_loaded_1 #out_line_adjustment(y_test_loaded_1)
+    print("=========line adjust 2=========")
+    ans_lb = (y_test_loaded_1) #out_line_adjustment(y_test_loaded_1)
 
-    print("=====adjust completed=====")
+    print("========adjust complete========")
     #==============show toint result==============
 
     ''' <-------dust switch
@@ -328,9 +336,11 @@ def errorline_totalscore(pre_errorline, ans_errorline):
     sample_size = len(pre_errorline[1])
     #get block size
     lineblock_size = len(pre_errorline)
+    """ <-------dust switch
     print("sample_size: ", sample_size)
     print("lineblock_size type : ", type(lineblock_size))
     print("lineblock_size: ", lineblock_size)
+    #"""
     total_pre = 0.0
     total_rec = 0.0
     total_sample_pre = 0.0
@@ -466,3 +476,25 @@ def error_line_F_score(pre_score, rec_score):
     print("F_one: ", f_one)
     print("F_two: ", f_two)
     print("F_pointfive: ", f_pointfive)
+
+def showAllScore(model_path, model_name, x_y_path, x_mode_l, y_model_0, y_model_1, max_len_name):
+    max_len = loadDictionary(model_path + "/" + max_len_name)
+    #load model
+    test_ep, ans_ep, test_lb, ans_lb = loadmodel(model_path, model_name, x_y_path, x_mode_l, y_model_0, y_model_1, max_len)
+    print("\n"+"==========ErrorType Score==========")
+    #type total score
+    avg_pre, avg_rec, avg_acc = errortype_totalscore(test_ep, ans_ep)
+    print("=========ErrorType F Score=========")
+    #type f score
+    error_type_F_score(avg_pre, avg_rec)
+    print("==================================="+"\n")
+
+    #=====================================================
+
+    print("==========ErrorLine Score==========")
+    #line total score
+    avg_pre, avg_rec = errorline_totalscore(test_lb, ans_lb)
+    print("=========ErrorLine F score=========")
+    #line f score
+    error_line_F_score(avg_pre, avg_rec)
+    print("==================================="+"\n")

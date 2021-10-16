@@ -21,7 +21,7 @@ def plotTrainingLoss(history):
 def plotTrainingErrorTypeAcc(history):
     plt.plot(history["error_feed_forward_output1_binary_accuracy"], label = "error_type_acc")
     plt.plot(history["val_error_feed_forward_output1_binary_accuracy"], label = "val_error_type_acc")
-    plt.title("model error_feed_forward_output1_binary_accuracy")
+    plt.title("model_error_feed_forward_output1_binary_accuracy")
     plt.ylabel("error_feed_forward_output1_binary_accuracy")
     plt.xlabel("epoch")
     plt.legend()
@@ -31,9 +31,10 @@ def plotTrainingErrorTypeAcc(history):
 def plotTrainingErrorTypeLoss(history):
     plt.plot(history["error_feed_forward_output1_loss"], label = "error_type_loss")
     plt.plot(history["val_error_feed_forward_output1_loss"], label = "val_error_type_loss")
-    plt.title("model error_feed_forward_output1_loss")
+    plt.title("model_error_feed_forward_output1_loss")
     plt.ylabel("error_feed_forward_output1_loss")
     plt.xlabel("epoch")
+    plt.legend()
     plt.show()
 
 #draw output2 acc
@@ -54,7 +55,7 @@ def plotTrainingErrorLineAcc(history):
             one_epoch_sum += history[name][epoch]
         one_epoch_avg = one_epoch_sum / len(names) #get one epoch avg
         acc.append(one_epoch_avg) #return to acc
-    plt.plot(acc)
+    plt.plot(acc, label = "acc")
 
     #======================validation accuary======================
     val_acc = []
@@ -72,10 +73,11 @@ def plotTrainingErrorLineAcc(history):
             val_one_epoch_sum += history[name][epoch]
         val_one_epoch_avg = val_one_epoch_sum / len(val_names) #get one epoch avg
         val_acc.append(val_one_epoch_avg) #return to acc
-    plt.plot(val_acc)
-
-    plt.ylabel('output2_acc')
-    plt.xlabel('epoch')
+    plt.plot(val_acc, label = "val_acc")
+    plt.title("model_error_line_accuracy")
+    plt.ylabel("output2_acc")
+    plt.xlabel("epoch")
+    plt.legend()
     plt.show()
 
 #draw output2 loss
@@ -96,7 +98,7 @@ def plotTrainingErrorLineLoss(history):
             one_epoch_sum += history[name][epoch]
         one_epoch_avg = one_epoch_sum / len(names) #get one epoch avg
         acc.append(one_epoch_avg) #return to acc
-    plt.plot(acc)
+    plt.plot(acc, label = "acc")
 
     #======================validation accuary======================
     val_acc = []
@@ -114,13 +116,14 @@ def plotTrainingErrorLineLoss(history):
             val_one_epoch_sum += history[name][epoch]
         val_one_epoch_avg = val_one_epoch_sum / len(val_names) #get one epoch avg
         val_acc.append(val_one_epoch_avg) #return to acc
-    plt.plot(val_acc)
-
+    plt.plot(val_acc, label = "val_acc")
+    plt.title("model_error_line_loss")
     plt.ylabel('output2_loss')
     plt.xlabel('epoch')
+    plt.legend()
     plt.show()
 
-def showAllGraphic(file, file_path):
+def showAllGraphic(file_path, file):
     history = loadDictionary(file_path + "/" + file)
     plotTrainingLoss(history)
     plotTrainingErrorTypeLoss(history)
