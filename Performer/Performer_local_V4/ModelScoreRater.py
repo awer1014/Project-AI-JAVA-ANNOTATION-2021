@@ -483,15 +483,18 @@ def sklearn_sample_score(test_ep, ans_ep):
     sklearn_recall_sum = 0.0
     sklearn_f_one_sum =0.0
     for sample in range(len(ans_ep)):
-        sklearn_precision = metrics.precision_score(ans_ep, test_ep)
-        sklearn_recall = metrics.recall_score(ans_ep, test_ep)
-        sklearn_f_one = metrics.f1_score(ans_ep, test_ep)
+        sklearn_precision = metrics.precision_score(ans_ep[sample], test_ep[sample])
+        sklearn_recall = metrics.recall_score(ans_ep[sample], test_ep[sample])
+        sklearn_f_one = metrics.f1_score(ans_ep[sample], test_ep[sample])
         sklearn_precision_sum += sklearn_precision
         sklearn_recall_sum += sklearn_recall
         sklearn_f_one_sum += sklearn_f_one
-    print("sklearn precision: ", sklearn_precision_sum)
-    print("sklearn recall: ", sklearn_recall_sum)
-    print("sklearn f_one score: ", sklearn_f_one_sum)
+    sklearn_precision_avg = sklearn_precision_sum/len(ans_ep)
+    sklearn_recall_avg = sklearn_recall_sum/len(ans_ep)
+    sklearn_f_one_avg = sklearn_f_one_sum/len(ans_ep)
+    print("sklearn precision: ", sklearn_precision_avg)
+    print("sklearn recall: ", sklearn_recall_avg)
+    print("sklearn f_one score: ", sklearn_f_one_avg)
 
 
 
