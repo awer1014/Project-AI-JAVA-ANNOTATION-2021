@@ -477,6 +477,24 @@ def error_line_F_score(pre_score, rec_score):
     print("F_two: ", f_two)
     print("F_pointfive: ", f_pointfive)
 
+def sklearn_sample_score(test_ep, ans_ep):
+    from sklearn import metrics as metrics
+    sklearn_precision_sum = 0.0
+    sklearn_recall_sum = 0.0
+    sklearn_f_one_sum =0.0
+    for sample in range(len(ans_ep)):
+        sklearn_precision = metrics.precision_score(ans_ep, test_ep)
+        sklearn_recall = metrics.recall_score(ans_ep, test_ep)
+        sklearn_f_one = metrics.f1_score(ans_ep, test_ep)
+        sklearn_precision_sum += sklearn_precision
+        sklearn_recall_sum += sklearn_recall
+        sklearn_f_one_sum += sklearn_f_one
+    print("sklearn precision: ", sklearn_precision_sum)
+    print("sklearn recall: ", sklearn_recall_sum)
+    print("sklearn f_one score: ", sklearn_f_one_sum)
+
+
+
 def showAllScore(model_path, model_name, x_y_path, x_mode_l, y_model_0, y_model_1, max_len_name):
     max_len = loadDictionary(model_path + "/" + max_len_name)
     #load model
@@ -490,14 +508,7 @@ def showAllScore(model_path, model_name, x_y_path, x_mode_l, y_model_0, y_model_
     print("==================================="+"\n")
 
     print("===========SKLearn Score==========="+"\n")
-    from sklearn import metrics as metrics
-
-    sklearn_precision = metrics.precision_score(ans_ep, test_ep)
-    sklearn_recall = metrics.recall_score(ans_ep, test_ep)
-    sklearn_f_one = metrics.f1_score(ans_ep, test_ep)
-    print("sklearn precision: ", sklearn_precision)
-    print("sklearn recall: ", sklearn_recall)
-    print("sklearn f_one score: ", sklearn_f_one)
+    sklearn_sample_score(test_ep, ans_ep)
     print("==================================="+"\n")
     #=====================================================
 
