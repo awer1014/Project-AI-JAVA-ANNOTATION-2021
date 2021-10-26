@@ -489,6 +489,16 @@ def showAllScore(model_path, model_name, x_y_path, x_mode_l, y_model_0, y_model_
     error_type_F_score(avg_pre, avg_rec)
     print("==================================="+"\n")
 
+    print("===========SKLearn Score==========="+"\n")
+    from sklearn import metrics as metrics
+
+    sklearn_precision = metrics.precision_score(ans_ep, test_ep)
+    sklearn_recall = metrics.recall_score(ans_ep, test_ep)
+    sklearn_f_one = metrics.f1_score(ans_ep, test_ep)
+    print("sklearn precision: ", sklearn_precision)
+    print("sklearn recall: ", sklearn_recall)
+    print("sklearn f_one score: ", sklearn_f_one)
+    print("==================================="+"\n")
     #=====================================================
 
     print("==========ErrorLine Score==========")
