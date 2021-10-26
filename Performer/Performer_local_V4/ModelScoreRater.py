@@ -222,7 +222,8 @@ def errortype_score(pre_errortype, ans_errortype):
     #print("recall score: ", rec_score) #show ans score
 
     #calculate Accuarcy score
-    acc_score = inter_two_length/len(pre_errortype)
+    pre_errortype_length = len(pre_errortype)
+    acc_score = inter_two_length/pre_errortype_length
 
     return pre_score, rec_score , acc_score #return float
 
@@ -232,6 +233,8 @@ def errortype_totalscore(pre_errortype,ans_errortype):
     pre_total = 0.0
     rec_total = 0.0
     acc_total = 0.0
+    pre_errortype_length = len(pre_errortype)
+    ans_errortype_length = len(ans_errortype)
     #get each score then get total and avg score
     for i in range(len(pre_errortype)):
         #print("Sample: ", i)
@@ -244,9 +247,9 @@ def errortype_totalscore(pre_errortype,ans_errortype):
     print("rec_total: ", rec_total)
     print("acc_total: ", acc_total)
     """
-    pre_avg_score = pre_total/len(pre_errortype)
-    rec_avg_socre = rec_total/len(ans_errortype)
-    acc_avg_score = acc_total/len(ans_errortype)
+    pre_avg_score = pre_total/pre_errortype_length
+    rec_avg_socre = rec_total/ans_errortype_length
+    acc_avg_score = acc_total/ans_errortype_length
     print("avg_pre: ", pre_avg_score)#pre_total/len(pre_errortype))
     print("avg_rec: ", rec_avg_socre)#rec_total/len(ans_errortype))
     print("avg_acc: ", acc_avg_score)#acc_total/len(ans_errortype))
@@ -489,9 +492,10 @@ def sklearn_sample_score(test_ep, ans_ep):
         sklearn_precision_sum += sklearn_precision
         sklearn_recall_sum += sklearn_recall
         sklearn_f_one_sum += sklearn_f_one
-    sklearn_precision_avg = sklearn_precision_sum/len(ans_ep)
-    sklearn_recall_avg = sklearn_recall_sum/len(ans_ep)
-    sklearn_f_one_avg = sklearn_f_one_sum/len(ans_ep)
+    ans_ep_length = len(ans_ep)
+    sklearn_precision_avg = sklearn_precision_sum/ans_ep_length
+    sklearn_recall_avg = sklearn_recall_sum/ans_ep_length
+    sklearn_f_one_avg = sklearn_f_one_sum/ans_ep_length
     print("sklearn precision: ", sklearn_precision_avg)
     print("sklearn recall: ", sklearn_recall_avg)
     print("sklearn f_one score: ", sklearn_f_one_avg)
