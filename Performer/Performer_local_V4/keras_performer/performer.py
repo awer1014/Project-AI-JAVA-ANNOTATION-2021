@@ -481,10 +481,10 @@ def get_model(max_input_len,
     #print("max_input_len, embed_dim:", max_input_len, embed_dim)
     flatten_state = keras.layers.Reshape((max_input_len*embed_dim,))(encoded_layer)
     #print("flatten_state:", flatten_state.shape)
-    error_feed_forward_layer1 = keras.layers.Dense(hidden_dim, 
+    error_feed_forward_layer1 = keras.layers.Dense(hidden_dim,
                                                    activation="relu")(flatten_state)
     error_feed_forward_output1 = keras.layers.Dense(errNum,
-                                                    activation="sigmoid", 
+                                                    activation="sigmoid",
                                                     name="error_feed_forward_output1")(error_feed_forward_layer1)
     #print("flatten_state:", flatten_state.shape)
     #print("error_feed_forward_output1:", error_feed_forward_output1.shape)
@@ -494,30 +494,30 @@ def get_model(max_input_len,
 
     LNoutputs=[]
 
-    error_feed_forward_layer2 = keras.layers.Dense(hidden_dim, 
+    error_feed_forward_layer2 = keras.layers.Dense(hidden_dim,
                                                    activation="relu")(concatted)
-    error_feed_forward_output2 = keras.layers.Dense(lbNum, 
-                                                    activation="relu", 
+    error_feed_forward_output2 = keras.layers.Dense(lbNum,
+                                                    activation="relu",
                                                     name="error_feed_forward_output2")(error_feed_forward_layer2)
 
     #print("error_feed_forward_output2:", error_feed_forward_output2.shape)
-    
+
     #子網路層
 
     for i in range(lbNum):
-        output2_name= "LNout"+str(i)
-        
-        LNoutputs.append( keras.layers.Dense(max_javaline_length,activation="softmax",name=output2_name)(error_feed_forward_output2) )
-        
-        
-        
-        
+        output2_name = "LNout"+str(i)
+
+        LNoutputs.append(keras.layers.Dense(max_javaline_length,activation="softmax",name=output2_name)(error_feed_forward_output2))
+
+
+
+
     #print("LNoutputs:", LNoutputs)
 
 
     model = keras.models.Model(inputs=[encoder_input], outputs=[error_feed_forward_output1] + LNoutputs)
     #model.summary()
-    
+
     return model
 
 
