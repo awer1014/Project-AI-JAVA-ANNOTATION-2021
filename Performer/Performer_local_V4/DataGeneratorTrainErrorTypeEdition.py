@@ -8,7 +8,7 @@ import DataBuffer as db
 #out1: [e1, e2, ..., e36], ei is either 0 or 1
 #out2: [ tvector1, tvector2, .......], tvector_i: one-hot-encodeing [000,1,000](Max_Seq_Length)
 
-class DataGeneratorTrain(keras.utils.Sequence):
+class DataGeneratorTrainErrorTypeEdition(keras.utils.Sequence):
     'Generates data for Keras'
     def __init__(self,
                  input_databuffer_params,
@@ -45,7 +45,7 @@ class DataGeneratorTrain(keras.utils.Sequence):
         data_type = self.output_databuffer_params["data_type"]
         block_size = self.output_databuffer_params["block_size"]
         self.dby1 = db.DataBuffer(data_path[0], data_number[0], data_type[0], block_size[0], file_name = "y_train[0]_")
-        self.dby2 = db.DataBuffer(data_path[1], data_number[1], data_type[1], block_size[1], file_name = "y_train[1]_")
+        #self.dby2 = db.DataBuffer(data_path[1], data_number[1], data_type[1], block_size[1], file_name = "y_train[1]_")
 
         self.on_epoch_end()
 
@@ -121,6 +121,7 @@ class DataGeneratorTrain(keras.utils.Sequence):
         count = 0
         #print("list_IDs_temp length: ", len(list_IDs_temp))
 
+        """
         y2 = None
         for i, ID in enumerate(list_IDs_temp):
             count += 1
@@ -157,6 +158,6 @@ class DataGeneratorTrain(keras.utils.Sequence):
             #print("y2[i][1] length: ", len(y2[i][1])) #show single block size
             #print(len(y2))
             #print(type(y2[i]))
-
-        return [X1], [y1] + y2
-        
+            """
+        #return [X1], [y1] + y2
+        return [X1], [y1]
