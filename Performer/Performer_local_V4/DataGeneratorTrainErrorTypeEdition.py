@@ -90,7 +90,7 @@ class DataGeneratorTrainErrorTypeEdition(keras.utils.Sequence):
         self.indexes = np.arange(len(self.list_IDs[0])) #choose one to use
         self.dbx1.initialize()
         self.dby1.initialize()
-        self.dby2.initialize()
+        #self.dby2.initialize()
 
         if self.shuffle == True:
             np.random.shuffle(self.indexes)
