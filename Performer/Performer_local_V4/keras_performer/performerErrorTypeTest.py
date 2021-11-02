@@ -400,9 +400,7 @@ def get_decoders(decoder_num,
 
 
 def get_model(max_input_len,
-              max_javaline_length,
               errNum,
-              lbNum,
               token_num,
               embed_dim,
               encoder_num,
