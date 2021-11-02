@@ -145,10 +145,12 @@ class DataGeneratorTrain(keras.utils.Sequence):
             #y2[i] = list(self.dby2.get_data(ID)) #a vector 84 160-length vector
             #y2[i] = self.dby2.get_output_data(ID)
             #y2[i] = list(self.dby2.get_output_data(ID))
+
             if y2 is None:
                 y2 = y2_temp
             else:
                 y2 = [(lambda a, b: np.concatenate((a, b)))(a1,a2) for a1, a2 in zip(y2, y2_temp)]
+
             #print("y2[i]: ", y2[i])
             '''
             print("y2 length: ", len(y2)) #show line block size
@@ -159,4 +161,3 @@ class DataGeneratorTrain(keras.utils.Sequence):
             #print(type(y2[i]))
 
         return [X1], [y1] + y2
-        

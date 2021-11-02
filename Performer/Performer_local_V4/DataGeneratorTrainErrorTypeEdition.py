@@ -121,8 +121,8 @@ class DataGeneratorTrainErrorTypeEdition(keras.utils.Sequence):
         count = 0
         #print("list_IDs_temp length: ", len(list_IDs_temp))
 
-        """
-        y2 = None
+
+        #y2 = None
         for i, ID in enumerate(list_IDs_temp):
             count += 1
             #print("loop: ", count)
@@ -136,8 +136,8 @@ class DataGeneratorTrainErrorTypeEdition(keras.utils.Sequence):
             #print("y1[i]: ", y1[i])
             #print("y1[i] length: ", len(y1[i]))
             # out2 : a ector of one-hot-encoded vectors
-            y2_temp = self.dby2.get_output_data(ID)
-            y2_temp =[np.expand_dims(e, axis=0) for e in y2_temp]
+            #y2_temp = self.dby2.get_output_data(ID)
+            #y2_temp =[np.expand_dims(e, axis=0) for e in y2_temp]
             '''
             print("y2_temp type: ", type(y2_temp))
             print("y2_temp length :", len(y2_temp))
@@ -146,10 +146,12 @@ class DataGeneratorTrainErrorTypeEdition(keras.utils.Sequence):
             #y2[i] = list(self.dby2.get_data(ID)) #a vector 84 160-length vector
             #y2[i] = self.dby2.get_output_data(ID)
             #y2[i] = list(self.dby2.get_output_data(ID))
+            """
             if y2 is None:
                 y2 = y2_temp
             else:
                 y2 = [(lambda a, b: np.concatenate((a, b)))(a1,a2) for a1, a2 in zip(y2, y2_temp)]
+                """
             #print("y2[i]: ", y2[i])
             '''
             print("y2 length: ", len(y2)) #show line block size
@@ -158,6 +160,6 @@ class DataGeneratorTrainErrorTypeEdition(keras.utils.Sequence):
             #print("y2[i][1] length: ", len(y2[i][1])) #show single block size
             #print(len(y2))
             #print(type(y2[i]))
-            """
+
         #return [X1], [y1] + y2
         return [X1], [y1]
