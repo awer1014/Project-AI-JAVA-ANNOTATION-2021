@@ -129,8 +129,8 @@ def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_model1, y_t
     print("arounded out type: ", type(out1))
 
     print("=========type adjust 2=========")
-    print("org y_test_loaded_0: ", type(y_test_loaded_0))
     ans_ep = (y_test_loaded_0) #np.around(y_test_loaded_0)
+    print("org y_test_loaded_0: ", type(y_test_loaded_0))
     print("arounded y_test_loaded_0: ", type(y_test_loaded_0))
     #error line adjustment
     #solution: find the maximum vlaue
