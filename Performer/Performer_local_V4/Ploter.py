@@ -8,37 +8,41 @@ def loadDictionary(file):
     dt = pickle.load(a_file)
     return dt
 
-def plotTrainingLoss(history):
+def plotTrainingLoss(file_path, history):
     plt.plot(history["loss"], label = "loss")
     plt.plot(history["val_loss"], label = "val_loss")
     plt.title("model loss")
     plt.ylabel("loss")
     plt.xlabel("epoch")
     plt.legend()
+    plt.savefig(file_path + "/" + "TrainingLoss.png")
     plt.show()
 
+
 #draw output1 binary acc
-def plotTrainingErrorTypeAcc(history):
+def plotTrainingErrorTypeAcc(file_path, history):
     plt.plot(history["error_feed_forward_output1_binary_accuracy"], label = "error_type_acc")
     plt.plot(history["val_error_feed_forward_output1_binary_accuracy"], label = "val_error_type_acc")
     plt.title("model_error_feed_forward_output1_binary_accuracy")
     plt.ylabel("error_feed_forward_output1_binary_accuracy")
     plt.xlabel("epoch")
     plt.legend()
+    plt.savefig(file_path + "/" + "TrainingErrorTypeAcc.png")
     plt.show()
 
 #draw output1 binary loss
-def plotTrainingErrorTypeLoss(history):
+def plotTrainingErrorTypeLoss(file_path, history):
     plt.plot(history["error_feed_forward_output1_loss"], label = "error_type_loss")
     plt.plot(history["val_error_feed_forward_output1_loss"], label = "val_error_type_loss")
     plt.title("model_error_feed_forward_output1_loss")
     plt.ylabel("error_feed_forward_output1_loss")
     plt.xlabel("epoch")
     plt.legend()
+    plt.savefig(file_path + "/" + "TrainingErrorTypeLoss.png")
     plt.show()
 
 #draw output2 acc
-def plotTrainingErrorLineAcc(history):
+def plotTrainingErrorLineAcc(file_path, history):
     #======================accuracy======================
     acc = []
     #get all sample name
@@ -78,10 +82,11 @@ def plotTrainingErrorLineAcc(history):
     plt.ylabel("output2_acc")
     plt.xlabel("epoch")
     plt.legend()
+    plt.savefig(file_path + "/" + "TrainingErrorLineAcc.png")
     plt.show()
 
 #draw output2 loss
-def plotTrainingErrorLineLoss(history):
+def plotTrainingErrorLineLoss(file_path, history):
     #======================accuracy======================
     acc = []
     #get all sample name
@@ -121,13 +126,14 @@ def plotTrainingErrorLineLoss(history):
     plt.ylabel('output2_loss')
     plt.xlabel('epoch')
     plt.legend()
+    plt.savefig(file_path + "/" + "TrainingErrorLineLoss.png")
     plt.show()
 
 def showAllGraphic(file_path, file):
     history = loadDictionary(file_path + "/" + file)
-    plotTrainingLoss(history)
-    plotTrainingErrorTypeLoss(history)
-    plotTrainingErrorTypeAcc(history)
-    plotTrainingErrorLineLoss(history)
-    plotTrainingErrorLineAcc(history)
+    plotTrainingLoss(file_path, history)
+    plotTrainingErrorTypeLoss(file_path, history)
+    plotTrainingErrorTypeAcc(file_path, history)
+    plotTrainingErrorLineLoss(file_path, history)
+    plotTrainingErrorLineAcc(file_path, history)
     pass

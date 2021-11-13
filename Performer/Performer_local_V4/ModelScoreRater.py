@@ -1,4 +1,4 @@
-from keras_performer import performer as tfr
+
 import numpy as np
 def loadDictionary(file):
     import pickle
@@ -33,6 +33,28 @@ def load(model_path, model_name):
     # t_inv = loadDictionary(target_token_dict_inv, 'target_token_dict_inv.pickle')
     return model
 
+def loadErrorTypeVer(model_path, model_name):
+    import sys
+    sys.path.append("Perfomer_local_V4/keras_layer_normalization")
+    sys.path.append("Perfomer_local_V4/keras_position_wise_feed_forward")
+    sys.path.append("Perfomer_local_V4/tensorflow_fast_attention")
+    sys.path.append("Perfomer_local_V4/keras_performer")
+    sys.path.append("Perfomer_local_V4/keras_pos_embed")
+
+    from keras_performer import performerErrorTypeTest
+    from tensorflow import keras
+    from keras_embed_sim import EmbeddingRet, EmbeddingSim
+    from keras_pos_embd import TrigPosEmbedding
+    from tensorflow_fast_attention.fast_attention import softmax_kernel_transformation, Attention, SelfAttention
+    from keras_position_wise_feed_forward.feed_forward import FeedForward
+
+    co = performerErrorTypeTest.get_custom_objects()
+    co["softmax_kernel_transformation"] = softmax_kernel_transformation
+    model = keras.models.load_model(model_path + "/" + model_name, custom_objects = co)
+    # t = loadDictionary(target_token_dict, 'target_token_dict.pickle')
+    # t_inv = loadDictionary(target_token_dict_inv, 'target_token_dict_inv.pickle')
+    return model
+
 def max_length_adjustment(loaded_model, training_source_max_len):
     adjusted_model = []
     for i in range(len(loaded_model)):
@@ -49,6 +71,23 @@ def max_length_adjustment(loaded_model, training_source_max_len):
     adjusted_model = np.array(adjusted_model)
 
     return adjusted_model
+
+def errorTypeAdjustment(errorType):
+    adjustmentGate = 0.5
+    sample_size = len(errorType)
+    errorType_size = len(errorType[0])
+    """
+    print("sample_size: ", sample_size)
+    print("errorType_size: ", errorType_size)
+    #"""
+    for sample in range(sample_size):
+        for type in range(errorType_size):
+            #print(errorType[sample][type])
+            if errorType[sample][type] > adjustmentGate:
+                errorType[sample][type] = 1
+            else:
+                errorType[sample][type] = 0
+    return errorType
 
 def out_line_adjustment(out_line):
     #get each dim length
@@ -67,9 +106,78 @@ def out_line_adjustment(out_line):
             out_line[block][sample][max_index] = 1
     return out_line
 
+def loadmodelErrorTypeVer(model_path, model_name, x_y_path, x_test_model, y_test_model_0, source_max_lan, debugMode):
+    import numpy as np
+    model = loadErrorTypeVer(model_path, model_name)
+    '''
+    Para:
+        x_test_loaded  : answer model           (include type and lineblock)
+        out1           : model's predict        (type)
+        out2           : model's predict        (lineblock)
+        y_test_loaded_0: answer of model output (type)
+        y_test_loaded_1: answer of model output (lineblock)
+    '''
+
+    ''' <-------dust switch
+    print("y_test_loaded_1 shape: ", y_test_loaded_1.shape)
+    print("x_test_loaded length: ", len(x_test_loaded))
+    #'''
+    #load x & y test model
+    #load model for predict
+    x_test_loaded = loadTestTrainData(x_y_path + "/" + x_test_model)
+    #loda ans model
+    y_test_loaded_0 = loadTestTrainData(x_y_path + "/" + y_test_model_0)
+
+    #''' <-------dust switch
+    print("x_test_loaded shape: ", x_test_loaded.shape)
+    print("x_test_loaded type: ", type(x_test_loaded))
+    print("x_test_loaded[0] type: ", type(x_test_loaded[0]))
+    print("y_test_loaded_0 shape: ", y_test_loaded_0.shape)
+    #'''
+
+    from keras_performer import performerErrorTypeTest as tfr
+    out1 = tfr.decode(model, x_test_loaded, max_len = source_max_lan)
+
+    if debugMode == True:
+        print("=========type adjust 1=========")
+        test_ep_org = np.asarray(out1)
+        print("org out type: ", type(test_ep_org))
+
+        test_ep = np.asarray(out1)
+        test_ep = errorTypeAdjustment(test_ep)
+        print("adjusted out type: ", type(test_ep))
+        print("adjusted out shape: ", test_ep.shape)
+        print("=========type adjust 2=========")
+        ans_ep = (y_test_loaded_0) #np.around(y_test_loaded_0)
+        print("org y_test_loaded_0 type: ", type(y_test_loaded_0))
+        print("adjusted y_test_loaded_0 type: ", type(y_test_loaded_0))
+        print("adjusted y_test_loaded_0 shape: ", y_test_loaded_0.shape)
+        for sample in range(10):
+            #print org and adjusted errortype both answer and predict
+            print("=========org sample: " + sample + " test_ep=========")
+            print(test_ep_org[sample])
+            print("=========adj sample: " + sample + " test_ep=========")
+            print(test_ep[sample])
+            print("=========ans sample: " + sample + " ans_ep==========")
+            print(ans_ep[sample])
+    else:
+        print("=========type adjust 1=========")
+        test_ep = np.asarray(out1)
+        print("org out type: ", type(test_ep))
+        print("org out shape: ", test_ep.shape)
+        test_ep = errorTypeAdjustment(test_ep)
+        print("adjusted out shape: ", test_ep.shape)
+        print("=========type adjust 2=========")
+        ans_ep = (y_test_loaded_0) #np.around(y_test_loaded_0)
+        print("org y_test_loaded_0: ", type(y_test_loaded_0))
+        print("adjusted y_test_loaded_0: ", type(y_test_loaded_0))
+
+    print("========adjust complete========")
+    return test_ep, ans_ep
+
 
 #load model
-def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_model1, y_test_model2, source_max_lan):
+def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_model1, y_test_model2, source_max_lan, debugMode):
     import numpy as np
     #load model and dic ps. dic is not use
     #model, source_token_dict = load(model_name)
@@ -107,7 +215,7 @@ def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_model1, y_t
     #'''
 
     #get model perdict result
-
+    from keras_performer import performer as tfr
     out1, out2 = tfr.decode(model, x_test_loaded, max_len = source_max_lan)
 
     #==============show org result================
@@ -122,16 +230,33 @@ def loadmodel(model_path, model_name, x_y_path, x_test_model, y_test_model1, y_t
 
     #=============================================
     #error type adjustment
-    #solution: find the value upper than 0.5 ------> use np.around()
+    #solution: find the value upper than 0.5 ------> use np.around() or np.rint()
     print("=========type adjust 1=========")
-    print("org out type: ", type(out1))
-    test_ep = np.rint(out1)
-    print("arounded out type: ", type(out1))
+    if debugMode == True:
+        test_ep_org = np.asarray(out1)
+        test_ep = out1
+        print("org out type: ", type(test_ep))
+        test_ep = errorTypeAdjustment(test_ep)
+        print("adjusted out type: ", type(test_ep))
+        for sample in range(10):
+            #print org and adjusted errortype both answer and predict
+            print("=========org sample: " + sample + " test_ep=========")
+            print(test_ep_org[sample])
+            print("=========adj sample: " + sample + " test_ep=========")
+            print(test_ep[sample])
+    else:
+        test_ep = np.asarray(out1)
+        print("org out type: ", type(test_ep))
+        print("org out shape: ", test_ep.shape)
+        test_ep = errorTypeAdjustment(test_ep)
+        print("adjusted out type: ", type(test_ep))
+        print("adjusted out shape: ", test_ep.shape)
 
     print("=========type adjust 2=========")
     ans_ep = (y_test_loaded_0) #np.around(y_test_loaded_0)
-    print("org y_test_loaded_0: ", type(y_test_loaded_0))
-    print("arounded y_test_loaded_0: ", type(y_test_loaded_0))
+    print("org y_test_loaded_0 type: ", type(y_test_loaded_0))
+    print("adjusted y_test_loaded_0 type: ", type(y_test_loaded_0))
+    print("adjusted y_test_loaded_0 shape: ", y_test_loaded_0.shape)
     #error line adjustment
     #solution: find the maximum vlaue
 
@@ -169,7 +294,10 @@ def intersect(pre_errortype, ans_errortype):
 
 #get new ans array contains only 1 in array
 def ans_typefilter(ans_errortype):
-    #print("org ans type: ", ans_errortype)
+    """
+    print("org ans type: ", type(ans_errortype))
+    print("org ans len: ", len(ans_errortype))
+    """
     new_ans_errortype = [value for value in ans_errortype if value == 1]
     #print("new ans errortype: ", new_ans_errortype)
     return new_ans_errortype
@@ -228,7 +356,7 @@ def errortype_score(pre_errortype, ans_errortype):
     return pre_score, rec_score , acc_score #return float
 
 #show total perdict score and recall score
-def errortype_totalscore(pre_errortype,ans_errortype):
+def errortype_totalscore(pre_errortype, ans_errortype):
     #initial para
     pre_total = 0.0
     rec_total = 0.0
@@ -502,10 +630,10 @@ def sklearn_sample_score(test_ep, ans_ep):
 
 
 
-def showAllScore(model_path, model_name, x_y_path, x_mode_l, y_model_0, y_model_1, max_len_name):
+def showAllScore(model_path, model_name, x_y_path, x_model_l, y_model_0, y_model_1, max_len_name, debugMode = False):
     max_len = loadDictionary(model_path + "/" + max_len_name)
     #load model
-    test_ep, ans_ep, test_lb, ans_lb = loadmodel(model_path, model_name, x_y_path, x_mode_l, y_model_0, y_model_1, max_len)
+    test_ep, ans_ep, test_lb, ans_lb = loadmodel(model_path, model_name, x_y_path, x_model_l, y_model_0, y_model_1, max_len, debugMode)
     print("\n"+"==========ErrorType Score==========")
     #type total score
     avg_pre, avg_rec, avg_acc = errortype_totalscore(test_ep, ans_ep)
@@ -525,4 +653,20 @@ def showAllScore(model_path, model_name, x_y_path, x_mode_l, y_model_0, y_model_
     print("=========ErrorLine F score=========")
     #line f score
     error_line_F_score(avg_pre, avg_rec)
+    print("==================================="+"\n")
+
+def modelDebuggerErrorType(model_path, model_name, x_y_path, x_model_l, y_model_0, max_len_name, debugMode = False):
+    max_len = loadDictionary(model_path + "/" + max_len_name)
+    #load model
+    test_ep, ans_ep = loadmodelErrorTypeVer(model_path, model_name, x_y_path, x_model_l, y_model_0, max_len, debugMode)
+    print("\n"+"==========ErrorType Score==========")
+    #type total score
+    avg_pre, avg_rec, avg_acc = errortype_totalscore(test_ep, ans_ep)
+    print("=========ErrorType F Score=========")
+    #type f score
+    error_type_F_score(avg_pre, avg_rec)
+    print("==================================="+"\n")
+
+    print("===========SKLearn Score==========="+"\n")
+    sklearn_sample_score(test_ep, ans_ep)
     print("==================================="+"\n")
