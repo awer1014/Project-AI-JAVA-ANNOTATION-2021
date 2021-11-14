@@ -493,37 +493,6 @@ def get_model(max_input_len,
     #print("error_feed_forward_output1:", error_feed_forward_output1.shape)
     ###################################
 
-    """
-    #分類器2
-
-    LNoutputs=[]
-
-    error_feed_forward_layer2 = keras.layers.Dense(hidden_dim,
-                                                   activation="relu")(concatted)
-    error_feed_forward_output2 = keras.layers.Dense(lbNum,
-                                                    activation="relu",
-                                                    name="error_feed_forward_output2")(error_feed_forward_layer2)
-
-    #print("error_feed_forward_output2:", error_feed_forward_output2.shape)
-
-    #子網路層
-
-    for i in range(lbNum):
-        output2_name = "LNout"+str(i)
-
-        LNoutputs.append(keras.layers.Dense(max_javaline_length,activation="softmax",name=output2_name)(error_feed_forward_output2))
-    """
-
-
-
-
-    #print("LNoutputs:", LNoutputs)
-
-
-    """
-    model = keras.models.Model(inputs=[encoder_input], outputs=[error_feed_forward_output1] + LNoutputs)
-    """
-
     #model = keras.models.Model(inputs=[encoder_input], outputs=[error_feed_forward_output1])
     #model.summary()
 

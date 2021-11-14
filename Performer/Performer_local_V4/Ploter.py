@@ -137,3 +137,12 @@ def showAllGraphic(file_path, file):
     plotTrainingErrorLineLoss(file_path, history)
     plotTrainingErrorLineAcc(file_path, history)
     pass
+
+def showAllGraphicErrorTypeVer(file_path, file, debugMode = False):
+    history = loadDictionary(file_path + "/" + file)
+    if debugMode == True:
+        print("history.keys: ", history.keys())
+    plotTrainingLoss(file_path, history)
+    plotTrainingErrorTypeLoss(file_path, history)
+    plotTrainingErrorTypeAcc(file_path, history)
+    pass

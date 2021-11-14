@@ -41,14 +41,14 @@ def loadErrorTypeVer(model_path, model_name):
     sys.path.append("Perfomer_local_V4/keras_performer")
     sys.path.append("Perfomer_local_V4/keras_pos_embed")
 
-    from keras_performer import performerErrorTypeTest
+    from keras_performer import performerErrorTypeTest_V2 as tfr
     from tensorflow import keras
     from keras_embed_sim import EmbeddingRet, EmbeddingSim
     from keras_pos_embd import TrigPosEmbedding
     from tensorflow_fast_attention.fast_attention import softmax_kernel_transformation, Attention, SelfAttention
     from keras_position_wise_feed_forward.feed_forward import FeedForward
 
-    co = performerErrorTypeTest.get_custom_objects()
+    co = tfr.get_custom_objects()
     co["softmax_kernel_transformation"] = softmax_kernel_transformation
     model = keras.models.load_model(model_path + "/" + model_name, custom_objects = co)
     # t = loadDictionary(target_token_dict, 'target_token_dict.pickle')
@@ -135,7 +135,7 @@ def loadmodelErrorTypeVer(model_path, model_name, x_y_path, x_test_model, y_test
     print("y_test_loaded_0 shape: ", y_test_loaded_0.shape)
     #'''
 
-    from keras_performer import performerErrorTypeTest as tfr
+    from keras_performer import performerErrorTypeTest_V2 as tfr
     out1 = tfr.decode(model, x_test_loaded, max_len = source_max_lan)
 
     if debugMode == True:
