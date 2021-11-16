@@ -109,6 +109,7 @@ def out_line_adjustment(out_line):
 def loadmodelErrorTypeVer(model_path, model_name, x_y_path, x_test_model, y_test_model_0, source_max_lan, debugMode):
     import numpy as np
     model = loadErrorTypeVer(model_path, model_name)
+    #print("Model summary: ", model.summary())
     '''
     Para:
         x_test_loaded  : answer model           (include type and lineblock)

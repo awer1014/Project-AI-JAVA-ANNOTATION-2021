@@ -2,7 +2,7 @@ import numpy as np
 import keras
 import DataBuffer as db
 
-#for error line block detection 
+#for error line block detection
 #input: list_IDs=a list of encoder_input_ids
 #output: [out1, out2]
 #out1: [e1, e2, ..., e36], ei is either 0 or 1
@@ -10,28 +10,28 @@ import DataBuffer as db
 
 class DataGeneratorValidation(keras.utils.Sequence):
     'Generates data for Keras'
-    def __init__(self, 
+    def __init__(self,
                  input_databuffer_params,
-                 output_databuffer_params, 
-                 list_IDs,  
+                 output_databuffer_params,
+                 list_IDs,
                  batch_size=64, #defult 2048
-                 total_error_types=36, 
+                 total_error_types=36,
                  max_text_len=1000, #default 2769
-                 max_lines=160, 
-                 max_lbs=360, 
+                 max_lines=160,
+                 max_lbs=360,
                  shuffle=True
                 ):
         'Initialization'
         self.total_error_types = total_error_types
         self.max_text_len = max_text_len
         self.batch_size = batch_size
-        self.max_lines = max_lines 
+        self.max_lines = max_lines
         self.max_lbs = max_lbs
         #self.err_labels = err_labels # out 1
         #self.messages = messages #out 2
         self.list_IDs = list_IDs
         self.shuffle = shuffle
-        self.input_databuffer_params = input_databuffer_params        
+        self.input_databuffer_params = input_databuffer_params
         self.output_databuffer_params = output_databuffer_params
         # Generate input data buffer
         data_path = self.input_databuffer_params["data_path"]
@@ -44,8 +44,8 @@ class DataGeneratorValidation(keras.utils.Sequence):
         data_number = self.output_databuffer_params["data_number"]
         data_type = self.output_databuffer_params["data_type"]
         block_size = self.output_databuffer_params["block_size"]
-        self.dby1 = db.DataBuffer(data_path[0], data_number[0], data_type[0], block_size[0], file_name = "y_train[0]_")
-        self.dby2 = db.DataBuffer(data_path[1], data_number[1], data_type[1], block_size[1], file_name = "y_train[1]_")
+        self.dby1 = db.DataBuffer(data_path[0], data_number[0], data_type[0], block_size[0], file_name = "y_validation[0]_")
+        self.dby2 = db.DataBuffer(data_path[1], data_number[1], data_type[1], block_size[1], file_name = "y_validation[1]_")
 
         self.on_epoch_end()
 
@@ -91,7 +91,7 @@ class DataGeneratorValidation(keras.utils.Sequence):
         self.dbx1.initialize()
         self.dby1.initialize()
         self.dby2.initialize()
-        
+
         if self.shuffle == True:
             np.random.shuffle(self.indexes)
 
@@ -107,7 +107,7 @@ class DataGeneratorValidation(keras.utils.Sequence):
         print("y2[0] shape: ", y2[0].shape)
         '''
         '''
-        print("list_IDs_temp type: ", type(list_IDs_temp))        
+        print("list_IDs_temp type: ", type(list_IDs_temp))
         print("list_IDs_temp lenght: ", len(list_IDs_temp))
         print("list_IDs_temp[0] type: ", type(list_IDs_temp[0]))
         #print("list_IDs_temp[0] lenght: ", len(list_IDs_temp[0]))
@@ -129,7 +129,7 @@ class DataGeneratorValidation(keras.utils.Sequence):
             #print("X1[i]: ", X1[i])
             #print("X1[i] lenght: ", len(X1[i]))
             #X1[i,] = self.dbx1.get_data(ID) # a list of token ids
-            # out1: a binary vector of total_error_types (36) elements, 
+            # out1: a binary vector of total_error_types (36) elements,
             y1[i] = self.dby1.get_data(ID) #a 36-length vector
             #print("y1[i]: ", y1[i])
             #print("y1[i] length: ", len(y1[i]))
@@ -150,7 +150,7 @@ class DataGeneratorValidation(keras.utils.Sequence):
                 y2 = [(lambda a, b: np.concatenate((a, b)))(a1,a2) for a1, a2 in zip(y2, y2_temp)]
             #print("y2[i]: ", y2[i])
             '''
-            print("y2 length: ", len(y2)) #show line block size 
+            print("y2 length: ", len(y2)) #show line block size
             print("y2[0] shape: ", y2[0].shape) #show sample
             '''
             #print("y2[i][1] length: ", len(y2[i][1])) #show single block size

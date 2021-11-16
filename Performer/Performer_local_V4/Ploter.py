@@ -18,6 +18,16 @@ def plotTrainingLoss(file_path, history):
     plt.savefig(file_path + "/" + "TrainingLoss.png")
     plt.show()
 
+def plotTrainingErrorTypeAccErrorVer(file_path, history):
+    plt.plot(history["binary_accuracy"], label = "acc")
+    plt.plot(history["val_binary_accuracy"], label = "val_acc")
+    plt.title("model accuary")
+    plt.ylabel("accuary")
+    plt.xlabel("epoch")
+    plt.legend()
+    plt.savefig(file_path + "/" + "TrainingErrorTypeAccErrorVer.png")
+    plt.show()
+    pass
 
 #draw output1 binary acc
 def plotTrainingErrorTypeAcc(file_path, history):
@@ -143,6 +153,5 @@ def showAllGraphicErrorTypeVer(file_path, file, debugMode = False):
     if debugMode == True:
         print("history.keys: ", history.keys())
     plotTrainingLoss(file_path, history)
-    plotTrainingErrorTypeLoss(file_path, history)
-    plotTrainingErrorTypeAcc(file_path, history)
+    plotTrainingErrorTypeAccErrorVer(file_path, history)
     pass
