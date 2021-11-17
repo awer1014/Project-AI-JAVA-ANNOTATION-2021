@@ -44,7 +44,7 @@ class DataGeneratorValidationErrorTypeEdition(keras.utils.Sequence):
         data_number = self.output_databuffer_params["data_number"]
         data_type = self.output_databuffer_params["data_type"]
         block_size = self.output_databuffer_params["block_size"]
-        self.dby1 = db.DataBuffer(data_path[0], data_number[0], data_type[0], block_size[0], file_name = "y_train[0]_")
+        self.dby1 = db.DataBuffer(data_path[0], data_number[0], data_type[0], block_size[0], file_name = "y_validation[0]_")
         #self.dby2 = db.DataBuffer(data_path[1], data_number[1], data_type[1], block_size[1], file_name = "y_train[1]_")
 
         self.on_epoch_end()
