@@ -150,9 +150,18 @@ def loadTestTrainData(filename): # e.g., 'test.npy'
         a = np.load(f)
         return a
 
-
-
-def translate(Output_Path, Input_Path, model_for_training_org_path, model_for_training_path, Trained_model_Path, all_sample_num = 16644, block_num = 16644, source_max_len_name, training_source_max_len, learning_rate_value, type_weight, line_weight):
+def translate(Output_Path,
+              Input_Path,
+              model_for_training_org_path,
+              model_for_training_path,
+              Trained_model_Path,
+              all_sample_num = 16644,
+              block_num = 16644,
+              source_max_len_name,
+              training_source_max_len,
+              learning_rate_value,
+              type_weight,
+              line_weight):
     #print("i am here: " )
     #source_file=[]
     #Set Para
