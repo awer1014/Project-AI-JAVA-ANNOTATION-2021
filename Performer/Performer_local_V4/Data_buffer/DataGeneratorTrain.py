@@ -1,6 +1,6 @@
 import numpy as np
 import keras
-import DataBuffer as db
+from Data_buffer import DataBuffer as db
 
 #for error line block detection
 #input: list_IDs=a list of encoder_input_ids
@@ -16,7 +16,7 @@ class DataGeneratorTrain(keras.utils.Sequence):
                  list_IDs,
                  batch_size=64, #defult 2048
                  total_error_types=36,
-                 max_text_len=302, #default 2769
+                 max_text_len=1000, #default 302, 1000, 2769
                  max_lines=160,
                  max_lbs=360,
                  shuffle=True
