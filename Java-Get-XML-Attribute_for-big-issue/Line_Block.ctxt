@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Line_Block
+comment1.params=k
+comment1.target=Line_Block(int)
+comment10.params=
+comment10.target=int\ get_Array_length()
+comment11.params=
+comment11.target=int\ get_error_type_length()
+comment12.params=
+comment12.target=int\ get_file_name_length()
+comment2.params=name\ Error_type\ begin\ end
+comment2.target=void\ add_Block(java.lang.String,\ java.lang.String,\ int,\ int)
+comment3.params=o
+comment3.target=int\ compareTo(java.lang.Object)
+comment4.params=Index
+comment4.target=int\ get_begin(int)
+comment5.params=Index\ temp
+comment5.target=void\ set_begin(int,\ int)
+comment6.params=Index
+comment6.target=int\ get_end(int)
+comment7.params=Index\ temp
+comment7.target=void\ set_end(int,\ int)
+comment8.params=Index
+comment8.target=java.lang.String\ get_file_name(int)
+comment9.params=Index
+comment9.target=java.lang.String\ get_Error_type(int)
+numComments=13

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Source_Code_Sorter
+comment1.params=
+comment1.target=Source_Code_Sorter()
+comment2.params=Code_name\ code_line\ array_last
+comment2.target=void\ add_SourceCode_and_line(java.lang.String,\ int,\ boolean)
+comment3.params=Index
+comment3.target=java.lang.String\ get_SourceCode(int)
+comment4.params=Index
+comment4.target=int\ get_SourceCode_Begin_line(int)
+comment5.params=
+comment5.target=int\ get_Array_length()
+comment6.params=Index
+comment6.target=int\ find_IndexOf_Source_Code(java.lang.String)
+numComments=7
