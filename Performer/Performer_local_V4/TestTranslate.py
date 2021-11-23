@@ -97,7 +97,7 @@ def parseSentence(x):
                 tokens.append(x[i])
     if len(chrs)>0:
         tokens += tokenizer.tokenize(chrs) #wordpunct_tokenize(chrs)  # nltk.word_tokenize(chrs)
-    return tokens
+    return replaceTAGS(tokens)
 
 def readcode(fname):
     with open(fname,encoding = 'utf-8') as f:
