@@ -16,7 +16,7 @@ class DataGeneratorValidationErrorTypeEdition(keras.utils.Sequence):
                  list_IDs,
                  batch_size=64, #defult 2048
                  total_error_types=36,
-                 max_text_len=1000, #default 302, 1000, 2769
+                 max_text_len=997, #default 302, 1000, 2769
                  max_lines=160,
                  max_lbs=360,
                  shuffle=True
