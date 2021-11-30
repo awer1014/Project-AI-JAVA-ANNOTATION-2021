@@ -1,5 +1,6 @@
 
 import numpy as np
+
 def loadDictionary(file):
     import pickle
     a_file = open(file, "rb")
@@ -64,11 +65,11 @@ def max_length_adjustment(loaded_model, training_source_max_len):
             #print("k: ", k)
             d_two.append(loaded_model[i][k])
         #switch to np array
-        d_two = np.array(d_two)
+        d_two = np.asarray(d_two)
         #give np array
         adjusted_model.append(d_two)
     #switch to np array
-    adjusted_model = np.array(adjusted_model)
+    adjusted_model = np.asarray(adjusted_model)
 
     return adjusted_model
 
@@ -310,15 +311,17 @@ def pre_typefilter(pre_errortype):
     #print("new pre errortype: ", new_pre_errortype)
     return new_pre_errortype
 
-#calculate error type score
-#Note:
-    #Predict score:
-        # score = inter of ans and pre divide by len of pre
-    #Recall score:
-        # score = inter of ans and pre divide by len of ans
-    #Accuracy score:
-        # score = inter_two of ans and pre divide by original len of pre
 def errortype_score(pre_errortype, ans_errortype):
+    """
+    #calculate error type score
+    #Note:
+        #Predict score:
+            # score = inter of ans and pre divide by len of pre contains 1
+        #Recall score:
+            # score = inter of ans and pre divide by len of ans contains 1
+        #Accuracy score:
+            # score = inter_two of ans and pre divide by original len of pre
+    """
     #find pre length
     new_pre_errortype = pre_typefilter(pre_errortype) #make new array for score
     pre_length = len(new_pre_errortype) #get length from ans_type
