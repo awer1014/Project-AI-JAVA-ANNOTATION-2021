@@ -112,7 +112,7 @@ def attention_builder(name,
 			attention_dropout=dropout_rate,
 			nb_random_features= int(embed_dim / 2), #16
 			causal=False,
-			projection_matrix_type=True
+			#projection_matrix_type=True
         )(x, y)
     return _attention_builder
 
@@ -167,7 +167,7 @@ def self_attention_builder(name,
 			attention_dropout=dropout_rate,
 			nb_random_features= int(embed_dim / 2), #16
 			causal=masked,
-			projection_matrix_type=True
+			#projection_matrix_type=True
         )(x)
     return _attention_builder
 
