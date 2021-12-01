@@ -337,7 +337,7 @@ def errortype_score(pre_errortype, ans_errortype):
 
     #calculate Predict score
     if (inter_length == 0 and pre_length == 0):
-        pre_score = 1
+        pre_score = 0
     elif (pre_length == 0):
         pre_score = 0
     else:
@@ -346,7 +346,7 @@ def errortype_score(pre_errortype, ans_errortype):
 
     #calculate Recall score
     if (inter_length == 0 and ans_length == 0):
-        rec_score = 1
+        rec_score = 0
     elif (ans_length == 0):
         rec_score = 0
     else:
@@ -565,14 +565,14 @@ def errorline_totalscore(pre_errorline, ans_errorline):
             #print("ans_length: ", ans_length)
             #count pre_score
             if (inter_length == 0 and pre_length == 0):
-                pre_score = 1
+                pre_score = 0
             elif (pre_length == 0):
                 pre_score = 0
             else :
                 pre_score = inter_length/pre_length
             #count rec_score
             if (inter_length == 0 and ans_length == 0):
-                rec_score = 1
+                rec_score = 0
                 #
             elif (ans_length == 0):
                 rec_score = 0
@@ -596,21 +596,9 @@ def errorline_totalscore(pre_errorline, ans_errorline):
     print("avg_rec: ", avg_rec)
     return avg_pre, avg_rec
 
-def error_type_F_score(pre_score, rec_score):
-    f_one = (2*pre_score*rec_score)/(pre_score + rec_score)
-    f_two = (3*pre_score*rec_score)/((2*pre_score) + rec_score)
-    f_pointfive = (3*pre_score*rec_score)/(pre_score + (2*rec_score))
-    print("F_one: ", f_one)
-    print("F_two: ", f_two)
-    print("F_pointfive: ", f_pointfive)
-
-def error_line_F_score(pre_score, rec_score):
-    f_one = (2*pre_score*rec_score)/(pre_score + rec_score)
-    f_two = (3*pre_score*rec_score)/((2*pre_score) + rec_score)
-    f_pointfive = (3*pre_score*rec_score)/(pre_score + (2*rec_score))
-    print("F_one: ", f_one)
-    print("F_two: ", f_two)
-    print("F_pointfive: ", f_pointfive)
+def fbeta_score(pre_score, rec_score, beta):
+    fscore = (((beta**2 + 1) * (pre_score * rec_score)) / ((beta**2 * pre_score) + rec_score))
+    print("f", beta, "score: ", fscore)
 
 def sklearn_sample_score(test_ep, ans_ep):
     from sklearn import metrics as metrics
@@ -643,7 +631,9 @@ def showAllScore(model_path, model_name, x_y_path, x_model_l, y_model_0, y_model
     avg_pre, avg_rec, avg_acc = errortype_totalscore(test_ep, ans_ep)
     print("=========ErrorType F Score=========")
     #type f score
-    error_type_F_score(avg_pre, avg_rec)
+    fbeta_score(avg_pre, avg_rec, beta = 0.5)
+    fbeta_score(avg_pre, avg_rec, beta = 1)
+    fbeta_score(avg_pre, avg_rec, beta = 2)
     print("==================================="+"\n")
 
     print("===========SKLearn Score==========="+"\n")
@@ -656,7 +646,9 @@ def showAllScore(model_path, model_name, x_y_path, x_model_l, y_model_0, y_model
     avg_pre, avg_rec = errorline_totalscore(test_lb, ans_lb)
     print("=========ErrorLine F score=========")
     #line f score
-    error_line_F_score(avg_pre, avg_rec)
+    fbeta_score(avg_pre, avg_rec, beta = 0.5)
+    fbeta_score(avg_pre, avg_rec, beta = 1)
+    fbeta_score(avg_pre, avg_rec, beta = 2)
     print("==================================="+"\n")
 
 def modelDebuggerErrorType(model_path, model_name, x_y_path, x_model_l, y_model_0, max_len_name, debugMode = False):
