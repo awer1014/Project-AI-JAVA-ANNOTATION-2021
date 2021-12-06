@@ -1,1 +1,0 @@
- <BOC> importjava.util.Random; <CR> publicclassExam{ <CR> publicstaticvoidmain(String[]k6){ <CR> ExamQ=newExam(); <CR> Q.length=1; <CR> Q.width=2; <CR> Q.height=3; <CR> } <CR> intlength,width,height; <CR> doublesurfaceArea(){ <CR> return2*length*width+width*height+height*length; <CR> } <CR> } <CR>  <EOC> 
