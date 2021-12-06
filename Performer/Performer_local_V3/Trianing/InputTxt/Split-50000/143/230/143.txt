@@ -1,1 +1,0 @@
- <BOC> publicclasstest{ <CR> publicstaticvoidmain(String[]i9){ <CR> name=i9[0]; <CR> age=Integer.parseInt(i9[1]); <CR> country=i9[2]; <CR> selfIntroduce(); <CR> } <CR> staticStringcountry; <CR> staticvoidselfIntroduce(){ <CR> System.out.println("Hello!I am "+name+" aged "+age+".I come from "+country+"."); <CR> } <CR> staticStringname; <CR> staticintage; <CR> } <CR>  <EOC> 
