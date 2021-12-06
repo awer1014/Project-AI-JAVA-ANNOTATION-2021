@@ -1,1 +1,0 @@
- <BOC> class TEST {  <CR> TEST ( int Y4 , int Y2 ) {  <CR> Y4 = this . mx ;  <CR> Y2 = this . my ;  <CR> }  <CR> public static void main ( ) {  <CR> TEST C2 = new TEST ( 2 , 3 ) ;  <CR> }  <CR> int mx ;  <CR> int my ;  <CR> }  <CR>  <EOC> 

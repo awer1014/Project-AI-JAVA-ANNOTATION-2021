@@ -1,1 +1,0 @@
- <BOC> class TEST {  <CR> public static void main ( ) {  <CR> TEST N = new TEST ( ) ;  <CR> N . test ( ) ;  <CR> }  <CR> void test ( ) {  <CR> if ( type == "A" )  <CR> x = 0 ;  <CR> else  <CR> x = 1 ;  <CR> }  <CR> int x ;  <CR> String type ;  <CR> }  <CR>  <EOC> 

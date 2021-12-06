@@ -1,1 +1,0 @@
- <BOC> import java . util . Scanner ;  <CR> class TEST {  <CR> public static void main ( String [ ] p3 ) {  <CR> Scanner c8 = new Scanner ( System . in ) ;  <CR> int l7 = 0 ;  <CR> l7 = c8 . nextInt ( ) ;  <CR> double i6 = X ( "AAA" ) ;  <CR> }  <CR> int X ( int O9 ) {  <CR> O9 = 3 ;  <CR> return O9 ;  <CR> }  <CR> }  <CR>  <EOC> 
