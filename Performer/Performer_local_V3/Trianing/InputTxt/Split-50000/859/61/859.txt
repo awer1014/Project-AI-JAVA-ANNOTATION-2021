@@ -1,1 +1,0 @@
- <BOC> importjava.util.Scanner; <CR> publicclassPet{ <CR> Stringtype; <CR> publicvoidspeak(Stringd7){ <CR> if(d7=="貓") <CR> System.out.println("您的寵物叫聲是：喵喵"); <CR> } <CR> Stringname; <CR> publicPet(Stringg7,Stringd7,StringR0){ <CR> this.pid=g7; <CR> this.name=d7; <CR> this.type=R0; <CR> count++; <CR> } <CR> publicstaticintcount=0; <CR> Stringpid; <CR> } <CR>  <EOC> 
