@@ -1,1 +1,0 @@
- <BOC> classpet{ <CR> Stringname; <CR> publicvoidspeak(){ <CR> if(type=="狗"){ <CR> System.out.println(" 汪汪 "); <CR> } <CR> else{ <CR> System.out.println(" 喵喵 "); <CR> } <CR> } <CR> publicpet(StringR9,StringT0,StringF2){ <CR> this.pid=R9; <CR> this.name=T0; <CR> this.type=F2; <CR> } <CR> Stringtype; <CR> Stringpid; <CR> } <CR>  <EOC> 
