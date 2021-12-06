@@ -1,1 +1,0 @@
- <BOC> import java . util . StringTokenizer ;  <CR> import java . util . Scanner ;  <CR> class String {  <CR> public static void main ( String [ ] M8 ) {  <CR> String B6 ;  <CR> Scanner O8 = new Scanner ( System . in ) ;  <CR> String B6 = O8 . nextLine ( ) ;  <CR> StringTokenizer B2 = new StringTokenizer ( M8 [ 0 ] , " " ) ;  <CR> }  <CR> }  <CR>  <EOC> 

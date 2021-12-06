@@ -1,1 +1,0 @@
- <BOC> public class season {  <CR> String OK ( ) {  <CR> String [ ] F8 = { "春夏秋冬" } ;  <CR> return null ;  <CR> }  <CR> public static void main ( String [ ] Z5 ) {  <CR> season d4 = new season ( ) ;  <CR> Math . random ( ) ;  <CR> System . out . print ( "今天的心情是 = " + d4 . OK ( ) ) ;  <CR> }  <CR> }  <CR>  <EOC> 

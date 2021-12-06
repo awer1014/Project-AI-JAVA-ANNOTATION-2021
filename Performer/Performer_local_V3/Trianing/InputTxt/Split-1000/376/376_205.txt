@@ -1,1 +1,0 @@
- <BOC> public class KKBOx {  <CR> double h ;  <CR> double w ;  <CR> public static void main ( Double [ ] P2 ) {  <CR> KKBOx x8 = new KKBOx ( ) ;  <CR> x8 . l = 2 ;  <CR> x8 . w = 3 ;  <CR> x8 . h = 4 ;  <CR> System . out . println ( x8 . volume ( ) ) ;  <CR> }  <CR> double volume ( ) {  <CR> double m5 = l * w * h ;  <CR> return m5 ;  <CR> }  <CR> double l ;  <CR> }  <CR>  <EOC> 

@@ -1,1 +1,0 @@
- <BOC> public class Season {  <CR> string d = "冬" ;  <CR> string b = "夏" ;  <CR> public static void main ( String [ ] W7 ) {  <CR> Random O0 = new Random ( ) ;  <CR> System . out . println ( O0 . nextInt ( 3 ) ) ;  <CR> }  <CR> string a = "春" ;  <CR> string c = "秋" ;  <CR> }  <CR>  <EOC> 

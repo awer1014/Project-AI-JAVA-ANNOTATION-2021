@@ -1,1 +1,0 @@
- <BOC> import java . util . * ;  <CR> public class Word {  <CR> public static void main ( String [ ] V1 ) {  <CR> Scanner n9 = new Scanner ( System . in ) ;  <CR> StringTokenizer K6 = n9 ;  <CR> String P2 ;  <CR> while ( K6 . hasMoreTokens ( ) ) {  <CR> P2 = K6 . nextToken ( ) ;  <CR> System . out . println ( P2 ) ;  <CR> }  <CR> }  <CR> }  <CR>  <EOC> 
