@@ -1,1 +1,0 @@
- <BOC> import java.util.StringTokenizer; <CR> import java.util.Scanner; <CR> class String{ <CR>     public static void main(String[] args){ <CR>         String str; <CR>         Scanner scanner = new Scanner(System.in); <CR>         String str= scanner.nextLine();//????? <CR>         StringTokenizer st = new StringTokenizer(args[0]/*一定要放""?*/," "); <CR>     } <CR> } <CR>  <EOC> 
