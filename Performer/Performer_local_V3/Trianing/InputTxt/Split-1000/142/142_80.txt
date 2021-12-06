@@ -1,1 +1,0 @@
- <BOC> public class MyMath {  <CR> static int a ( int x8 ) {  <CR> int q = 1 ;  <CR> for ( int K0 = 1 ; K0 <= x8 ; K0 ++ ) {  <CR> q = q * K0 ;  <CR> }  <CR> q *= 2 ;  <CR> return q ;  <CR> }  <CR> public static void main ( String [ ] M4 ) {  <CR> int x8 = Integer . parseInt ( M4 [ 0 ] ) ;  <CR> System . out . println ( "N!:" + a ( x8 ) ) ;  <CR> }  <CR> }  <CR>  <EOC> 
