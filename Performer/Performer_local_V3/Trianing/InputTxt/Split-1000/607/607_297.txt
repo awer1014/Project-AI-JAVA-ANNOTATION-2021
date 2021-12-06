@@ -1,1 +1,0 @@
- <BOC> import java . util . * ;  <CR> public class season {  <CR> static List < String > strList = Arrays . asList ( sea ) ;  <CR> public static void main ( String [ ] m6 ) {  <CR> Collections . shuffle ( strList ) ;  <CR> System . out . println ( strList ) ;  <CR> }  <CR> static String [ ] sea = new String [ ] { "春" , "夏" , "秋" , "冬" } ;  <CR> }  <CR>  <EOC> 
