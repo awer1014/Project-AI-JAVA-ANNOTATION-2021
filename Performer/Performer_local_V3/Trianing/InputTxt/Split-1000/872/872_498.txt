@@ -1,1 +1,0 @@
- <BOC> class pet {  <CR> static int count ;  <CR> void speak ( ) {  <CR> if ( this . type . equals ( "貓" ) ) {  <CR> System . out . println ( "喵喵" ) ;  <CR> }  <CR> else if ( this . type . equals ( "狗" ) ) {  <CR> System . out . println ( "汪汪" ) ;  <CR> }  <CR> }  <CR> Keeper keeper ;  <CR> String pid ;  <CR> String type ;  <CR> String name ;  <CR> }  <CR>  <EOC> 

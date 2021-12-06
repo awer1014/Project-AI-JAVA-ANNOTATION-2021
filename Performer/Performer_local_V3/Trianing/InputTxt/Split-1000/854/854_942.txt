@@ -1,1 +1,0 @@
- <BOC> public class Pet {  <CR> private String name ;  <CR> private String pid ;  <CR> private String type ;  <CR> private String keeper ;  <CR> public void speak ( ) {  <CR> if ( type == "狗" ) {  <CR> System . out . println ( "您的寵物叫聲是：汪汪" ) ;  <CR> }  <CR> }  <CR> }  <CR>  <EOC> 
