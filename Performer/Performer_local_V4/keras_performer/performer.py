@@ -486,8 +486,6 @@ def get_model(max_input_len,
     error_feed_forward_output1 = keras.layers.Dense(errNum,
                                                     activation="sigmoid",
                                                     name="error_feed_forward_output1")(error_feed_forward_layer1)
-    #add dropout layer
-    error_feed_forward_layer1 = keras.layer.Dropout(0.2)(error_feed_forward_output1)
     #print("flatten_state:", flatten_state.shape)
     #print("error_feed_forward_output1:", error_feed_forward_output1.shape)
     concatted = keras.layers.Concatenate()([error_feed_forward_output1, flatten_state])

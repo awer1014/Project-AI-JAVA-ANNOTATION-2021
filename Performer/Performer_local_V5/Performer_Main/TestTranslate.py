@@ -14,6 +14,7 @@ from keras.utils import to_categorical
 import tensorflow as tf
 import glob
 import csv
+
 def readCSV(file_name):
     errlist=[]
     LBlist=[]
@@ -152,11 +153,24 @@ def loadTestTrainData(filename): # e.g., 'test.npy'
 
 
 
-def translate(Output_Path, Input_Path, model_for_training_org_path, model_for_training_path, Trained_model_Path, all_sample_num = 16644, block_num = 16644, source_max_len_name, training_source_max_len, learning_rate_value, type_weight, line_weight):
+def translate(Output_Path = None,
+              Input_Path = None,
+              model_for_training_org_path = None,
+              model_for_training_path = None,
+              Trained_model_Path = None,
+              all_sample_num = None,
+              block_num = None,
+              source_max_len_name = "source_max_lan",
+              training_source_max_len = 1000,
+              learning_rate_value = 0.0001,
+              type_weight = 1,
+              line_weight = 1,
+              dropout_num = None
+              max_javaline_length = 160):
     #print("i am here: " )
     #source_file=[]
     #Set Para
-    max_javaline_length = 160 #Max number of lines
+    max_javaline_length = max_javaline_length #Max number of lines
     #set path
     #Output_Path = "Trianing\InputCSV\Split-500-reduce-binary-accuracy"
     #Input_Path = "Trianing\InputTxt\Split-500-reduce-binary-accuracy"
@@ -175,8 +189,8 @@ def translate(Output_Path, Input_Path, model_for_training_org_path, model_for_tr
     source_max_len = 0
     target_max_len = 0
     token_num = 0
-    all_sample_num = 16644 #all sample number
-    block_num = 16644 #sample num e.g 10000 sample have 10*1000
+    all_sample_num = all_sample_num #all sample number
+    block_num = block_num #sample num e.g 10000 sample have 10*1000
     #Set file cutting size
     self.sl = 0
 
