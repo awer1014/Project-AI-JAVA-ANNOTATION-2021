@@ -481,14 +481,14 @@ def get_model(max_input_len,
     #print("flatten_state:", flatten_state.shape)
     error_feed_forward_layer1 = keras.layers.Dense(hidden_dim,
                                                    activation="relu")(flatten_state)
+    #add dropout layer
+    error_feed_forward_layer1 = keras.layers.Dropout(0.2)(error_feed_forward_layer1)
+    #first network output
     error_feed_forward_output1 = keras.layers.Dense(errNum,
                                                     activation="sigmoid",
                                                     name="error_feed_forward_output1")(error_feed_forward_layer1)
-    #add dropout layer
-    error_feed_forward_layer1 = keras.layers.Dropout(0.2)(error_feed_forward_output1)
     #print("flatten_state:", flatten_state.shape)
     #print("error_feed_forward_output1:", error_feed_forward_output1.shape)
-    concatted = keras.layers.Concatenate()([error_feed_forward_output1, flatten_state])
 
     """
     #分類器2
