@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\517\517.xml">
+	
+<SourceCode_List><SourceCode lines="45" name="Evaluation.java"><![CDATA[import java . util . * ; 
+abstract public class Evaluation { 
+protected int type ; 
+protected String a ; 
+protected String b ; 
+Scanner n = new Scanner ( System . in ) ; 
+public Evaluation ( String name , String number , double score , double percent ) { 
+System . out . println ( "請輸入種類:" ) ; 
+type = n . nextInt ( ) ; 
+System . out . println ( "請輸入學生學號:" ) ; 
+name = n . nextLine ( ) ; 
+System . out . println ( "請輸入學生姓名:" ) ; 
+number = n . nextLine ( ) ; 
+System . out . println ( "請輸入成績:" ) ; 
+score = n . nextDouble ( ) ; 
+System . out . println ( "請輸入成績比重:" ) ; 
+percent = n . nextDouble ( ) ; 
+if ( type == 1 ) { 
+System . out . println ( "請輸入考試日期:" ) ; 
+a = n . nextLine ( ) ; 
+System . out . println ( "請輸入考試範圍:" ) ; 
+b = n . nextLine ( ) ; 
+} 
+else if ( type == 2 ) { 
+System . out . println ( "請輸入截止日期:" ) ; 
+a = n . nextLine ( ) ; 
+System . out . println ( "請輸入作業描述:" ) ; 
+b = n . nextLine ( ) ; 
+} 
+else { 
+System . out . println ( "請輸入報告內容:" ) ; 
+a = n . nextLine ( ) ; 
+System . out . println ( "請輸入參考文獻:" ) ; 
+b = n . nextLine ( ) ; 
+} 
+} 
+void print ( ) { 
+System . out . println ( "您輸入的是:" ) ; 
+System . out . println ( "種類: " + type ) ; 
+System . out . println ( "學生學號: " ) ; 
+} 
+public static void main ( String [ ] args ) { 
+} 
+} 
+]]></SourceCode><SourceCode lines="6" name="Exam.java"><![CDATA[public class Exam extends Evaluation { 
+public Exam ( String name , String number , double score , double percent ) { 
+super ( name , number , score , percent ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="6" name="HomeWork.java"><![CDATA[public class HomeWork extends Evaluation { 
+public HomeWork ( String name , String number , double score , double percent ) { 
+super ( name , number , score , percent ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="6" name="Report.java"><![CDATA[public class Report extends Evaluation { 
+public Report ( String name , String number , double score , double percent ) { 
+super ( name , number , score , percent ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message><![CDATA[共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如，本程式的Evalution是抽象類別，其建構子如下:
+    public Evalution(String name , String number , double score , double percent) {
+       ...   
+    }
+
+因此，子類別呼叫super(...)須注意參數順序與父類別一致，例如:
+super ( name , number , score , percent ) ;]]></Message><Linelist><line Begin="7" End="36" src="Evaluation"/></Linelist></Error></Errors></ErrorList>

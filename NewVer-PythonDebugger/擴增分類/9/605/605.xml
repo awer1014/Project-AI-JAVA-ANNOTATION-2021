@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\User\Desktop\正確正規化\605\605.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="KKBox.java"><![CDATA[import java . util . Scanner ; 
+public class KKBox { 
+public static void main ( String [ ] args ) { 
+int L , W , H ; 
+Scanner scanner = new Scanner ( System . in ) ; 
+L = scanner . nextInt ( ) ; 
+W = scanner . nextInt ( ) ; 
+H = scanner . nextInt ( ) ; 
+System . out . println ( "請輸入長:" + L ) ; 
+System . out . println ( "請輸入寬:" + W ) ; 
+System . out . println ( "請輸入高:" + H ) ; 
+System . out . println ( "體積:" + L * W * H ) ; 
+System . out . println ( "表面積:" + 2 * L * W + W * H + H * L ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確]]></Message><Linelist><line Begin="-1" End="-1" src="KKBox"/></Linelist></Error></Errors></ErrorList>

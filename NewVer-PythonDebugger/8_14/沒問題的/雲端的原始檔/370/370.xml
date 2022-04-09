@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\370\370.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="season.java"><![CDATA[public class season { 
+String OK ( ) { 
+String [ ] season = { "春夏秋冬" } ; 
+return null ; 
+} 
+public static void main ( String [ ] argv ) { 
+season ss = new season ( ) ; 
+Math . random ( ) ; 
+System . out . print ( "今天的心情是 = " + ss . OK ( ) ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確。]]></Message><Linelist><line Begin="-1" End="-1" src="season"/></Linelist></Error></Errors></ErrorList>

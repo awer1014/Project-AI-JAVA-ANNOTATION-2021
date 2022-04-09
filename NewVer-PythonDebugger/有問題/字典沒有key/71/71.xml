@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\勘誤\71\71.xml">
+	
+<SourceCode_List><SourceCode lines="31" name="ChineseLetter.java"><![CDATA[public class ChineseLetter extends Letter { 
+String getTitle ( ) { 
+return title ; 
+} 
+String getContent ( ) { 
+return content ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+void display ( ) { 
+System . out . println ( getReceiver ( ) + " " + getTitle ( ) + " , 您好" ) ; 
+System . out . println ( getContent ( ) ) ; 
+System . out . println ( getSender ( ) + " 敬上" ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="32" name="EnglishLetter.java"><![CDATA[public class EnglishLetter extends Letter { 
+String getTitle ( ) { 
+return title ; 
+} 
+String getContent ( ) { 
+return content ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+void display ( ) { 
+System . out . println ( "Dear " + getTitle ( ) + " " + getReceiver ( ) + "," ) ; 
+System . out . println ( getContent ( ) ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( getSender ( ) ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Letter lt = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="13" name="Letter.java"><![CDATA[public abstract class Letter { 
+String title , content , sender , receiver , date ; 
+Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+void display ( ) { 
+} 
+} 
+]]></SourceCode><SourceCode lines="22" name="Sort.java"><![CDATA[import java . util . Arrays ; 
+public class Sort implements Comparable { 
+String date ; 
+static Letter [ ] list = { new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) , new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2018/11/01" ) , new EnglishLetter ( "Professor" , "Liu" , "I am sorry!" , "K. Ming" , "2018/07/05" ) } ; 
+Sort ( String date ) { 
+this . date = list [ 0 ] . date ; 
+} 
+String getDate ( ) { 
+return list [ 1 ] . date ; 
+} 
+@ Override 
+public int compareTo ( Object o ) { 
+Sort obj = ( Sort ) o ; 
+if ( this . getDate ( ) . compareTo ( obj . getDate ( ) ) > 0 ) return 1 ; 
+else if ( this . getDate ( ) . compareTo ( obj . getDate ( ) ) < 0 ) return - 1 ; 
+else return 0 ; 
+} 
+public static void main ( String [ ] args ) { 
+Arrays . sort ( list ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="介面:Comparable介面"><Message><![CDATA[Comparable介面是JAVA內建的Interface，允許類別實作int compareTo(Object)動作，進而協助該類別的物件進行大小或順序的比較。注意，int compareTo(Object)動作傳回值1， 0， -1分別代表物件本身相較於Object參數物件來得大，相等或小。]]></Message><Linelist><line Begin="5" End="7" src="Sort"/><line Begin="8" End="10" src="Sort"/><line Begin="11" End="17" src="Sort"/></Linelist></Error><Error tpye="抽象:不會分離變跟不變的部分"><Message><![CDATA[共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如，
+ChineseLetter和EnglishLetter類別的
+共同資料，如title，receiver，...可放到父類別
+Letter中，並宣告為protected。]]></Message><Linelist><line Begin="2" End="16" src="ChineseLetter"/><line Begin="2" End="16" src="EnglishLetter"/></Linelist></Error><Error tpye="抽象:覆寫抽象動作"><Message><![CDATA[抽象動作實際的函式內容是由子類別來實踐並加以覆寫，進而完成物件動作的多型功能。注意:子類別函式的存取權限層級不能小於父類別函式的存取權限層級。
+
+應覆寫父類別的抽象動作 display ( ) 。]]></Message><Linelist><line Begin="10" End="11" src="Letter"/></Linelist></Error></Errors></ErrorList>

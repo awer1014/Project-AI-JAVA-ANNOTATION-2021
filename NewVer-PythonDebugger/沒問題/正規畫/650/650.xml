@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\User\Desktop\正確正規化\650\650.xml">
+	
+<SourceCode_List><SourceCode lines="29" name="KKBox.java"><![CDATA[import java . util . Scanner ; 
+class KKBox { 
+double length , width , height ; 
+KKBox ( double length , double width , double height ) { 
+this . length = length ; 
+this . width = width ; 
+this . height = height ; 
+} 
+double surfaceArea ( ) { 
+return 2 * length * width + width * height + height * length ; 
+} 
+double volume ( ) { 
+return length * width * height ; 
+} 
+public static void main ( String [ ] args ) { 
+Scanner scanner = new Scanner ( System . in ) ; 
+double length , width , height ; 
+length = scanner . nextInt ( ) ; 
+scanner . nextLine ( ) ; 
+width = scanner . nextInt ( ) ; 
+scanner . nextLine ( ) ; 
+height = scanner . nextInt ( ) ; 
+scanner . nextLine ( ) ; 
+KKBox data = new KKBox ( length , width , height ) ; 
+System . out . println ( "The volume is " + data . volume ( ) ) ; 
+System . out . println ( "The volume is " + data . surfaceArea ( ) ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確]]></Message><Linelist><line Begin="-1" End="-1" src="KKBox"/></Linelist></Error></Errors></ErrorList>

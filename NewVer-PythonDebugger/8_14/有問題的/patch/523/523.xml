@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\523\523.xml">
+	
+<SourceCode_List><SourceCode lines="43" name="Evaluation.java"><![CDATA[public class Evaluation { 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+private static void choosetype ( ) { 
+System . out . println ( "Choose evaluation:" ) ; 
+System . out . println ( "1. Exam" ) ; 
+System . out . println ( "2. HomeWork" ) ; 
+System . out . println ( "3. Report" ) ; 
+int c = 0 ; 
+do 
+{ 
+c = keyboard . nextInt ( ) ; 
+} 
+while ( c > 3 || c < 1 ) ; 
+return mevaluation ( c ) ; 
+} 
+private static Evaluation ( int c ) { 
+Evalution w = null ; 
+switch ( c ) { 
+case 1 : 
+w = new exam ( "Exam" ) ; 
+break ; 
+case 2 : 
+w = new homework ( "Homework" ) ; 
+break ; 
+case 3 : 
+w = new Report ( "Report" ) ; 
+break ; 
+} 
+return w ; 
+} 
+String name ; 
+String number ; 
+double score ; 
+double dscore ; 
+void Evalution ( String name , String number , double score , double dscore ) { 
+this . name = name ; 
+this . number = number ; 
+this . score = score ; 
+this . dscore = dscore ; 
+}
+System . out . println ( "請輸入學生學號:" ) ;
+} 
+]]></SourceCode><SourceCode lines="6" name="Exam.java"><![CDATA[public class Exam extends Evaluation { 
+public Exam ( String Testday , String Testrange ) { 
+super ( Testday , Testrange ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="6" name="HomeWork.java"><![CDATA[public class HomeWork extends Evaluation { 
+public HomeWork ( String Lastday , String HW ) { 
+super ( Lastday , HW ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="6" name="Report.java"><![CDATA[public class Report extends Evaluation { 
+public Report ( String Thing , String Source ) { 
+super ( Thing , Source ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:不熟悉JAVA程式結構"><Message><![CDATA[請注意JAVA程式的語法結構。
+在宣告類別時，第一層不能出現執行的命令，需移到函式或建構子內。例如，本程式的
+System . out . println ( "請輸入學生學號:" ) ;
+]]></Message><Linelist><line Begin="41" End="41" src="Evaluation"/></Linelist></Error><Error tpye="其他:撰寫main函式"><Message><![CDATA[請注意筆誤問題，例如:
+return mevaluation(c) 要改成 return Evaluation(c)，
+Evalution 要改成 Evaluation，
+Evalution w=null;要改成Evaluation w=null;]]></Message><Linelist><line Begin="14" End="14" src="Evaluation"/><line Begin="17" End="17" src="Evaluation"/><line Begin="35" End="35" src="Evaluation"/></Linelist></Error></Errors></ErrorList>

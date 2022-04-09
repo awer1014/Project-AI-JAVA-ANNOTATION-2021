@@ -1,0 +1,95 @@
+<ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\233\233.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="Items.java">public class Items { 
+private String itemCode ; 
+private String iName ; 
+private double price ; 
+private int num ; 
+private double discount ; 
+private Order oders ; 
+Items ( String itemCode , String iName , double price , int num , double discount ) { 
+this . itemCode = itemCode ; 
+this . iName = iName ; 
+this . price = price ; 
+this . num = num ; 
+this . discount = discount ; 
+} 
+} 
+</SourceCode><SourceCode lines="12" name="Order.java">public class Order { 
+private String orderNum ; 
+private String Date ; 
+private String dollarUnit ; 
+company company ; 
+public Order ( String orderNum , String Date , String dollarUnit ) { 
+orderNum = orderNum ; 
+Date = Date ; 
+dollarUnit = dollarUnit ; 
+} 
+} 
+</SourceCode><SourceCode lines="38" name="Test.java">import java . util . Scanner ; 
+public class Test { 
+public static void main ( String [ ] args ) { 
+Scanner scan = new Scanner ( System . in ) ; 
+Items [ ] item = new Items [ 10 ] ; 
+System . out . println ( "請輸入訂單編號：" ) ; 
+String code = scan . nextLine ( ) ; 
+System . out . println ( "請輸入日期：" ) ; 
+String date = scan . nextLine ( ) ; 
+System . out . println ( "請輸入貨幣單位：" ) ; 
+String x = scan . nextLine ( ) ; 
+Order od = new Order ( code , date , x ) ; 
+System . out . println ( "請輸入客戶公司行號：" ) ; 
+String cname = scan . nextLine ( ) ; 
+System . out . println ( "請輸入客戶地址：" ) ; 
+String caddress = scan . nextLine ( ) ; 
+System . out . println ( "請輸入連絡人：" ) ; 
+String crelatives = scan . nextLine ( ) ; 
+System . out . println ( "請輸入客戶電話：" ) ; 
+String cphone = scan . nextLine ( ) ; 
+company cp = new company ( cname , caddress , crelatives , cphone ) ; 
+while ( true ) { 
+System . out . println ( "請輸入訂購貨品編號：" ) ; 
+String code = scan . nextLine ( ) ; 
+if ( code . equals ( '0' ) ) break ; 
+System . out . println ( "請輸入訂購貨品名稱：" ) ; 
+String iname = scan . nextLine ( ) ; 
+System . out . println ( "請輸入訂購貨品單價：" ) ; 
+String iprice = scan . nextdouble ( ) ; 
+System . out . println ( "請輸入訂購貨品數量：" ) ; 
+String inum = scan . nextInt ( ) ; 
+System . out . println ( "請輸入訂購貨品折扣：" ) ; 
+String idiscount = scan . nextdouble ( ) ; 
+} 
+} 
+} 
+</SourceCode><SourceCode lines="13" name="company.java">public class company { 
+private String company ; 
+private String address ; 
+private String relatives ; 
+private String phone ; 
+public company ( String c , String a , String r , String p ) { 
+this . company = c ; 
+this . address = a ; 
+this . relatives = r ; 
+this . phone = p ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="io:不會使用輸入scanner類別"><Message>若需要從鍵盤輸入資料,需先引進Scanner 函數庫，如:
+import java.util.Scanner;
+接下來，宣告Scanner 物件，並呼叫適當的函數讀取不同型態的資料。
+如:
+Scanner scan = new Scanner();
+int p = scan.nextInt(); //讀取數值
+scan.nextLine(); //清除Enter空值
+
+Scanner 函數庫使用錯誤
+常用的函數庫有:
+int : nextInt()
+String: nextLine()
+double: nextDouble()
+</Message><Linelist><line Begin="29" End="29" src="Test" /><line Begin="33" End="33" src="Test" /></Linelist></Error><Error tpye="變數:重複宣告變數"><Message>變數名稱重複宣告</Message><Linelist><line Begin="24" End="24" src="Test" /></Linelist></Error><Error tpye="運算:運算錯誤:型態不符無法運算"><Message>型態相同者才能進行運算，例如:字串與字串、數字與數字。
+
+變數的型態與Scanner物件動作所取得的資料型態必須相同,因此，需呼叫Scanner物件的正確函式。
+例如:
+int money= scan.nextInt();
+double price= scan.nextDouble();</Message><Linelist><line Begin="29" End="29" src="Test" /><line Begin="31" End="31" src="Test" /><line Begin="33" End="33" src="Test" /></Linelist></Error></Errors></ErrorList>

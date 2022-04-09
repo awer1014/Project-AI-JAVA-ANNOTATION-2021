@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化\21\21.xml">
+	
+<SourceCode_List><SourceCode lines="10" name="Card.java"><![CDATA[import java . util . Arrays ; 
+public class Card { 
+static Letter [ ] list = { new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "20190105" ) , new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "20181101" ) , new EnglishLetter ( "Professor" , "Liu" , "I am sorry!" , "K. Ming" , "20180705" ) } ; 
+public static void main ( String args ) { 
+Arrays . sort ( list ) ; 
+for ( Letter l : list ) 
+l . display ( ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="12" name="ChineseLetter.java"><![CDATA[public class ChineseLetter extends Letter { 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+void display ( ) { 
+System . out . println ( receiver + " " + title + ", 您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + " 敬上" ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="13" name="EnglishLetter.java"><![CDATA[public class EnglishLetter extends Letter { 
+EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+super ( title , receiver , content , sender , date ) ; 
+} 
+void display ( ) { 
+System . out . println ( "Dear " + receiver + " " + title ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="34" name="Letter.java"><![CDATA[abstract public class Letter implements Comparable { 
+String title , receiver , content , sender , date ; 
+Letter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+abstract void display ( ) ; 
+@ Override ; 
+public int compareTo ( Object o ) { 
+Letter obj = ( Letter ) o ; 
+if ( Integer . parseInt ( this . getDate ( ) ) < Integer . parseInt ( obj . getDate ( ) ) ) { 
+return 1 ; 
+} 
+else if ( Integer . parseInt ( this . getDate ( ) ) > Integer . parseInt ( obj . getDate ( ) ) ) { 
+return - 1 ; 
+} 
+else { 
+return 0 ; 
+} 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確。]]></Message><Linelist><line Begin="-1" End="-1" src="Card"/></Linelist></Error></Errors></ErrorList>

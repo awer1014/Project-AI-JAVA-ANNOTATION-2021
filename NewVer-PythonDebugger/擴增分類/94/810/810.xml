@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\810\810.xml">
+	
+<SourceCode_List><SourceCode lines="11" name="B.java"><![CDATA[import java . util . Scanner ; 
+class B { 
+public static void main ( String [ ] args ) { 
+Scanner k = new Scanner ( System . in ) ; 
+int y = 0 ; 
+y = k . nextInt ( ) ; 
+Scanner k = new Scanner ( System . in ) ; 
+double X = k . nextDouble ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="變數:重複宣告變數"><Message><![CDATA[變數名稱k重複宣告。]]></Message><Linelist><line Begin="7" End="7" src="B"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\待修正\63\63.xml">
+	
+<SourceCode_List><SourceCode lines="41" name="ChineseLetter.java"><![CDATA[import java . util . * ; 
+public class ChineseLetter implements Letter , Comparable { 
+String title ; 
+String receiver ; 
+String sender ; 
+String date ; 
+String content ; 
+public ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public void display ( ) { 
+System . out . println ( receiver + title + ",您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( sender + "敬上" ) ; 
+System . out . println ( date + " " ) ; 
+} 
+@ Override 
+public int compareTo ( Object o ) { 
+ChineseLetter other = ( ChineseLetter ) o ; 
+if ( this . date . compareTo ( other . getDate ( ) ) > 0 ) { 
+return 1 ; 
+} 
+else { 
+return - 1 ; 
+} 
+} 
+} 
+]]></SourceCode><SourceCode lines="37" name="EnglishLetter.java"><![CDATA[import java . util . * ; 
+public class EnglishLetter implements Letter , Comparable { 
+String title ; 
+String receiver ; 
+String sender ; 
+String date ; 
+String content ; 
+public EnglishLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+public String getSender ( ) { 
+return sender ; 
+} 
+public String getDate ( ) { 
+return date ; 
+} 
+public String getReceiver ( ) { 
+return receiver ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear" + title + receiver ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( sender ) ; 
+System . out . println ( date ) ; 
+} 
+public int compareTo ( Object o ) { 
+Letter other = ( Letter ) o ; 
+if ( this . date . compareTo ( other . getDate ( ) ) > 0 ) return 1 ; 
+else return - 1 ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="4" name="Letter.java"><![CDATA[public interface Letter { 
+abstract void display ( ) ; 
+} 
+]]></SourceCode><SourceCode lines="12" name="Main.java"><![CDATA[import java . util . * ; 
+import java . util . Arrays ; 
+public class Main { 
+public static void main ( String [ ] args ) { 
+Letter [ ] list = { new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) , new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2018/11/01" ) , new EnglishLetter ( "Professor" , "Liu" , "I am sorry!" , "K. Ming" , "2018/07/05" ) } ; 
+for ( Letter x : list ) { 
+x . display ( ) ; 
+System . out . println ( "=====================" ) ; 
+} 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="介面:Comparable介面"><Message><![CDATA[Comparable介面是JAVA內建的Interface，允許類別實作int compareTo(Object)動作，進而協助該類別的物件進行大小或順序的比較。注意，
+int compareTo(Object)動作傳回值  1， 0， -1分別代表物件本身相較於Object參數物件來得大，相等或小。
+
+31行少了@Override 
+32行應為EnglishLetter other = (EnglishLetter) o;     
+
+Comparable介面可以實做在Letter類別內
+所以不需要在ChineseLetter/EnglishLetter類別
+多編寫compareTo的物件動作
+abstract public class Letter implements Comparable
+
+因為物件資料都在Letter類別裡
+而且需要用到comparable介面時
+做的也只有一個物件動作
+@Override public int compareTo (Object other){
+Letter o = (Letter)other;
+return date.compareTo(o.getDate());
+}
+先將原本宣告成Object的o強制轉換成Letter類別型態
+這樣o就可以使用跟Letter有關的相關訊息。
+如:Letter的物件資料、Letter的物件動作
+
+因為Java的String類別也是有實作Comparable介面
+也是依照原則return 1;return 0;return -1]]></Message><Linelist><line Begin="31" End="32" src="EnglishLetter"/></Linelist></Error><Error tpye="抽象:不會分離變跟不變的部分"><Message><![CDATA[共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如，
+ChineseLetter和EnglishLetter類別的
+共同資料，如title，receiver，...可放到父類別
+Letter中，並宣告為protected。]]></Message><Linelist><line Begin="3" End="23" src="ChineseLetter"/><line Begin="3" End="23" src="EnglishLetter"/></Linelist></Error></Errors></ErrorList>

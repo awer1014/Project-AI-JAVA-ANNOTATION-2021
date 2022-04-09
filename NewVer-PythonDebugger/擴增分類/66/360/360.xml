@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\待修正\360\360.xml">
+	
+<SourceCode_List><SourceCode lines="7" name="number.java"><![CDATA[public class number { 
+public static void main ( String [ ] args ) { 
+System . out . println ( "體積: " + a ) ; 
+System . out . println ( "表面積: " + a + a + a ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="變數:變數未定義無法使用"><Message><![CDATA[a變數需先宣告後才能使用
+]]></Message><Linelist><line Begin="3" End="3" src="number"/><line Begin="4" End="4" src="number"/></Linelist></Error></Errors></ErrorList>

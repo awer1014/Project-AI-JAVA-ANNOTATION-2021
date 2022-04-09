@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\B2\Desktop\真84號正規化\835\835.xml">
+	
+<SourceCode_List><SourceCode lines="15" name="B.java"><![CDATA[class TEST { 
+public static void main ( ) { 
+int x ; 
+String type ; 
+if ( type . equals ( "A" ) ) 
+x = 0 ; 
+else if ( type . equals ( "B" ) ) 
+x = 1 ; 
+else if ( type . equals ( "C" ) ) 
+x = 2 ; 
+else 
+x = 3 ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確]]></Message><Linelist><line Begin="-1" End="-1" src="B"/></Linelist></Error></Errors></ErrorList>

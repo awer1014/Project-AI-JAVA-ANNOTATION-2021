@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\User\Desktop\錯誤正規化\663\663.xml">
+	
+<SourceCode_List><SourceCode lines="8" name="KKBOX.java"><![CDATA[public class KKBOX { 
+public static void mail ( String [ ] d9 ) { 
+int h8 , P , V2 ; 
+String double a ; 
+System . out . println ( "請輸入長:" ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:撰寫main函式"><Message><![CDATA["
+所謂類別主動作main()是指類別程式中的類別主程式，本身屬於靜態動作，需要寫在類別裡面，最多只需撰寫一個，且不需要回傳數值。
+
+main函式的宣告方法:
+public static void main (String [] args ){
+...
+}"
+
+main內應該要有物件 類別動作
+ex:
+        KKBox data=new KKBox(length,width,height);
+        System.out.println("The volume is"+data.volume());
+        System.out.println("The surfaceArea is"+data.surfaceArea());]]></Message><Linelist><line Begin="2" End="6" src="KKBOX"/></Linelist></Error></Errors></ErrorList>

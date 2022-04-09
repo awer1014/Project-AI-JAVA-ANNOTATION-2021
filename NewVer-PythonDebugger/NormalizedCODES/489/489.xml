@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\489\489.xml">
+	
+<SourceCode_List><SourceCode lines="17" name="MyMathUtil.java"><![CDATA[import java . util . StringTokenizer ; 
+public class sMyMathUtil { 
+public static void main ( String [ ] args ) { 
+String str = "4589751245954621" ; 
+int a = length ( str ) ; 
+System . out . println ( a ) ; 
+for ( int k = 0 ; k <= 9 ; k ++ ) { 
+String str1 = { 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 } ; 
+while ( str . indexOf ( str1 [ k ] , start ) >= 0 && start < s . length ( ) ) { 
+count ++ ; 
+start = str . indexOf ( str1 , start ) + str1 . length ( ) ; 
+} 
+} 
+System . out . println ( str1 + count ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="陣列:不會宣告陣列變數"><Message><![CDATA[宣告陣列的方式:
+資料型態 []變數名稱 ;
+資料型態 []變數名稱={...,...,...} ;
+例如，
+int [] x ;
+String [] y = {"a", "b"};
+例如，本程式的MyMathUtil類別，需改成String [] str = {45,89,75,12,45,95,46,21} 。
+]]></Message><Linelist><line Begin="4" End="4" src="MyMathUtil"/><line Begin="8" End="8" src="MyMathUtil"/></Linelist></Error></Errors></ErrorList>

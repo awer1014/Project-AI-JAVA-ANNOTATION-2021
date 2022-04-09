@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\User\Desktop\錯誤正規化\665\665.xml">
+	
+<SourceCode_List><SourceCode lines="10" name="Season.java"><![CDATA[import java . util . Random ; 
+public class Season { 
+public static void main ( String [ ] I9 ) { 
+int i = [ spring , summer , autumn , winter ] ; 
+Random Y5 = new Random ( ) ; 
+for ( int h5 = 0 ; h5 < 4 ; h5 ++ ) 
+System . out . println ( "i" ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="物件:物件動作概念(建構子)"><Message><![CDATA["建構子本身不是物件動作函數，宣告建構子要用跟類別一樣的名字，如需共用，應宣告為public。此外，建構子可將獲得的參數資料，透過this指令賦予給物件或類別資料,如:
+建構子(參數){
+...
+this.物件資料 = 參數; 
+}"
+建立物件及物件資料不應該寫在main裡 
+]]></Message><Linelist><line Begin="3" End="8" src="Season"/></Linelist></Error><Error tpye="陣列:不會宣告陣列變數"><Message><![CDATA["宣告陣列的方式:
+資料型態 []變數名稱 ;
+資料型態 []變數名稱={...,...,...} ;
+例如，
+int [] x ;
+String [] y = {""a"", ""b""};"
+本段程式碼的int 陣列應該放 int 資料型態的內容
+應改為
+static String[] i={"spring","summer","autumn","winter"};]]></Message><Linelist><line Begin="4" End="4" src="Season"/></Linelist></Error></Errors></ErrorList>

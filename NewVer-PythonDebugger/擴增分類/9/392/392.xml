@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\392\392.xml">
+	
+<SourceCode_List><SourceCode lines="25" name="KKBox.java"><![CDATA[public class KKBox { 
+double length ; 
+double width ; 
+double height ; 
+public KKBox ( double length , double width , double height ) { 
+this . length = length ; 
+this . width = width ; 
+this . height = height ; 
+} 
+double volume ( ) { 
+return length * width * height ; 
+} 
+double surfaceArea ( ) { 
+return 2 * length * width + width * height + height * length ; 
+} 
+public static void main ( String [ ] args ) { 
+double length = Double . parseDouble ( args [ 0 ] ) ; 
+double width = Double . parseDouble ( args [ 1 ] ) ; 
+double height = Double . parseDouble ( args [ 2 ] ) ; 
+KKBox KK = new KKBox ( length , width , height ) ; 
+System . out . println ( "體積:" + KK . volume ( ) ) ; 
+System . out . println ( "表面積:" + KK . surfaceArea ( ) ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確。]]></Message><Linelist><line Begin="-1" End="-1" src="KKBox"/></Linelist></Error></Errors></ErrorList>

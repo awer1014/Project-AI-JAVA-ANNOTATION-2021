@@ -1,0 +1,15 @@
+<ErrorList id="C:\Users\B2\Desktop\真84號正規化\824\824.xml">
+	
+<SourceCode_List><SourceCode lines="12" name="B.java">class TEST { 
+int mx ; 
+int my ; 
+TEST ( int x , int y ) { 
+x = mx ; 
+y = my ; 
+} 
+public static void main ( ) { 
+TEST m = new TEST ( 2 , 3 ) ; 
+} 
+} 
+</SourceCode></SourceCode_List><Errors><Error tpye="其他:不熟悉JAVA程式結構"><Message>請注意JAVA程式的語法結構。
+mx=x,my=y</Message><Linelist><line Begin="6" End="7" src="B" /></Linelist></Error></Errors></ErrorList>

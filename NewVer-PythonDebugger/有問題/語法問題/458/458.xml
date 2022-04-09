@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\錯誤(已正規化)\458\458.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="Keeper.java"><![CDATA[public class Keeper { 
+String id ; 
+String tel ; 
+void diaplay ( ) { 
+System . out . println ( "飼主身分證字號:" + id ) ; 
+System . out . println ( "飼主電話:" + tel ) ; 
+} 
+Keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="44" name="Pet.java"><![CDATA[import java . util . Scanner ; 
+public class Pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+Pet ( String type , String pid , String name ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+void speak ( ) { 
+if ( type == "貓" ) if ( type == "狗" ) } 
+void display ( ) { 
+System . out . println ( "您輸入的是:" ) ; 
+System . out . println ( "寵物種類:" + type ) ; 
+System . out . println ( "寵物編號:" + pid ) ; 
+System . out . println ( "寵物名稱:" + name ) ; 
+} 
+public static void main ( String [ ] args ) { 
+String pid ; 
+String name ; 
+String type ; 
+String hostname ; 
+String hosttel ; 
+Scanner ppid = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入寵物種類:" ) ; 
+type = ppid . nextLine ( ) ; 
+System . out . println ( "請輸入寵物編號:" ) ; 
+pid = ppid . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱:" ) ; 
+name = ppid . nextLine ( ) ; 
+count ++ ; 
+System . out . println ( "請輸入飼主身份證字號:" ) ; 
+hostname = ppid . nextLine ( ) ; 
+System . out . println ( "請輸入飼主電話:" ) ; 
+hosttel = ppid . nextLine ( ) ; 
+Pet a = new Pet ( type , pid , name ) ; 
+a . display ( ) ; 
+Keeper host = new Keeper ( hostname , hosttel ) ; 
+host . diaplay ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA[字串間的比較應使用equals函數較為恰當。
+例如，本程式Pet類別，type.equals("狗")type.equals("貓") 
+]]></Message><Linelist><line Begin="13" End="13" src="Pet"/></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message><![CDATA[兩物件之間的關係經常可利用一物件擁有另一物件來實踐。例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+例如，可以在本程式的Keeper類別中加入private Keeper keeper，
+並在本程式的Pet類別中加入Keeper keeper。]]></Message><Linelist><line Begin="7" End="10" src="Pet"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\287\287.xml">
+	
+<SourceCode_List><SourceCode lines="25" name="newTarget0.java"><![CDATA[import java . util . Random ; 
+public class Target { 
+static int n ; 
+static void toss ( ) { 
+int out = 0 ; 
+int in = 0 ; 
+Random run = new Random ( ) ; 
+for ( int i = 1 ; i <= n ; i ++ ) { 
+double x = run . nextDouble ( ) * 2 ; 
+double y = run . nextDouble ( ) * 2 ; 
+double d = Math . sqrt ( x - 1 * x - 1 + y - 1 * y - 1 ) ; 
+if ( d <= 1 ) 
+in ++ ; 
+else 
+out ++ ; 
+} 
+System . out . println ( "圈外次數: " + out + "出現比率: " + 1.0 * out / n ) ; 
+System . out . println ( "圈內次數: " + in + "出現比率: " + 1.0 * in / n ) ; 
+} 
+public static void main ( String [ ] args ) { 
+int n = Integer . parseInt ( args [ 0 ] ) ; 
+toss ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="變數:不了解局部變數的概念"><Message><![CDATA[局部變數只在所宣告的函式內被存取或修改，而且需要先有值才能進行運算。
+
+Class與main 的變數n會衝突,
+導致n無法傳遞,
+建議在Class 中宣告n即可.]]></Message><Linelist><line Begin="21" End="21" src="newTarget0"/></Linelist></Error><Error tpye="運算:運算錯誤:型態不符無法運算"><Message><![CDATA[型態相同者才能進行運算，
+例如，
+在下面的算術運算式中，運算結果是整數型態，因此，r會是0。
+   int x  = 5;
+   double r = 5/10; 
+因此，要利用型態強制轉換，將整數轉換成實數再進行運算，
+如:
+double r = (double)5/10;]]></Message><Linelist><line Begin="17" End="17" src="newTarget0"/><line Begin="18" End="18" src="newTarget0"/></Linelist></Error></Errors></ErrorList>

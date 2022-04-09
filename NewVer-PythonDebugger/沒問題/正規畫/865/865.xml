@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\program_python\新增題目\865.xml">
+	
+<SourceCode_List><SourceCode lines="15" name="Pet.java"><![CDATA[import java . util . Scanner ; 
+public class Pet { 
+static int count ; 
+String pid ; 
+String name ; 
+String type ; 
+Keeper keeper ; 
+public void speak ( ) { 
+if ( type . equals ( "貓" ) ) 
+System . out . println ( "喵喵!" ) ; 
+else if ( type . equals ( "狗" ) ) 
+System . out . println ( "汪汪!" ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確。]]></Message><Linelist><line Begin="-1" End="-1" src="Pet"/></Linelist></Error></Errors></ErrorList>

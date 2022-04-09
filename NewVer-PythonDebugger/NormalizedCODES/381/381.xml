@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\專研\student_codes\正規化及擴增\NewVerPythonDebugger (8)\NewVerPythonDebugger\NormalizedCODES\381\381.xml">
+	
+<SourceCode_List><SourceCode lines="17" name="Exam.java"><![CDATA[import java . util . Random ; 
+public class KKBox { 
+double length , width , height ; 
+KKBox ( ) { 
+} 
+void surfaceArea ( ) { 
+System . out . println ( 2 * length * width + width * height + height * length ) ; 
+} 
+public static void main ( String [ ] args ) { 
+int length = 1 ; 
+int width = 2 ; 
+int eight = 3 ; 
+KKBox t = new KKBox ( ) ; 
+t . surfaceArea ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確。]]></Message><Linelist><line Begin="-1" End="-1" src="Exam"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\232\232.xml">
+	
+<SourceCode_List><SourceCode lines="22" name="Vote.java"><![CDATA[public class Vote { 
+static int sum ; 
+static double rate ; 
+private String name ; 
+private int ticket ; 
+Vote ( String n , int t ) { 
+this . name = n ; 
+this . ticket = t ; 
+} 
+int sumofticket ( int ticket ) { 
+sum = sum + this . ticket ; 
+return sum ; 
+} 
+double rate ( int ticket ) { 
+rate = this . ticket / sum ; 
+return rate ; 
+} 
+void display ( ) { 
+System . out . println ( "姓名: " + name + "得票數: " + ticket + "得票率: " + rate ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="35" name="test.java"><![CDATA[import java . util . Scanner ; 
+public class test { 
+public static void main ( String [ ] args ) { 
+Vote [ ] list = new Vote [ 10 ] ; 
+int total = 0 ; 
+int win ; 
+Scanner scan = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入有幾位候選人(最多10位):" ) ; 
+int p = scan . nextInt ( ) ; 
+for ( int i = 0 ; i < p ; p ++ ) { 
+String name = scan . nextLine ( ) ; 
+int ticket = scan . nextInt ( ) ; 
+Vote v = new Vote ( name , ticket ) ; 
+list [ p ++ ] = v ; 
+} 
+System . out . println ( "各候選人得票資訊如下:" ) ; 
+for ( int i = 0 ; i < p ; i ++ ) { 
+Vote v = list [ i ] ; 
+v . display ( ) ; 
+} 
+System . out . println ( "-------------------------------------" ) ; 
+for ( int i = 0 ; i < p - 1 ; i ++ ) { 
+Vote v = list [ i ] ; 
+Vote v2 = list [ i ++ ] ; 
+if ( v . rate > v2 . rate ) 
+win = i ; 
+else 
+win = i ++ ; 
+} 
+Vote v = list [ win ] ; 
+System . out . println ( "當選人得票資訊如下:" ) ; 
+v . display ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="io:不會使用輸入scanner類別"><Message><![CDATA[若需要從鍵盤輸入資料,需先引進Scanner 函數庫，如:
+import java.util.Scanner;
+接下來，宣告Scanner 物件，並呼叫適當的函數讀取不同型態的資料。
+如:
+Scanner scan = new Scanner();
+int p = scan.nextInt(); //讀取數值
+scan.nextLine(); //清除Enter空值]]></Message><Linelist><line Begin="9" End="9" src="test"/><line Begin="12" End="12" src="test"/></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message><![CDATA[XX 變數需先宣告後才能使用
+該變數定義後需要初始化, 才能做運算. 宣告及初始化方法: int a ; a = 1
+]]></Message><Linelist><line Begin="6" End="6" src="test"/></Linelist></Error><Error tpye="迴圈:迴圈概念錯誤"><Message><![CDATA[迴圈概念:
+for(開始位置;結束位置;增減數量){
+內容...
+}
+while(狀態){
+內容...
+}
+
+請注意若增減的變數或狀態與起始位置變數不同，
+會導致開始位置變數沒更新，可能導致無窮迴圈。]]></Message><Linelist><line Begin="10" End="15" src="test"/></Linelist></Error><Error tpye="陣列:陣列溢位"><Message><![CDATA[當陣列的大小超過陣列賦予最大值，陣列會溢位導致錯誤。]]></Message><Linelist><line Begin="4" End="15" src="test"/></Linelist></Error><Error tpye="陣列:陣列索引值"><Message><![CDATA[陣列位置要賦予數值,該數值應為list[i]，
+若寫成list[變數++]則會先在原本的位置前進一位，
+再給予數值。
+這可能導致溢位與陣列數值位置錯誤。]]></Message><Linelist><line Begin="14" End="14" src="test"/></Linelist></Error></Errors></ErrorList>

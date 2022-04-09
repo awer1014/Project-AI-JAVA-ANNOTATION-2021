@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\User\Desktop\錯誤正規化\667\667.xml">
+	
+<SourceCode_List><SourceCode lines="5" name="KKbox.java"><![CDATA[public class KKbox { 
+public static void main ( ) { 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:撰寫main函式"><Message><![CDATA["
+所謂類別主動作main()是指類別程式中的類別主程式，本身屬於靜態動作，需要寫在類別裡面，最多只需撰寫一個，且不需要回傳數值。
+
+main函式的宣告方法:
+public static void main (String [] args ){
+...
+}"
+本段程式碼的main裡沒有任何動作]]></Message><Linelist><line Begin="2" End="3" src="KKbox"/></Linelist></Error></Errors></ErrorList>

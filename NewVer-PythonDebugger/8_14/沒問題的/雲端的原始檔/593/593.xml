@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\User\Desktop\正確正規化\593\593.xml">
+	
+<SourceCode_List><SourceCode lines="31" name="ChineseLetter.java"><![CDATA[import java . util . * ; 
+class ChineseLetter extends Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+protected String sender ; 
+protected String date ; 
+public ChineseLetter ( String titl , String receive , String conten , String sende , String dat ) { 
+title = titl ; 
+receiver = receive ; 
+content = conten ; 
+sender = sende ; 
+date = dat ; 
+} 
+public void display ( ) { 
+System . out . println ( getReceiver ( ) + " " + title + ",您好" ) ; 
+System . out . println ( content ) ; 
+System . out . println ( getSender ( ) + " 敬上" ) ; 
+System . out . println ( getDate ( ) ) ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="32" name="EnglishLetter.java"><![CDATA[import java . util . * ; 
+class EnglishLetter extends Letter { 
+protected String title ; 
+protected String receiver ; 
+protected String content ; 
+protected String sender ; 
+protected String date ; 
+public EnglishLetter ( String titl , String receive , String conten , String sende , String dat ) { 
+title = titl ; 
+receiver = receive ; 
+content = conten ; 
+sender = sende ; 
+date = dat ; 
+} 
+public void display ( ) { 
+System . out . println ( "Dear " + title + " " + getReceiver ( ) + "," ) ; 
+System . out . println ( content ) ; 
+System . out . println ( "Sincerely" ) ; 
+System . out . println ( getSender ( ) ) ; 
+System . out . print ( getDate ( ) ) ; 
+} 
+String getSender ( ) { 
+return sender ; 
+} 
+String getReceiver ( ) { 
+return receiver ; 
+} 
+String getDate ( ) { 
+return date ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="9" name="Letter.java"><![CDATA[import java . util . * ; 
+abstract class Letter { 
+protected String language ; 
+public void setLanguage ( String lan ) { 
+language = lan ; 
+} 
+abstract public void display ( ) ; 
+} 
+]]></SourceCode><SourceCode lines="10" name="main.java"><![CDATA[import java . util . * ; 
+public class main { 
+public static void main ( String [ ] args ) { 
+ChineseLetter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+lt . display ( ) ; 
+EnglishLetter Elt = new EnglishLetter ( "Professor" , "Wang" , "I am glad to write to you!" , "J. J. Lin" , "2019/01/05" ) ; 
+Elt . display ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確]]></Message><Linelist><line Begin="-1" End="-1" src="ChineseLetter"/></Linelist></Error></Errors></ErrorList>

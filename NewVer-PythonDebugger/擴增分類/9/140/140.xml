@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\Extra10 Q\140\140.xml">
+	
+<SourceCode_List><SourceCode lines="11" name="Cel.java"><![CDATA[public class Cel { 
+static double degree ; 
+static double ans ( double degree ) { 
+return degree * 9.0 / 5.0 + 32.0 ; 
+} 
+public static void main ( String [ ] args ) { 
+double degree = Double . parseDouble ( args [ 0 ] ) ; 
+System . out . println ( degree + " 度C = " + Cel . ans ( degree ) ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確。]]></Message><Linelist><line Begin="-1" End="-1" src="Cel"/></Linelist></Error></Errors></ErrorList>

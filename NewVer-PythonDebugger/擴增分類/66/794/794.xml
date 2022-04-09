@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="F:\個人資料夾\專研\debug\死去\NormalizedCODES\794\794.xml">
+	
+<SourceCode_List><SourceCode lines="37" name="Evalution.java"><![CDATA[import java . util . * ; 
+public class Evalution { 
+public static void main ( String [ ] args ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+boolean b = true ; 
+while ( true ) { 
+System . out . println ( "請輸入種類:" ) ; 
+System . out . println ( "1. 測驗" ) ; 
+System . out . println ( "2. 作業" ) ; 
+System . out . println ( "3. 心得報告" ) ; 
+int c = 0 ; 
+c = sc . nextInt ( ) ; 
+if ( c == 1 ) { 
+String number , name , grade , date , range , p ; 
+System . out . print ( "請輸入學生學號：" ) ; 
+number = sc . nextLine ( ) ; 
+System . out . print ( "請輸入學生姓名：" ) ; 
+name = sc . nextLine ( ) ; 
+System . out . print ( "請輸入成績：" ) ; 
+grade = sc . nextLine ( ) ; 
+System . out . print ( "請輸入比重：" ) ; 
+p = sc . nextLine ( ) ; 
+System . out . print ( "請輸入日期：" ) ; 
+date = sc . nextLine ( ) ; 
+System . out . print ( "請輸入範圍：" ) ; 
+range = sc . nextLine ( ) ; 
+System . out . println ( "------------------------------------" ) ; 
+TEST t = new TEST ( number , name , grade , p , date , range ) ; 
+t . print ( ) ; 
+} 
+if ( c == 2 ) { 
+HW H = new HW ( date ) ; 
+} 
+} 
+} 
+} 
+]]></SourceCode><SourceCode lines="11" name="HW.java"><![CDATA[public class HW { 
+String date ; 
+public HW ( String ddate ) { 
+ddate = date ; 
+} 
+public void print ( ) { 
+System . out . println ( "截止日期 :" + date ) ; 
+System . out . println ( "資料為以下空白================" ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="10" name="REPORT.java"><![CDATA[public class REPORT { 
+private int x ; 
+public REPORT ( ) { 
+x = 0 ; 
+} 
+public int sampleMethod ( int y ) { 
+return x + y ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="21" name="TEST.java"><![CDATA[public class TEST { 
+private String grade , name , date , range , number , p ; 
+public TEST ( String nnumber , String nname , String ggrade , String pp , String ddate , String rrange ) { 
+nnumber = number ; 
+nname = name ; 
+ggrade = grade ; 
+ddate = date ; 
+rrange = range ; 
+pp = p ; 
+} 
+void print ( ) { 
+System . out . println ( "您輸入的種類資料如下：" ) ; 
+System . out . println ( "學生學號：" + number ) ; 
+System . out . println ( "學生姓名：" + name ) ; 
+System . out . println ( "成績：" + grade ) ; 
+System . out . println ( "成績比重：" + p ) ; 
+System . out . println ( "考試日期：" + date ) ; 
+System . out . println ( "範圍：" + range ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="變數:變數未定義無法使用"><Message><![CDATA[XX 變數需先宣告後才能使用
+例如：
+String xx ;]]></Message><Linelist><line Begin="32" End="32" src="Evalution"/></Linelist></Error></Errors></ErrorList>

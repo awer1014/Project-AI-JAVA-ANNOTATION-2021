@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\User\Desktop\錯誤正規化\624\624.xml">
+	
+<SourceCode_List><SourceCode lines="5" name="fourseasons.java"><![CDATA[import java . util . Random ; 
+public class fourseasons { 
+static String [ ] = { "春" , "夏" , "秋" , "冬" } ; 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="陣列:不會宣告陣列變數"><Message><![CDATA["宣告陣列的方式:
+資料型態 []變數名稱 ;
+資料型態 []變數名稱={...,...,...} ;
+例如，
+int [] x ;
+String [] y = {""a"", ""b""};"
+例如,本程式應更改為 static String[] s={"春","夏","秋","冬"};]]></Message><Linelist><line Begin="3" End="3" src="fourseasons"/></Linelist></Error></Errors></ErrorList>

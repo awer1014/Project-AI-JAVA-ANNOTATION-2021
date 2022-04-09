@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\PatchBackCODES\732\732.xml">
+	
+<SourceCode_List><SourceCode lines="50" name="input.java"><![CDATA[import java . util . Scanner ; 
+class input { 
+static int count = 0 ; 
+static Scanner keyboard = new Scanner ( System . in ) ; 
+public void print ( ) { 
+for ( int i = 0 ; i < count ; i ++ ) { 
+System . out . println ( "---------------------------------------" ) ; 
+System . out . println ( "你的輸入是 ：" ) ; 
+System . out . println ( "寵物種類 ：" ) ; 
+list . gettyper ( ) ; 
+System . out . println ( "寵物編號：" ) ; 
+list . getpid ( ) ; 
+System . out . println ( "寵物名稱 ：" ) ; 
+list . getname ( ) ; 
+System . out . println ( "飼主身份證字號 ：" ) ; 
+list . getid ( ) ; 
+System . out . println ( "飼主電話：" ) ; 
+list . gettel ( ) ; 
+System . out . println ( "你的寵物的叫聲：" ) ; 
+list . speak ( ) ; 
+System . out . println ( "總共有" + count + "隻寵物" ) ; 
+} 
+} 
+public static void main ( String [ ] args ) { 
+keeper list1 [ ] = new keepr [ 100 ] ; 
+pet list2 [ ] = new keeper [ 100 ] ; 
+String kind ; 
+for ( int i = 0 ; i < 100 ; i ++ ) { 
+System . out . println ( "請輸入寵物種類" ) ; 
+String type = keyboard . nextLine ( ) ; 
+while ( kind == "0" ) { 
+print ( ) ; 
+return ; 
+} 
+print ( ) ; 
+System . out . println ( "請輸入寵物編號" ) ; 
+String pid = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入寵物名稱" ) ; 
+String name = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入飼主身分證字號" ) ; 
+String id = keyboard . nextLine ( ) ; 
+System . out . println ( "請輸入飼主電話" ) ; 
+String tel = keyboard . nextLine ( ) ; 
+keeper list1 [ i ] = new keeper ( id , tel ) ; 
+pet list2 [ i ] = new pet ( pid , name , type ) ; 
+count ++ ; 
+} 
+} 
+} 
+]]></SourceCode><SourceCode lines="19" name="keeper.java"><![CDATA[class keeper { 
+String id ; 
+String tel ; 
+public keeper ( String id , String tel ) { 
+this . id = id ; 
+this . tel = tel ; 
+} 
+public void display ( ) { 
+System . out . print ( "身分證字號" + id ) ; 
+System . out . print ( "電話" + tel ) ; 
+} 
+public String getid ( ) { 
+return id ; 
+} 
+public String gettel ( ) { 
+return tel ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="28" name="pet.java"><![CDATA[class pet { 
+String pid ; 
+String name ; 
+String type ; 
+public pet ( String pid , String name , String type ) { 
+this . pid = pid ; 
+this . name = name ; 
+this . type = type ; 
+} 
+public void speak ( ) { 
+if ( type == "狗" ) { 
+System . out . println ( " 汪汪 " ) ; 
+} 
+else { 
+System . out . println ( " 喵喵 " ) ; 
+} 
+} 
+public String gettype ( ) { 
+return type ; 
+} 
+public String getpid ( ) { 
+return pid ; 
+} 
+public String getname ( ) { 
+return name ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA[字串間的比較應使用equals函數較為恰當。
+例如，
+if ( type.equals ( "狗" ) ) ]]></Message><Linelist><line Begin="31" End="31" src="input"/><line Begin="11" End="11" src="pet"/></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message><![CDATA[兩物件之間的關係經常可利用一物件擁有另一物件來實踐。
+例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+可利用建構子建立keeper物件變數的值，例如:
+public pet ( String pid , String name , String type ,  keeper keeper) { 
+    ...
+    this.keeper = keeper;
+}
+pet建構子內已有keeper參數可以取得keeper的資料，因此，下列程式
+可產生擁有keeper物件的pet物件，
+list2[i] = new pet(pid, name, type, list1[i]);]]></Message><Linelist><line Begin="45" End="45" src="input"/><line Begin="4" End="5" src="pet"/><line Begin="5" End="9" src="pet"/></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message><![CDATA[list變數需先宣告後才能使用。
+可修程式，帶入兩個參數 list1, list2，例如，
+public void print ( keeper[] list1, pet[] list2 )
+同時將之後的list 變數改成list1[i], list2[i]。]]></Message><Linelist><line Begin="5" End="5" src="input"/><line Begin="10" End="10" src="input"/><line Begin="12" End="12" src="input"/><line Begin="14" End="14" src="input"/><line Begin="16" End="16" src="input"/><line Begin="18" End="18" src="input"/><line Begin="20" End="20" src="input"/></Linelist></Error><Error tpye="運算:運算錯誤:型態不符無法運算"><Message><![CDATA[型態相同者才能進行運算，例如:字串與字串、數字與數字。
+等號兩邊型態不同無法運算。]]></Message><Linelist><line Begin="26" End="26" src="input"/></Linelist></Error><Error tpye="陣列:不會宣告陣列變數"><Message><![CDATA[宣告陣列的方式:
+資料型態 []變數名稱 ;
+資料型態 []變數名稱={...,...,...} ;
+keeper list1 [ ] = new keeper ( id , tel ) ; 
+]]></Message><Linelist><line Begin="44" End="45" src="input"/></Linelist></Error></Errors></ErrorList>

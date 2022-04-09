@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\379\379.xml">
+	
+<SourceCode_List><SourceCode lines="30" name="KKBOX.java"><![CDATA[import java . io . * ; 
+import java . util . * ; 
+import java . math . * ; 
+public class KKBOX { 
+static int length ; 
+static int width ; 
+static int height ; 
+static double volume ( int length , int width , int height ) { 
+double v1 = length * width * height ; 
+return v1 ; 
+} 
+static double surfaceArea ( int length , int width , int height ) { 
+double s1 = length * width + width * height + height * length * 2 ; 
+return s1 ; 
+} 
+public static void main ( String [ ] args ) { 
+Scanner cin = new Scanner ( System . in ) ; 
+System . out . println ( "請輸入長: " ) ; 
+int length = cin . nextInt ( ) ; 
+System . out . println ( "請輸入寬: " ) ; 
+int width = cin . nextInt ( ) ; 
+System . out . println ( "請輸入高: " ) ; 
+int height = cin . nextInt ( ) ; 
+double v = volume ( length , width , height ) ; 
+double s = surfaceArea ( length , width , height ) ; 
+System . out . println ( "體積: " + v ) ; 
+System . out . println ( "表面積: " + s ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確。]]></Message><Linelist><line Begin="-1" End="-1" src="KKBOX"/></Linelist></Error></Errors></ErrorList>

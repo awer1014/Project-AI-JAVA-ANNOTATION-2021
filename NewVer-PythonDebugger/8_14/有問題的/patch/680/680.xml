@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\User\Desktop\錯誤正規化\680\680.xml">
+	
+<SourceCode_List><SourceCode lines="4" name="Season.java"><![CDATA[class Season { 
+char c [ 4 ] = { ( "春" ) , ( "夏" ) , ( "秋" ) , ( "冬" ) } ; 
+char c [ ] ; c = new char [ 4 ] ; c = { ( '春' ) , ( '春' ) , ( '秋' ) , ( '冬' ) } 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="變數:重複宣告變數"><Message><![CDATA[變數名稱重複宣告
+本程式已宣告c陣列 後面不須再重複宣告c]]></Message><Linelist><line Begin="3" End="3" src="Season"/></Linelist></Error><Error tpye="陣列:不會宣告陣列變數"><Message><![CDATA["宣告陣列的方式:
+資料型態 []變數名稱 ;
+資料型態 []變數名稱={...,...,...} ;
+例如，
+int [] x ;
+String [] y = {""a"", ""b""};"
+本行應改成static String [ ] c = new String [ ] { "春" , "夏" , "秋" , "冬" } ; ]]></Message><Linelist><line Begin="2" End="2" src="Season"/></Linelist></Error></Errors></ErrorList>

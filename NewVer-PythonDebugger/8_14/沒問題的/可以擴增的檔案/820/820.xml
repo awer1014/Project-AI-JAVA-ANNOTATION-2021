@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\B2\Desktop\真84號正規化\820\820.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="B.java"><![CDATA[import java . util . Scanner ; 
+class TEST { 
+void X ( int x ) { 
+x = 3 ; 
+} 
+public static void main ( String [ ] args ) { 
+Scanner k = new Scanner ( System . in ) ; 
+int y = 0 ; 
+y = k . nextInt ( ) ; 
+double z = X ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message><![CDATA[B:3~5:
+函數必須要宣告回傳值的型態，否則要在函數宣告前加上void。此外，函式邏輯必須完備，避免造成某些狀況無傳回值。再者，呼叫函數時則需要注意傳遞正確型態的參數。
+void 函式本身並不會有回傳值，以此例而言，須將void 改成 double ，並且提供一個回傳值。例如，
+double X ( int x ) {
+...
+return x ;
+}
+B:10~10,
+函數必須要宣告回傳值的型態，否則要在函數宣告前加上void。此外，函式邏輯必須完備，避免造成某些狀況無傳回值。再者，呼叫函數時則需要注意傳遞正確型態的參數。
+呼叫X 函數須傳遞一個 int 型別 的參數。例如，
+double z=X(y);]]></Message><Linelist><line Begin="3" End="5" src="B"/><line Begin="10" End="10" src="B"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\B2\Desktop\真84號正規化\839\839.xml">
+	
+<SourceCode_List><SourceCode lines="9" name="B.java"><![CDATA[class TEST { 
+void X ( ) { 
+int x ; 
+String type ; 
+if ( type . equals ( "A" ) ) 
+x = 0 ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確。]]></Message><Linelist><line Begin="-1" End="-1" src="B"/></Linelist></Error></Errors></ErrorList>

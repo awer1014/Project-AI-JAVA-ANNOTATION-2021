@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\essol\Downloads\788-20210814T065213Z-001\788\788.xml">
+	
+<SourceCode_List><SourceCode lines="19" name="Evaluation.java"><![CDATA[abstract public class Evaluation { 
+protected String number ; 
+protected String name ; 
+protected double grade ; 
+protected double hundred ; 
+Evaluation ( String number , String name , double grade , double hundred ) { 
+this . number = number ; 
+this . name = name ; 
+this . grade = grade ; 
+this . hundred = hundred ; 
+} 
+double getGrade ( ) { 
+return grade ; 
+} 
+double getHundred ( ) { 
+return hundred ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="12" name="Exam.java"><![CDATA[import java . util . Random ; 
+public class Exam extends Evaluation { 
+public Exam ( String number , String name ) { 
+super ( number , name , 0 , 0 ) ; 
+System . out . println ( "請輸入學號:06360585" ) ; 
+System . out . println ( "請輸入姓名:吳以樂" ) ; 
+Random r = new Random ( ) ; 
+grade = r . nextDouble ( ) * 100.0 ; 
+hundred = 0.6 ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="12" name="HomeWork.java"><![CDATA[import java . util . Random ; 
+public class HomeWork extends Evaluation { 
+public HomeWork ( String number , String name ) { 
+super ( number , name , 0 , 0 ) ; 
+System . out . println ( "請輸入學號:06360585" ) ; 
+System . out . println ( "請輸入姓名:吳以樂" ) ; 
+Random r = new Random ( ) ; 
+grade = r . nextDouble ( ) * 100.0 ; 
+hundred = 0.6 ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="12" name="Report.java"><![CDATA[import java . util . Random ; 
+public class Report extends Evaluation { 
+public Report ( String number , String name ) { 
+super ( number , name , 0 , 0 ) ; 
+System . out . println ( "請輸入學號:06360585" ) ; 
+System . out . println ( "請輸入姓名:吳以樂" ) ; 
+Random r = new Random ( ) ; 
+grade = r . nextDouble ( ) * 100.0 ; 
+hundred = 0.6 ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="24" name="Student.java"><![CDATA[import java . util . Scanner ; 
+class Student { 
+static Scanner number_keyboard = new Scanner ( System . in ) ; 
+String name ; 
+Evaluation eva ; 
+void setEvaluation ( Evaluation a ) { 
+eva = a ; 
+} 
+Evaluation getEvaluation ( ) { 
+return eva ; 
+} 
+Student ( String n ) { 
+this . name = n ; 
+} 
+String getName ( ) { 
+return name ; 
+} 
+void display ( ) { 
+System . out . println ( "請輸入日期或項目:" + eva . number ) ; 
+System . out . println ( "請輸入描述:" + eva . name ) ; 
+System . out . println ( "請輸入成績:" + eva . grade ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確。]]></Message><Linelist><line Begin="-1" End="-1" src="Evaluation"/></Linelist></Error></Errors></ErrorList>

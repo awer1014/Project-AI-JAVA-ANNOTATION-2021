@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\sae4a\OneDrive\桌面\java\正確(已正規化)\568\568.xml">
+	
+<SourceCode_List><SourceCode lines="24" name="ChineseLetter.java"><![CDATA[public class ChineseLetter { 
+public static String title ; 
+public static String receiver ; 
+public static String content ; 
+public static String sender ; 
+public static String date ; 
+ChineseLetter ( String title , String receiver , String content , String sender , String date ) { 
+this . title = title ; 
+this . receiver = receiver ; 
+this . content = content ; 
+this . sender = sender ; 
+this . date = date ; 
+} 
+static String getSender ( ) { 
+return sender ; 
+} 
+static String getReceiver ( ) { 
+return receiver ; 
+} 
+static String getDate ( ) { 
+return date ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="17" name="test.java"><![CDATA[public class test { 
+public static void display ( ChineseLetter lt ) { 
+String a = lt . getReceiver ( ) + " " + lt . title + "," + "您好" ; 
+String b = lt . content ; 
+String c = lt . getSender ( ) + " " + "敬上" ; 
+String d = lt . getDate ( ) ; 
+System . out . println ( a ) ; 
+System . out . println ( b ) ; 
+System . out . println ( c ) ; 
+System . out . println ( d ) ; 
+} 
+public static void main ( String [ ] args ) { 
+ChineseLetter lt = new ChineseLetter ( "教授" , "王" , "很高興跟您連絡" , "銘哥" , "2019/01/05" ) ; 
+display ( lt ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確。]]></Message><Linelist><line Begin="-1" End="-1" src="ChineseLetter"/></Linelist></Error></Errors></ErrorList>

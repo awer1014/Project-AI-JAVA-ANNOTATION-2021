@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\program_python\新增題目\868.xml">
+	
+<SourceCode_List><SourceCode lines="21" name="Pet.java"><![CDATA[public class Pet { 
+String pid ; 
+String name ; 
+String type ; 
+Keeper keeper ; 
+public Pet ( String p , String n , String t , Keeper keeper ) { 
+this . pid = p ; 
+this . name = n ; 
+this . type = t ; 
+this . keeper = keeper ; 
+} 
+void speak ( ) { 
+if ( type . equals ( "狗" ) ) { 
+System . out . println ( "你的寵物叫聲是:汪汪" ) ; 
+} 
+else if ( type . equals ( "貓" ) ) { 
+System . out . println ( "你的寵物叫聲是:喵喵" ) ; 
+} 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確。]]></Message><Linelist><line Begin="-1" End="-1" src="Pet"/></Linelist></Error></Errors></ErrorList>

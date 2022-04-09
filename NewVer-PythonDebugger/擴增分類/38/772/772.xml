@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\NormalizedCODES\772\772.xml">
+	
+<SourceCode_List><SourceCode lines="7" name="Exam.java"><![CDATA[public class Exam extends Score { 
+public Exam ( int ggrade , double ppercentage , String ddate , String sscale ) { 
+super ( ggrade , ppercentage , ddate , sscale ) ; 
+kind = "考試" ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="7" name="Homework.java"><![CDATA[public class Homework extends Score { 
+public Homework ( int ggrade , double ppercentage , String ddate , String sscale ) { 
+super ( ggrade , ppercentage , ddate , sscale ) ; 
+kind = "作業" ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="7" name="Report.java"><![CDATA[public class Report extends Score { 
+public Report ( int ggrade , double ppercentage , String ddate , String sscale ) { 
+super ( ggrade , ppercentage , ddate , sscale ) ; 
+kind = "心得報告" ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="21" name="Score.java"><![CDATA[abstract public class Score { 
+protected int grade ; 
+protected double percentage ; 
+protected String date , scale , kind ; 
+public Score ( ) { 
+} 
+public Score ( int ggrade , double ppercentage , String ddate , String sscale ) { 
+grade = ggrade ; 
+percentage = ppercentage ; 
+date = ddate ; 
+scale = sscale ; 
+} 
+public void print ( ) { 
+System . out . println ( "種類: " + kind ) ; 
+System . out . println ( "成績：" + grade ) ; 
+System . out . println ( "成績比重：" + percentage ) ; 
+System . out . println ( "考試日期: " + date ) ; 
+System . out . println ( "考試範圍: " + scale ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="12" name="Student.java"><![CDATA[public class Student { 
+protected String Num , Name ; 
+public Student ( String nnum , String nname ) { 
+Num = nnum ; 
+Name = nname ; 
+} 
+public void print ( ) { 
+System . out . println ( "學生學號：" + Num ) ; 
+System . out . println ( "學生姓名: " + Name ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="41" name="test.java"><![CDATA[import java . util . * ; 
+public class test { 
+public static void main ( String [ ] args ) { 
+Scanner sc = new Scanner ( System . in ) ; 
+String sname , snum ; 
+int kkind ; 
+System . out . print ( "請輸入種類：" ) ; 
+kkind = sc . nextInt ( ) ; 
+System . out . print ( "請輸入學生學號：" ) ; 
+sc . nextLine ( ) ; 
+snum = sc . nextLine ( ) ; 
+System . out . print ( "請輸入姓名：" ) ; 
+sname = sc . nextLine ( ) ; 
+System . out . println ( "------------------------------------" ) ; 
+Student student = new Student ( snum , sname ) ; 
+int tgrade ; 
+double tpercentage ; 
+String tdate , tscale ; 
+System . out . print ( "請輸入成績：" ) ; 
+tgrade = sc . nextInt ( ) ; 
+System . out . print ( "請輸入成績比重：" ) ; 
+tpercentage = sc . nextDouble ( ) ; 
+System . out . print ( "請輸入考試日期：" ) ; 
+sc . nextLine ( ) ; 
+tdate = sc . nextLine ( ) ; 
+System . out . print ( "請輸入考試範圍：" ) ; 
+tscale = sc . nextLine ( ) ; 
+System . out . println ( "-----------------------------------" ) ; 
+System . out . println ( "您輸入的是：" ) ; 
+Score score ; 
+if ( kkind == 1 ) 
+score = new Exam ( tgrade , tpercentage , tdate , tscale ) ; 
+else if ( kkind == 2 ) 
+score = new Homework ( tgrade , tpercentage , tdate , tscale ) ; 
+else 
+score = new Report ( tgrade , tpercentage , tdate , tscale ) ; 
+score . print ( ) ; 
+System . out . println ( "-----------------------------------" ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="抽象:不會分離變跟不變的部分"><Message><![CDATA[共同的物件資料/動作是可以被子類別繼承的，只需在父類別宣告一次即可。各自不同的物件資料/動作則由各子類別宣告即可。
+例如，本程式的Exam，Homework，以及Report類別有共同的物件資料，也各有專有的物件資料。
+因此，在建構子中，可將共同的資料透過super(...)傳遞給父類別的建構子去設定，而專有的物件資料則透過this指令設定。例如，
+public Exam(int ggrade, ..., String testdate, ...) {
+    super(ggrade, ...);
+    this.testdate = testdate;
+    ...
+}]]></Message><Linelist><line Begin="2" End="3" src="Exam"/><line Begin="2" End="3" src="Homework"/><line Begin="2" End="3" src="Report"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\Extra10 Q\142\142n.xml">
+	
+<SourceCode_List><SourceCode lines="15" name="newMyMath0.java"><![CDATA[public class MyMath { 
+static int a ( int N ) { 
+int sum = 1 ; 
+for ( int i = 1 ; i <= N ; i ++ ) { 
+sum = sum * i ; 
+} 
+sum *= 2 ; 
+return sum ; 
+} 
+public static void main ( String [ ] args ) { 
+int N = Integer . parseInt ( args [ 0 ] ) ; 
+System . out . println ( "N!:" + a ( N ) ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:筆誤"><Message><![CDATA[n!的算法為:
+n*(n-1)*(n-2)*(n-3)*(n-4)....*1]]></Message><Linelist><line Begin="2" End="9" src="newMyMath0"/></Linelist></Error></Errors></ErrorList>

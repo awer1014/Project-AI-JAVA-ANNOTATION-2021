@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\B2\Desktop\真84號正規化\823\823.xml">
+	
+<SourceCode_List><SourceCode lines="13" name="B.java"><![CDATA[import java . util . Scanner ; 
+class TEST { 
+void X ( int x ) { 
+x = 3 ; 
+} 
+public static void main ( ) { 
+Scanner k = new Scanner ( System . in ) ; 
+int y = 0 ; 
+y = k . nextInt ( ) ; 
+double z = X ( y ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message><![CDATA[函數必須要宣告回傳值的型態，否則要在函數宣告前加上void。此外，函式邏輯必須完備，避免造成某些狀況無傳回值。再者，呼叫函數時則需要注意傳遞正確型態的參數。
+X(y)無法回傳double。]]></Message><Linelist><line Begin="10" End="10" src="B"/></Linelist></Error></Errors></ErrorList>

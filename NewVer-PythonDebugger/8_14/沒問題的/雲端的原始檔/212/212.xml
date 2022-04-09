@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><ErrorList id="C:\Users\user\Desktop\XML_Error_1.1\維嶸\Extra10 Q\212\212n.xml">
+	
+<SourceCode_List><SourceCode lines="25" name="newExam0.java"><![CDATA[public class Exam { 
+String name ; 
+String date ; 
+int time ; 
+double score ; 
+Exam ( String n , String d , int t , double s ) { 
+name = n ; 
+date = d ; 
+time = t ; 
+score = s ; 
+} 
+double getMaxScore ( ) { 
+return score ; 
+} 
+void listExam ( ) { 
+System . out . println ( " exam name " + name + " exam date " + date + " exam time " + time + " exam score " + score ) ; 
+} 
+public static void main ( String [ ] args ) { 
+Exam Midexam = new Exam ( args [ 0 ] , args [ 1 ] , Integer . parseInt ( args [ 2 ] ) , Double . parseDouble ( args [ 3 ] ) ) ; 
+Exam lastexam = new Exam ( args [ 4 ] , args [ 5 ] , Integer . parseInt ( args [ 6 ] ) , Double . parseDouble ( args [ 4 ] ) ) ; 
+Midexam . listExam ( ) ; 
+lastexam . listExam ( ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="變數:重複宣告變數"><Message><![CDATA[變數名稱重複宣告
+
+args[n]的值已被宣告,
+無法改變該變數型態.
+需要宣告新變數.
+例如:args[1],Integer.parseInt(args[2])]]></Message><Linelist><line Begin="20" End="20" src="newExam0"/></Linelist></Error></Errors></ErrorList>

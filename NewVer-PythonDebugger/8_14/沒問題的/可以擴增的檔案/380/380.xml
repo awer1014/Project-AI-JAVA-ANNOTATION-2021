@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="D:\Users\楊子霆\Desktop\Lesson\專題\擴增 修改版\正規化(淯雯)\380\380.xml">
+	
+<SourceCode_List><SourceCode lines="14" name="Exam.java"><![CDATA[import java . util . Random ; 
+public class Exam { 
+int length , width , height ; 
+double surfaceArea ( ) { 
+return 2 * length * width + width * height + height * length ; 
+} 
+public static void main ( String [ ] args ) { 
+Exam t = new Exam ( ) ; 
+t . length = 1 ; 
+t . width = 2 ; 
+t . height = 3 ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確。]]></Message><Linelist><line Begin="-1" End="-1" src="Exam"/></Linelist></Error></Errors></ErrorList>

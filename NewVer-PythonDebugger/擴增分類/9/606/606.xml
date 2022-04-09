@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\User\Desktop\正確正規化\606\606.xml">
+	
+<SourceCode_List><SourceCode lines="28" name="kkbox.java"><![CDATA[import java . util . Scanner ; 
+public class kkbox { 
+int length ; 
+int width ; 
+int height ; 
+kkbox ( int length , int width , int height ) { 
+this . length = length ; 
+this . width = width ; 
+this . height = height ; 
+} 
+float volume ( ) { 
+return length * width * height ; 
+} 
+float surfaceArea ( ) { 
+return 2 * length * width + width * height + height * length ; 
+} 
+public static void main ( String [ ] args ) { 
+int l , w , h ; 
+Scanner scanner = new Scanner ( System . in ) ; 
+l = scanner . nextInt ( ) ; 
+w = scanner . nextInt ( ) ; 
+h = scanner . nextInt ( ) ; 
+kkbox hh = new kkbox ( l , w , h ) ; 
+System . out . println ( "體積:" + hh . volume ( ) ) ; 
+System . out . println ( "表面積:" + hh . surfaceArea ( ) ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="正確:正確"><Message><![CDATA[正確]]></Message><Linelist><line Begin="-1" End="-1" src="kkbox"/></Linelist></Error></Errors></ErrorList>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\a2744\Desktop\專研\專研JAVA\工具\標註程式 NI99A Extreme Version\PatchBackCODES\691\691.xml">
+	
+<SourceCode_List><SourceCode lines="31" name="Keeper.java"><![CDATA[import java . util . Scanner ; 
+public class Keeper { 
+String id ; 
+String tel ; 
+void display ( ) { 
+System . out . println ( "Keeper's id: " + id ) ; 
+System . out . println ( "Keeper's tel: " + tel ) ; 
+} 
+Keeper ( String i , String t ) { 
+id = i ; 
+tel = t ; 
+} 
+public static void main ( ) { 
+Scanner scanner = new Scanner ( System . in ) ; 
+System . out . println ( "Please enter the pet's type: " ) ; 
+String Pt = scanner . nextLine ( ) ; 
+while ( Pt != 0 ) { 
+System . out . println ( "Please enter the pet's pid: " ) ; 
+String p = scanner . nextLine ( ) ; 
+System . out . println ( "Please enter the pet's name: " ) ; 
+String n = scanner . nextLine ( ) ; 
+System . out . println ( "Please enter the keeper's id: " ) ; 
+String i = scanner . nextLine ( ) ; 
+System . out . println ( "Please enter the keeper's tel: " ) ; 
+String t = scanner . nextLine ( ) ; 
+} 
+Pet p = new Pet ( p , n , Pt ) ; 
+Keeper k = new Keeper ( i , t ) ; 
+} 
+} 
+]]></SourceCode><SourceCode lines="25" name="Pet.java"><![CDATA[import java . util . Scanner ; 
+public class Pet { 
+public static int count = 0 ; 
+public String pid ; 
+public String name ; 
+public String type ; 
+void speak ( ) { 
+if ( type = ) { 
+System . out . println ( "Pet's speak: " + "喵喵" ) ; 
+else 
+System . out . println ( "Pet's speak: " + "汪汪" ) ; 
+} 
+} 
+void display ( ) { 
+System . out . println ( "Pet's pid: " + pid ) ; 
+System . out . println ( "Pet's name: " + name ) ; 
+System . out . println ( "Pet's type: " + type ) ; 
+} 
+Pet ( String p , String n , String t ) { 
+pid = p ; 
+name = n ; 
+type = t ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="其他:關鍵字錯誤"><Message><![CDATA[檢查關鍵字(如 public，class， int，String，,...)，標點符號，以及函數名稱是否有誤。]]></Message><Linelist><line Begin="8" End="12" src="Pet"/></Linelist></Error><Error tpye="字串:字串比較錯誤(沒有使用equals函數)"><Message><![CDATA[字串間的比較應使用equals函數較為恰當。
+例如，
+while ( Pt.equals ( "0" ) == false )]]></Message><Linelist><line Begin="17" End="17" src="Keeper"/></Linelist></Error><Error tpye="物件:建立物件之間的關係"><Message><![CDATA[兩物件之間的關係經常可利用一物件擁有另一物件來實踐。
+例如，要描述寵物(Pet)與飼主(Keeper)的關係，可以在Pet物件內宣告一個物件資料，類型是Keeper，以表示該Pet物件的Keeper是誰。
+可利用建構子建立keeper物件變數的值，例如，
+public Pet(String p, String n, String t, Keeper k) {    
+    ...
+    this.keeper = k;
+}
+Pet建構子內已有keeper參數可以取得Keeper的資料，因此，下列程式可產生擁有Keeper物件的Pet物件，
+Pet p = new Pet(p, n, Pt, k);]]></Message><Linelist><line Begin="27" End="27" src="Keeper"/><line Begin="6" End="7" src="Pet"/><line Begin="19" End="23" src="Pet"/></Linelist></Error><Error tpye="變數:不了解局部變數的概念"><Message><![CDATA[局部變數只在所宣告的函式內被存取或修改，而且需要先有值才能進行運算。
+變數如果需要透過迴圈得到適當的值，最好在迴圈前給予初始值，避免迴圈如果沒執行過，造成空值。]]></Message><Linelist><line Begin="19" End="19" src="Keeper"/><line Begin="21" End="21" src="Keeper"/><line Begin="23" End="23" src="Keeper"/><line Begin="25" End="25" src="Keeper"/></Linelist></Error><Error tpye="變數:變數未定義無法使用"><Message><![CDATA[k變數需先宣告後才能使用。
+Keeper應擺在Pet前面才能讓Pet有Keeper的資料，例如，
+Keeper k = new Keeper(...);
+Pet p = new Pet(..., k);]]></Message><Linelist><line Begin="27" End="28" src="Keeper"/></Linelist></Error><Error tpye="變數:重複宣告變數"><Message><![CDATA[變數名稱p重複宣告。]]></Message><Linelist><line Begin="19" End="19" src="Keeper"/><line Begin="27" End="27" src="Keeper"/></Linelist></Error></Errors></ErrorList>

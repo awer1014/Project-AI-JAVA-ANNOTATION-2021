@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><ErrorList id="C:\Users\User\Desktop\錯誤正規化\639\639.xml">
+	
+<SourceCode_List><SourceCode lines="16" name="Season.java"><![CDATA[import java . util . Random ; 
+public class Season { 
+static String print ( String [ ] season ) { 
+Random x = new Random ( ) ; 
+String ans = " " ; 
+for ( int i = 4 ; i > 0 ; i -- ) { 
+int y = x . nextInt ( i ) ; 
+ans += season [ y ] ; 
+} 
+} 
+public static void main ( ) { 
+String [ ] season = { "春" , "夏" , "秋" , "冬" } ; 
+System . out . println ( print ( season ) ) ; 
+} 
+} 
+]]></SourceCode></SourceCode_List><Errors><Error tpye="函數:未傳遞參數或傳回值"><Message><![CDATA[函數必須要宣告回傳值的型態，否則要在函數宣告前加上void。此外，函式邏輯必須完備，避免造成某些狀況無傳回值。再者，呼叫函數時則需要注意傳遞正確型態的參數。
+例如本程式應在類別開頭宣告
+ String[] season={"春","夏","秋","冬"}; 否則 static String print函數將收不到參數值]]></Message><Linelist><line Begin="-1" End="-1" src="Season"/></Linelist></Error></Errors></ErrorList>
