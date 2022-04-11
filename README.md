@@ -1,8 +1,8 @@
 # Project-AI-JAVA-ANNOTATION-2021
- Train AI model to learn Java code Error base on base on Performer structure
+ Train AI model to learn Java code Error and Error location base on base on Performer structure
 =================================================================================
  Manual:
-=====================each folder contain difference function=====================
+ Each folder contain difference function
 
   Code-Augmentation:
     Reference to Enrichment java code
@@ -48,12 +48,17 @@
     Tensorflow base on Transformer structure
     Caution: Not use for a while
 
-=================================Before We Start=================================
+  Before We Start
+
   Please install blue j for JAVA compiler
-  Blue j version require 5.0.0 or upper
+  Blue j version require 5.0.0 or newer version
   Install XFFS package for JAVA
 
   Please use Version Control in Performer V5's version Control folder and download Python package for Tensorflow
   Caution: please use VersionControl.ipynb and follow the instruction
 
-===========================Prepare for Training models===========================
+  Prepare for Training models
+
+  1.Use Project-XML-Error create XML file to preserve JAVA Source Code and Error type and Error location and message
+  2.Use Python-Debugger to Enrich training files
+  3.
