@@ -49,6 +49,7 @@
     Caution: Not use for a while.
 
   System Spec recommend:
+
       CPU:       intel i7 12700 or AMD Ryzen 5800x or higher
 
       Ram:       32GB or higher
@@ -58,6 +59,7 @@
       Storage:   1TB SSD or higher
 
   My System Spec:
+
       CPU:       AMD Ryzen 5950x
 
       Cooling:   NZXT Kraken Z73
