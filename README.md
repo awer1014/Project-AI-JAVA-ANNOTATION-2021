@@ -1,8 +1,8 @@
 # Project-AI-JAVA-ANNOTATION-2021
  Train AI model to learn Java code Error base on base on Performer structure
-===============================================================================
+=================================================================================
  Manual:
-  each folder contain difference function
+=====================each folder contain difference function=====================
 
   Code-Augmentation:
     Reference to Enrichment java code
@@ -28,4 +28,32 @@
     Research paper
 
   Performer:
-    Performer main file and file to score model
+    This folder Contain Performer main file, Keras files and files to rate models score
+    Need to Know: V5 is the final version, V6 is test about multiple network layer in Tensorflow
+
+  Project-XML-Error:
+    This program makes java file to xml file and show error type and message
+
+  Source-Code:
+    java source code
+    Caution: Not use for a while
+
+  Suggestion-Message-Adjustment-SourceCode:
+    Java source code and Message Adjustment folder
+
+  Training:
+    Training dataset
+
+  Transformer:
+    Tensorflow base on Transformer structure
+    Caution: Not use for a while
+
+=================================Before We Start=================================
+  Please install blue j for JAVA compiler
+  Blue j version require 5.0.0 or upper
+  Install XFFS package for JAVA
+
+  Please use Version Control in Performer V5's version Control folder and download Python package for Tensorflow
+  Caution: please use VersionControl.ipynb and follow the instruction
+
+===========================Prepare for Training models===========================
