@@ -48,6 +48,21 @@
     Tensorflow base on Transformer structure
     Caution: Not use for a while
 
+  System Spec recommend:
+      CPU:       intel i7 12700 or AMD Ryzen 5800x or higher
+      Ram:       32GB or higher
+      GPU:       RTX3080Ti or higher VRam Graphic Card
+      Storage:   1TB SSD or higher
+
+  My System Spec:
+      CPU:       AMD Ryzen 5950x
+      Cooling:   NZXT Kraken Z73
+      Ram:       Crucial Ballistix DDR4 3600 64GB
+      MB:        Asus CROSSHAIR-VIII-DARK-HERO
+      GPU:       NVIDIA RTX 3090 24GB
+      Storage:   Seagate Firecuda 530 & WD SN750
+      Power:     Seasonic PX-1300
+
   Before We Start
 
   Please install blue j for JAVA compiler
@@ -61,4 +76,14 @@
 
   1.Use Project-XML-Error create XML file to preserve JAVA Source Code and Error type and Error location and message
   2.Use Python-Debugger to Enrich training files
-  3.
+  3.Use Java-Get-XML-Attribute to get file source code, error type, error line, error message, and make excel file and txt files.
+
+  Ready for Training
+
+  1.Put Training files to Training folder, and use Main.ipynb to run Tensorflow program to Training models
+  2.Training X Y file and models store path can be change in Main.ipynb file, if the path was created
+  3.Model-for-training and Model-for-training-org folder are use for store x, y training files. org folder is to store original files
+
+  Rate your models
+
+  1.In ModelScoreRater.ipynb, give the x, y training files path and models path, and run it. This program will show your model's score
