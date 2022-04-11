@@ -75,13 +75,17 @@
   Prepare for Training models.
 
   1.Use Project-XML-Error create XML file to preserve JAVA Source Code and Error type and Error location and message.
+
   2.Use Python-Debugger to Enrich training files.
+
   3.Use Java-Get-XML-Attribute to get file source code, error type, error line, error message, and make excel file and txt files.
 
   Ready for Training.
 
   1.Put Training files to Training folder, and use Main.ipynb to run Tensorflow program to Training models.
+
   2.Training X Y file and models store path can be change in Main.ipynb file, if the path was created.
+
   3.Model-for-training and Model-for-training-org folder are use for store x, y training files. org folder is to store original files.
 
   Rate your models.
