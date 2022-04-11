@@ -50,17 +50,26 @@
 
   System Spec recommend:
       CPU:       intel i7 12700 or AMD Ryzen 5800x or higher
+
       Ram:       32GB or higher
+
       GPU:       RTX3080Ti or higher VRam Graphic Card
+
       Storage:   1TB SSD or higher
 
   My System Spec:
       CPU:       AMD Ryzen 5950x
+
       Cooling:   NZXT Kraken Z73
+
       Ram:       Crucial Ballistix DDR4 3600 64GB
+
       MB:        Asus CROSSHAIR-VIII-DARK-HERO
+
       GPU:       NVIDIA RTX 3090 24GB
+
       Storage:   Seagate Firecuda 530 & WD SN750
+
       Power:     Seasonic PX-1300
 
   Before We Start.
