@@ -71,7 +71,7 @@
 
       GPU:       NVIDIA RTX 3090 24GB
 
-      Storage:   Seagate Firecuda 530 & WD SN750
+      Storage:   Seagate Firecuda 530 & Samsung 980 PRO 2TB
 
       Power:     Seasonic PX-1300
 
