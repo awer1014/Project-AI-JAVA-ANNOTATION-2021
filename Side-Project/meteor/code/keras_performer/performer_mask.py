@@ -903,7 +903,7 @@ def decode(model,
         print("batch_inputs:",np.array(batch_inputs))
         print("batch_outputs:",np.array(batch_outputs))
         #lmans, predictErrorTypes, predicts = model.predict([np.array(lmmodel), np.array(batch_inputs), np.array(batch_outputs)], batch_size=512)
-        predictErrorTypes, predicts = model.predict([np.array(lmmodel), np.array(batch_inputs), np.array(batch_outputs)], batch_size=2)
+        predictErrorTypes, predicts = model.predict([np.array(lmmodel), np.array(batch_inputs), np.array(batch_outputs)], batch_size=32)
         for i in range(len(predicts)): #for i'th predict
             if top_k == 1:
 #                print("predicts[i][-1]: ", predicts[i][-1])
